@@ -176,7 +176,16 @@ $(document).ready(function(){
 										newtype = newlink.search("rss");
 						                if (newtype > -1) {
 					                       typeid = 6;
-				                        }
+				                        } else {
+									       newtype = newlink.search("@");
+						                    if (newtype > -1) {
+					                       typeid = 2;
+										   temp = newlink;
+										   var atnumber = temp.search("@");
+										   var handle = temp.substr(atnumber+1,temp.length);
+										   newlink = "https://twitter.com/"+handle;
+											}
+										}
 									}
 								   
 							   }
@@ -229,6 +238,14 @@ $(document).ready(function(){
 		  // twitter
 		if ($('#'+tag+'_twitterEdit').val() != '') {
 			sTwitter = $('#'+tag+'_twitterEdit').val();
+			
+				newtype = sTwitter.search("@");
+				  if (newtype > -1) {
+						 temp = sTwitter;
+						 var atnumber = temp.search("@");
+						 var handle = temp.substr(atnumber+1,temp.length);
+						 sTwitter = "https://twitter.com/"+handle;
+						}
 		}
           
 

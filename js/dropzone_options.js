@@ -43,7 +43,7 @@
 
 		var name = $('#SpeakerName').val();
 		var sp = name.split(" ");
-		var tag = sp[0]+sp[1][0];
+		var tag = sp[1]+sp[0][0];
 	   $('#Tag').val(tag);
 
   })
