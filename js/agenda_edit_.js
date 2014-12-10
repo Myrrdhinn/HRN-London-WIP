@@ -1,22 +1,4 @@
-  $(function() {
-    $('#Speakers').sortable({
-        update: function(event, ui) {
-            var list_sortable = $(this).sortable('toArray').toString();
-    		// change order in the database using Ajax
-            $.ajax({
-                url: 'controllers/main.php',
-                type: 'POST',
-                data: {action:"speaker_sort", list_order:list_sortable},
-                success: function(data) {
-                    //finished
-                }
-            });
-        }
-    }); // fin sortable
-});
 
-
-var Speakers = {};
 
 $(document).ready(function(){
 	
@@ -29,16 +11,16 @@ $(document).ready(function(){
 		//Hide the element and show the input field associated with the element + focus the input box
     $('.ClickClick').bind('click', function () {
 		
-		//get the id of the activated element
+		/*//get the id of the activated element
 		var id = $(this).attr('id');
 				
 			//get the original tag of the speaker what's in the database
 		var tag_number = id.search("_");
 		var tag = id.substr(0, tag_number); 
-
+*/
 		// Save the content of the unchanged input boxes for later use
 		
-				//Speaker data
+	/*			//Speaker data
 		Speakers.sName = $('#'+tag+'_NameEdit').val();
 		Speakers.sTitle = $('#'+tag+'_TitleEdit').val();
 		Speakers.sBioImportant = $('#'+tag+'_BioImportantEdit').val();    
@@ -89,13 +71,15 @@ $(document).ready(function(){
 		  } else {
 			Speakers.sRss = '';
 		  } 
-
+*/
 		
 		//hide the original text show input field instead
-		$(this).attr('style', 'display:none');
-
-	   $('#'+id+'Edit').removeAttr("style");
-	   $('#'+id+'Edit').focus();
+		var s = $(this).children('div');   
+		s.attr('style', 'display:none');
+		var k = $(this).children('input');
+		
+	   k.removeAttr("style");
+	   k.focus();
 
   })
   
@@ -132,7 +116,6 @@ $(document).ready(function(){
 	------------------------	*/
   	   $('.ClickEdit').keypress(function(event) {
         if (event.keyCode == 13) {
-			
 			//this variable is needed to check if there's a change inside the input box or not
 	    var check = 0;  		
 		var wat = ''; //this will contain what has changed	
@@ -141,70 +124,6 @@ $(document).ready(function(){
 					//get the original tag
 		var tag_number = id.search("_");
 		var tag = id.substr(0, tag_number); 
-		
-		var sId = $('#'+tag+'_SpeakerId').val();
-		
-		var second = id.substr(tag_number+1,id.length);
-		
-		if (second == "NewSocialLinkEdit"){
-			  var newlink = $(this).val();
-			  if (newlink.length > 0) {
-				  var typeid = -1;
-				  var newtype = -1;
-				  
-				  ///We search for the correct link type
-				  newtype = newlink.search("twitter");
-				  if (newtype > -1) {
-					  typeid = 2;
-				  } else {
-					  newtype = newlink.search("facebook");
-					   if (newtype > -1) {
-					      typeid = 1;
-				      } else {
-						newtype = newlink.search("linkedin");
-						   if (newtype > -1) {
-					          typeid = 3;
-				           } else {
-							   newtype = newlink.search("flickr");
-						       if (newtype > -1) {
-					             typeid = 4;
-				               } else {
-								   newtype = newlink.search("google");
-						           if (newtype > -1) {
-					                   typeid = 5;
-				                    } else {
-										newtype = newlink.search("rss");
-						                if (newtype > -1) {
-					                       typeid = 6;
-				                        }
-									}
-								   
-							   }
-						   }
-					  }
-				  }
-				  
-				  if (typeid > -1){
-					  
-					  //------------------------------------------------------		
-          $.ajax({
-                url: 'controllers/main.php',
-                type: 'POST',
-                data: {action:"new_link", sId:sId, typeid:typeid, newlink:newlink},
-                success: function(data) {
-                    //finished
-                }
-            });
-					  
-					  
-					  
-				  } //if typeid > -1 end
-				  
-				  
-			  } //newlink length > 0 end
-			
-		
-		} else  {
 
    ///save the data from the input boxes
    
@@ -265,7 +184,7 @@ $(document).ready(function(){
 		  */
 
 	
-	
+	var sId = $('#'+tag+'_SpeakerId').val();
 	var sNId = $('#'+tag+'_SpeakerNameId').val();
 	
 	//put the data into an array for compare purposes
@@ -288,17 +207,17 @@ $(document).ready(function(){
       if (Speakers.hasOwnProperty(k)) {
 		  if (editarray[k] != Speakers[k]){
 			  check = 1;
-		     } //if edit array ends
+		  }
 
-          } //if speakers.has end
-      } //for var k end
+      }
+}
 		 var n = id.search("Edit");
          var res = id.substr(0, n);
 		 
 		 var divide = res.search("_");
 	     var wat = 's'+res.substr(divide+1, n);
 
-      if (check == 1){    //if there is
+      if (check == 15656){   /////////////FOR DEV PURPOSES!!!!
 	    		
 				//Send and ajax query to store the modified data to PHP
 //------------------------------------------------------		
@@ -312,18 +231,14 @@ $(document).ready(function(){
             });
 			
 			
-	       } //if check == 1 end
-	  
-	} //if newsocial else end
+	  }
 //-----------------------------------------------------------	
      //after the ajax query, hide the input box and show the text		
 	   $(this).attr('style', 'display:none');
 	   $('#'+res).removeAttr("style");
 	   $('#'+res).text($(this).val()); //replace the original text value with the inputbox value :)
-	   
-        } //if enter pressed end
-		
-    }) //.keypress ends
+        }
+    })
   
   
   	 /*-----------------------
@@ -331,12 +246,10 @@ $(document).ready(function(){
 	------------------------	*/
         $('.ClickEdit').bind('focusout', function () {
 		
-		$(this).attr('style', 'display:none');
-		var id = $(this).attr('id');
-        var n = id.search("Edit");
-        var res = id.substr(0, n);
-	   $('#'+res).removeAttr("style");
-	   
+		
+		var p = $(this).parent();
+		p.children('div').removeAttr("style");
+	   $(this).attr('style', 'display:none');
 
 	
   })

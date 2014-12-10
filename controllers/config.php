@@ -6,7 +6,10 @@
     protected $db="";
     protected $dbc;
     
-    function __construct() {
+	protected $url_parts;	
+	
+    
+  public function __construct() {
         $con = mysqli_connect($this->host, $this->user, $this->password, $this->db);
         
         if(mysqli_errno($con)){
@@ -16,14 +19,27 @@
         else{
            $this->dbc = $con; // assign $con to $dbc
            $this->dbc->query('SET NAMES utf8');
+		    if(isset($_SESSION['admin'])){
+			    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+		   }
+		  
         }
     }
+
+	public function set_url_parts($url_parts) {
+		$this->url_parts = $url_parts;
+	}
+	
+    public function addView($path) {
+		$this->views[] = $path;
+		foreach ($this->views as $view) {
+			include_once $view;
+		}
+	}
 	
 	
-   function debugging() {
+ /*  public function debugging($error) {
 	$ladybug = '';
-	
-    $error = error_get_last();
 	if (isset($error) && $error['message'] !=''){
 		
 		  foreach ($error As $bug) {
@@ -34,11 +50,11 @@
 			   $file = 'errors/error.txt';
 			    //file_put_contents($file, $hiba, FILE_APPEND);
 
-	     file_put_contents($file, $ladybug, FILE_APPEND);
+	     file_put_contents($file, $ladybug);
    
 	}
 
-}
+}*/
 	
 }
 
