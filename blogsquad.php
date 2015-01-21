@@ -1,3 +1,183 @@
+<?php
+
+if(isset($_POST['email'])) {
+ 
+     //it's working! :) Just character encoding is not good :(
+ 
+    // EDIT THE 2 LINES BELOW AS REQUIRED
+ 
+    $email_to = "blogsquad@hrneurope.com";
+ 
+    $email_subject = "New Blog Squad applicant";
+ 
+     
+ 
+     
+ 
+    function died($error) {
+ 
+        // your error code can go here
+ 
+    //    echo "We are very sorry, but there were error(s) found with the form you submitted. ";
+ 
+      //  echo "These errors appear below.<br /><br />";
+ 
+   //      echo $error."<br /><br />";
+ 
+     //   echo "Please go back and fix these errors.<br /><br />";
+ 
+        die();
+ 
+    }
+ 
+     
+ 
+    // validation expected data exists
+ /*
+    if(!isset($_POST['first_name']) ||
+ 
+        !isset($_POST['last_name']) ||
+ 
+        !isset($_POST['email']) ||
+ 
+        !isset($_POST['phone']) ||
+		
+	    !isset($_POST['description']) ||
+ 
+        !isset($_POST['company'])) {
+			
+			
+ 
+       died('We are sorry, but there appears to be a problem with the form you submitted.');       
+ 
+    }
+ */
+     
+ 
+    $first_name = utf8_decode($_POST['first_name']); // required
+ 
+    $last_name = utf8_decode($_POST['last_name']); // required
+ 
+    $email_from = $_POST['email']; // required
+ 
+    $telephone = $_POST['phone']; // not required
+ 
+    $comments = utf8_decode($_POST['description']); // required
+	
+	$company = utf8_decode($_POST['company']); // required
+ 
+     
+ /*
+    $error_message = "";
+ 
+    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+ 
+  if(!preg_match($email_exp,$email_from)) {
+ 
+    $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
+ 
+  }
+ 
+ /*
+    $string_exp = "/^[A-Za-z .'-]+$/";
+ 
+  if(!preg_match($string_exp,$first_name)) {
+ 
+    $error_message .= 'The First Name you entered does not appear to be valid.<br />';
+ 
+  }
+ 
+  if(!preg_match($string_exp,$last_name)) {
+ 
+    $error_message .= 'The Last Name you entered does not appear to be valid.<br />';
+ 
+  }
+
+ 
+ 
+  if(strlen($comments) < 2) {
+ 
+    $error_message .= 'The Comments you entered do not appear to be valid.<br />';
+ 
+  }
+ 
+  if(strlen($error_message) > 0) {
+ 
+    died($error_message);
+ 
+  }
+
+ */
+    $email_message = "Form details below.\n\n";
+ 
+ 
+  function sanitize($data){
+       //$data = htmlentities(strip_tags(trim($data)));
+		
+		$bad = array("content-type","bcc:","to:","cc:","href","$","SELECT","<",">",";","INSERT INTO","UPDATE","DELETE");
+		
+		$data = str_replace($bad,"",$data);
+		
+        $search = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript
+                   '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+                   '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+                   '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments including CDATA
+    ); 
+    $data = preg_replace($search, '', $data); 
+        return $data;
+    }
+ 
+     
+ 
+    $email_message .= "First Name: ".sanitize($first_name)."\n";
+ 
+    $email_message .= "Last Name: ".sanitize($last_name)."\n";
+ 
+    $email_message .= "Email: ".sanitize($email_from)."\n";
+ 
+    $email_message .= "Telephone: ".sanitize($telephone)."\n";
+ 
+    $email_message .= "Comments: ".sanitize($comments)."\n";
+	
+   $email_message .= "Company: ".sanitize($company)."\n";
+ 
+     
+ 
+     
+
+    if(!isset($_POST['first_name']) ||
+ 
+        !isset($_POST['last_name']) ||
+ 
+        !isset($_POST['email']) ||
+ 
+        !isset($_POST['phone']) ||
+		
+	    !isset($_POST['description']) ||
+ 
+        !isset($_POST['company'])) {
+			
+
+ 
+    } else {
+		// create email headers
+ 
+$headers = 'From: '.$email_from."\r\n".
+ 
+'Reply-To: '.$email_from."\r\n" .
+ 
+'X-Mailer: PHP/' . phpversion();
+ 
+@mail($email_to, $email_subject, $email_message, $headers);
+header("Location: http://london.hrtecheurope.com/thankyou");
+exit;
+
+	}
+
+}
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -284,7 +464,7 @@ opinion on everything HR.</p>
 	   ?>
     </section>
 
-<div style="display:none" id="BlogSquadFormContainer"> 
+<div id="BlogSquadFormContainer"> 
   <div id="BlogSquadFormInnerContainer">
     <a id="join-the-blog-squad"></a> 
     <h1>Join the Blog Squad</h1>
@@ -534,6 +714,25 @@ opinion on everything HR.</p>
 <script src="vendor/SlideCaptcha/js/slide-to-captcha.js" type="text/javascript"></script>
 <script>
     $('.captcha').slideToCAPTCHA();
+</script>
+
+<script type="text/javascript">
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+
+
 </script>
 
 <!-- Start of Async HubSpot Analytics Code -->

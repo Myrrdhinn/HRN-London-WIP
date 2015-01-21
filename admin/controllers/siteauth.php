@@ -43,8 +43,27 @@ public function login($username, $password) {
 						   $_SESSION['admin'] = true;
 						  $out =  '<p class="LoginResponse"><i class="fa fa-check"></i> Logged in. You will be redirected to the administration page in 3 seconds.</p>';
 						  
+						  //// Options for login
+						  
+						      //// basic
 						   $page = $_SERVER['PHP_SELF'];
-                          $sec = "3";
+						   $sec = "3";
+						   
+						   $sponsors = array(7,5,8,11);
+						   $speakers = array();
+						   $mediapartners = array(10);
+						   $blogsquad = array(9);
+						   
+						   if(in_array($pass['id'],$sponsors) == true) {
+							   $page = "http://london.hrtecheurope.com/admin/sponsors";
+						   }elseif (in_array($pass['id'],$speakers) == true) {
+							   $page = "http://london.hrtecheurope.com/admin/speakers";
+						  }elseif (in_array($pass['id'],$mediapartners) == true) {
+							   $page = "http://london.hrtecheurope.com/admin/mediapartners";
+						  }elseif (in_array($pass['id'],$blogsquad) == true) {
+							  $page = "http://london.hrtecheurope.com/admin/blogsquad";
+						  }
+						   
                           header("Refresh:".$sec."; url=".$page);
 						   return $out;
 						   

@@ -70,8 +70,7 @@ a:focus {
 #BlogsquadHeaderInnerContainer h1 {
 	font-family: 'Oswald', sans-serif;
 	font-size: 48px;
-	/*padding-top: 40px; uncomment this if the join blog squad button and form can be activated */
-	padding-top: 80px; /* then delete this line */
+	padding-top: 40px;
 	padding-bottom: 30px;
 }
 @media (max-width: 850px) {
@@ -110,7 +109,6 @@ a:focus {
   background-color: rgba(252, 53, 76, 0.5);
   border: 2px solid rgb(252, 53, 76);
   transition: all 0.3s;
-  display: none;
 }
 #JoinTheBlogSquadButton:hover {
   background-color: rgba(252, 53, 76, 1);
