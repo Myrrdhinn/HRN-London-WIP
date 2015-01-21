@@ -1,4 +1,4 @@
-    jQuery(function ($) {
+  /*  jQuery(function ($) {
       // custom formatting example
       $('#earth').data('countToOptions', {
         formatter: function (value, options) {
@@ -16,6 +16,66 @@
       }
     });
 
+*/
+
+$(function() {
+	 function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+      }
+	
+	
+    var oTop = $('#numbers-container').offset().top;
+	//var oTop = 2100;
+    $(window).scroll(function(){
+		var plus = 1500;
+		var x = 3;
+		
+        var g = $('body').width();
+		  if (g > 1920) {
+			 plus = 2000;
+			 x = 3;
+		   }
+		
+		   if (g < 1500) {
+			 plus = 2000;
+			 x = 2;
+		   }
+		   
+		    if (g < 600) {
+			 plus = 1700;
+			 x = 2;
+		   }
+
+        var pTop = ($(document).scrollTop() * x + plus);
+		
+        if( pTop > oTop ){
+			oTop = 83525;
+			
+	 $('.timer').each(count);
+	 
+      $('#earth').data('countToOptions', {
+        formatter: function (value, options) {
+          return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+      });
+
+      // start all the timers
+     
+      
+
+	  
+	  
+        }
+    });
+});
+
+function start_count(){
+
+}
+
+$(document).ready(function(){
 (function ($) {
 	$.fn.countTo = function (options) {
 		options = options || {};
@@ -96,3 +156,4 @@
 		return value.toFixed(settings.decimals);
 	}
 }(jQuery));
+});

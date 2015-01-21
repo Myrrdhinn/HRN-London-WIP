@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* General Definitions*/
+
+.MenuIcon {
+	height: 43px;
+	
+}
+/*There was an ugly line when hovered over the menu buttons. This is the fix for it!!*/
+#DesktopMenuContainer a {
+	font-size:1px;
+	
+}
+
+/*New button*/
+.AdminNavigateButton {
+	
+	margin: 10px auto;
+    width: 100%;
+    text-align:center;
+	padding-top:10px;
+	font-size:16px;
+	max-width:210px;
+	color:white;
+	background:#2DAAE1;
+	height:42px;
+	font-weight:400;
+	transition:all 0.3s;
+	position:relative;
+	top:4px;
+	
+	}
+	
+.AdminNavigateButton:hover {
+	background:#FB354C;
+	
+	}	

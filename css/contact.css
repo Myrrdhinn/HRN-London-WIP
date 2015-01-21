@@ -20,6 +20,8 @@
 }
 .ContactMember {
     margin-bottom: 20px;
+	display:inline-block;
+	margin:10px;
 }
 .ContactMember p{
     max-width: 165px;
@@ -35,32 +37,25 @@
 }
 #ContactFormContainer {
     max-width: 1000px;
-    padding: 50px;
+    padding: 50px 50px 0px 50px;
     background-color: #EDEDED;
 }
 #ContactFormHeader {
     font-size: 2.3em;
     text-align: center;
+	margin-bottom:40px;
 }
 .ContactForm {
     margin-top: 40px;
     color: #3f3f3f;
     box-sizing: border-box;
 }
-#mce-NAME, #mce-EMAIL, #mce-PHONE, #mce-COMPANY, #mce-MSG {
-    height: 50px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.7em;
-    font-weight: 300;
-    color: #3f3f3f;
-    border: 1px solid #bbbbbb;
-    padding: 10px;
-    padding-left: 20px;
-    margin-bottom: 30px;
-}
-#mce-MSG {
+
+
+#ContactFormContainer textarea {
     width: 100%;
-    height: 290px;
+    height: 340px;
+	font-size:20px;
 }
 .ContactFormSubscribeButton {
     background-color: #8C8C8C !important;

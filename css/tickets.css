@@ -122,6 +122,12 @@
 	margin-top: 50px;
 }
 }
+@media (max-width:512px){
+	.ImageHeader p {
+		font-size: 20px;
+		line-height: 26px;
+	}
+}
 @media (max-width:430px) {
 .DiscountButton {
 	font-size: 30px;
@@ -146,6 +152,9 @@
 .DiscountButton {
  font-size:24px;
 }
+	.ImageHeader h1 {
+		margin-bottom: 15px;
+	}
 }
 /*Mobile menu margin for the content*/
 @media (max-width:640px){

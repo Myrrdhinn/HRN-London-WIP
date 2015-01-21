@@ -3,29 +3,88 @@
 class agenda_main extends config {
 	
 	function no_ekezet($fajlnev) {
-	    $specialis_karekterek = array('Š'=>'S', 'š'=>'s', 'Ð'=>'Dj','Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E', 'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ő'=>'O', 'Ø'=>'O', 'Ù'=>'U', 'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ű'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'ss','à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c', 'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ő'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ü'=>'u', 'ű'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y', 'ƒ'=>'f');
+	    $specialis_karekterek = array('Š'=>'S', 'š'=>'s', 'Ð'=>'Dj','Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E', 'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ő'=>'O', 'Ø'=>'O', 'Ù'=>'U', 'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ű'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'ss','à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c', 'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ő'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ü'=>'u', 'ű'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y', 'ƒ'=>'f', '"'=>' ', "'"=>' ', 'quot'=>' ');
     $fajlnev = strtolower(strtr($fajlnev, $specialis_karekterek));
     $fajlnev = preg_replace("/[^a-z0-9-_\.]/i", '-', trim($fajlnev));
-
+      if (substr($fajlnev, -1) == '-') {
+		  $fajlnev = substr($fajlnev, 0, strlen($fajlnev)-1);
+	  }
+	 $double_check =  array("----" => "-", "---" => "-", "--" => "-");
+	  $fajlnev = strtr($fajlnev, $double_check);
+	  $fajlnev = strtr($fajlnev, $double_check);
+	    if ($fajlnev[0] == '-') {
+		  $fajlnev = substr($fajlnev, 1);
+	  } 
+	  
     return $fajlnev;
 	
 }
+
 
 	function agenda($day, $location) {
 		$i = 0;
 		$check[0] = -1;
 		$output = '';
 		
+
+
+/*
+1 - Main Stage
+
+2 - HR Shared Services & Payroll
+
+3 - Future of Workforce Learning
+
+4 - HR Technology
+
+5 - Compensation & Benefits
+
+6 - Cloud Technology
+
+7 - HR Analytics & Reporting
+
+8 - Talent & Recruitment Technology
+
+9 - Social Collaboration
+
+10 - Labs & Executive Briefings
+
+11 - Round Table
+
+*/
+		
+		
+	 $agenda_locations_d1 = array('1'=>'Main Stage', '2'=>'Room 1', '3'=>'Room 2+3', '4'=>'Room 14', '8'=>'Room 15+16', '9'=>'Room 17', '10'=>'Room 6', '11'=>'Room 13', '5'=>'Room 1', "6"=>'Room 2+3', '7'=>'Room 14');
+	 $agenda_locations_d2 = array('1'=>'Main Stage', '2'=>'Room 1', '3'=>'Room 2+3', '4'=>'Room 14', '8'=>'Room 15+16', '9'=>'Room 17', '10'=>'Room 6', '11'=>'Room 13', '5'=>'Room 1', "6"=>'Room 2+3', '7'=>'Room 14');
+				
 				//Get the names					   
 	 $agendaId = $this->dbc->query(
-				sprintf("SELECT ae.id FROM agenda_event as ae, agenda_event_connection as aec, agenda_event_data as aed WHERE aed.day = '%s' AND aed.location_id= '%s' AND aed.id=aec.agenda_event_data_id AND ae.id=aec.agenda_event_id ORDER BY aed.time_start ASC",
+				sprintf("SELECT ae.id, aed.time_start FROM agenda_event as ae, agenda_event_connection as aec, agenda_event_data as aed WHERE aed.day = '%s' AND aed.location_id= '%s' AND aed.id=aec.agenda_event_data_id AND ae.id=aec.agenda_event_id ORDER BY STR_TO_DATE(aed.time_start, '%%h:%%i%%p') ASC",
 				    $this->dbc->real_escape_string($day),
 					$this->dbc->real_escape_string($location)
 				)
 				   );	
 					if (mysqli_num_rows($agendaId)) {
 					while($aId = $agendaId->fetch_assoc()){
-					    	$nope = 0;
+							$nope = 1;
+										//Agenda title						  
+						$agendaStatus = $this->dbc->query(
+								  sprintf("SELECT status_id FROM agenda_event_status WHERE agenda_event_id = '%s' ORDER BY date DESC LIMIT 0,1",
+									  $this->dbc->real_escape_string($aId['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($agendaStatus)) {
+									  while($status = $agendaStatus->fetch_assoc()){
+										   if ($status['status_id'] == 1) {
+											   $nope = 0;
+										   }
+										  
+									  } //$agendaStatus while end
+								  }  //$agendaStatus  numrows end
+								  
+								  
+								  						
+					    
 							//We need to run a foreach on the check array to check if we already displayed the current agenda or not
 							//this is because we store multiple versions of the agenda (because of editable data)
 					    foreach ($check As $c) {
@@ -36,22 +95,35 @@ class agenda_main extends config {
 					
 					
 						if ($nope == 0) { //if we haven't displayed it yet
+						
+						
 							$check[$i] = $aId['id']; //add the agenda to the check array
 						$content[$i][0] = $aId['id'];
 									//Get the agenda data
 												   
 						   $agendaData = $this->dbc->query(
-								  sprintf("SELECT aed.time_start, aed.time_end, aed.day, aed.abstract, ael.location, aed.highlighted FROM agenda_event_data as aed, agenda_event_location as ael, agenda_event_connection as aec WHERE aec.agenda_event_id = '%s' AND aec.agenda_event_data_id=aed.id AND ael.id=aed.location_id ORDER BY aec.date DESC LIMIT 0,1",
+								  sprintf("SELECT aed.time_start, aed.time_end, aed.day, aed.abstract, ael.id, aed.highlighted FROM agenda_event_data as aed, agenda_event_location as ael, agenda_event_connection as aec WHERE aec.agenda_event_id = '%s' AND aec.agenda_event_data_id=aed.id AND ael.id=aed.location_id ORDER BY aec.date DESC LIMIT 0,1",
 									  $this->dbc->real_escape_string($aId['id'])
 								  )
 									 );	
 									  if (mysqli_num_rows($agendaData)) {
 									  while($data = $agendaData->fetch_assoc()){
+										 
+										 $abstract = htmlspecialchars_decode($data['abstract']);
+										  
 										  $content[$i][1] = $data['time_start'];
 										  $content[$i][2] = $data['time_end'];
 										  $content[$i][3] = $data['day'];
-										  $content[$i][4] = $data['abstract'];
-										  $content[$i][5] = $data['location'];
+										  $content[$i][4] = $abstract;
+										  
+										  if ($data['day'] == 1) {
+											  $content[$i][5] = strtr($data['id'], $agenda_locations_d1);
+										  }
+										  elseif ($data['day'] == 2) {
+											  $content[$i][5] = strtr($data['id'], $agenda_locations_d2);
+										  }
+										  
+										  //$content[$i][5] = $data['id'];
 										  $content[$i][7] = $data['highlighted'];
 										  
 									  } //data fetch assoc end
@@ -70,6 +142,20 @@ class agenda_main extends config {
 										  
 									  } //agenda while end
 								  }  //agenda numrows end
+										  
+										//Agenda title						  
+						$agendatag = $this->dbc->query(
+								  sprintf("SELECT agenda_tag FROM agenda_event_tag WHERE agenda_event_id = '%s' ORDER BY date DESC LIMIT 0,1",
+									  $this->dbc->real_escape_string($aId['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($agendatag)) {
+									  while($tag = $agendatag->fetch_assoc()){
+										  $content[$i][9] = $tag['agenda_tag'];
+										  
+									  } //agenda while end
+								  }  //agenda numrows end
+										  				  
 										  
 										  
 					$agendaicon = $this->dbc->query(
@@ -104,7 +190,9 @@ class agenda_main extends config {
 						  $agendas[4] = abstract
 						  $agendas[5] = location
 						  $agendas[6] = agenda title
-						
+						  $content[$i][7] = $data['highlighted'];
+						   $content[$i][8] = $Icons['icon_type'];
+						   $content[$i][9] = $tag['agenda_tag'];
 						*/
 						
 				$time = explode(':',$agendas[1]);
@@ -177,41 +265,76 @@ class agenda_main extends config {
 							$agendas[8] = '';
 						}	
 						
-					 
+					 $speakers = $this->session_speaker($agendas[0]);
+					 if (isset($speakers[0][0])) {
+						   $s = 1;
+					 } else {
+						 $s = 0;
+					 }
 					
+					$long = '';
 					$name = $this->no_ekezet($agendas[6]);
 					
-					if ($agendas[7] == 1) {
-						$class .= ' HighlightedSession';
-						$link = '';
-						$extraclass = ' NonCollapsibleSession';
+					if (strlen($agendas[6]) > 77) {
+						$long = ' LongSessionTitle';
+					}
+					
+					
+					
+					if ($agendas[7] == 1 || $agendas[4] == '' && $s == 0) {
+									if($agendas[4] == '' && $s == 0) {
+                                         $class .= '';
+										$extraclass = ''; 
+										$icon = ''; 
+									} else {
+										$extraclass = ' NonCollapsibleSession';  
+										 $class .= ' HighlightedSession';
+									}
+									if ($agendas[7] == 1) {
+										$extraclass = ' NonCollapsibleSession';  
+										 $class .= ' HighlightedSession';
+										 $icon = '<i class="icon-'.$agendas[8].'-icon agenda-icon"></i>';
+									}
+									
+							 
+						      $link = '';
+							
+ 							$break = '<div class="SessionTitle'.$long.'">'.$agendas[6].'</div>'.$icon;
+						  
+						
 					} else {
-						$link = '<a name="'.$name.'"></a>';
+						if(!isset($agendas[9])) {
+							$agendas[9] = $this->no_ekezet($agendas[6]);
+						}
+						$link = '<a id="'.$agendas[9].'" name="'.$agendas[9].'"></a>';
 						$extraclass = '';
+						$break = '<div class="SessionTitle'.$long.'">'.$agendas[6].' <i class="icon-next-icon"></i> </div>';
+
 					}
 				
 						
        $output .='<!-- '.$agendas[6].' -->
-	   <form class="AgendaEdit" style="padding:0; margin:0;">
+	   
 	   <div class="Session '.$class.'">'.$link.' 
 		<div class="SessionHeader'.$extraclass.'">
-			<div class="SessionTime">'.$agendas[1].'</div>
-			<div class="SessionTitle ClickClick">
-			 <div>'.$agendas[6].'</div>
-			 <input class="ClickEdit" style="display:none;" name="'.$name.'_Edit" type="text" value="'.$agendas[6].'">
-			</div>';
+			<div class="SessionTime">'.$agendas[1].'</div>';
+
+			 $output .= $break;
+			 $output .='</div>';
 			
 		
-	if ($agendas[7] != 1) {	
-		 $output .= '</div><div class="SessionContent">
-			<div class="SessionAbstract">'.$agendas[4].'</div>';
+	if (($agendas[7] != 1) && ($agendas[4] !== '' || $s == 1)) {	
+		 $output .= '<div class="SessionContent">';
+			 $output .='<div class="SessionAbstract">'.$agendas[4].'</div>';
 			
-			$speakers = $this->session_speaker($agendas[0]);
+			   
 			if (isset($speakers[0][0])) {
+				$speaker_num = count($speakers);
+				$speaker_pos = 1;
 				foreach ($speakers As $speaker) {
 				
 			$output .='<div class="SpeakerinfoContainer">
-				 <a data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
+				 <a href="speakers#'.$speaker[4].'">
 				<div class="SpeakerContainer">
 					
 					<div class="SpeakerDetails">
@@ -221,31 +344,32 @@ class agenda_main extends config {
 						<span class="SessionJobtitle">'.$speaker[1].'</span><br>
 						<span class="SessionCompanyName">'.$speaker[7].'</span>
 						</p>
-					</div>
-					
-					<div class="LocationDetails">
+					</div>';
+					if ($speaker_pos == $speaker_num) {
+						$output .='<div class="LocationDetails">
 						<span class="SessionStageName"><i class="fa fa-map-marker "></i>'.$agendas[5].'</span><br>
 						<span class="SessionStageHour"><i class="fa fa-clock-o "></i>'.$agendas[1].' to '.$agendas[2].'</span>
-					</div>
+				   </div>';
+					}
+					$speaker_pos++;
+               $output .='
 				</div>
 				</a>
-				</div>
-				';
+				</div>';
 				}
-				
+				$output .='</div>';
+			} else {
+				$output .='</div>';
 			}
 				
-			} else {
-			$output .='<div class="'.$agendas[8].' agenda-icon"></div>';
 			}
 			
 			
 			
 
 			
-		$output .='</div>
-	</div>
-  </form>
+		$output .=' 
+		</div>
 	<!--END '.$agendas[6].' --> ';
 						
 					

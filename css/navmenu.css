@@ -25,8 +25,6 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	padding-top:20px;
 	height:100px;	
 }
-
-
 	
 #HeaderGetTicketsButton {
 	display: inline-block;
@@ -44,7 +42,7 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	}
 	
 #HeaderGetTicketsButton:hover {
-	background:#FB354C;
+	background:#FC354C;
 	
 	}			
 	
@@ -58,8 +56,43 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 .move-left .exit-off-canvas {
 	box-shadow: -4px 0 4px rgba(0, 0, 0, 0.4), 4px 0 4px rgba(0, 0, 0, 0.4);
 }
+
+/* Desktop menu dropdowns*/
+.DesktopMenuDropdown {
+	position: relative; 
+}
+.DesktopMenuDropdown ul { 
+	position: absolute;
+	display: none; 
+	list-style-type: none;
+	top: 32px;
+}
+.DesktopMenuDropdown:hover ul { 
+	display: block; 
+}
+.DesktopMenuDropdown ul a li {
+		padding: 8px 20px 8px 20px;	
+		border-top: 1px solid #fff;	
+		background-color: #e8e8e8;
+		white-space: nowrap;
+}
+.DesktopMenuDropdown ul a li:hover {
+		background-color: #2DAAE1;
+		color: #fff;
+}
+.DesktopMenuDropdown ul .FirstDropdownItem {
+	border-top: 2px solid #2DAAE1;
+}
+#ExpoDropdown {
+	left: -60px; 
+}
+#PartnersDropdown {
+	left: -65px; 
+}
+/*end Desktop menu dropdowns*/
+
 	
-#DesktopMenuContainer a{
+#DesktopMenuContainer a, .DesktopMenuDropdown{
 	font-size:17px;
 	color:#333333;
 	padding:0.3em 0;
@@ -68,7 +101,7 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	transition:all 0.25s;
 } 
 		
-#MainNavigationMenu a:hover, a.ActiveNavmenuItem{
+#MainNavigationMenu a:hover, a.ActiveNavmenuItem, .DesktopMenuDropdown:hover{
 	border-bottom:2px solid #00A8C6;
 	color:#16AAE1!important;
 	}	
@@ -104,7 +137,30 @@ display:none;
 -moz-box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	}	
-	
+
+/*Mobile menu dropdowns*/
+#ExpoMobileGroup, #PartnersMobileGroup {
+	font-weight: 400;	
+}
+#ExpoMobileGroup .fa-angle-down, #PartnersMobileGroup .fa-angle-down  {
+	display: none;
+}
+#ExpoMobileGroupContent, #PartnersMobileGroupContent {
+	display: none;
+	padding-left: 20px;
+}
+/* Active menuitem with opened dropdown 
+#ExpoMobileGroupContent {
+	display: block;
+}
+#ExpoMobileGroup .fa-angle-right  {
+	display: none;
+}
+#ExpoMobileGroup .fa-angle-down  {
+	display: inline-block;
+}
+
+/*end Mobile menu dropdowns*/	
 #MobileNavigation a{
 	float:right;
 	margin-right:10px;
@@ -116,8 +172,8 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 #MobileNavigation img{
 	float:left;
 	margin-left:10px;
-	
 	}	
+	
 #RightsideMobileNavigation ul{
 	list-style-type:none;
 	text-transform: uppercase;
@@ -127,7 +183,7 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	}	
 #RightsideMobileNavigation ul li{
 	height: 2em;
-	font-size:20px;
+	font-size:17px;
 	}	
 #RightsideMobileNavigation ul li a{
 color:#333333;
@@ -150,4 +206,5 @@ color:#333333;
 	}	
 #MobileNavigation{
 	display:block;
-	}		
+	}
+	

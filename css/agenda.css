@@ -72,6 +72,15 @@ body div {
   margin-bottom: 15px;
   margin-left: 115px;
 }
+.StageName > a {
+	position: relative; 
+	top: -110px;	
+}
+@media (max-width: 718px) {
+	.StageName > a {
+		top: -75px;	
+	}	
+}
 .StageImage {
   margin-left: -90px; margin-right: 40px;
 }
@@ -106,6 +115,7 @@ body div {
   padding: 10px;
   display: inline-block;
   width: 100%;
+  position: relative;
 }
 
 .SessionTime {
@@ -121,11 +131,14 @@ body div {
 .LongSessionTitle { max-width: 770px; /*font-weight: 700;*/}
 .Session .agenda-icon {
   float: right;
+  padding-top: 0;
+  font-size: 20px;
+  position: absolute; top: 8px; right: 10px;
   padding-right: 10px;
   padding-top: 3px;
 }
 .Session .fa-microphone { color: #8b8b8b; }
-.SessionTitle .fa-chevron-right { padding-left: 10px; }
+.SessionTitle .icon-next-icon { position: relative; left: 7px; top: 2px; }
 .HighlightedSession { background-color: #EEEEEE; }
 /*.HighlightedSession .SessionTitle { font-weight: 400; }*/
 
@@ -197,194 +210,12 @@ body div {
 }
 /*end Headline hover effects */
 
-.RegistrationIcon {
-  width: 19px;
-  height: 22px;
-  background-image: url('../img/agenda/registration-icon.png');
-  margin-right: 10px;
-}
-.LunchIcon {
-  width: 15px;
-  height: 22px;
-  background-image: url('../img/agenda/lunch-icon.png');
-  margin-right: 10px;
-}
-.CocktailIcon {
-  width: 10px;
-  height: 22px;
-  background-image: url('../img/agenda/cocktail-icon.png');
-  margin-right: 10px;
-}
-.CoffeeIcon {
-  width: 25px;
-  height: 19px;
-  background-image: url('../img/agenda/coffee-icon.png');
-  margin-right: 10px;
-}
-
-#Day1MainContainer .MainStage .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-mainstage-day1-hover.png');
-}
-#Day1MainContainer .MainStage .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-mainstage-day1-hover.png');
-}
-#Day1MainContainer .MainStage .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-mainstage-day1-hover.png');
-}
-#Day1MainContainer .MainStage .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-mainstage-day1-hover.png');
-}
-
-#Day2MainContainer .MainStage .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-mainstage-day2-hover.png');
-}
-#Day2MainContainer .MainStage .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-mainstage-day2-hover.png');
-}
-#Day2MainContainer .MainStage .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-mainstage-day2-hover.png');
-}
-#Day2MainContainer .MainStage .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-mainstage-day2-hover.png');
-}
-
-.HRShare .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-hrshare-hover.png');
-}
-.HRShare .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-hrshare-hover.png');
-}
-.HRShare .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-hrshare-hover.png');
-}
-.HRShare .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-hrshare-hover.png');
-}
-
-.FutureOfWork .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-futureofwork-hover.png');
-}
-.FutureOfWork .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-futureofwork-hover.png');
-}
-.FutureOfWork .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-futureofwork-hover.png');
-}
-.FutureOfWork .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-futureofwork-hover.png');
-}
-
-.HRTech .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-hrtech-hover.png');
-}
-.HRTech .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-hrtech-hover.png');
-}
-.HRTech .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-hrtech-hover.png');
-}
-.HRTech .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-hrtech-hover.png');
-}
-
-.TalentAndRecruitment .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-talentandrecruitment-hover.png');
-}
-.TalentAndRecruitment .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-talentandrecruitment-hover.png');
-}
-.TalentAndRecruitment .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-talentandrecruitment-hover.png');
-}
-.TalentAndRecruitment .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-talentandrecruitment-hover.png');
-}
-
-.SocialCollaboration .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-socialcollaboration-hover.png');
-}
-.SocialCollaboration .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-socialcollaboration-hover.png');
-}
-.SocialCollaboration .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-socialcollaboration-hover.png');
-}
-.SocialCollaboration .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-socialcollaboration-hover.png');
-}
-
-.Labs .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-labs-hover.png');
-}
-.Labs .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-labs-hover.png');
-}
-.Labs .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-labs-hover.png');
-}
-.Labs .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-labs-hover.png');
-}
-
-.RoundTable .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-roundtable-hover.png');
-}
-.RoundTable .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-roundtable-hover.png');
-}
-.RoundTable .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-roundtable-hover.png');
-}
-.RoundTable .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-roundtable-hover.png');
-}
-
-.Compensation .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-compensation-hover.png');
-}
-.Compensation .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-compensation-hover.png');
-}
-.Compensation .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-compensation-hover.png');
-}
-.Compensation .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-compensation-hover.png');
-}
-
-
-.CloudTech .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-cloudtech-hover.png');
-}
-.CloudTech .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-cloudtech-hover.png');
-}
-.CloudTech .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-cloudtech-hover.png');
-}
-.CloudTech .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-cloudtech-hover.png');
-}
-
-.HRAnalytics .SessionHeader:hover .RegistrationIcon {
-  background-image: url('../img/agenda/registration-icon-hranalytics-hover.png');
-}
-.HRAnalytics .SessionHeader:hover .CoffeeIcon {
-  background-image: url('../img/agenda/coffee-icon-hranalytics-hover.png');
-}
-.HRAnalytics .SessionHeader:hover .CocktailIcon {
-  background-image: url('../img/agenda/cocktail-icon-hranalytics-hover.png');
-}
-.HRAnalytics .SessionHeader:hover .LunchIcon {
-  background-image: url('../img/agenda/lunch-icon-hranalytics-hover.png');
-}
-
-
-
-
 .NonCollapsibleSession {
   cursor: default !important;
   background-color: #EEEEEE !important;
+}
+.EmptySession {
+  cursor: default !important;
 }
 
 .day1-no-event, .day2-no-event { display: none; }
@@ -499,7 +330,12 @@ body div {
 @media (max-width:640px){
   #Agenda {padding-top: 50px;}
 }
-
+@media (max-width:512px){
+	.ImageHeader p {
+		font-size: 20px;
+		line-height: 26px;
+	}
+}
 /*Headline colors*/
 
 #Day1MainContainer .MainStage .SessionContent { border-bottom: 2px solid #00a8c6;}

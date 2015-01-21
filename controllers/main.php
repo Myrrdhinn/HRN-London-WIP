@@ -1,20 +1,31 @@
 <?php
+include_once('aaa.php');
 include_once('config.php');
 
 /*
 Known Issues!
-   - speakers bio.. there's no actual <br> so speace in the text because real_escape_string
    - when you edit a social link and press enter, the icon won't show up, only the edited link.. this is a side product of the .text function
    
 Needed:
   - speaker delete function - it is done :D Now I just need to do the actual delete script for cron :)
-  - ability to add social links when you edit the speaker   
+  - Upload new profile pictures / change which one will be displayed.
+  - checkbox for (is displayed in the index page modal)
+  - come up with something for the agenda.. to highlight specific events
+  - sponsors backend // like the amsterdam2014 website :)
+ 
+  
 */
 
  class main extends config {
 	 
-	 public $speaker_id;	 
-	 
+	 public $speaker_id;	
+	 public $sponsors_id;	 
+/*
+**************************
+Basic functions
+**************************
+*/
+	 //strip strings from special characters
    function ekezet_nelkuli($fajlnev) {
 
     $specialis_karekterek = array('Š'=>'S', 'š'=>'s', 'Ð'=>'Dj','Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E', 'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ő'=>'O', 'Ø'=>'O', 'Ù'=>'U', 'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ű'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'ss','à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c', 'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ő'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ü'=>'u', 'ű'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y', 'ƒ'=>'f');
@@ -26,6 +37,7 @@ Needed:
     return $fajlnev;
 }
 
+		//get info of a file
   function fileinfo($filename) {
 	$file = array('filename' => '', 'extension' => '');
 	// $pos: az utolsó . karakter pozíciója, vagy FALSE
@@ -39,7 +51,47 @@ Needed:
 	}
 	return $file;	
 }
+
+       //upload links to somewhere :)
+ function link_upload($type, $link, $sid, $db) {
+	 
+	 		$this->dbc->query(
+				sprintf("INSERT INTO ".$db."_links SET ".$db."_id = '%s', link_url = '%s', speakers_link_types_id = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sid)),
+				  $this->dbc->real_escape_string(htmlspecialchars($link)),
+				  $this->dbc->real_escape_string(htmlspecialchars($type))
+				)
+			);	
+	 
+ }
+ 
+ function picture_upload($db, $id, $filename, $path) {
+	 $q = '';
+	 if ($db == "speakers") {
+	       $this->dbc->query(
+				sprintf("INSERT INTO ".$db."_image SET ".$db."_id = '%s', image_name = '%s', image_url = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($filename)),
+				  $this->dbc->real_escape_string(htmlspecialchars($path))
+				)
+			);
+	 } else {
+		 	 $this->dbc->query(
+				sprintf("INSERT INTO ".$db."_image SET ".$db."_id = '%s', image_url = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($path))
+				)
+			);
+	 }
+
+ 	
+ }
 	
+/*
+*************************
+  SPEAKER
+*************************  
+*/	
    //Upload speaker	 
 //-----------------------------------------------------	 
   function speaker_upload() {
@@ -78,17 +130,17 @@ Needed:
 		              $vowels = array("/", "-", " ", ".", ",", "%", "!", "?", "{", "}", ";");		
                      $tag = str_replace($vowels, "_", $_POST['Tag']);
 					 
-					 $sanitized = htmlspecialchars($databaseContent, ENT_QUOTES);
+					// $sanitized = htmlspecialchars($databaseContent, ENT_QUOTES);
 
-                       $bio = str_replace(array("\r\n", "\n", "<br />"), array("'szuunet'", "'szuunet'","'szuunet'"), $_POST['SpeakerBio']);
-					   $bioImp = str_replace(array("\r\n", "\n", "<br />"), array("'szuunet'", "'szuunet'","'szuunet'"), $_POST['SpeakerBioImp']);
-					 
+                       //$bio = str_replace(array("\r\n", "\n", "<br />"), array("'szuunet'", "'szuunet'","'szuunet'"), $_POST['SpeakerBio']);
+					   //$bioImp = str_replace(array("\r\n", "\n", "<br />"), array("'szuunet'", "'szuunet'","'szuunet'"), $_POST['SpeakerBioImp']);
+					
 	    $this->dbc->query(
 				sprintf("INSERT INTO speakers_personal SET title = '%s', speakers_id = '%s', bio = '%s', bio_important = '%s', tag = '%s'",
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['SpeakerTitle'])),
 				  $this->dbc->real_escape_string(htmlspecialchars($speaker_id)),
-				  $this->dbc->real_escape_string(htmlspecialchars($bio)),
-				  $this->dbc->real_escape_string(htmlspecialchars($bioImp)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['SpeakerBio'])),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['SpeakerBioImp'])),
 				  $this->dbc->real_escape_string(htmlspecialchars($tag))
 				)
 			);	
@@ -171,7 +223,7 @@ Needed:
 			);	
 		}
 		
-			     //RSS
+		/*	     //RSS
 		if ($_POST['SpeakerRSS'] != '') {		
 			  $this->dbc->query(
 				sprintf("INSERT INTO speakers_links SET speakers_id = '%s', link_url = '%s', speakers_link_types_id = '6'",
@@ -180,7 +232,7 @@ Needed:
 				)
 			);	
 		}
-
+*/
 
 	  } // isset Speaker end
 	
@@ -240,17 +292,7 @@ function company_data($sCompany, $sCompanyLink, $sId) {
 	
 }
 
- function link_upload($type, $link, $sid) {
-	 
-	 		$this->dbc->query(
-				sprintf("INSERT INTO speakers_links SET speakers_id = '%s', link_url = '%s', speakers_link_types_id = '%s'",
-				  $this->dbc->real_escape_string(htmlspecialchars($sid)),
-				  $this->dbc->real_escape_string(htmlspecialchars($link)),
-				  $this->dbc->real_escape_string(htmlspecialchars($type))
-				)
-			);	
-	 
- }
+
 	 
 	 ///MODIFY SPEAKER
 //-----------------------------------------------------	 
@@ -396,8 +438,8 @@ function speaker_delete(){
 	 
 	 //Set Speaker Order
 //------------------------------------------------------	 
-   function speaker_order($speaker_id) {
-	     if(isset($_POST['Order'])){
+   function speaker_order($speaker_id, $order_id) {
+	     if(isset($order_id)){
 			  if(isset($speaker_id)) {
 			$i = 0;
 			$ord = 0;	  
@@ -406,7 +448,7 @@ function speaker_delete(){
 				sprintf("SELECT id, order_id, speakers_id FROM speakers_order ORDER BY date DESC"));	
 					if (mysqli_num_rows($speaker)) {
 					   while($data = $speaker->fetch_assoc()){
-						   if ($data['order_id'] == $_POST['Order']) {
+						   if ($data['order_id'] == $order_id) {
 							   $i = 1;
 							   $ord = $data['order_id'];
 							   $id = $data['id'];
@@ -431,7 +473,7 @@ function speaker_delete(){
 			$this->dbc->query(
 				sprintf("INSERT INTO speakers_order SET speakers_id = '%s', order_id = '%s'",
 				  $this->dbc->real_escape_string(htmlspecialchars($speaker_id)),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Order']))
+				  $this->dbc->real_escape_string(htmlspecialchars($order_id))
 				)
 			);	
 	}  //isset speaker_id
@@ -535,18 +577,341 @@ function speaker_delete(){
 	$filename = explode('.',$uploadfile);
 	
 			if ($uploadfile) {		
-			  $this->dbc->query(
-				sprintf("INSERT INTO speakers_image SET speakers_id = '%s', image_name = '%s', image_url = '%s'",
-				  $this->dbc->real_escape_string(htmlspecialchars($this->speaker_id)),
-				  $this->dbc->real_escape_string(htmlspecialchars($filename[0])),
-				  $this->dbc->real_escape_string(htmlspecialchars($uploadfile))
-				)
-			);
+				return $uploadfile;
 				
 		}
 			
 	 
 	 }
+	
+/*
+********************************************
+      SPONSORS
+********************************************
+*/	
+
+  //Upload sponsor	  - WIP
+//-----------------------------------------------------	 
+  function sponsor_upload() {
+	   //Insert the name (Main identificator)
+	  if (isset($_POST['Sponsor']) && $_POST['Sponsor'] != ''){
+	        //If there's no sponsor we don't upload anything :D
+		 if(isset($_POST['Highlighted'])) {
+				$check = 1;
+			} else {
+				$check = 0;
+			}
+		if (!isset($_POST['SponsorTypes']) || $_POST['SponsorTypes'] < 0)	{
+			$_POST['SponsorTypes'] = 0;
+		}
+	
+	// This will be the main table the defining chapter in HRN History!
+		$this->dbc->query(
+				sprintf("INSERT INTO sponsors SET name = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Sponsor']))
+				)
+			);
+		$sponsors_id = $this->dbc->insert_id;
+		
+		$this->sponsors_id = $sponsors_id;
+		
+	//	we store the display name sparatly because here we can change it later and store it redundantly
+		$this->dbc->query(
+				sprintf("INSERT INTO sponsors_name SET name = '%s', sponsors_id = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Sponsor'])),
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsors_id))
+				)
+			);
+	//set the sponsor status to active	
+	    $active = 1;	
+			$this->dbc->query(
+				sprintf("INSERT INTO sponsors_status SET status_id = '%s', sponsors_id = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($active)),
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsors_id))
+				)
+			);		
+			
+		//Insert Personal data
+		
+
+      if (isset($_POST['SponsorTag']) && $_POST['SponsorTag'] != ''){
+		  
+		              $vowels = array("/", "-", " ", ".", ",", "%", "!", "?", "{", "}", ";");		
+                     $tag = str_replace($vowels, "_", $_POST['SponsorTag']);
+					 
+					// $sanitized = htmlspecialchars($databaseContent, ENT_QUOTES);
+
+                      // $bio = str_replace(array("\r\n", "\n", "<br />"), array("'szuunet'", "'szuunet'","'szuunet'"), $_POST['SponsorBio']);
+					 
+	    $this->dbc->query(
+				sprintf("INSERT INTO sponsors_data SET sponsors_id = '%s', sponsors_bio = '%s', sponsors_url = '%s', sponsors_tag = '%s', sponsors_rank = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsors_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['SponsorBio'])),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['SponsorURL'])),
+				  $this->dbc->real_escape_string(htmlspecialchars($tag)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['SponsorTypes']))
+				)
+			);	
+		$data_id = $this->dbc->insert_id;
+		
+		   //If the sponsor is alacarte
+		 
+		     if ($check == 1) {
+				 $this->dbc->query(
+				sprintf("INSERT INTO sponsors_data_alacarte SET sponsors_id = '%s', alacarte = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsors_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($check))
+
+				)
+			);	
+				 
+				 if (isset($_POST['SponsorAlaCarteData'])){
+					$carteData = explode('|', $_POST['SponsorAlaCarteData']);
+					$this->ala_carte_edit_add($carteData,$sponsors_id);
+				 }
+		
+		    }//if check == 1
+				
+
+		}	//isset post_tag end	
+
+	//LINKS	
+	$what = "sponsors";
+	      //Twitter
+		if ($_POST['SponsorTwitter']) {			
+			$this->link_upload('2', $_POST['SponsorTwitter'], $sponsors_id, $what);	
+		}
+	
+			      //Facebook
+		if ($_POST['SponsorFacebook']  != '') {		
+			$this->link_upload('1', $_POST['SponsorFacebook'], $sponsors_id, $what);	
+		}
+			      //Linkedin
+		if ($_POST['SponsorLinkedin'] != '') {	
+		
+		    $this->link_upload('3', $_POST['SponsorLinkedin'], $sponsors_id, $what);		
+
+		}
+			      //Flickr
+		if ($_POST['SponsorFlickr'] != '') {
+			
+			$this->link_upload('4', $_POST['SponsorFlickr'], $sponsors_id, $what);			
+
+		}
+			      //Google+
+		if ($_POST['SponsorGoogle'] != '') {	
+		
+		   $this->link_upload('5', $_POST['SponsorGoogle'], $sponsors_id, $what);		
+	
+		}
+		
+			     //RSS
+		if ($_POST['SponsorRSS'] != '') {
+			
+			$this->link_upload('6', $_POST['SponsorRSS'], $sponsors_id, $what);			
+
+		}
+	
+           return $sponsors_id;
+
+	  } // isset Sponsor end
+	    
+	 }
+	 
+//Add a la carte from sponsors edit
+function ala_carte_edit_add($carte, $sId) {
+					 if (isset($carte)){
+						foreach ($carte as $c){
+							if (isset($c) && $c !=""){
+							$this->add_ala_carte($sId, $c, 1);
+							}
+						}
+				
+				 }//isset post carteval
+	
+}
+	 
+	//Add new Al a Carte
+//-------------------------------------------	
+function add_ala_carte($sId, $sText, $needed) {
+
+	  $this->dbc->query(
+			sprintf("INSERT INTO sponsors_ala_carte SET sponsors_id = '%s', text = '%s'",
+			  $this->dbc->real_escape_string(htmlspecialchars($sId)),
+			  $this->dbc->real_escape_string(htmlspecialchars($sText))
+			)
+		   );
+		   
+		   $carte_id = $this->dbc->insert_id;
+		   
+		   $this->dbc->query(
+			sprintf("INSERT INTO sponsors_ala_carte_connection SET sponsors_id = '%s', sponsors_ala_carte_id = '%s'",
+			  $this->dbc->real_escape_string(htmlspecialchars($sId)),
+			  $this->dbc->real_escape_string(htmlspecialchars($carte_id))
+			)
+		   );
+		   
+		   
+			if($needed == 1){
+				$this->dbc->query(
+				sprintf("INSERT INTO sponsors_data_alacarte SET sponsors_id = '%s', alacarte = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sId)),
+				  $this->dbc->real_escape_string(htmlspecialchars($needed))
+
+				)
+			);	
+			}
+
+				
+	
+}
+	 
+	//Edit Ala Carte sponsor text
+//-------------------------------------------
+function alacarte_edit($sId, $alacarte, $connection_id) {
+		    $this->dbc->query(
+				sprintf("INSERT INTO sponsors_ala_carte SET text = '%s', sponsors_id = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($alacarte)),
+				  $this->dbc->real_escape_string(htmlspecialchars($sId))
+			         	)
+		        	);	
+					$carte_id = $this->dbc->insert_id;
+					
+			$this->dbc->query(
+				sprintf("UPDATE sponsors_ala_carte_connection SET sponsors_ala_carte_id = '%s', sponsors_id = '%s' WHERE id= '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($carte_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($sId)),
+				  $this->dbc->real_escape_string(htmlspecialchars($connection_id))
+			         	)
+		        	);	
+					
+	
+}
+function sponsor_data($sTag, $sBio, $sCompanyLink, $sId, $rank) {
+	
+	      if (isset($sTag) && $sTag != ''){
+		  
+		              $vowels = array("/", "-", " ", ".", ",", "%", "!", "?", "{", "}", ";");		
+                     $tag = str_replace($vowels, "_", $sTag);
+	    $this->dbc->query(
+				sprintf("INSERT INTO sponsors_data SET sponsors_id = '%s', sponsors_bio = '%s', sponsors_url = '%s', sponsors_tag = '%s', sponsors_rank = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sId)),
+				  $this->dbc->real_escape_string(htmlspecialchars($sBio)),
+				  $this->dbc->real_escape_string(htmlspecialchars($sCompanyLink)),
+				  $this->dbc->real_escape_string(htmlspecialchars($tag)),
+				  $this->dbc->real_escape_string(htmlspecialchars($rank))
+				)
+			);	
+
+		}	//isset post_tag end				
+		
+	
+}	 
+
+	 ///MODIFY SPONSOR
+//-----------------------------------------------------	 
+  function sponsor_edit() {
+	   //Insert the name (Main identificator)
+	  if (isset($_POST['sName']) && $_POST['sName'] != '' && isset($_POST['sId']) && isset($_POST['sNId']) && isset($_POST['wat'])){
+	        //If there's no sponsor we don't upload anything :D
+			
+
+		$sponsor_id = $_POST['sId'];
+		
+
+		
+	//LINKS	
+	switch ($_POST['wat']) {
+		case 'sName':
+				$this->dbc->query(
+				sprintf("INSERT INTO sponsors_name SET name = '%s', sponsors_id = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sName'])),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sId']))
+			         	)
+		        	);				
+			break;
+			
+		case 'sBio':
+			$this->sponsor_data($_POST['tag'], $_POST['sBio'], $_POST['sCompanyLink'], $_POST['sId'], $_POST['rank']);
+			break;
+							
+		case 'sCompanyLink':
+			$this->sponsor_data($_POST['tag'], $_POST['sBio'], $_POST['sCompanyLink'], $_POST['sId'], $_POST['rank']);
+			break;							
+			
+																	
+		case 'stwitter':
+			  $this->dbc->query(
+				sprintf("INSERT INTO sponsors_links SET sponsors_id = '%s', link_url = '%s', speakers_link_types_id = '2'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsor_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sTwitter']))
+				)
+			);				
+			break;
+		case 'sfacebook':
+			  $this->dbc->query(
+				sprintf("INSERT INTO sponsors_links SET sponsors_id = '%s', link_url = '%s', speakers_link_types_id = '1'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsor_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sFacebook']))
+				)
+			);			
+			break;
+		case 'slinkedin':
+			  $this->dbc->query(
+				sprintf("INSERT INTO sponsors_links SET sponsors_id = '%s', link_url = '%s', speakers_link_types_id = '3'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsor_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sLinkedin']))
+				)
+			);				
+			break;
+		case 'sflickr':
+			  $this->dbc->query(
+				sprintf("INSERT INTO sponsors_links SET sponsors_id = '%s', link_url = '%s', speakers_link_types_id = '4'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsor_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sFlickr']))
+				)
+			);			
+			break;
+		case 'sgoogle':
+			  $this->dbc->query(
+				sprintf("INSERT INTO sponsors_links SET sponsors_id = '%s', link_url = '%s', speakers_link_types_id = '5'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsor_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sGoogle']))
+				)
+			);			
+			break;
+		case 'srss':
+			  $this->dbc->query(
+				sprintf("INSERT INTO sponsors_links SET sponsors_id = '%s', link_url = '%s', speakers_link_types_id = '6'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sponsor_id)),
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sRss']))
+				)
+			);			
+			break;									
+		default :
+			
+	}
+				
+
+	  } // isset Speaker end
+	
+	 }
+	 
+
+	 //Sponsor delete
+///---------------------------------------------------------------
+function sponsor_delete($sId){
+	
+		// This will be the main table the defining chapter in HRN History!
+		$this->dbc->query(
+				sprintf("INSERT INTO sponsors_status SET sponsors_id = '%s', status_id = '0'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sId))
+				)
+			);
+	
+}	 
+
+
 	
 /************************************************************	 
 	     AGENDA
@@ -745,7 +1110,39 @@ function agenda_edit_speakers($id) {
 	 
  }
  
+ 
+ //Modify Sponsor image
+  if(isset($_POST['SponsorImageSecret']) && $_POST['SponsorImageSecret'] == "ThisIsASecret"){
+	$the_main = new main();
 
+   if (is_uploaded_file($_FILES['file']['tmp_name']) && isset($_POST['SponsorImageModifyId'])) {
+	   $uploadpath = '../img/sponsors';
+       $path = $the_main->file_upload($uploadpath);
+	   $the_main->picture_upload("sponsors", $_POST['SponsorImageModifyId'], " ", $path);
+	   
+	   
+   }
+
+   
+     
+}// post speaker end
+
+
+ //Modify Speaker image
+  if(isset($_POST['SpeakerImageSecret']) && $_POST['SpeakerImageSecret'] == "ThisIsASecret"){
+	$the_main = new main();
+
+   if (is_uploaded_file($_FILES['file']['tmp_name']) && isset($_POST['SpeakerImageModifyId'])) {
+	   $uploadpath = '../img/speakers';
+       $path = $the_main->file_upload($uploadpath);
+	   $the_main->picture_upload("speakers", $_POST['SpeakerImageModifyId'], " ", $path);
+	   
+	   
+   }
+
+   
+     
+}// post speaker end
 
 
 
@@ -753,7 +1150,7 @@ function agenda_edit_speakers($id) {
 Add new speaker
 ///////////////*/
 
- if(isset($_POST['SpeakerSubmit']) && (is_uploaded_file($_FILES['file']['tmp_name']) || isset($_POST['Gender']) ) ){
+ if(isset($_POST['Speaker']) && (is_uploaded_file($_FILES['file']['tmp_name']) || isset($_POST['Gender']) ) ){
 	$the_main = new main();
    $the_main->speaker_upload();
    //$the_main->agenda_upload($the_main->speaker_id);
@@ -762,11 +1159,12 @@ Add new speaker
    }
    if (is_uploaded_file($_FILES['file']['tmp_name'])) {
 	   $uploadpath = '../img/speakers';
-       $the_main->file_upload($uploadpath);
+       $path = $the_main->file_upload($uploadpath);
+	   $the_main->picture_upload("speakers", $the_main->speaker_id, " ", $path);
    }
  
-   $the_main->speaker_order($the_main->speaker_id);
-    header('Location:../index.php?q=speakers');
+   $the_main->speaker_order($the_main->speaker_id, $_POST['Order']);
+   // header('Location:../speakers');
    
      
 }// post speaker end
@@ -785,7 +1183,7 @@ if (isset($_POST['AgendaSubmit'])) {
 	}
 
 	$the_main->agenda_upload($speakers);
-	header('Location:../index.php?q=agenda');
+	header('Location:../agenda');
 }
 
  
@@ -800,15 +1198,14 @@ Modify Speaker Order
 }// modify order end
 
 /*///////////// 
-Upload new social link
+Upload new social link to speakers
 ///////////////*/
 
  if(isset($_POST['action']) && $_POST['action'] == 'new_link' && isset($_POST['typeid']) && isset($_POST['sId'])){
 	$the_main = new main();
-    $the_main->link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId']);
+    $the_main->link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId'], "speakers");
 
-}// modify order end
-
+}//new social link for speakers end
  
 
 /*///////////// 
@@ -834,6 +1231,127 @@ Speaker Delete
     $the_main->speaker_delete();
 
 }// delete speakers
+
+
+/*///////////// 
+Add new sponsor
+///////////////*/
+
+ if(isset($_POST['Sponsor']) && (is_uploaded_file($_FILES['file']['tmp_name']))){
+	$the_main = new main();
+   $sponsorsid = $the_main->sponsor_upload();
+
+
+   if (is_uploaded_file($_FILES['file']['tmp_name'])) {
+	   $uploadpath = '../img/sponsors';
+      $path = $the_main->file_upload($uploadpath);
+	  $the_main->picture_upload("sponsors", $sponsorsid, " ", $path); 
+	  
+   }
+
+   // header('Location:../index.php?q=sponsors');
+   
+     
+}// post sponsor end
+
+/*///////////// 
+Sponsor Edit
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'sponsor_edit' && isset($_POST['sName'])){
+	$the_main = new main();
+    $the_main->sponsor_edit();
+
+}// edit sponsors
+ 
+/*///////////// 
+Sponsor Type Edit
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'sponsor_type_edit'){
+	
+	$the_main = new main();
+    $the_main->sponsor_data($_POST['tag'],$_POST['sBio'],$_POST['sCompanyLink'],$_POST['sId'],$_POST['rank']);
+
+}// edit sponsors 
+
+/*///////////// 
+Sponsor AlaCarte Edit
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'alacarte_edit'){
+	
+	$the_main = new main();
+    $the_main->alacarte_edit($_POST['sId'],$_POST['sAlaCarte'], $_POST['sAlaCarteConnectionId']);
+
+}// edit sponsors 
+
+
+/*
+///////////// 
+Add AlaCarte
+///////////////
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'AddNewAlaCarte' && isset($_POST['sId'])){
+	$the_main = new main();
+    $the_main->add_ala_carte($_POST['sId'], $_POST['sName'], 1);
+
+}// alacarte_new
+ 
+ */
+ 
+/* ///////////// 
+Add AlaCarte
+///////////////
+ */
+
+ if(isset($_POST['action']) && $_POST['action'] == 'AddNewAlaCarteEdit' && isset($_POST['sId']) && isset($_POST['carte'])){
+	$the_main = new main();
+    $the_main->ala_carte_edit_add($_POST['carte'], $_POST['sId']);
+
+}// alacarte_new
+ 
+ 
+ 
+ 
+/*///////////// 
+Upload new social link to SPONSORS
+///////////////*/
+
+ if(isset($_POST['action']) && $_POST['action'] == 'new_sponsor_link' && isset($_POST['typeid']) && isset($_POST['sId'])){
+	$the_main = new main();
+    $the_main->link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId'], "sponsors");
+
+}//new social link for speakers end
+ 
+ 
+/*///////////// 
+Sponsor Delete
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'sponsor_delete' && isset($_POST['sId'])){
+	$the_main = new main();
+    $the_main->sponsor_delete($_POST['sId']);
+
+}// delete sponsors
+  
+/*///////////// 
+Agenda edit request
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'AgendaEditSession' && isset($_POST['sId'])){
+	$the_main = new main();
+    $id = $the_main->ekezet_nelkuli($_POST['sId']);
+	setcookie('AgendaEditVal', $id, time() + (60), "/");
+
+}// delete sponsors
+    
   
 /*///////////// 
 Agenda edit change
@@ -854,7 +1372,6 @@ Agenda edit change
 		
 		echo json_encode($data);
 }// edit speakers
-
 
 
 

@@ -46,6 +46,9 @@ body {
 	position:absolute;
 	top:0;
 }
+
+
+
 #header-hrtech-logo {
 	padding:0 15px;
 }
@@ -105,7 +108,7 @@ transition:all 0.2s;
 
 .ImageHeader   {
 width:100%;
-height:285px;
+min-height:285px;
 text-align:center;
 background-size:cover;
 padding:30px;
@@ -137,6 +140,8 @@ margin-top:100px;
 		font-size: 20px;
 		padding-left: 10px;
 		padding-right: 10px;
+		margin: 0 auto;
+		margin-top: 20px;
 	}
 	
 }
@@ -236,6 +241,7 @@ width:100%;
 	line-height:35px;
 	font-weight: 300;
 	max-width: 1000px !important;
+	text-align:center;
 	}
 #teaser-divider	{
 	background:url(../img/mainstage-divider.png) no-repeat center;
@@ -379,8 +385,7 @@ max-width:85%;
 .submitbutton{
 	border:0;
 	margin:0 auto;
-	margin-top:50px;
-	width:98%;
+	width:100%;
 	padding:10px 10px;
 	text-transform:uppercase;
 	text-align:center;
@@ -392,7 +397,7 @@ max-width:85%;
 	height:56px;
 	}	
 	
-#mc-embedded-subscribe-form input {
+#DownloadPDFModal input, #ContactFormContainer input {
 height:56px;
 font-size:20px;	
 	}	
@@ -703,18 +708,13 @@ padding-top: 15px;
   #header-container h2 {
     font-size: 30px;
   }
-  #teaser-headline{
+  .teaser-headline{
     font-size: 35px;
     margin-top: 40px;
   }
   #teaser-headline-dash{
     top: -5px;	
   }  
-  #teaser-text{
-    font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
   #mainstage-wrapper {
 	margin-bottom: 10px;
   }
@@ -726,9 +726,6 @@ padding-top: 15px;
   .speaker-info{
     padding-top: 30px;
     font-size: 16px;
-  }
-  #speaker-button {
-	/*height: 50px;*/
   }
   #testimonial-container {
 	padding-top: 30px;
@@ -773,7 +770,17 @@ padding-top: 15px;
         display: none;
 	}
     .GoTopButton {
+		z-index: 10000;
         bottom: 15px;
         right: 15px;
     }
+  .teaser-headline{
+    font-size: 30px;
+    padding-top: 20px;
+  } 
+  #teaser-text{
+    font-size: 19px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }	
 }

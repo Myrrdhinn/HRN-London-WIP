@@ -56,10 +56,16 @@
 #twitter-container h2 {
 	margin-bottom:10px;
 	}	
-
+#TwitterFollowUsContainer {
+	margin-left:0px; max-width:500px;
+}
+#TwitterHashtagList {
+	font-weight:300; font-size:30px; text-align:left; line-height:35px; color:#fff !important;
+}
 #twitterfollow-button{
-	width:100%; 
-	margin-top:30px;
+	width:100%;
+	margin: 0 auto;
+	/*margin-top:30px;*/
 	background:#106582;
 	border:2px solid #29a0c7;
 	color:white;
@@ -137,6 +143,9 @@ margin-left:0;
    }
 }
 
+@media (max-width: 580px) {
+		.TwitterBoxHeader { font-size: 30px; }
+}
 
 @media (max-width:520px){
 
@@ -154,7 +163,9 @@ margin-left:0;
 	margin-left:85px;
 	
    }	
-	
+#TwitterHashtagList {
+	font-size: 19px;
+	line-height: 26px;
 }
 
 
@@ -187,8 +198,13 @@ margin-left:0;
 	border-right: 20px solid transparent;
 	border-top: 20px solid #29a0c7; 
     left:100px; top:435px;
-	}		
-	
+	}
+	#TwitterIconContainer {
+		text-align: center;
+	}
+	#TwitterIconContainer .fa-twitter{
+		margin-left: 0;
+	}
 }
 
 /***END TWITTER***/
