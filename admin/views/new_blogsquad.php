@@ -76,7 +76,7 @@ tinymce.init({
 <body>
  <!--Main Wrapper-->
 	<div class="wrapper">
-	  <h1 class="WrapperMainH1">HR Tech Europe - London2015 |<br /> Add New Blogsquad</h1>
+	  <h1 class="WrapperMainH1">HR Tech Europe - London2015 |<br /> Add New Blogger</h1>
 	  
 	        <div id="MenuIconContainer">';
 	
@@ -151,8 +151,8 @@ tinymce.init({
 	 
 	 <fieldset>
 	     <legend>Bio</legend>
-         <label>Blogsquad bio important<textarea id="BlogsquadBioImp" name="BlogsquadBioImp" cols="" rows=""></textarea></label><br />
-         <label>Blogsquad bio<textarea id="BlogsquadBio" name="BlogsquadBio" cols="" rows=""></textarea></label><br />
+         <label>Blogger bio important<textarea id="BlogsquadBioImp" name="BlogsquadBioImp" cols="" rows=""></textarea></label><br />
+         <label>Blogger bio<textarea id="BlogsquadBio" name="BlogsquadBio" cols="" rows=""></textarea></label><br />
      </fieldset>
 	 
 	 

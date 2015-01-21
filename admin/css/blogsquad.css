@@ -157,8 +157,8 @@ a:focus {
   transition: visibility 0.3s, opacity 0.3s linear;
 }
 .ViewProfile {
-	margin-top: 55px;
-	
+	margin-top: 60px;
+	font-size: 16px;
 }
 
 .EventTitle     {padding-bottom: 15px;}
@@ -191,6 +191,8 @@ a:focus {
   margin: 0 auto;
   width: 170px;
   height: 170px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .ModalBlogsquadBioContainer {
   text-align: center;
@@ -234,6 +236,10 @@ a:focus {
 .SocialIcons .fa-facebook:hover {background: #3b5998;}
 .SocialIcons .fa-twitter:hover  {background: #4099ff;}
 .SocialIcons .fa-linkedin:hover {background: #0e76a8;}
+.SocialIcons .fa-google { padding: 8px 8px 6px 8px; }
+.SocialIcons .fa-google:hover {background: #1F48A9;}
+.SocialIcons .fa-flickr:hover {background: #FF0084;}
+.SocialIcons .fa-rss:hover {background: #C52C02;}
 .ModalBlogsquadBio {
   font-size: 1.7em;
   line-height: 1.7em;

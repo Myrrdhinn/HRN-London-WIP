@@ -112,7 +112,7 @@
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" class="ActiveNavmenuItem" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown">Expo
+        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>

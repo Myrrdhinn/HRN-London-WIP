@@ -76,7 +76,7 @@ tinymce.init({
 <body>
   <!--Main Wrapper-->
 	<div class="wrapper">
-	  <h1 class="WrapperMainH1">HR Tech Europe - London2015 | Add New Mediapartner</h1>
+	  <h1 class="WrapperMainH1">HR Tech Europe - London2015 | Add New Media partner</h1>
 	  	        <div id="MenuIconContainer">';
 	
      $content .= '<a href="sponsors"><img class="MenuIcon" src="img/admin/sponsors.png" onmouseover="this.src=';

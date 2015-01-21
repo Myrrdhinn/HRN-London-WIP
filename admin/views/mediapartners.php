@@ -6,7 +6,7 @@
 <meta name="developer" content="Develped by: Myrrdhinn - myrrdhinn@gmail.com">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HR Tech Europe - Mediapartners Edit</title>
+<title>HR Tech Europe - Media Partners Edit</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
@@ -146,7 +146,7 @@
     <!--MAIN CONTENT -->
     <div id="MediapartnersHeaderContainer">
       <div id="MediapartnersHeaderInnerContainer">
-        <h1>Mediapartners</h1>
+        <h1>Media Partners</h1>
         <p>A Who's Who of HR software leaders will showcase the best solutions, services and products on the market for you to optimise, enable and unleash your people! </p>
       </div>
     </div>
@@ -161,7 +161,7 @@
   if(isset($_SESSION['admin'])) {
 	echo '<div id="tinyDiv"></div>
          <a href="new_mediapartners">
-        <div class="AdminNavigateButton">New Mediapartner</div>
+        <div class="AdminNavigateButton">New Media Partner</div>
         </a>';
 		/*echo '<a href="new_mediapartners">
         <div class="AdminNavigateButton">Help</div>

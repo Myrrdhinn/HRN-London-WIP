@@ -15,7 +15,7 @@
 <meta name="developer" content="Develped by: Myrrdhinn - myrrdhinn@gmail.com">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HR Tech Europe - Media Partners</title>
+<title>HR Tech Europe 2015 | Europe's #1 Conference on the Future of HR</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
@@ -90,7 +90,7 @@
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown">Expo
+        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>

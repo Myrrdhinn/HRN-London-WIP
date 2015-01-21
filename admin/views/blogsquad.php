@@ -41,9 +41,7 @@
 <!--	Include Custom CSS Definitions -->
 <link rel="stylesheet" href="css/custom.css" />
 <link rel="stylesheet" href="css/blogsquad.css" />
-
-<!-- TESTIMONIALS FADE-IN FADE-OUT -->
-<script src="js/testimonials-fadein-fadeout.js"></script>
+<link rel="stylesheet" href="css/footer.css" />
 
 <!-- Scroll to top JS -->
 <script src="js/gotopscroll.js"></script>
@@ -150,21 +148,7 @@
     </nav>
     
     <!-- END Mobile Navigation Menu--> 
-    
-    <!-- STICKY SOCIAL ICON SIDEBAR
-    <div id="StickySocialIconSidebar"> <a href="https://www.facebook.com/hrtecheu" target="_blank">
-      <div class="StickySocialIcon StickyFacebookIcon"><i class="fa fa-facebook"></i></div>
-      </a> <a href="https://twitter.com/hrtecheurope" target="_blank">
-      <div class="StickySocialIcon StickyTwitterIcon"><i class="fa fa-twitter"></i></div>
-      </a> <a href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about" target="_blank">
-      <div class="StickySocialIcon StickyLinkedinIcon"><i class="fa fa-linkedin"></i></div>
-      </a> <a href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/" target="_blank">
-      <div class="StickySocialIcon StickyFlickrIcon"><img src="img/StickyFlickrIcon.png" alt=""></div>
-      </a> <a href="http://www.slideshare.net/hrtecheurope" target="_blank">
-      <div class="StickySocialIcon StickySlideshareIcon"><img src="img/StickySlideshareIcon.png" alt=""></div>
-      </a> </div>
-     END STICKY SOCIAL ICON SIDEBAR --> 
-    
+       
     <!--MAIN CONTENT -->
     <div id="BlogsquadHeaderContainer">
       <div id="BlogsquadHeaderInnerContainer">
@@ -183,7 +167,7 @@ opinion on everything HR.</p>
     <?php 
   if(isset($_SESSION['admin'])) {
 	echo '<a href="new_blogsquad">
-        <div class="AdminNavigateButton">New Blog Squad</div>
+        <div class="AdminNavigateButton">New Blogger</div>
         </a> </div></div><div id="tinyDiv"></div>';  
   }
 ?>
@@ -289,110 +273,56 @@ opinion on everything HR.</p>
     </section>
     <!--END MAIN CONTENT-->
  
-    <div class="colors-wrapper">
-      <div class="columns colored-stripe red" ></div>
-      <div class="columns colored-stripe blue" ></div>
-      <div class="columns colored-stripe yellow" ></div>
-      <div class="columns colored-stripe green" ></div>
-    </div>
-    <!--END NEWSLETTER FORM --> 
-    <!--BLACKFOOTER-->
-    <div id="blackfooter">
-      <div class="row" >
-        <div class="large-3 medium-3 small-12 columns" id="follow-us">
-          <div id="follow-us-container">
-            <p class="blackfooter-element-title">Follow us</p>
-            <a href="https://www.facebook.com/hrtecheu" target="_blank">
-            <div class="large-3 small-3 column" id="facebook"> </div>
-            </a> <a href="https://twitter.com/hrtecheurope" target="_blank">
-            <div class="large-3  small-3 column" id="twitter"> </div>
-            </a> <a href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about" target="_blank">
-            <div class="large-3  small-3 column" id="linkedin"> </div>
-            </a> <a href="https://www.flickr.com/photos/71007493@N05/" target="_blank">
-            <div class="large-3  small-3 column" id="flickr"> </div>
+    <!-- FOOTER -->
+    <footer> 
+      <!--GREYFOOTER-->
+      <div id="GreyFooterContainer">
+        <h1 id="GreyFooterHeader">Contact</h1>
+        <div id="LeftGreyFooterItems">
+          <div id="FollowUs">
+            <h6 class="FooterSectionTitle">Follow Us</h6>
+            <div id="FollowUsSocialIcons"> <a onClick="_gaq.push(['_trackEvent', 'Footer', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img src="img/header-facebook.png" /></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Footer', 'ExternalForward', 'Twitter']);"  href="https://twitter.com/hrtecheurope"> <img src="img/header-twitter.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'Footer', 'ExternalForward', 'LinkedIn']);"  target="_blank" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'Footer', 'ExternalForward', 'Flickr']);"  target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Footer', 'ExternalForward', 'SlideShare']);"   href="http://www.slideshare.net/hrtecheurope"> <img src="img/header-slideshare.png"/></a> </div>
+          </div>
+          <div id="HRNEvents">
+            <h6 class="FooterSectionTitle">HRN Events</h6>
+            <p id="HRNEventsList"> <a onClick="_gaq.push(['_trackEvent', 'Footer', 'ExternalForward', 'LondonSite']);"  href="http://london.hrtecheurope.com" target="_blank">HR Tech Europe London</a><br>
+              <a href="http://paris.hrtecheurope.com" onClick="_gaq.push(['_trackEvent', 'Footer', 'ExternalForward', 'ParisSite']);"  target="_blank">HR Tech World Congress</a> </p>
+          </div>
+        </div>
+        <div id="RightGreyFooterItems">
+          <div id="FooterButtons"> <a onClick="_gaq.push(['_trackEvent', 'Footer', 'InternalForward', 'Contact']);" href="contact">
+            <div id="GetInTouchButton" class="FooterButton">Get in Touch</div>
+            </a> <a onClick="_gaq.push(['_trackEvent', 'Footer', 'InternalForward', 'Tickets']);" href="tickets">
+            <div id="RegisterNowButton" class="FooterButton">Register Now</div>
             </a> </div>
-        </div>
-        <div class="large-3 medium-3 small-12 columns" id="general-inquiries">
-          <div id="general-inquiries-container">
-            <p class="blackfooter-element-title">General Inquiries</p>
-            <p class="blackfooter-text"><i class="fa fa-phone"></i>+36 1 201 1469<br>
-              UK +44 20 34 689 689<br>
-              <i class="fa fa-envelope"></i>hrn@hrneurope.com</p>
+          <div id="GetInTouch">
+            <h6 class="FooterSectionTitle">Get in Touch</h6>
+            <p id="GeneralEnquiries"> General Enquiries<br>
+              <i class="fa fa-phone"></i>+36 1 201 1469<br>
+              <i class="fa fa-envelope"></i>hrn@hrneurope.com </p>
           </div>
         </div>
-        <div class="large-3 medium-3 small-12 columns" id="sponsorship">
-          <div id="sponsorship-container">
-            <p class="blackfooter-element-title">Sponsorship</p>
-            <p class="blackfooter-text"><i class="fa fa-phone"></i>+36 1 201 1469<br>
-              UK +44 20 34 689 689<br>
-              <i class="fa fa-envelope"></i>sponsor@hrneurope.com</p>
-          </div>
-        </div>
-        <div class="large-3 medium-3 small-12 columns" id="download-brochure">
-          <div id="download-brochure-container"> <img src="img/download-divider.png" alt="divider"><br>
-            <a href="#" data-reveal-id="DownloadPDFModal" >
-            <div id="download-button">Download Brochure</div>
-            </a> </div>
-          <div id="DownloadPDFModal" class="reveal-modal" data-reveal>
-            <h2>Download Brochure</h2>
-            <p>Thank you for downloading our brochure! Please fill out the form below to get the download link.</p>
-            <form action="http://hrneurope.us4.list-manage.com/subscribe/post?u=c03cb8f11b1f34771fdd1747c&amp;id=acc85bbd71" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate ContactForm" target="_blank" novalidate>
-              <div class="row">
-                <div class="large-6 column">
-                  <input type="text" value="" name="NAME" class="" placeholder="First Name" id="mce-NAME">
-                </div>
-                <div class="large-6 column">
-                  <input type="text" value="" name="NAME" class="" placeholder="Surname" id="mce-LASTNAME">
-                </div>
-              </div>
-              <div class="row">
-                <div class="large-12 column">
-                  <input type="email" value="" name="EMAIL" class="required email" placeholder="Email Address" id="mce-EMAIL">
-                  <input type="text" value="" name="PHONE" class="" placeholder="Phone Number" id="mce-PHONE">
-                  <input type="text" value="" name="COMPANY" class="" placeholder="Company" id="mce-COMPANY">
-                  <input style="display:none;" type="text" value="DownloadBrochureForm" name="SORUCE" class="" id="mce-SORUCE">
-                  <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
-                  </div>
-                  <!-- Robot Trap-->
-                  <div style="position: absolute; left: -5000px;">
-                    <input type="text" name="b_c03cb8f11b1f34771fdd1747c_acc85bbd71" tabindex="-1" value="">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="large-12 column">
-                  <input type="submit" value="Download PDF Brochure" name="subscribe" id="mc-embedded-subscribe" class="button ContactFormSubscribeButton RobotoText">
-                </div>
-              </div>
-            </form>
-          </div>
+        <div style="clear: both;"></div>
+      </div>
+      <!--END GREYFOOTER-->
+      <div class="colors-wrapper">
+        <div class="columns colored-stripe red" ></div>
+        <div class="columns colored-stripe yellow" ></div>
+        <div class="columns colored-stripe green" ></div>
+        <div class="columns colored-stripe blue" ></div>
+      </div>
+      <!--BLACKFOOTER-->
+      <div id="BlackFooterContainer">
+        <div id="BlackFooterItems">
+          <div id="FooterHRNLogo"><img src="img/footer-hrtogo.png"></div>
+          <div id="Copyright">Copyright © 2014 HRN Europe. All Rights Reserved.</div>
+          <div id="Privacy">Privacy Policy | Terms and Conditions</div>
         </div>
       </div>
-    </div>
-    
-    <!--END BLACKFOOTER--> 
-    <!--GREYFOOTER-->
-    <div id="greyfooter-container">
-      <div class="row">
-        <div class="large-4 medium-4 small-12 columns" id="footer-hrtech-logo">
-          <div id="footer-hrtech-logo-container"> <img src="img/footer-hrtogo.png" alt="hrtech logo"> </div>
-        </div>
-        <div class="large-4 medium-4 small-12 columns" id="copyright">
-          <div id="copyright-container">
-            <p class="greyfooter-text">Copyright © 2014 HRN Europe. All Rights Reserved.</p>
-          </div>
-        </div>
-        <div class="large-4 medium-4 small-12 columns" id="terms">
-          <div id="terms-container">
-            <p class="greyfooter-text">Terms and Conditions</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!--END GREYFOOTER--> 
+      <!--END BLACKFOOTER--> 
+    </footer>
+    <!--End FOOTER--> 
+
     
     <!-- close the off-canvas menu --> 
     <a class="exit-off-canvas"></a> </div>

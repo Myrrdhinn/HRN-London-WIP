@@ -189,6 +189,10 @@ a:focus {
 .SocialIcons .fa-facebook:hover {background: #3b5998;}
 .SocialIcons .fa-twitter:hover  {background: #4099ff;}
 .SocialIcons .fa-linkedin:hover {background: #0e76a8;}
+.SocialIcons .fa-google { padding: 8px 8px 6px 8px; }
+.SocialIcons .fa-google:hover {background: #1F48A9;}
+.SocialIcons .fa-flickr:hover {background: #FF0084;}
+.SocialIcons .fa-rss:hover {background: #C52C02;}
 .ModalSpeakerBio {
   font-size: 1.7em;
   line-height: 1.7em;

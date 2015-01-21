@@ -74,7 +74,7 @@
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown">Expo
+        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>
@@ -87,7 +87,7 @@
         <span class="DesktopMenuDropdown" style="display: none;">Partners
             <ul id="PartnersDropdown">
             <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li class="FirstDropdownItem">Media Partners</li></a>
+                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
             </ul>
         </span>        
@@ -109,9 +109,9 @@
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda" >Agenda</a></li>
                   <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="ExpoMobileGroupContent">
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="venue">Venue</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="logistics" class="ActiveNavmenuItem">Logistics</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="hotels">Hotels</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">Venue</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics" class="ActiveNavmenuItem">Logistics</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
           <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
@@ -362,24 +362,6 @@
         });
 </script> 
 <!--End Foundation Scripts --> 
-<script type="text/javascript">
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-
-
-</script> 
 
 <!-- Start of Async HubSpot Analytics Code --> 
 <script type="text/javascript">

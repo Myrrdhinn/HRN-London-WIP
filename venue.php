@@ -15,11 +15,11 @@
 <!-- Favicon setting -->
 <link rel="shortcut icon" href="favicon.ico">
 
-<!--Include Google fonts -->
+<!-- Include Google fonts -->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,400,700' rel='stylesheet' type='text/css'>
 
-<!--Include Font Awesome -->
+<!-- Include Font Awesome -->
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- RANDOM FADE JS JQUERY libraries -->
@@ -74,7 +74,7 @@
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown">Expo
+        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>
@@ -87,7 +87,7 @@
         <span class="DesktopMenuDropdown" style="display: none;">Partners
             <ul id="PartnersDropdown">
             <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li class="FirstDropdownItem">Media Partners</li></a>
+                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
             </ul>
         </span>        
@@ -109,9 +109,9 @@
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda" >Agenda</a></li>
           <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="ExpoMobileGroupContent">
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="venue" class="ActiveNavmenuItem">Venue</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="logistics">Logistics</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="hotels">Hotels</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue" class="ActiveNavmenuItem">Venue</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">Logistics</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
           <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
@@ -269,24 +269,6 @@ Situated in a stunning waterfront location, ExCeL London is located in the heart
         });
 </script> 
 <!--End Foundation Scripts --> 
-<script type="text/javascript">
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-
-
-</script> 
 
 <!-- Start of Async HubSpot Analytics Code --> 
 <script type="text/javascript">
