@@ -110,29 +110,36 @@ if(isset($_POST['email'])) {
  */
     $email_message = "Form details below.\n\n";
  
-     
  
-    function clean_string($string) {
- 
-      $bad = array("content-type","bcc:","to:","cc:","href");
- 
-      return str_replace($bad,"",$string);
- 
+  function sanitize($data){
+        $data = htmlentities(strip_tags(trim($data)));
+		
+		$bad = array("content-type","bcc:","to:","cc:","href","$","SELECT","<",">",";","INSERT INTO","UPDATE","DELETE");
+		
+		$data = str_replace($bad,"",$string);
+		
+        $search = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript
+                   '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+                   '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+                   '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments including CDATA
+    ); 
+   $data = preg_replace($search, '', $data); 
+        return $data;
     }
  
      
  
-    $email_message .= "First Name: ".clean_string($first_name)."\n";
+    $email_message .= "First Name: ".sanitize($first_name)."\n";
  
-    $email_message .= "Last Name: ".clean_string($last_name)."\n";
+    $email_message .= "Last Name: ".sanitize($last_name)."\n";
  
-    $email_message .= "Email: ".clean_string($email_from)."\n";
+    $email_message .= "Email: ".sanitize($email_from)."\n";
  
-    $email_message .= "Telephone: ".clean_string($telephone)."\n";
+    $email_message .= "Telephone: ".sanitize($telephone)."\n";
  
-    $email_message .= "Comments: ".clean_string($comments)."\n";
+    $email_message .= "Comments: ".sanitize($comments)."\n";
 	
-   $email_message .= "Company: ".clean_string($company)."\n";
+   $email_message .= "Company: ".sanitize($company)."\n";
  
      
  

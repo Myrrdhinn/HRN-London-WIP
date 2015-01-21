@@ -55,7 +55,7 @@
   if(isset($_SESSION['admin'])) {
 	echo '<!-- This needs jquery ui-->
 <script src="js/mediapartners_edit.js"></script>  
-<script src="js/dropzone_mediapartners.js"></script>
+<script src="js/dropzone_mediapartners_edit.js"></script>
 <link rel="stylesheet" href="css/general.css" /> 
 <link rel="stylesheet" href="css/admin_edit_general.css" />'; 
 
