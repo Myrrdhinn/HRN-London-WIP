@@ -306,7 +306,11 @@ class agenda_main extends config {
 						if(!isset($agendas[9])) {
 							$agendas[9] = $this->no_ekezet($agendas[6]);
 						}
-						$link = '<a id="'.$agendas[9].'" name="'.$agendas[9].'"></a>';
+						$google = 'onClick="_gaq.push([';
+						$google .= "'_trackEvent', 'AgendaStreamInfo', 'OpenCollapsiblePanel', '".$agendas[9]."']);";
+						$google .= '"';
+						
+						$link = '<a '.$google.' id="'.$agendas[9].'" name="'.$agendas[9].'"></a>';
 						$extraclass = '';
 						$break = '<div class="SessionTitle'.$long.'">'.$agendas[6].' <i class="icon-next-icon"></i> </div>';
 
@@ -332,9 +336,13 @@ class agenda_main extends config {
 				$speaker_num = count($speakers);
 				$speaker_pos = 1;
 				foreach ($speakers As $speaker) {
+					
+						$google = 'onClick="_gaq.push([';
+						$google .= "'_trackEvent', 'AgendaSpeakers', 'InternalForward', '".$speaker[4]."']);";
+						$google .= '"';
 				
 			$output .='<div class="SpeakerinfoContainer">
-				 <a href="speakers#'.$speaker[4].'">
+				 <a '.$google.' href="speakers#'.$speaker[4].'">
 				<div class="SpeakerContainer">
 					
 					<div class="SpeakerDetails">

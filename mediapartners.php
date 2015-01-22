@@ -100,13 +100,15 @@
         
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown" style="display: none;">Partners
+        <span class="DesktopMenuDropdown"><a href="#">Partners</a>
             <ul id="PartnersDropdown">
-            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
+            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li style="display: none;">Sponsors</li></a>
                 <a class="ActiveNavmenuItem" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li class="FirstDropdownItem">Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
             </ul>
-        </span>        
+        </span>  
+        
+        <div class="NavmenuDivider"></div>      
         
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="contact">Get in Touch</a> </div>
     <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
@@ -134,9 +136,9 @@
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
-          <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+          <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="PartnersMobileGroupContent">
-         		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
+         		<li style="display: none;"><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a class="ActiveNavmenuItem" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
           </div>
@@ -213,9 +215,21 @@
 				 
   if ($mediapartner[0] != -55){ //if there's no a la carte mediapartner uploaded, the array will come back with mediapartner id -55, so we must chek this first because we don't want to display this!
 	  $output .= '<div class="MediapartnerMain" id="'.$mediapartner[11].'"><!-- '.$mediapartner[8].' Mediapartner Grid-->';
-  
+  				  	    
+						$mediapartner_tag = "";
+						$mp = preg_replace('/[^A-Za-z]/', '', $mediapartner[8]); // Removes special chars.
+						$mediapartner_tag_array = explode(" ",$mp);
+						foreach ($mediapartner_tag_array as $comp) {
+							$mediapartner_tag .= ucfirst($comp); 
+						}
+						
+	  			
+  			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'MediaPartnerProfile', 'ModalOpen', '".$mediapartner_tag."']);";
+			$google .= '"';
 
-     $output.= '<a data-toggle="modal" data-target="#'.$mediapartner[4].'" href="#">
+
+     $output.= '<a '.$google.' data-toggle="modal" data-target="#'.$mediapartner[4].'" href="#">
       <div class="Mediapartner">';
 	  if (isset($mediapartner[7])) {
 		  $output .= '<div class="MediapartnerLogo" style="background-image:url(img/mediapartners/'.$mediapartner[7].');">';
@@ -451,6 +465,18 @@ if ($mediapartner[0] != -55 && $go == 1){	//if we already displayed the modal or
 				   $output .= '<div class="ModalSpeakerPhoto"></div>';
 			  }
        
+	   
+	   						$mediapartner_tag = "";
+						$mp = preg_replace('/[^A-Za-z]/', '', $mediapartner[8]); // Removes special chars.
+						$mediapartner_tag_array = explode(" ",$mp);
+						foreach ($mediapartner_tag_array as $comp) {
+							$mediapartner_tag .= ucfirst($comp); 
+						}
+						
+	  			
+  			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'MediaPartnerCompanySite', 'ExternalForward', '".$mediapartner_tag."']);";
+			$google .= '"';
         
        $output .='<div class="ModalMediapartnerBioContainer">
 	   <form class="MediapartnerModalEdit">
@@ -458,7 +484,7 @@ if ($mediapartner[0] != -55 && $go == 1){	//if we already displayed the modal or
           <p id="'.$mediapartner[4].'_Name" class="ClickClick ModalMediapartnerName">'.$mediapartner[8].'</p>
 		
 
-		  <a id="'.$mediapartner[4].'_CompanyLink" class="ClickClick ModalMediapartnerCompanyLink" target="_blank" href="'.$mediapartner[1].'">Visit Company Website <i class="fa fa-angle-double-right"></i></a>
+		  <a '.$google.' id="'.$mediapartner[4].'_CompanyLink" class="ClickClick ModalMediapartnerCompanyLink" target="_blank" href="'.$mediapartner[1].'">Visit Company Website <i class="fa fa-angle-double-right"></i></a>
 		
           <div class="ModalDivider"></div>';		  
 		  $s = 0;
@@ -467,8 +493,14 @@ if ($mediapartner[0] != -55 && $go == 1){	//if we already displayed the modal or
 			 foreach ($link_types As $types) {
 			   if ($types) {
 				   if ($links[$s] != ''){
+					   
+						$mp_social = ucfirst($types).'-'.$mediapartner_tag;	   
+						$google = 'onClick="_gaq.push([';
+						$google .= "'_trackEvent', 'MediaPartnerSocialSite', 'ExternalForward', '".$mp_social."']);";
+						$google .= '"';
+					   
 				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$mediapartner[4].'_'.$types.'" class="ClickClick SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+					$output .='<p id="'.$mediapartner[4].'_'.$types.'" class="SocialIcons"><a '.$google.' href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 				   }
 					   $s++;
 			         }

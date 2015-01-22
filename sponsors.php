@@ -221,9 +221,20 @@
 				 
   if ($sponsor[0] != -55){ //if there's no a la carte sponsor uploaded, the array will come back with sponsor id -55, so we must chek this first because we don't want to display this!
 	  $output .= '<div class="SponsorMain" id="'.$sponsor[11].'"><!-- '.$sponsor[8].' Sponsor Grid-->';
-  
+	  
+	  					$sponsor_tag = "";
+						$sa = preg_replace('/[^A-Za-z]/', '', $sponsor[8]); // Removes special chars.
+						$sponsor_tag_array = explode(" ",$sa);
+						foreach ($sponsor_tag_array as $comp) {
+							$sponsor_tag .= ucfirst($comp); 
+						}
+						
+	  			
+  			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'SponsorProfile', 'ModalOpen', '".$sponsor_tag."']);";
+			$google .= '"';
 
-     $output.= '<a data-toggle="modal" data-target="#'.$sponsor[4].'" href="#">
+     $output.= '<a '.$google.' data-toggle="modal" data-target="#'.$sponsor[4].'" href="#">
       <div class="Sponsor">';
 	  if (isset($sponsor[7])) {
 		  $output .= '<div class="SponsorLogo" style="background-image:url(img/sponsors/'.$sponsor[7].');">';
@@ -459,14 +470,26 @@ if ($sponsor[0] != -55 && $go == 1){	//if we already displayed the modal or the 
 				   $output .= '<div class="ModalSpeakerPhoto"></div>';
 			  }
        
+	   
+			  $sponsor_tag = "";
+			  $sa = preg_replace('/[^A-Za-z]/', '', $sponsor[8]); // Removes special chars.
+			  $sponsor_tag_array = explode(" ",$sa);
+			  foreach ($sponsor_tag_array as $comp) {
+				  $sponsor_tag .= ucfirst($comp); 
+			  }
+						
+	  			
+  			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'SponsorCompanySite', 'ExternalForward', '".$sponsor_tag."']);";
+			$google .= '"';
         
        $output .='<div class="ModalSponsorBioContainer">
 	   <form class="SponsorModalEdit">
 	      
-          <p id="'.$sponsor[4].'_Name" class="ClickClick ModalSponsorName">'.$sponsor[8].'</p>
+          <p id="'.$sponsor[4].'_Name" class="ModalSponsorName">'.$sponsor[8].'</p>
 		
 
-		  <a id="'.$sponsor[4].'_CompanyLink" class="ClickClick ModalSponsorCompanyLink" target="_blank" href="'.$sponsor[1].'">Visit Company Website <i class="fa fa-angle-double-right"></i></a>
+		  <a '.$google.' id="'.$sponsor[4].'_CompanyLink" class="ModalSponsorCompanyLink" target="_blank" href="'.$sponsor[1].'">Visit Company Website <i class="fa fa-angle-double-right"></i></a>
 		
           <div class="ModalDivider"></div>';		  
 		  $s = 0;
@@ -475,8 +498,15 @@ if ($sponsor[0] != -55 && $go == 1){	//if we already displayed the modal or the 
 			 foreach ($link_types As $types) {
 			   if ($types) {
 				   if ($links[$s] != ''){
+				
+			$comp_social = ucfirst($types).'-'.$sponsor_tag;	   
+			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'SponsorSocialSite', 'ExternalForward', '".$comp_social."']);";
+			$google .= '"';
+					   
+					   
 				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="ClickClick SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="SocialIcons"><a '.$google.' href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 				   }
 					   $s++;
 			         }
@@ -485,7 +515,7 @@ if ($sponsor[0] != -55 && $go == 1){	//if we already displayed the modal or the 
 				unset($links);
 		  }	   
 		
-          $output .='<div id="'.$sponsor[4].'_Bio" class="ClickClick ModalSponsorBio RobotoText"> '.$sponsor[3].'</div>';
+          $output .='<div id="'.$sponsor[4].'_Bio" class="ModalSponsorBio RobotoText"> '.$sponsor[3].'</div>';
 
   $output .='</form>
         </div>

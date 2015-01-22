@@ -157,7 +157,7 @@ tinymce.init({
 	 
 	 
    <input name="Tag" id="Tag" type="hidden" />
-   
+   <input name="BlogsquadBlogs" id="BlogsquadBlogs" type="hidden" />
    	 <fieldset>
 	     <legend>Image</legend>
 		 <div id="DropDiv"></div><br />

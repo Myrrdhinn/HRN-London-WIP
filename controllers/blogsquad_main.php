@@ -136,6 +136,39 @@ $i = 0;
 					}
 				}                  
 
+				$content[$i][21] = '';
+				$content[$i][22] = '';
+				
+							//Get image data
+		 $blogs = $this->dbc->query(
+				sprintf("SELECT blogsquad_blog_data_id FROM blogsquad_blog_data_connection WHERE blogsquad_id = '%s' AND status = '1' ORDER BY date",
+				    $this->dbc->real_escape_string($data['id'])
+				)
+				   );	
+					if (mysqli_num_rows($blogs)) {
+					while($blog = $blogs->fetch_assoc()){
+									  
+								  //Get image data
+					   $BlogData = $this->dbc->query(
+							  sprintf("SELECT title, url FROM blogsquad_blog_data WHERE id = '%s' ORDER BY date DESC LIMIT 0,1",
+								  $this->dbc->real_escape_string($blog['blogsquad_blog_data_id'])
+							  )
+								 );	
+								  if (mysqli_num_rows($BlogData)) {
+								  while($bData = $BlogData->fetch_assoc()){
+									  $content[$i][21] .= $bData['title'].'|';
+									  $content[$i][22] .= $bData['url'].'|';
+								  
+									  
+								  }
+							  }    
+								  
+						
+					}
+				}                  
+		            
+
+
 
 				//Get Agenda data
 

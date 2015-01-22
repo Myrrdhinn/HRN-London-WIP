@@ -19,7 +19,7 @@
 		                   	e.stopPropagation(); 
 							 $('#BlogDiv').append('<br /><input class="AdminInputField" required="required" id="BlogTitle_'+i+'" name="BlogTitle_'+i+'" type="text" placeholder="Blog Title" />');							
 							 $('#BlogDiv').append('<br /><input class="AdminInputField" required="required" id="BlogURL_'+i+'" name="BlogURL_'+i+'" type="text" placeholder="Blog URL" />');
-							 $('#CarteVal').val(i);
+							 $('#BlogVal').val(i);
 							 i++;
 							 $('#BlogDiv').append(test).end();
 							}
@@ -30,6 +30,7 @@
 
 				  $('#BlogDiv').append('<br /><input class="AdminInputField" required="required" id="BlogTitle_1" name="BlogTitle_1" type="text" placeholder="Blog Title" />');							
 				  $('#BlogDiv').append('<br /><input class="AdminInputField" required="required" id="BlogURL_1" name="BlogURL_1" type="text" placeholder="Blog URL" />');
+				   $('#BlogDiv').append('<input id="BlogVal" name="BlogVal" type="hidden" value="1"/>');
 				  
 				  $('#BlogDiv').append(test).end();
 				 

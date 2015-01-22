@@ -308,13 +308,15 @@ exit;
         
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown" style="display: none;">Partners
+        <span class="DesktopMenuDropdown"><a href="#">Partners</a>
             <ul id="PartnersDropdown">
-            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
+            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li style="display: none;">Sponsors</li></a>
+                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li class="FirstDropdownItem">Media Partners</li></a>
                 <a class="ActiveNavmenuItem" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
             </ul>
-        </span>        
+        </span> 
+        
+        <div class="NavmenuDivider"></div>       
         
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="contact">Get in Touch</a> </div>
     <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
@@ -342,9 +344,9 @@ exit;
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
-          <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+          <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="PartnersMobileGroupContent">
-         		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
+         		<li style="display: none;"><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a class="ActiveNavmenuItem" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
           </div>
@@ -360,7 +362,7 @@ exit;
         <h1>Blog Squad</h1>
         <p>Our bloggers provide insight, interviews, news and
 opinion on everything HR.</p>
-	<a href="#join-the-blog-squad"><div id="JoinTheBlogSquadButton">Join the Blog Squad</div></a>
+	<a onClick="_gaq.push(['_trackEvent', 'BlogSquad', 'ScrollToAnchor', 'JoinTheBlogSquadButton']);" href="#join-the-blog-squad"><div id="JoinTheBlogSquadButton">Join the Blog Squad</div></a>
       </div>
     </div>
     <div class="colors-wrapper">
@@ -432,8 +434,13 @@ opinion on everything HR.</p>
 
 			 $output = '';
 			$output .= '<div id="'.$speaker[18].'"><!-- '.$speaker[0].' Blogsquadgrid-->';
+			
+			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'BloggerProfile', 'ModalOpen', '".$speaker[4]."']);";
+			$google .= '"';
+			
 
-     $output.= '<a data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
+     $output.= '<a '.$google.' data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
       <div class="Blogsquad">';
 	  if (isset($speaker[11])) {
 		  $output .= '<div class="BlogsquadPhoto" style="background-image:url(img/blogsquad/'.$speaker[11].');">';
@@ -485,17 +492,17 @@ opinion on everything HR.</p>
             </div>
           </div>
                 <div class="large-12 column">
-     <div class="captcha" style="text-align:center;">
+     <div class="captcha" style="text-align:center; max-width:100px;">
                 <div class="handle"></div> 
                  
         </div>
 
          
     </div>
-         <h6 class="OswaldText text-center" style="color:#fff; margin-bottom:20px;" id="ClickHandleText">Please click the handle or swipe it to the right!</h6>
+         <h6 class="OswaldText text-center" style="color:#fff; margin-bottom:20px;" id="ClickHandleText">Please click the handle!</h6>
           <div class="row">
             <div class="large-12 column">
-              <input type="submit" id="JoinBlogSquadButton" name="submit" value="Send">
+              <input onClick="_gaq.push(['_trackEvent', 'BlogSquad', 'FormSubmission', 'InquirySent']);" type="submit" id="JoinBlogSquadButton" name="submit" value="Send">
             </div>
           </div>
         </form>
@@ -615,6 +622,9 @@ opinion on everything HR.</p>
 
 						$content[$i][10] = Picture name
 						$content[$i][11] = Picture URL
+						
+						  $content[$i][21] .= $blog ['title'].'|';
+						  $content[$i][22] .= $blog ['url'].'|';
 		  */
 		if (isset($content)) {
 		 foreach ($content as $speaker) {
@@ -622,6 +632,12 @@ opinion on everything HR.</p>
 				  $links = explode(';',$speaker[6]);
 			      $link_types = explode(';',$speaker[5]);
 			 }
+			 
+			 if (isset($speaker[21]) && isset($speaker[22])){
+				  $blog_title = explode('|',$speaker[21]);
+			      $blog_url = explode('|',$speaker[22]);
+			 }
+			 
 			 
 			     $num = 0;
 			 	 foreach ($speaker As $set) {
@@ -650,6 +666,19 @@ opinion on everything HR.</p>
 			  }
        
         
+			        $company_tag = "";
+			$ca = preg_replace('/[^A-Za-z0-9]/', '', $speaker[7]); // Removes special chars.
+	        $company_tag_array = explode(" ",$ca);
+			foreach ($company_tag_array as $comp) {
+				$company_tag .= ucfirst($comp); 
+			}
+			
+        
+			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'BloggerCompanySite', 'ExternalForward', '".$company_tag."']);";
+			$google .= '"';
+		
+		
        $output .='<div class="ModalBlogsquadBioContainer">
 	   <form class="BlogsquadModalEdit">
 
@@ -657,9 +686,40 @@ opinion on everything HR.</p>
 
           <p id="'.$speaker[4].'_Title" class="ModalBlogsquadJobtitle RobotoText">'.$speaker[1].'</p>
 		
-		  <a href="'.$speaker[8].'" id="'.$speaker[4].'_CompanyLink" class="ModalBlogsquadCompanyLink">'.$speaker[7].'</a>
+		  <a '.$google.' href="'.$speaker[8].'" id="'.$speaker[4].'_CompanyLink" class="ModalBlogsquadCompanyLink">'.$speaker[7].'</a>';
+		  
+		  
+		  		  	 if (isset($blog_title) && isset($blog_url)){
+				 $blognum = 0;
+				 $output .= '<br />';
+			 foreach ($blog_title As $titles) {
+			   if ($titles) {
+				   
+						$company_tag = "";
+						$ca = preg_replace('/[^A-Za-z0-9]/', '', $titles); // Removes special chars.
+						$company_tag_array = explode(" ",$ca);
+						foreach ($company_tag_array as $comp) {
+							$company_tag .= ucfirst($comp); 
+						}
+						
+					
+						$google = 'onClick="_gaq.push([';
+						$google .= "'_trackEvent', 'BloggerBlogSite', 'ExternalForward', '".$company_tag."']);";
+						$google .= '"';
+				   
+				   
+				     $output .='<a '.$google.' href="'.$blog_url[$blognum].'" id="'.$speaker[4].'_BlogLink'.$blognum.'" class="ModalBlogsquadCompanyLink">'.$titles.'</a><br/ >';
+				     $blognum++;
+				   
+			         }
+
+				}
+				unset($blog_title);
+				unset($blog_url);
+		  }
+		  
 		
-          <div class="ModalDivider"></div>';		  
+          $output.='<div class="ModalDivider"></div>';		  
 		  $s = 0;
 		  
 		  if (isset($link_types)){
@@ -675,7 +735,12 @@ opinion on everything HR.</p>
 				    	}
 				   }
 
-				    $output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+						    $social_tag = ucfirst($types).'-'.$speaker[4];
+				   			$google = 'onClick="_gaq.push([';
+			                $google .= "'_trackEvent', 'BloggerSocialSite', 'ExternalForward', '".$social_tag."']);";
+			                $google .= '"';
+							
+				    $output .='<p class="SocialIcons"><a '.$google.' href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 					//$output .='<p id="'.$speaker[4].'_'.$types.'" class="SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
 
 					   $s++;

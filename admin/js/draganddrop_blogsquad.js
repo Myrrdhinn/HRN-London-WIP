@@ -45,6 +45,21 @@ function BioSave() {
 	location.reload();
 }
 
+
+function save_blog(B_id, blog_id, Title, URL) {
+						  //------------------------------------------------------		
+          $.ajax({
+                url: 'controllers/main.php',
+                type: 'POST',
+                data: {action:"edit_blogsquad_blog_data", B_id:B_id, blog_id:blog_id, Title:Title, URL:URL},
+                success: function(data) {
+                    //finished
+                }
+            });
+	
+}
+
+
 function save_data(id, temp) {
 	if (typeof temp != 'undefined' && temp != '') {
 		var sVal = temp; 
@@ -385,7 +400,61 @@ $(document).ready(function(){
 			//get the id of the input box
 		var id = $(this).attr('id'); 
 		var sVal = $(this).val();
-		  save_data(id, sVal);
+		
+		 var BlogTitle = id.search("BlogTitle");
+		 var BlogURL = id.search("BlogURL");
+		 
+
+		//If we edit a blog title or url
+		if ((typeof BlogTitle != 'undefined' && BlogTitle != -1) || (typeof BlogURL != 'undefined' && BlogURL != -1 )) {
+			   if (BlogTitle > -1) {
+				   var temp = id.length;
+				   var t = BlogTitle+9;
+				   var dif = temp - t;
+				   dif = dif - 4;
+				   //this is the blog_id
+				  var B_id = id.substr(BlogTitle+9, dif);
+				  
+				  //New title
+				  var Title = sVal;
+				  
+				  //Old URL
+				  var URL_elem = id.substr(0, BlogTitle-1)+"_BlogURL"+B_id+"Edit";
+				  var URL = $('#'+URL_elem).val();
+			   } else {
+				   
+				   	var temp = id.length;
+				   var t = BlogURL+7;
+				   var dif = temp - t;
+				   dif = dif - 4;
+				   
+				   //this is the blog_id
+				  var B_id = id.substr(BlogURL+7, dif);
+				  
+				  //New URL
+				  var URL = sVal;
+				  
+				  //Old Title
+				  
+				  var Title_elem = id.substr(0, BlogURL-1)+"_BlogTitle"+B_id+"Edit";
+				  var Title = $('#'+Title_elem).val();
+			   }
+			   
+			   if ((typeof Title != 'undefined' && Title != "") || (typeof URL != 'undefined' && URL != "" )) {
+				   
+				      var tag_number = id.search("_");
+				   	  var tag = id.substr(0, tag_number);
+		              var sId = $('#'+tag+'_BlogsquadId').val();
+					 
+				   save_blog(B_id, sId, Title, URL);
+			   }
+			 
+		} else {
+		 //If we edit everything else	
+		 
+			 save_data(id, sVal);
+		}
+		
 		  
 		 var n = id.search("Edit");
          var res = id.substr(0, n);

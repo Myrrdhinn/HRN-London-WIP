@@ -638,6 +638,12 @@ function speaker_delete(){
 			);	
 		}  //isset company name ends
 		
+			 if (isset($_POST['BlogsquadBlogs'])){
+					$blogData = explode('|', $_POST['BlogsquadBlogs']);
+					$this->blogsquad_blog_add($blogData, $blogsquad_id);
+			}
+				 
+		
 	//LINKS	
 	      //Twitter
 		if ($_POST['BlogsquadTwitter'] != '') {	
@@ -697,6 +703,45 @@ function speaker_delete(){
 	
 	 }
 	 
+
+//Add a la carte from sponsors edit
+function blogsquad_blog_add($blogData, $sId) {
+					 if (isset($blogData)){
+						foreach ($blogData as $blog){
+							$current = explode(';', $blog);
+							
+							
+							if (isset($current[0]) && $current[0] !=" " && $sId != 0 && isset($current[1]) && $current[1] !=" "){
+								
+							$this->add_blog_blogsquad($sId, $current[0], $current[1]);
+							   }
+						}
+				
+				 }//isset post carteval
+	
+}
+
+function add_blog_blogsquad($blogsquad_id, $title, $blog_url){
+	
+		  $this->dbc->query(
+			sprintf("INSERT INTO blogsquad_blog_data SET blogsquad_id = '%s', title = '%s', url = '%s'",
+			  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
+			  $this->dbc->real_escape_string(htmlspecialchars($title)),
+			  $this->dbc->real_escape_string(htmlspecialchars($blog_url))
+			)
+		   );
+		   
+		   $blog_id = $this->dbc->insert_id;
+		   
+		   $this->dbc->query(
+			sprintf("INSERT INTO blogsquad_blog_data_connection SET blogsquad_id = '%s', blogsquad_blog_data_id = '%s', status=1",
+			  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
+			  $this->dbc->real_escape_string(htmlspecialchars($blog_id))
+			)
+		   );
+		   
+	
+}
 	 
 function blogsquad_personal_data($sTag, $sTitle, $sBio, $sBioImportant, $sId) {
 	
@@ -844,6 +889,30 @@ function blogsquad_company_data($sCompany, $sCompanyLink, $sId) {
 	
 	 }
 	 
+
+//Blogsquad blog data edit
+//----------------------------------------
+function blogsquad_blog_data_edit($blogsquadid, $bconnect_id, $title, $url) {
+			  $this->dbc->query(
+			sprintf("INSERT INTO blogsquad_blog_data SET blogsquad_id = '%s', title = '%s', url = '%s'",
+			  $this->dbc->real_escape_string(htmlspecialchars($blogsquadid)),
+			  $this->dbc->real_escape_string(htmlspecialchars($title)),
+			  $this->dbc->real_escape_string(htmlspecialchars($url))
+			)
+		   );
+		   
+		   $blog_id = $this->dbc->insert_id;
+		   
+		   $this->dbc->query(
+			sprintf("UPDATE blogsquad_blog_data_connection SET blogsquad_id = '%s', blogsquad_blog_data_id = '%s', status=1 WHERE id = '%s'",
+			  $this->dbc->real_escape_string(htmlspecialchars($blogsquadid)),
+			  $this->dbc->real_escape_string(htmlspecialchars($blog_id)),
+			  $this->dbc->real_escape_string(htmlspecialchars($bconnect_id))
+			)
+		   );
+	
+}
+
 
 	 //Blogsquad delete
 ///---------------------------------------------------------------
@@ -2197,6 +2266,17 @@ Modify Blogsquad Order
     $the_main->blogsquad_arrange();
 
 }// modify order end
+
+/*///////////// 
+Modify Blogsquad blog data
+///////////////*/
+
+ if(isset($_POST['action']) && $_POST['action'] == 'edit_blogsquad_blog_data' && isset($_POST['B_id'])){
+	$the_main = new main();
+    $the_main->blogsquad_blog_data_edit($_POST['blog_id'], $_POST['B_id'], $_POST['Title'], $_POST['URL']);
+
+}// modify order end
+
 
 /*///////////// 
 Upload new social link to blogsquad

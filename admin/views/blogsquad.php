@@ -206,6 +206,8 @@ opinion on everything HR.</p>
 						$content[$i][17] = Agenda Location
 						$content[$i][18] = Blogsquads id
 						$content[$i][19] = speakers name id;
+					    $content[$i][21] .= Blog Title .'|';
+					    $content[$i][22] .= Blog Url  .'|';
 		  */
 		if (isset($content)) {
 		  foreach ($content as $speaker) {
@@ -404,12 +406,21 @@ $(function() {
 
 						$content[$i][10] = Picture name
 						$content[$i][11] = Picture URL
+					    $content[$i][21] .= Blog Title .'|';
+					    $content[$i][22] .= Blog Url  .'|';
+						$content[$i][23] .= Blog id  .'|';
 		  */
 		if (isset($content)) {
 		 foreach ($content as $speaker) {
 			 if (isset($speaker[6])){
 				  $links = explode(';',$speaker[6]);
 			      $link_types = explode(';',$speaker[5]);
+			 }
+			 
+			 if (isset($speaker[21]) && isset($speaker[22]) && isset($speaker[23])){
+				  $blog_title = explode('|',$speaker[21]);
+			      $blog_url = explode('|',$speaker[22]);
+				  $blog_id = explode('|',$speaker[23]);
 			 }
 			 
 			     $num = 0;
@@ -455,8 +466,33 @@ $(function() {
           <p id="'.$speaker[4].'_Company" class="ClickClick ModalBlogsquadCompanyLink">'.$speaker[7].'</p>
 		  <input class="ClickEdit" id="'.$speaker[4].'_CompanyEdit" style="display:none;" name="'.$speaker[4].'_CompanyEdit" type="text" value="'.$speaker[7].'">
 		  <p id="'.$speaker[4].'_CompanyLink" class="ClickClick ModalBlogsquadCompanyLink">'.$speaker[8].'</p>
-		  <input class="ClickEdit" id="'.$speaker[4].'_CompanyLinkEdit" style="display:none;" name="'.$speaker[4].'_CompanyLinkEdit" type="text" value="'.$speaker[8].'">
-          <div class="ModalDivider"></div>';		  
+		  <input class="ClickEdit" id="'.$speaker[4].'_CompanyLinkEdit" style="display:none;" name="'.$speaker[4].'_CompanyLinkEdit" type="text" value="'.$speaker[8].'">';
+		  
+		  
+		  	 if (isset($blog_title) && isset($blog_url)){
+				 $blognum = 0;
+				 
+			 foreach ($blog_title As $titles) {
+			   if ($titles) {
+				   
+		    $output .='<p id="'.$speaker[4].'_BlogTitle'.$blog_id[$blognum].'" class="ClickClick ModalBlogsquadCompanyLink">'.$titles.'</p>
+		<input class="ClickEdit" id="'.$speaker[4].'_BlogTitle'.$blog_id[$blognum].'Edit" style="display:none;" name="'.$speaker[4].'_BlogTitleEdit'.$blog_id[$blognum].'" type="text" value="'.$titles.'">
+		
+		  <p id="'.$speaker[4].'_BlogURL'.$blog_id[$blognum].'" class="ClickClick ModalBlogsquadCompanyLink">'.$blog_url[$blognum].'</p>
+		  <input class="ClickEdit" id="'.$speaker[4].'_BlogURL'.$blog_id[$blognum].'Edit" style="display:none;" name="'.$speaker[4].'_BlogURLEdit'.$blog_id[$blognum].'" type="text" value="'.$blog_url[$blognum].'">';
+				   
+				   $blognum++;
+				   
+			         }
+
+				}
+				unset($blog_title);
+				unset($blog_url);
+		  }
+		  
+		  
+		  
+         $output .='<div class="ModalDivider"></div>';		  
 		  $s = 0;
 		  
 		  if (isset($link_types)){

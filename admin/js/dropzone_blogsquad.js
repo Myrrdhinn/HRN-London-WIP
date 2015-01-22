@@ -26,6 +26,7 @@
 		formData.append("BlogsquadBio", $("#BlogsquadBio").val());
 		formData.append("Order", $("#Order").val());
 		formData.append("Tag", $("#Tag").val());
+		formData.append("BlogsquadBlogs", $("#BlogsquadBlogs").val());
     },
     init: function() {
       this.on("addedfile", function(file) {
@@ -43,6 +44,20 @@
           // Remove the file preview.
 		    e.preventDefault();
             e.stopPropagation();
+			
+						var db = 0;
+			
+			  db = $('#BlogVal').val();
+			  
+			  if (db > 0) {
+			  var blog = "";
+
+			  for (var i = 1; i <= db; i++) {
+				  blog += $('#BlogTitle_'+i).val()+';'+$('#BlogURL_'+i).val()+'|';
+				   }
+			  }
+			$("#BlogsquadBlogs").val(blog);
+			
             dz.processQueue();
 		  
 

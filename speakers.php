@@ -129,13 +129,15 @@
         
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown" style="display: none;">Partners
+        <span class="DesktopMenuDropdown"><a href="#">Partners</a>
             <ul id="PartnersDropdown">
-            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
+            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li style="display: none;">Sponsors</li></a>
+                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li class="FirstDropdownItem">Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
             </ul>
-        </span>        
+        </span> 
+        
+        <div class="NavmenuDivider"></div>       
         
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="contact">Get in Touch</a> </div>
     <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
@@ -158,9 +160,9 @@
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
-          <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+          <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="PartnersMobileGroupContent">
-         		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
+         		<li style="display: none;"><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
           </div>
@@ -346,8 +348,12 @@
 
 			 $output = '';
 			$output .= '<div id="'.$speaker[18].'"><!-- '.$speaker[0].' Speakergrid-->';
+			
+			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'SpeakerProfile', 'ModalOpen', '".$speaker[4]."']);";
+			$google .= '"';
 
-     $output.= '<a data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
+     $output.= '<a '.$google.' data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
       <div class="Speaker">';
 	  if (isset($speaker[11])) {
 		  $output .= '<div class="SpeakerPhoto" style="background-image:url(img/speakers/'.$speaker[11].');">';
@@ -545,7 +551,19 @@ $(function() {
 				   $output .= '<div class="ModalSpeakerPhoto"></div>';
 			  }
        
+	   
+	        $company_tag = "";
+			$ca = preg_replace('/[^A-Za-z0-9]/', '', $speaker[7]); // Removes special chars.
+	        $company_tag_array = explode(" ",$ca);
+			foreach ($company_tag_array as $comp) {
+				$company_tag .= ucfirst($comp); 
+			}
+			
         
+			$google = 'onClick="_gaq.push([';
+			$google .= "'_trackEvent', 'SpeakerCompanySite', 'ExternalForward', '".$company_tag."']);";
+			$google .= '"';
+		
        $output .='<div class="ModalSpeakerBioContainer">
 	   <form class="SpeakerModalEdit">
 
@@ -553,7 +571,7 @@ $(function() {
 
           <p id="'.$speaker[4].'_Title" class="ModalSpeakerJobtitle RobotoText">'.$speaker[1].'</p>
 		
-		  <a href="'.$speaker[8].'" id="'.$speaker[4].'_CompanyLink" class="ModalSpeakerCompanyLink">'.$speaker[7].'</a>
+		  <a '.$google.' href="'.$speaker[8].'" id="'.$speaker[4].'_CompanyLink" class="ModalSpeakerCompanyLink">'.$speaker[7].'</a>
 		
           <div class="ModalDivider"></div>';		  
 		  $s = 0;
@@ -569,9 +587,12 @@ $(function() {
 						$links[$s] = "http://".$links[$s];
 				    	}
 				   }
-				   
-				   
-				   $output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+				   			$social_tag = ucfirst($types).'-'.$speaker[4];
+				   			$google = 'onClick="_gaq.push([';
+			                $google .= "'_trackEvent', 'SpeakerSocialSite', 'ExternalForward', '".$social_tag."']);";
+			                $google .= '"';
+							
+				   $output .='<p class="SocialIcons"><a '.$google.' href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 					//$output .='<p id="'.$speaker[4].'_'.$types.'" class="SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
 
 
