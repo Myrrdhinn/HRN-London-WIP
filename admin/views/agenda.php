@@ -304,6 +304,17 @@
 		?>
   </div>
       <!-- END Round Table DAY1 --> 
+      
+         <!-- User Adoption DAY1 -->
+      <div class="UserAdoption">
+        <h4 class="StageName OswaldText"><a name="day1-user-adoption"></a><img class="StageImage" src="img/agenda/useradoption.png">User Adoption</h4>
+                <?php  
+		
+		   $content = $agenda->agenda(1,12);
+			echo $content;
+		?>
+    </div>
+      <!-- END User Adoption DAY1 --> 
       <!-- No Event DAY1 -->
       <div class="day1-no-event">
         <div class="Session"> There are no events today in this session. </div>
@@ -401,6 +412,17 @@
 		?>
     </div>
       <!-- END Round Table DAY2 --> 
+      
+       <!-- User Adoption DAY2 -->
+      <div class="UserAdoption">
+        <h4 class="StageName OswaldText"><a name="day2-user-adoption"></a><img class="StageImage" src="img/agenda/useradoption.png">User Adoption</h4>
+                <?php  
+		
+		   $content = $agenda->agenda(2,12);
+			echo $content;
+		?>
+    </div>
+      <!-- END User Adoption DAY2 --> 
       <!-- No Event DAY2 -->
       <div class="day2-no-event">
         <div class="Session"> There are no events today in this session. </div>

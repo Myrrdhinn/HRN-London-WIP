@@ -9,7 +9,7 @@ function datainsert() {
 				dataType: "json",
                 data: {action:"agenda_edit", id:id},
                 success: function(data) {
-					console.log(data[7]);
+					
 					
 					var decodedTitle = data[6].replace(/&amp;/g, '&');
 					var decodedTitle = decodedTitle.replace(/&quot;/g, '"');
@@ -30,6 +30,16 @@ function datainsert() {
 				  //may want to use $.trim in here
 				  return $(this).text() == data[1]; 
 			  }).attr('selected', true);
+					
+					if (data[7] == 1) {
+					   $('#Highlighted').attr('checked', 'checked');
+					   	 $('#AgendaIcon').show();
+					     $('#SpeakersDiv').hide();
+					   $("#Icons option").filter(function() {
+				    //may want to use $.trim in here
+				      return $(this).text() == data[8]; 
+			            }).attr('selected', true);
+					}
 					
 
 

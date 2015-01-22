@@ -1988,13 +1988,13 @@ Modify Agenda
 										  
 										  
 					$agendaicon = $this->dbc->query(
-								  sprintf("SELECT aei.icon_type FROM agenda_event_icons as aei, agenda_event_icon_connection as aeic WHERE aeic.agenda_event_id = '%s' AND aeic.agenda_event_icon_id=aei.id ORDER BY aeic.date DESC LIMIT 0,1",
+								  sprintf("SELECT aei.icon_name FROM agenda_event_icons as aei, agenda_event_icon_connection as aeic WHERE aeic.agenda_event_id = '%s' AND aeic.agenda_event_icon_id=aei.id ORDER BY aeic.date DESC LIMIT 0,1",
 									  $this->dbc->real_escape_string($agenda_id)
 								  )
 									 );	
 									  if (mysqli_num_rows($agendaicon)) {
 									  while($Icons = $agendaicon->fetch_assoc()){
-										  $content[8] = $Icons['icon_type'];
+										  $content[8] = $Icons['icon_name'];
 										  
 									  } //agenda while end
 								  }  //agenda numrows end

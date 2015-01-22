@@ -199,6 +199,12 @@ body div {
   background-color: #a155a1;
   color: #fff;
 }
+
+.UserAdoption .SessionHeader:hover {
+  transition: all 0.2s;
+  background-color: #ff6666;
+  color: #fff;
+}
 /*end Headline hover effects */
 
 .NonCollapsibleSession {
@@ -425,5 +431,14 @@ body div {
 .HRAnalytics .fa-clock-o,
 .HRAnalytics .NonCollapsibleSession:hover {
   color: #a155a1;
+}
+
+.UserAdoption .SessionContent { border-bottom: 2px solid #ff6666;}
+.UserAdoption h4,
+.UserAdoption .SessionCompanyName,
+.UserAdoption .fa-map-marker,
+.UserAdoption .fa-clock-o,
+.UserAdoption .NonCollapsibleSession:hover {
+  color: #ff6666;
 }
 /*end Headline colors*/

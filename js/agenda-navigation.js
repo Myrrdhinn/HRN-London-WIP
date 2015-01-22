@@ -36,6 +36,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeIn();
 	$(".Labs").fadeIn();
 	$(".RoundTable").fadeIn();
+	$(".UserAdoption").fadeIn();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeOut();
@@ -56,6 +57,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeOut();
@@ -76,6 +78,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeIn();
@@ -96,6 +99,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeIn();
@@ -116,6 +120,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeIn();
@@ -136,6 +141,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeIn();
 	$(".day2-no-event").fadeOut();
@@ -156,6 +162,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeIn();
 	$(".day2-no-event").fadeOut();
@@ -176,6 +183,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeIn();
 	$(".day2-no-event").fadeOut();
@@ -196,6 +204,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeOut();
@@ -216,6 +225,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeIn();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeOut();
@@ -236,6 +246,7 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeIn();
 	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeOut();
@@ -256,10 +267,32 @@ $(document).ready(function(){
 	$(".SocialCollaboration").fadeOut();
 	$(".Labs").fadeOut();
 	$(".RoundTable").fadeIn();
+	$(".UserAdoption").fadeOut();
 		
 	$(".day1-no-event").fadeOut();
 	$(".day2-no-event").fadeOut();
       }
+	 	    else if ( this.value == '12')
+      {
+        $(".MainStage").fadeOut();
+	
+	$(".HRShare").fadeOut();
+	$(".FutureOfWork").fadeOut();
+	$(".HRTech").fadeOut();
+		
+	$(".Compensation").fadeOut();
+	$(".CloudTech").fadeOut();
+	$(".HRAnalytics").fadeOut();
+		
+	$(".TalentAndRecruitment").fadeOut();
+	$(".SocialCollaboration").fadeOut();
+	$(".Labs").fadeOut();
+	$(".RoundTable").fadeOut();
+	$(".UserAdoption").fadeIn();
+		
+	$(".day1-no-event").fadeOut();
+	$(".day2-no-event").fadeOut();
+      } 
     });
 });
 $(document).ready(function(){
