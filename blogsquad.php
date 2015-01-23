@@ -684,9 +684,18 @@ opinion on everything HR.</p>
 
           <p id="'.$speaker[4].'_Name" class=" ModalBlogsquadName OswaldText">'.$speaker[0].'</p>
 
-          <p id="'.$speaker[4].'_Title" class="ModalBlogsquadJobtitle RobotoText">'.$speaker[1].'</p>
+          <p id="'.$speaker[4].'_Title" class="ModalBlogsquadJobtitle RobotoText">'.$speaker[1].'</p>';
+		  
+		  				if (isset($speaker[8])) {
+					 $Http = strpos($speaker[8], "http://");
+					 $Https = strpos($speaker[8], "https://");
+					
+					 if ($Http === false && $Https === false) {
+						$speaker[8] = "http://".$speaker[8];
+				    	}
+				   }
 		
-		  <a '.$google.' href="'.$speaker[8].'" id="'.$speaker[4].'_CompanyLink" class="ModalBlogsquadCompanyLink">'.$speaker[7].'</a>';
+		  $output .='<a '.$google.' href="'.$speaker[8].'" id="'.$speaker[4].'_CompanyLink" class="ModalBlogsquadCompanyLink">'.$speaker[7].'</a>';
 		  
 		  
 		  		  	 if (isset($blog_title) && isset($blog_url)){
@@ -701,6 +710,17 @@ opinion on everything HR.</p>
 						foreach ($company_tag_array as $comp) {
 							$company_tag .= ucfirst($comp); 
 						}
+						
+						
+										   if (isset($blog_url[$blognum])) {
+					 $Http = strpos($blog_url[$blognum], "http://");
+					 $Https = strpos($blog_url[$blognum], "https://");
+					
+					 if ($Http === false && $Https === false) {
+						$blog_url[$blognum] = "http://".$blog_url[$blognum];
+				    	}
+				   }
+
 						
 					
 						$google = 'onClick="_gaq.push([';
