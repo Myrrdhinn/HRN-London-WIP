@@ -721,6 +721,23 @@ function blogsquad_blog_add($blogData, $sId) {
 	
 }
 
+
+//Add a la carte from sponsors edit
+function blogsquad_blog_edit_add($blogsquad_id, $title, $url) {
+					 if (isset($blogsquad_id) && isset($title)){
+						foreach ($title as $id=>$blog){
+						
+							if (isset($blog) && $blogsquad_id != 0 && isset($url[$id])){
+								
+							$this->add_blog_blogsquad($blogsquad_id, $blog, $url[$id]);
+							   }
+						}
+				
+				 }//isset post blogsquad id
+	
+}
+
+
 function add_blog_blogsquad($blogsquad_id, $title, $blog_url){
 	
 		  $this->dbc->query(
@@ -2274,6 +2291,17 @@ Modify Blogsquad blog data
  if(isset($_POST['action']) && $_POST['action'] == 'edit_blogsquad_blog_data' && isset($_POST['B_id'])){
 	$the_main = new main();
     $the_main->blogsquad_blog_data_edit($_POST['blog_id'], $_POST['B_id'], $_POST['Title'], $_POST['URL']);
+
+}// modify order end
+
+
+/*///////////// 
+Add new Blogsquad blog data
+///////////////*/
+
+ if(isset($_POST['action']) && $_POST['action'] == 'AddNewBlogsquadBlogEdit' && isset($_POST['title'])){
+	$the_main = new main();
+    $the_main->blogsquad_blog_edit_add($_POST['sId'], $_POST['title'], $_POST['url']);
 
 }// modify order end
 

@@ -485,6 +485,93 @@ $(document).ready(function(){
   })
 
   
+   		 /// New Agenda icon stuff
+		 
+		 $('.Highlighted').on('click', function () {
+	     		var id = $(this).attr('id');
+						//get the original tag
+		        var tag_number = id.search("_");
+		        var tag = id.substr(0, tag_number)+"_"; 
+ 
+			var n = $( "#"+id+":checked" ).length;
+			
+			if (n === 1) {
+				 var i = 2;
+				 var test = $('<button/>',{
+                    text: '+',
+                     click: function (e) { 
+					    
+					        e.preventDefault();
+		                   	e.stopPropagation(); 
+							 $('#'+tag+'BlogDiv').append('<br /><input class="AdminInputField" required="required" id="BlogTitle_'+i+'" name="BlogTitle_'+i+'" type="text" placeholder="Blog Title" />');							
+							 $('#'+tag+'BlogDiv').append('<br /><input class="AdminInputField" required="required" id="BlogURL_'+i+'" name="BlogURL_'+i+'" type="text" placeholder="Blog URL" />');
+							 $('#BlogVal').val(i);
+							 i++;
+							 $('#'+tag+'BlogDiv').append(test).end();
+
+							}
+                    });
+				
+				
+				   $('#'+tag+'BlogDiv').show();
+				   $('#'+tag+'BlogDiv').append('<br /><input class="AdminInputField" required="required" id="BlogTitle_1" name="BlogTitle_1" type="text" placeholder="Blog Title" />');							
+				   $('#'+tag+'BlogDiv').append('<br /><input class="AdminInputField" required="required" id="BlogURL_1" name="BlogURL_1" type="text" placeholder="Blog URL" />');
+				   $('#'+tag+'BlogDiv').append('<input id="BlogVal" name="BlogVal" type="hidden" value="1"/>');
+				  
+				  $('#'+tag+'BlogDiv').append(test).end();
+				  
+
+							   //disable enter button for this 
+						$('#'+tag+'BlogDiv').keypress(function(e){
+    
+                          if ( e.which == 13 ) {
+							   e.preventDefault();
+							     var db = $('#BlogVal').val();
+								 var title = [];
+								 var url = [];
+								 
+                              var sId = $('#'+tag+'BlogsquadId').val();
+							  
+								for (var i = 1; i <= db; i++) {
+                                    title[i-1] = $('#BlogTitle_'+i).val();
+								    url[i-1] = $('#BlogURL_'+i).val();
+							
+                                     }
+							   							   
+							   if (typeof title[0] !='undefined') {
+								$.ajax({
+								  url: 'controllers/main.php',
+								  type: 'POST',
+								  data: {action:"AddNewBlogsquadBlogEdit", sId:sId, title:title, url:url},
+								  success: function(data) {
+									 location.reload();
+								  }
+							  });
+							  
+
+							   }//if title[0]
+												 
+						  }
+                      });
+						
+				 
+				  //<input type="button" name="AddAlaCarte" class="AddAlaCarte" value="+"> <br />
+				  
+				  //$('#AlaCarteDiv input').attr('required', 'required');
+	   
+			} else {
+				
+				//show everything as normal
+				  $('#'+tag+'BlogDiv').hide();
+		          $('#'+tag+'BlogDiv').children().remove();
+			}
+
+	     })
+		 
+		 
+  
+  
+  
   	 /*-----------------------
 		Blogsquad Delete
 	------------------------	*/

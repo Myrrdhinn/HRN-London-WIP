@@ -490,7 +490,8 @@ $(function() {
 				unset($blog_url);
 		  }
 		  
-		  
+		  $output.='<br /><label>Add new blog(s)<input class="Highlighted" id="'.$speaker[4].'_Highlighted" name="Highlighted" type="checkbox" value="1" /></label><br />
+          <div id="'.$speaker[4].'_BlogDiv" style="display: none;"></div>';
 		  
          $output .='<div class="ModalDivider"></div>';		  
 		  $s = 0;
@@ -516,9 +517,7 @@ $(function() {
 		  <textarea class="ClickEdit" id="'.$speaker[4].'_BioImportantEdit" style="display:none;" name="'.$speaker[4].'_BioImportantEdit" >'.$speaker[2].'</textarea>
 		  <div id="'.$speaker[4].'_Bio" class="ClickClick ModalBlogsquadBio RobotoText"> '.$speaker[3].'</div>
 		  <textarea class="ClickEdit" id="'.$speaker[4].'_BioEdit" style="display:none;" name="'.$speaker[4].'_BioEdit">'.$speaker[3].'</textarea>
-		  
-		  
-		  
+		 
 		  </form>
         </div>
       </div>
