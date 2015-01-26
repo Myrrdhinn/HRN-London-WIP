@@ -1,9 +1,128 @@
-    <?php 
+<?php
+
+if(isset($_POST['email'])) {
+ 
+     //it's working! :) Just character encoding is not good :(
+ 
+    // EDIT THE 2 LINES BELOW AS REQUIRED
+ 
+    $email_to = "mediapartners@hrneurope.com";
+ 
+    $email_subject = "New Media Partner applicant";
+ 
+     
+ 
+     
+ 
+    function died($error) {
+ 
+        // your error code can go here
+ 
+    //    echo "We are very sorry, but there were error(s) found with the form you submitted. ";
+ 
+      //  echo "These errors appear below.<br /><br />";
+ 
+   //      echo $error."<br /><br />";
+ 
+     //   echo "Please go back and fix these errors.<br /><br />";
+ 
+        die();
+ 
+    }
+ 
+     
+ 
+
+ 
+    $first_name = utf8_decode($_POST['first_name']); // required
+ 
+    $last_name = utf8_decode($_POST['last_name']); // required
+ 
+    $email_from = $_POST['email']; // required
+ 
+    $telephone = $_POST['phone']; // not required
+ 
+    $comments = utf8_decode($_POST['description']); // required
+	
+	$company = utf8_decode($_POST['company']); // required
+ 
+     
+
+    $email_message = "Form details below.\n\n";
+ 
+ 
+  function sanitize($data){
+       //$data = htmlentities(strip_tags(trim($data)));
+		
+		$bad = array("content-type","bcc:","to:","cc:","href","$","SELECT","<",">",";","INSERT INTO","UPDATE","DELETE");
+		
+		$data = str_replace($bad,"",$data);
+		
+        $search = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript
+                   '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+                   '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+                   '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments including CDATA
+    ); 
+    $data = preg_replace($search, '', $data); 
+        return $data;
+    }
+ 
+     
+ 
+    $email_message .= "First Name: ".sanitize($first_name)."\n";
+ 
+    $email_message .= "Last Name: ".sanitize($last_name)."\n";
+ 
+    $email_message .= "Email: ".sanitize($email_from)."\n";
+ 
+    $email_message .= "Telephone: ".sanitize($telephone)."\n";
+ 
+    $email_message .= "Comments: ".sanitize($comments)."\n";
+	
+   $email_message .= "Publication Website: ".sanitize($company)."\n";
+ 
+     
+ 
+     
+
+    if(!isset($_POST['first_name']) ||
+ 
+        !isset($_POST['last_name']) ||
+ 
+        !isset($_POST['email']) ||
+ 
+        !isset($_POST['phone']) ||
+		
+	    !isset($_POST['description']) ||
+ 
+        !isset($_POST['company'])) {
+			
+
+ 
+    } else {
+		// create email headers
+ 
+$headers = 'From: '.$email_from."\r\n".
+ 
+'Reply-To: '.$email_from."\r\n" .
+ 
+'X-Mailer: PHP/' . phpversion();
+ 
+@mail($email_to, $email_subject, $email_message, $headers);
+header("Location: http://london.hrtecheurope.com/thankyou");
+exit;
+
+	}
+
+}
+
 
 		include_once('controllers/aaa.php');
 		include_once('controllers/config.php');
 		include_once('controllers/mediapartners_main.php');
 		include_once('controllers/locations.php');
+
+
 
 ?>
 
@@ -31,6 +150,11 @@
 
 <!-- Favicon setting -->
 <link rel="shortcut icon" href="favicon.ico">
+
+<!-- SlideCAPTCHA -->
+<script src="vendor/SlideCaptcha/js/modernizr.custom.20910.js"></script>
+<script src="vendor/SlideCaptcha/js/jquery.js"></script>
+<link href="vendor/SlideCaptcha/css/slide-to-captcha.css" rel="stylesheet">
 
 <!--Include Google fonts -->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
@@ -268,7 +392,45 @@
 
 	   ?>
     </section>
-    <!--END MAIN CONTENT--> 
+    <!--END MAIN CONTENT-->
+<div id="MediaPartnersFormContainer"> 
+  <div id="MediaPartnersFormInnerContainer">
+    <a id="join-the-media-partners"></a> 
+    <h1>Join the Media Partners</h1>
+        <form action="" method="POST"> 
+          <input type=hidden name="retURL" value="http://london.hrtecheurope.com/thankyou">
+          <div class="row">
+            <div class="large-6 columns">
+              <input required placeholder="First Name *"  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+              <input required placeholder="Last Name *" id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+              <input required placeholder="Email Address *"  id="email" maxlength="80" name="email" size="20" type="text" />
+              <input required placeholder="Phone Number *"  id="phone" maxlength="40" name="phone" size="20" type="text" />
+              <input required placeholder="Publication Site *"  id="company" maxlength="40" name="company" size="20" type="text" />
+                           <select style="display:none;"   id="lead_source" name="lead_source" placeholder="Lead Source"><option selected="selected" value="HRTechLondon2015-JoinTheMediaPartners">HRTechLondon2015-JoinTheMediaPartners</option>
+                      </select>
+            </div>
+            <div class="large-6 columns">
+              <textarea placeholder="Message" name="description"></textarea>
+            </div>
+          </div>
+                <div class="large-12 column">
+     <div class="captcha" style="text-align:center; max-width:100px;">
+                <div class="handle"></div> 
+                 
+        </div>
+
+         
+    </div>
+         <h6 class="OswaldText text-center" style="color:#fff; margin-bottom:20px;" id="ClickHandleText">Please click the handle!</h6>
+          <div class="row">
+            <div class="large-12 column">
+              <input onClick="_gaq.push(['_trackEvent', 'MediaPartners', 'FormSubmission', 'InquirySent']);" type="submit" id="JoinMediaPartnersButton" name="submit" value="Send">
+            </div>
+          </div>
+        </form>
+      </div>    
+</div>
+<!-- End Blog Squad Form --> 
     
     <!-- FOOTER -->
     <footer> 
@@ -357,23 +519,6 @@ $(function() {
 
 
 </script> 
-
-	   
-	<!--Form Scripts --> 
-<script type='text/javascript' src='http://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='NAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';fnames[2]='PHONE';ftypes[2]='text';fnames[3]='COMPANY';ftypes[3]='text';fnames[4]='SORUCE';ftypes[4]='text';fnames[5]='MSG';ftypes[5]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<script type="text/javascript">
-$(function() {
-  $('form').submit(function(){
-    $.post('http://hrneurope.us4.list-manage.com/subscribe/post?u=c03cb8f11b1f34771fdd1747c&amp;id=acc85bbd71', function() {
-      window.location = 'http://loondon.hrtecheurope.com/thankyou';
-    });
-    return false;
-  });
-});
-</script>
-
-
-
 
 
 <!-- MODAL OPEN FROM EXTERNAL LINK --> 
@@ -529,6 +674,31 @@ if ($mediapartner[0] != -55 && $go == 1){	//if we already displayed the modal or
 	}//foreach content ends
 		} //if isset content ends
 ?>
+
+<!-- SlideCAPTCHA -->
+<script src="vendor/SlideCaptcha/js/slide-to-captcha.js" type="text/javascript"></script>
+<script>
+    $('.captcha').slideToCAPTCHA();
+</script>
+
+<script type="text/javascript">
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+
+
+</script>
 
 <!-- Start of Async HubSpot Analytics Code --> 
 <script type="text/javascript">
