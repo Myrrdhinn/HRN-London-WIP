@@ -52,7 +52,7 @@
 <!-- Drag & Drop -->
 
 <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 	echo '<!-- This needs jquery ui-->
 <script src="js/mediapartners_edit.js"></script>  
 <script src="js/dropzone_mediapartners_edit.js"></script>
@@ -71,7 +71,7 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
   <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -180,7 +180,7 @@
     </div>
     <div style="clear: both;"></div>
     <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 	echo '<div id="tinyDiv"></div>
          <a href="new_mediapartners">
         <div class="AdminNavigateButton">New Media Partner</div>
@@ -271,7 +271,7 @@
   if ($mediapartner[0] != -55){ //if there's no a la carte mediapartner uploaded, the array will come back with mediapartner id -55, so we must chek this first because we don't want to display this!
 	  $output .= '<div class="MediapartnerMain" id="'.$mediapartner[11].'"><!-- '.$mediapartner[8].' Mediapartner Grid-->';
   
-	 if(isset($_SESSION['admin'])) {
+	 if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 			 $output .= '<div id="MediapartnerDel-'.$mediapartner[11].'" class="MediapartnerDelete"><i class="fa fa-trash fa-2x"></i></div>';
 	      }
 
@@ -289,7 +289,7 @@
           </div>
         </div>';
               		// If the mediapartner is an A La Carte Mediapartner, print out the mediapartnered product 
-		  if(!isset($_SESSION['admin'])) {			
+		  if(!isset($_SESSION['admin']) && !isset($_SESSION['mediapartners_admin'])) {			
       		if($mediapartner[13] == 1) {
       			$output .= '<p class="ALaCarte">'.$mediapartner[12].'</p>';
       		}
@@ -298,7 +298,7 @@
 
       		
       $output .= '</a>'; 
-	   if(isset($_SESSION['admin'])) {
+	   if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 		if($mediapartner[13] == 1 && $mediapartner[2] == 999) {
 		    $output .= '<p id="'.$mediapartner[4].'_AlaCarteText-'.$mediapartner[14].'" class="ClickClick ModalMediapartnerAlaCarte ALaCarte">'.$mediapartner[12].'</p>
 		     <input class="ClickEdit" id="'.$mediapartner[4].'_AlaCarteText-'.$mediapartner[14].'Edit" style="display:none;" name="'.$mediapartner[4].'_AlaCarteText-'.$mediapartner[14].'Edit" type="text" value="'.$mediapartner[12].'">';
@@ -412,7 +412,7 @@ $(function() {
 </script> 
 
     <?php 
-  if(!isset($_SESSION['admin'])) {
+  if(!isset($_SESSION['admin']) && !isset($_SESSION['mediapartners_admin'])) {
 	  $mcj = '$mcj';
 	   
 	$formjs = "<!--Form Scripts --> 
@@ -541,7 +541,7 @@ if (isset($content)) {
 			 
 			 */
 if ($mediapartner[0] != -55 && $go == 1){	//if we already displayed the modal or the modal don't contain data then we don't print it out		 			
-if(isset($_SESSION['admin'])) {
+if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 	/*
 	-------------------------
 	Admin, able to edit stuff!

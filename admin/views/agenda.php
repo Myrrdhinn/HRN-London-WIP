@@ -56,7 +56,7 @@
 <!-- Agenda Navigation -->
 
 <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
 	echo '<!-- This needs jquery ui-->
 <script src="js/agenda.js"></script>  
 <link rel="stylesheet" href="css/admin_edit_general.css" />'; 
@@ -81,7 +81,7 @@
   
     
   <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -198,7 +198,7 @@
   </header>
   
       <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
 	echo '<a href="new_agenda">
         <div class="AdminNavigateButton">New Agenda</div>
         </a>'; 

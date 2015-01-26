@@ -49,7 +49,7 @@
 <!-- Drag & Drop -->
 
 <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
 	echo '<!-- This needs jquery ui-->
 <script src="js/draganddrop.js"></script>
 <script src="js/dropzone_main.js"></script>
@@ -77,7 +77,7 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
   <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -299,7 +299,7 @@
     
     <!-- END SLIDESHOW --> 
     <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
 	echo '<a href="new_speakers">
         <div class="AdminNavigateButton">New Speaker</div>
         </a> </div><div id="tinyDiv"></div>';  
@@ -369,7 +369,7 @@
 
 			 $output = '';
 			$output .= '<div id="'.$speaker[18].'"><!-- '.$speaker[0].' Speakergrid-->';
-	if(isset($_SESSION['admin'])) {
+	if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
 	    $output .= '<div id="SpeakerDel_'.$speaker[18].'" class="SpeakerDelete"><i class="fa fa-trash fa-2x"></i></div>';
 		}
      $output.= '<a data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
@@ -393,7 +393,7 @@
         </div>
       </div>
       </a>'; 
-	   if(isset($_SESSION['admin'])) {
+	   if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
 	
        }
 	  
@@ -557,7 +557,7 @@ $(function() {
 						 $num++;		
 					}
 			 
-	if(isset($_SESSION['admin'])) {
+	if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
 	 /*
 	 --------------------------
 	 Admin

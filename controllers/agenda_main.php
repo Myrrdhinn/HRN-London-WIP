@@ -3,19 +3,20 @@
 class agenda_main extends config {
 	
 	function no_ekezet($fajlnev) {
-	    $specialis_karekterek = array('Š'=>'S', 'š'=>'s', 'Ð'=>'Dj','Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E', 'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ő'=>'O', 'Ø'=>'O', 'Ù'=>'U', 'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ű'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'ss','à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c', 'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ő'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ü'=>'u', 'ű'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y', 'ƒ'=>'f', '"'=>' ', "'"=>' ', 'quot'=>' ');
+	    $specialis_karekterek = array('Š'=>'S', 'š'=>'s', 'Ð'=>'Dj','Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E', 'Ê'=>'E', 'Ë'=>'E', 'E'=>'e', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ő'=>'O', 'Ø'=>'O', 'Ù'=>'U', 'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ű'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'ss','à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c', 'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ő'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ü'=>'u', 'ű'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y', 'ƒ'=>'f','amp;'=>'and', '"'=>' ', "'"=>' ', 'quot'=>' ', "?"=>'');
     $fajlnev = strtolower(strtr($fajlnev, $specialis_karekterek));
     $fajlnev = preg_replace("/[^a-z0-9-_\.]/i", '-', trim($fajlnev));
       if (substr($fajlnev, -1) == '-') {
 		  $fajlnev = substr($fajlnev, 0, strlen($fajlnev)-1);
 	  }
 	 $double_check =  array("----" => "-", "---" => "-", "--" => "-");
+	 
 	  $fajlnev = strtr($fajlnev, $double_check);
 	  $fajlnev = strtr($fajlnev, $double_check);
 	    if ($fajlnev[0] == '-') {
 		  $fajlnev = substr($fajlnev, 1);
-	  } 
-	  
+	   } 
+
     return $fajlnev;
 	
 }
@@ -286,18 +287,31 @@ class agenda_main extends config {
                                          $class .= '';
 										$extraclass = ''; 
 										$icon = ''; 
+										
+						if(!isset($agendas[9])) {
+							$agendas[9] = $this->no_ekezet($agendas[6]);
+						}
+						$google = 'onClick="_gaq.push([';
+						$google .= "'_trackEvent', 'AgendaStreamInfo', 'OpenCollapsiblePanel', '".$agendas[9]."']);";
+						$google .= '"';
+						
+						$link = '<a '.$google.' id="'.$agendas[9].'" name="'.$agendas[9].'"></a>';
+						
+										
 									} else {
 										$extraclass = ' NonCollapsibleSession';  
 										 $class .= ' HighlightedSession';
+										    $link = '';
 									}
 									if ($agendas[7] == 1) {
 										$extraclass = ' NonCollapsibleSession';  
 										 $class .= ' HighlightedSession';
 										 $icon = '<i class="icon-'.$agendas[8].'-icon agenda-icon"></i>';
+										    $link = '';
 									}
 									
 							 
-						      $link = '';
+						   
 							
  							$break = '<div class="SessionTitle'.$long.'">'.$agendas[6].'</div>'.$icon;
 						  

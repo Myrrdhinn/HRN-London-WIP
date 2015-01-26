@@ -139,10 +139,11 @@ tinymce.init({
 	  
 	 
 	<!--Form container-->
-	 <div id="container">
+	 <div id="container">';
 	 
-	 
-	     <form class= id="agenda" name="agenda" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
+	  if (isset($_SESSION['agenda_admin'])) {
+		  
+	     $content.='<form class= id="agenda" name="agenda" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
     <div>
     ';
   // $content .= $new->agenda_list();
@@ -224,8 +225,14 @@ tinymce.init({
      <input class="AdminSubmitButton" name="AgendaEditSubmit" type="submit" value="Save"/>
    </div>
   </form>
-    	   <!-- End of Form Container-->
-	 </div>
+    	   <!-- End of Form Container-->';
+		   
+ 	 } //if isset agenda_admin 
+	 else {
+		$content.="<h1 style='text-align:center'>You don't have permission to see this page! Naughty! ;)</h1>"; 
+	 }
+	 
+	 $content .='</div>
 	 
 	<!--End of Main Wrapper-->
 	</div>

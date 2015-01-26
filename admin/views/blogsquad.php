@@ -49,7 +49,7 @@
 <!-- Drag & Drop -->
 
 <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
 	echo '<!-- This needs jquery ui-->
 <script src="js/draganddrop_blogsquad.js"></script>
 <script src="js/dropzone_main.js"></script>
@@ -77,7 +77,7 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
   <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -187,7 +187,7 @@ opinion on everything HR.</p>
     </div>
     <div style="clear: both;"></div>
     <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
 	echo '<a href="new_blogsquad">
         <div class="AdminNavigateButton">New Blogger</div>
         </a> </div><div id="tinyDiv"></div>';  
@@ -259,7 +259,7 @@ opinion on everything HR.</p>
 
 			 $output = '';
 			$output .= '<div id="'.$speaker[18].'"><!-- '.$speaker[0].' Blogsquadgrid-->';
-	if(isset($_SESSION['admin'])) {
+	if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
 	    $output .= '<div id="BlogsquadDel_'.$speaker[18].'" class="BlogsquadDelete"><i class="fa fa-trash fa-2x"></i></div>';
 		}
      $output.= '<a data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
@@ -280,7 +280,7 @@ opinion on everything HR.</p>
         </div>
       </div>
       </a>'; 
-	   if(isset($_SESSION['admin'])) {
+	   if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
 	
        }
 	  
@@ -453,7 +453,7 @@ $(function() {
 						 $num++;		
 					}
 			 
-	if(isset($_SESSION['admin'])) {
+	if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
 	 /*
 	 --------------------------
 	 Admin

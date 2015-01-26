@@ -220,7 +220,7 @@ class agenda_main extends config {
 					$name = $this->no_ekezet($agendas[6]);
 					
 					if ($agendas[7] == 1) {
-						  if(isset($_SESSION['admin'])) {
+						  if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
 
 							$link = '<a name="'.$name.'"></a>';
 						     $extraclass = '';
@@ -248,9 +248,9 @@ class agenda_main extends config {
 			</div>';
 			
 		
-	if ($agendas[7] != 1 || isset($_SESSION['admin'])) {	
+	if ($agendas[7] != 1 || isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {	
 		 $output .= '</div><div class="SessionContent">';
-		  if(isset($_SESSION['admin'])) {
+		  if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
 		 $output .= '<div><button class="AgendaEditClick" id=AgendaEdit_'.$agendas[0].'>Edit</button></div>';
 		 $output .= '<div><button class="AgendaDeleteClick" id=AgendaDelete_'.$agendas[0].'>Delete</button></div>';
 		  }

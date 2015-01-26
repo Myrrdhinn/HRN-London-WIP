@@ -136,9 +136,11 @@ tinymce.init({
 	  
 	 
 	<!--Form container-->
-	 <div id="container">
+	 <div id="container">';
+	 
+	 if (isset($_SESSION['blogsquad_admin'])) {
 
-	     <form id="blogsquad" name="blogsquad" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
+	    $content.='<form id="blogsquad" name="blogsquad" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
          <script src="js/dropzone_blogsquad.js"></script>
   
      <fieldset>
@@ -211,8 +213,15 @@ tinymce.init({
 
   </form>
 	
-	   <!-- End of Form Container-->
-	 </div>
+  	   <!-- End of Form Container-->';
+	   
+	 } //if isset agenda_admin 
+	 else {
+		$content.="<h1 style='text-align:center'>You don't have permission to see this page! Naughty! ;)</h1>"; 
+	 }
+	 
+	 
+	$content .=' </div>
 	 
 	<!--End of Main Wrapper-->
 	</div>

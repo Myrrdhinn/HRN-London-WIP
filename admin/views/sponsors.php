@@ -52,7 +52,7 @@
 <!-- Drag & Drop -->
 
 <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 	echo '<!-- This needs jquery ui-->
 <script src="js/sponsor_edit.js"></script>  
 <script src="js/dropzone_main.js"></script>
@@ -71,7 +71,7 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
   <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -180,7 +180,7 @@
     </div>
     <div style="clear: both;"></div>
     <?php 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 	echo '<div id="tinyDiv"></div>
          <a href="new_sponsors">
         <div class="AdminNavigateButton">New Sponsor</div>
@@ -271,7 +271,7 @@
   if ($sponsor[0] != -55){ //if there's no a la carte sponsor uploaded, the array will come back with sponsor id -55, so we must chek this first because we don't want to display this!
 	  $output .= '<div class="SponsorMain" id="'.$sponsor[11].'"><!-- '.$sponsor[8].' Sponsor Grid-->';
   
-	 if(isset($_SESSION['admin'])) {
+	 if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 			 $output .= '<div id="SponsorDel-'.$sponsor[11].'" class="SponsorDelete"><i class="fa fa-trash fa-2x"></i></div>';
 	      }
 
@@ -289,7 +289,7 @@
           </div>
         </div>';
               		// If the sponsor is an A La Carte Sponsor, print out the sponsored product 
-		  if(!isset($_SESSION['admin'])) {			
+		  if(!isset($_SESSION['admin']) && !isset($_SESSION['sponsors_admin'])) {			
       		if($sponsor[13] == 1) {
       			$output .= '<p class="ALaCarte">'.$sponsor[12].'</p>';
       		}
@@ -298,7 +298,7 @@
 
       		
       $output .= '</a>'; 
-	   if(isset($_SESSION['admin'])) {
+	   if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 		if($sponsor[13] == 1 && $sponsor[2] == 999) {
 		    $output .= '<p id="'.$sponsor[4].'_AlaCarteText-'.$sponsor[14].'" class="ClickClick ModalSponsorAlaCarte ALaCarte">'.$sponsor[12].'</p>
 		     <input class="ClickEdit" id="'.$sponsor[4].'_AlaCarteText-'.$sponsor[14].'Edit" style="display:none;" name="'.$sponsor[4].'_AlaCarteText-'.$sponsor[14].'Edit" type="text" value="'.$sponsor[12].'">';
@@ -412,7 +412,7 @@ $(function() {
 </script> 
 
     <?php 
-  if(!isset($_SESSION['admin'])) {
+  if(!isset($_SESSION['admin']) && !isset($_SESSION['sponsors_admin'])) {
 	  $mcj = '$mcj';
 	   
 	$formjs = "<!--Form Scripts --> 
@@ -541,7 +541,7 @@ if (isset($content)) {
 			 
 			 */
 if ($sponsor[0] != -55 && $go == 1){	//if we already displayed the modal or the modal don't contain data then we don't print it out		 			
-if(isset($_SESSION['admin'])) {
+if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 	/*
 	-------------------------
 	Admin, able to edit stuff!
