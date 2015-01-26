@@ -396,7 +396,7 @@ exit;
 <div id="MediaPartnersFormContainer"> 
   <div id="MediaPartnersFormInnerContainer">
     <a id="join-the-media-partners"></a> 
-    <h1>Join the Media Partners</h1>
+    <h1>Join Our Media Partners</h1>
         <form action="" method="POST"> 
           <input type=hidden name="retURL" value="http://london.hrtecheurope.com/thankyou">
           <div class="row">
