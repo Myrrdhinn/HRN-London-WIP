@@ -190,7 +190,7 @@ opinion on everything HR.</p>
   if(isset($_SESSION['admin'])) {
 	echo '<a href="new_blogsquad">
         <div class="AdminNavigateButton">New Blogger</div>
-        </a> </div></div><div id="tinyDiv"></div>';  
+        </a> </div><div id="tinyDiv"></div>';  
   }
 ?>
     
