@@ -83,35 +83,57 @@ tinymce.init({
 	  
 	        <div id="MenuIconContainer">';
 	
-     $content .= '<a href="sponsors"><img class="MenuIcon" src="img/admin/sponsors.png" onmouseover="this.src=';
-	 $content .="'img/admin/sponsors_hover.png';";
-	 $content .='" onmouseout="this.src=';
-	 $content .="'img/admin/sponsors.png';";
-	 $content .='" ></a>';
+  
+	if (isset($_SESSION['sponsors_admin'])) {
+		
+
+		 $content .= '<a href="sponsors"><img class="MenuIcon" src="img/admin/sponsors.png" onmouseover="this.src=';
+		 $content .="'img/admin/sponsors_hover.png';";
+		 $content .='" onmouseout="this.src=';
+		 $content .="'img/admin/sponsors.png';";
+		 $content .='" ></a>';
 	 
-	 $content .= '<a href="speakers"><img class="MenuIcon" src="img/admin/speakers.png" onmouseover="this.src=';
-	 $content .="'img/admin/speakers_hover.png';";
-	 $content .='" onmouseout="this.src=';
-	 $content .="'img/admin/speakers.png';";
-	 $content .='" ></a>';
+	}
+	 
+	if (isset($_SESSION['speakers_admin'])) {
+		
+		 $content .= '<a href="speakers"><img class="MenuIcon" src="img/admin/speakers.png" onmouseover="this.src=';
+		 $content .="'img/admin/speakers_hover.png';";
+		 $content .='" onmouseout="this.src=';
+		 $content .="'img/admin/speakers.png';";
+		 $content .='" ></a>';
+	 
+	}
 	
-	 $content .= '<a href="agenda"><img class="MenuIcon" src="img/admin/agenda.png" onmouseover="this.src=';
-	 $content .="'img/admin/agenda_hover.png';";
-	 $content .='" onmouseout="this.src=';
-	 $content .="'img/admin/agenda.png';";
-	 $content .='" ></a>';
+	if (isset($_SESSION['agenda_admin'])) {
+		
+		 $content .= '<a href="agenda"><img class="MenuIcon" src="img/admin/agenda.png" onmouseover="this.src=';
+		 $content .="'img/admin/agenda_hover.png';";
+		 $content .='" onmouseout="this.src=';
+		 $content .="'img/admin/agenda.png';";
+		 $content .='" ></a>';
 	 
-	  $content .= '<a href="blogsquad"><img class="MenuIcon" src="img/admin/blogsquad.png" onmouseover="this.src=';
-	 $content .="'img/admin/blogsquad_hover.png';";
-	 $content .='" onmouseout="this.src=';
-	 $content .="'img/admin/blogsquad.png';";
-	 $content .='" ></a>';
+	}
 	 
-	 $content .= '<a href="mediapartners"><img class="MenuIcon" src="img/admin/mediapartners.png" onmouseover="this.src=';
-	 $content .="'img/admin/mediapartners_hover.png';";
-	 $content .='" onmouseout="this.src=';
-	 $content .="'img/admin/mediapartners.png';";
-	 $content .='" ></a>';
+	if (isset($_SESSION['blogsquad_admin'])) {
+		
+		 $content .= '<a href="blogsquad"><img class="MenuIcon" src="img/admin/blogsquad.png" onmouseover="this.src=';
+		 $content .="'img/admin/blogsquad_hover.png';";
+		 $content .='" onmouseout="this.src=';
+		 $content .="'img/admin/blogsquad.png';";
+		 $content .='" ></a>';
+	 
+	}
+	 
+	if (isset($_SESSION['mediapartners_admin'])) {
+		
+		 $content .= '<a href="mediapartners"><img class="MenuIcon" src="img/admin/mediapartners.png" onmouseover="this.src=';
+		 $content .="'img/admin/mediapartners_hover.png';";
+		 $content .='" onmouseout="this.src=';
+		 $content .="'img/admin/mediapartners.png';";
+		 $content .='" ></a>';
+	 
+	}
   
   $content .='</div>
 	  

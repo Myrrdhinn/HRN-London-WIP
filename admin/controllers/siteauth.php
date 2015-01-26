@@ -41,6 +41,47 @@ public function login($username, $password) {
 							}
 						   
 						   $_SESSION['admin'] = true;
+						   
+						   include_once ('controllers/rank.php');
+						   
+						  $rank = $this->dbc->query(
+								  sprintf("SELECT rank_id FROM users_rank_connection WHERE users_id = '%s' ORDER BY date DESC",
+									  $this->dbc->real_escape_string($pass['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($rank)) {
+										  while($uRank = $rank->fetch_assoc()){
+											 $permission = ranking($uRank['rank_id']);
+											 
+											   if (isset($permission)) {
+												   foreach ($permission as $perm) {
+													   switch ($perm) {
+														  case "super":
+															 $_SESSION['super_admin'] = true;
+															  break;
+														  case "agenda":
+															 $_SESSION['agenda_admin'] = true;
+															  break;
+														  case "sponsors":
+														     $_SESSION['sponsors_admin'] = true;
+															  break;
+														  case "speakers":
+															   $_SESSION['speakers_admin'] = true;
+															  break;
+														  case "mediapartners":
+															   $_SESSION['mediapartners_admin'] = true;
+															  break;
+														  case "blogsquad":
+															   $_SESSION['blogsquad_admin'] = true;
+															  break;
+													  }//switch perm
+																											 
+												   }//foreach permission
+											   }//if isset permission
+
+										  } //uRank fetch assoc end
+								     }  //rank num rows if end
+									  
 						  $out =  '<p class="LoginResponse"><i class="fa fa-check"></i> Logged in. You will be redirected to the administration page in 3 seconds.</p>';
 						  
 						  //// Options for login
@@ -53,7 +94,8 @@ public function login($username, $password) {
 						   $speakers = array();
 						   $mediapartners = array(10);
 						   $blogsquad = array(9);
-						   
+						
+						/*
 						   if(in_array($pass['id'],$sponsors) == true) {
 							   $page = "http://london.hrtecheurope.com/admin/sponsors";
 						   }elseif (in_array($pass['id'],$speakers) == true) {
@@ -62,6 +104,18 @@ public function login($username, $password) {
 							   $page = "http://london.hrtecheurope.com/admin/mediapartners";
 						  }elseif (in_array($pass['id'],$blogsquad) == true) {
 							  $page = "http://london.hrtecheurope.com/admin/blogsquad";
+						  }
+						   
+						*/
+						   
+						   if(in_array($pass['id'],$sponsors) == true) {
+							   $page = "final_new/admin/sponsors";
+						   }elseif (in_array($pass['id'],$speakers) == true) {
+							   $page = "final_new/admin/speakers";
+						  }elseif (in_array($pass['id'],$mediapartners) == true) {
+							   $page = "final_new/admin/mediapartners";
+						  }elseif (in_array($pass['id'],$blogsquad) == true) {
+							  $page = "final_new/admin/blogsquad";
 						  }
 						   
                           header("Refresh:".$sec."; url=".$page);
