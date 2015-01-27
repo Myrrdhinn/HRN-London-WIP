@@ -2115,7 +2115,9 @@ IMAGE MODIFICATIONS
 	   $uploadpath = '../../img/sponsors';
        $path = $the_main->file_upload($uploadpath);
 	   $the_main->picture_upload("sponsors", $_POST['SponsorImageModifyId'], " ", $path);
-	   
+	   	  if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A sponsor image has been changed", $_POST['SponsorImageModifyId']);
+	  } 
 	   
    }   
      
@@ -2130,6 +2132,9 @@ IMAGE MODIFICATIONS
 	   $uploadpath = '../../img/speakers';
        $path = $the_main->file_upload($uploadpath);
 	   $the_main->picture_upload("speakers", $_POST['SpeakerImageModifyId'], " ", $path);
+	   	   	  if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A speaker image has been changed", $_POST['SpeakerImageModifyId']);
+	  } 
 	   
 	   
    }
@@ -2146,6 +2151,9 @@ IMAGE MODIFICATIONS
 	   $uploadpath = '../../img/blogsquad';
        $path = $the_main->file_upload($uploadpath);
 	   $the_main->picture_upload("blogsquad", $_POST['BlogsquadImageModifyId'], " ", $path);
+	   	 if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A blogsquad image has been changed", $_POST['BlogsquadImageModifyId']);
+	  }
 	   
 	   
    }   
@@ -2160,6 +2168,9 @@ IMAGE MODIFICATIONS
 	   $uploadpath = '../../img/mediapartners';
        $path = $the_main->file_upload($uploadpath);
 	   $the_main->picture_upload("mediapartners", $_POST['MediapartnerImageModifyId'], " ", $path);
+	   	if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A mediapartner image has been changed", $_POST['MediapartnerImageModifyId']);
+	  }
 	   
 	   
    }   
@@ -2194,6 +2205,10 @@ Add new speaker
    }
  
    $the_main->speaker_order($the_main->speaker_id, $_POST['Order']);
+   
+   	   	if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A speaker has been uploaded", $the_main->speaker_id);
+	  }
    // header('Location:../speakers');
    
      
@@ -2206,6 +2221,9 @@ Modify Speaker Order
  if(isset($_POST['action']) && $_POST['action'] == 'speaker_sort' && isset($_POST['list_order'])){
 	$the_main = new main();
     $the_main->speaker_arrange();
+	   	   	if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"The speaker order has been changed", " ");
+	  }
 
 }// modify order end
 
@@ -2216,6 +2234,9 @@ Upload new social link to speakers
  if(isset($_POST['action']) && $_POST['action'] == 'new_link' && isset($_POST['typeid']) && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId'], "speakers");
+	 if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A new social link has been uploaded to the speakers", $_POST['sId']);
+	  }
 
 }//new social link for speakers end
  
@@ -2228,6 +2249,9 @@ Edit Speakers
  if(isset($_POST['action']) && $_POST['action'] == 'speaker_edit' && isset($_POST['sName'])){
 	$the_main = new main();
     $the_main->speaker_edit();
+	 if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"Speaker has been modified", $_POST['sId']);
+	  }
 
 }// edit speakers
  
@@ -2241,6 +2265,9 @@ Speaker Delete
  if(isset($_POST['action']) && $_POST['action'] == 'speaker_delete' && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->speaker_delete();
+     if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"Speaker has been deleted", $_POST['sId']);
+	  }
 
 }// delete speakers
 
@@ -2268,6 +2295,10 @@ Add new blogsquad
    }
  
    $the_main->blogsquad_order($the_main->blogsquad_id, $_POST['Order']);
+   
+        if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A blogger have been uploaded", $the_main->blogsquad_id);
+	  }
    // header('Location:../blogsquad');
    
      
@@ -2281,6 +2312,9 @@ Modify Blogsquad Order
  if(isset($_POST['action']) && $_POST['action'] == 'blogsquad_sort' && isset($_POST['list_order'])){
 	$the_main = new main();
     $the_main->blogsquad_arrange();
+  	if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"The speaker order has been changed", " ");
+	  }
 
 }// modify order end
 
@@ -2291,6 +2325,9 @@ Modify Blogsquad blog data
  if(isset($_POST['action']) && $_POST['action'] == 'edit_blogsquad_blog_data' && isset($_POST['B_id'])){
 	$the_main = new main();
     $the_main->blogsquad_blog_data_edit($_POST['blog_id'], $_POST['B_id'], $_POST['Title'], $_POST['URL']);
+	        if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"Blogger blog data have been edited", $_POST['blog_id']);
+	  }
 
 }// modify order end
 
@@ -2302,6 +2339,9 @@ Add new Blogsquad blog data
  if(isset($_POST['action']) && $_POST['action'] == 'AddNewBlogsquadBlogEdit' && isset($_POST['title'])){
 	$the_main = new main();
     $the_main->blogsquad_blog_edit_add($_POST['sId'], $_POST['title'], $_POST['url']);
+	if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A new blog have been added", $_POST['sId']);
+	  }
 
 }// modify order end
 
@@ -2313,6 +2353,10 @@ Upload new social link to blogsquad
  if(isset($_POST['action']) && $_POST['action'] == 'new_blogsquad_link' && isset($_POST['typeid']) && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->blogsquad_link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId'], "blogsquad");
+		if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A new social link have been added to blogger", $_POST['sId']);
+	  }
+
 
 }//new social link for blogsquad end
  
@@ -2325,6 +2369,9 @@ Edit Blogsquad
  if(isset($_POST['action']) && $_POST['action'] == 'blogsquad_edit' && isset($_POST['sName'])){
 	$the_main = new main();
     $the_main->blogsquad_edit();
+	if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"Blogger has been modified", $_POST['sId']);
+	  }
 
 }// edit blogsquad
  
@@ -2338,6 +2385,9 @@ Blogsquad Delete
  if(isset($_POST['action']) && $_POST['action'] == 'blogsquad_delete' && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->blogsquad_delete();
+		if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"Blogger have been deleted", $_POST['sId']);
+	  }
 
 }// delete blogsquad
 
@@ -2360,6 +2410,9 @@ Add new sponsor
 	   $uploadpath = '../../img/sponsors';
       $path = $the_main->file_upload($uploadpath);
 	  $the_main->picture_upload("sponsors", $sponsorsid, " ", $path); 
+	  if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A new sponsor has been added", $_POST['Sponsor']);
+	  } 
 	  
    }
 
@@ -2376,6 +2429,9 @@ Sponsor Edit
  if(isset($_POST['action']) && $_POST['action'] == 'sponsor_edit' && isset($_POST['sName'])){
 	$the_main = new main();
     $the_main->sponsor_edit();
+	 if (isset($_COOKIE['Moo'])) {
+		        $the_main->db_log($_COOKIE['Moo'],"A sponsor has been modified", $_POST['sName']);
+	      } 
 
 }// edit sponsors
  
@@ -2388,6 +2444,9 @@ Sponsor Type Edit
 	
 	$the_main = new main();
     $the_main->sponsor_data($_POST['tag'],$_POST['sBio'],$_POST['sCompanyLink'],$_POST['sId'],$_POST['rank']);
+		 if (isset($_COOKIE['Moo'])) {
+		        $the_main->db_log($_COOKIE['Moo'],"Type of a sponsor has been modified", $_POST['sId']);
+	      } 
 
 }// edit sponsors 
 
@@ -2400,6 +2459,10 @@ Sponsor AlaCarte Edit
 	
 	$the_main = new main();
     $the_main->alacarte_edit($_POST['sId'],$_POST['sAlaCarte'], $_POST['sAlaCarteConnectionId']);
+		 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"A La Carte sponsor has been edited", $_POST['sId']);
+	  } 
+
 
 }// edit sponsors 
 
@@ -2426,6 +2489,9 @@ Add AlaCarte
  if(isset($_POST['action']) && $_POST['action'] == 'AddNewAlaCarteEdit' && isset($_POST['sId']) && isset($_POST['carte'])){
 	$the_main = new main();
     $the_main->ala_carte_edit_add($_POST['carte'], $_POST['sId']);
+	 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"A La Carte sponsor has been added", $_POST['sId']);
+	  } 
 
 }// alacarte_new
  
@@ -2439,6 +2505,9 @@ Upload new social link to SPONSORS
  if(isset($_POST['action']) && $_POST['action'] == 'new_sponsor_link' && isset($_POST['typeid']) && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId'], "sponsors");
+	 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"A sponsor social link has been updated", $_POST['newlink']);
+	  } 
 
 }//new social link for speakers end
  
@@ -2451,7 +2520,10 @@ Sponsor Delete
  if(isset($_POST['action']) && $_POST['action'] == 'sponsor_delete' && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->sponsor_delete($_POST['sId']);
-
+	 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"A sponsor has been deleted", $_POST['sId']);
+	  } 
+	
 }// delete sponsors
  
 /*
@@ -2474,6 +2546,9 @@ Add new mediapartner
 	   $uploadpath = '../../img/mediapartners';
       $path = $the_main->file_upload($uploadpath);
 	  $the_main->picture_upload("mediapartners", $mediapartnersid, " ", $path); 
+	  		 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"Mediapartner have been added", $mediapartnersid);
+	  } 
 	  
    }
 
@@ -2490,6 +2565,9 @@ Sponsor Edit
  if(isset($_POST['action']) && $_POST['action'] == 'mediapartner_edit' && isset($_POST['sName'])){
 	$the_main = new main();
     $the_main->mediapartner_edit();
+		  if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"Mediapartner have been modified", $_POST['sId']);
+	  } 
 
 }// edit sponsors
  
@@ -2502,6 +2580,10 @@ Sponsor Type Edit
 	
 	$the_main = new main();
     $the_main->mediapartner_data($_POST['tag'],$_POST['sBio'],$_POST['sCompanyLink'],$_POST['sId'],$_POST['rank']);
+			  if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"Mediapartner type have been modified", $_POST['sId']);
+	  } 
+
 
 }// edit sponsors 
 
@@ -2514,6 +2596,10 @@ Sponsor AlaCarte Edit
 	
 	$the_main = new main();
     $the_main->mediapartners_alacarte_edit($_POST['sId'],$_POST['sAlaCarte'], $_POST['sAlaCarteConnectionId']);
+			  if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"A La Carte Mediapartner have been modified", $_POST['sId']);
+	  } 
+
 
 }// edit sponsors 
 
@@ -2540,6 +2626,10 @@ Add AlaCarte
  if(isset($_POST['action']) && $_POST['action'] == 'MediaAddNewAlaCarteEdit' && isset($_POST['sId']) && isset($_POST['carte'])){
 	$the_main = new main();
     $the_main->mediapartners_ala_carte_edit_add($_POST['carte'], $_POST['sId']);
+			  if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"A La Carte Mediapartner have been added", $_POST['sId']);
+	  } 
+
 
 }// alacarte_new
  
@@ -2547,14 +2637,19 @@ Add AlaCarte
  
  
 /*///////////// 
-Upload new social link to SPONSORS
+Upload new social link to Mediapartners
 ///////////////*/
 
  if(isset($_POST['action']) && $_POST['action'] == 'new_mediapartner_link' && isset($_POST['typeid']) && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId'], "mediapartners");
+	
+			  if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"Social link has been added to Media Partners", $_POST['sId']);
+	  } 
 
-}//new social link for speakers end
+
+}//new social link for mediapartners
  
  
 /*///////////// 
@@ -2565,6 +2660,11 @@ Sponsor Delete
  if(isset($_POST['action']) && $_POST['action'] == 'mediapartner_delete' && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->mediapartner_delete($_POST['sId']);
+	
+	 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"Mediapartner have been deleted", $_POST['sId']);
+	  } 
+
 
 }// delete sponsors
   
@@ -2592,6 +2692,10 @@ if (isset($_POST['AgendaSubmit'])) {
 	}
 
 	$the_main->agenda_upload($speakers);
+      if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"New Agenda have been added", $_POST['AgendaTitle']);
+	  } 
+
 	header('Location:../agenda');
 }
 
@@ -2616,6 +2720,10 @@ if (isset($_POST['AgendaEditSubmit'])) {
 	}
 
 	$the_main->agenda_modify($speakers, $aId);
+	
+	      if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"Agenda have been modified", $aId);
+	  } 
 	header('Location:../agenda');
 }
 
@@ -2628,6 +2736,9 @@ Agenda Delete
  if(isset($_POST['action']) && $_POST['action'] == 'agenda_delete' && isset($_POST['sId'])){
 	$the_main = new main();
     $the_main->agenda_delete($_POST['sId']);
+	 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"Agenda have been deleted", $_POST['sId']);
+	  } 
 
 }// delete agenda
 

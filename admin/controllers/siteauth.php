@@ -42,6 +42,10 @@ public function login($username, $password) {
 						   
 						   $_SESSION['admin'] = true;
 						   
+						   setcookie("Moo", $pass['id'], time()+3600*8);
+						   
+						   $_SESSION['user_id'] = $pass['id'];
+						   
 						   include_once ('controllers/rank.php');
 						   
 						  $rank = $this->dbc->query(
@@ -51,6 +55,9 @@ public function login($username, $password) {
 									 );	
 									  if (mysqli_num_rows($rank)) {
 										  while($uRank = $rank->fetch_assoc()){
+											  if ($uRank['rank_id'] == 1) {
+												 $_SESSION['developer'] = true; 
+											  }
 											 $permission = ranking($uRank['rank_id']);
 											 
 											   if (isset($permission)) {
@@ -95,7 +102,7 @@ public function login($username, $password) {
 						   $mediapartners = array(10);
 						   $blogsquad = array(9);
 						
-						/*
+					
 						   if(in_array($pass['id'],$sponsors) == true) {
 							   $page = "http://london.hrtecheurope.com/admin/sponsors";
 						   }elseif (in_array($pass['id'],$speakers) == true) {
@@ -106,8 +113,8 @@ public function login($username, $password) {
 							  $page = "http://london.hrtecheurope.com/admin/blogsquad";
 						  }
 						   
-						*/
-						   
+					
+						 /*  
 						   if(in_array($pass['id'],$sponsors) == true) {
 							   $page = "final_new/admin/sponsors";
 						   }elseif (in_array($pass['id'],$speakers) == true) {
@@ -117,7 +124,7 @@ public function login($username, $password) {
 						  }elseif (in_array($pass['id'],$blogsquad) == true) {
 							  $page = "final_new/admin/blogsquad";
 						  }
-						   
+						   */
                           header("Refresh:".$sec."; url=".$page);
 						   return $out;
 						   
@@ -139,6 +146,9 @@ public function logout() {
 	
 	session_unset();
 	session_destroy();
+
+	unset($_COOKIE['Moo']);
+	setcookie('Moo', '', time()-300);
 	
 	$page = $_SERVER['PHP_SELF'];
 	$sec = "0.1";

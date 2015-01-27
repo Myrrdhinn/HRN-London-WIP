@@ -25,6 +25,20 @@
     }
 
 	
+	public function db_log($user, $action, $value) {
+		
+		if(isset($user) && $user != ' ' && isset($action) && $action != " " && isset($value)) {
+		
+			   $this->dbc->query(
+				sprintf("INSERT INTO user_log SET user_id = '%s', action = '%s', value = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($user)),
+				  $this->dbc->real_escape_string(htmlspecialchars($action)),
+				  $this->dbc->real_escape_string(htmlspecialchars($value))
+				)
+			);	
+			
+		} //isset all :D
+	}
 	
  /*  public function debugging($error) {
 	$ladybug = '';

@@ -1,6 +1,5 @@
 <?php 
    if (!isset($_SESSION['admin'])) {
-	   
 	   if(isset($_POST['userlogin']) && $_REQUEST['UserName'] && $_REQUEST['UserPassword']){
 		   $auth = new siteauth();
 		   $output = $auth->login($_REQUEST['UserName'], $_REQUEST['UserPassword']);
@@ -49,29 +48,39 @@
 	
 
    } else {
-
+	   
+	   $new = new locations();
 	   
 	   $content ='
 	   <!--Jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  
+  <!-- Dropzone -->
+<script src="js/dropzone.js"></script>
+
 <link href="css/admin_general.css" rel="stylesheet">
-<link rel="stylesheet" href="css/admin_edit_general.css" />
+<link href="css/general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />
+<link rel="stylesheet" href="css/admin_logs.css" />
+
+<script src="js/new_mediapartner.js"></script>
+<!-- TinyMCE -->
+<script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea"
+
+ });
+</script>
+
 </head>
 <body>
-
- <!--Main Wrapper-->
+  <!--Main Wrapper-->
 	<div class="wrapper">
-	  <h1 class="WrapperMainH1">HR Tech Europe - London2015 | Admin</h1>
-	  
-	  <p class="WelcomeTexT">Welcome to the Administration Interface of the <br> HR Tech Europe - London Conference`s Website.</p>
-	   <p class="WelcomeTexT"> Please select the page where you want to edit the content.</p>
-	   
-	   <h6 style="text-align:center">This website is using cookies. Please do not disable them!<h6>
-	<!--Form container-->
-	 <div id="container">
-      <div id="MenuIconContainer">';
-	  
+	  <h1 class="WrapperMainH1">HR Tech Europe - London2015 | Add New Media partner</h1>
+	  	        <div id="MenuIconContainer">';
+	
+  
 	if (isset($_SESSION['sponsors_admin'])) {
 		
 
@@ -122,33 +131,45 @@
 		 $content .='" ></a>';
 	 
 	}
-	
-		if (isset($_SESSION['developer'])) {
-		
-		 $content .= '<a href="logs"><img class="MenuIcon" src="img/admin/logs.png" onmouseover="this.src=';
-		 $content .="'img/admin/logs_hover.png';";
-		 $content .='" onmouseout="this.src=';
-		 $content .="'img/admin/logs.png';";
-		 $content .='" ></a>';
-	 
-	}
-	
+  
   $content .='</div>
-  	   
-	<br /><br /><br />
-  <form name="logoutform" id="LogoutForm" method="post" action="">
-  <button name="logout">Logout</button>
-  </form>
-  
-  
-  	
-	   <!-- End of Form Container-->
-	 </div>
+	<!--Form container-->
+	 <div id="container">';
+
+	if (isset($_SESSION['developer'])) {
+		
+		$l = new logs_main();
+		$logs = $l->get_logs();
+		
+		$out = '';
+		foreach ($logs as $log) {
+			$out .= '<p class="log_p">';
+			foreach ($log as $elem){
+				$out .='<span class="log_item">'.$elem.'</span> | ';
+			} //forech elem
+			$out .= '</p>';
+			
+		}//foreach logs
+		
+		$content .= $out;
+	    
+	   
+	 } //if isset agenda_admin 
+	 else {
+		$content.="<h1 style='text-align:center'>You don't have permission to see this page! Naughty! ;)</h1>"; 
+	 }
+	 
+	 
+	$content .=' </div>
 	 
 	<!--End of Main Wrapper-->
 	</div>
 	
-	';  
+  <form name="logoutform" id="LogoutForm" method="post" action="">
+  <button name="logout">Logout</button>
+  </form><br />';  
+  	   
+	   
    }
 
  if(isset($_POST['logout'])){
@@ -162,7 +183,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>HR Tech Europe - London Admin</title>
+  <title>HR Tech Europe - New Mediapartner</title>
 <?php
 echo $content;
 
