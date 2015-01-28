@@ -495,9 +495,13 @@ $(function() {
     	var tag_number = parentURL.search("#");
 		var tag = parentURL.substr(tag_number, parentURL.length);
 		
- 
+		var tagLast = tag.substr(tag.length - 1);
+		var tagFirst = tag.substr(1,1);
+ 		tag_upper = '#'+tagFirst.toUpperCase()+tag.substr(2, tag.length-3)+tagLast.toUpperCase();
+		
+
   if(window.location.href.indexOf(tag) != -1) {
-    $(tag).modal('show');
+    $(tag_upper).modal('show');
   }
 
 });
@@ -581,9 +585,22 @@ $(function() {
 
           <p id="'.$speaker[4].'_Name" class=" ModalSpeakerName OswaldText">'.$speaker[0].'</p>
 
-          <p id="'.$speaker[4].'_Title" class="ModalSpeakerJobtitle RobotoText">'.$speaker[1].'</p>
+          <p id="'.$speaker[4].'_Title" class="ModalSpeakerJobtitle RobotoText">'.$speaker[1].'</p>';
+		  
+		  
+		  
+		  			  if (isset($speaker[8])) {
+					 $Http = strpos($speaker[8], "http://");
+					 $Https = strpos($speaker[8], "https://");
+					
+					 if ($Http === false && $Https === false) {
+						$compLink = "http://".$speaker[8];
+				      } else {
+						  $compLink = $speaker[8];
+					  }
+				   }
 		
-		  <a '.$google.' href="'.$speaker[8].'" id="'.$speaker[4].'_CompanyLink" class="ModalSpeakerCompanyLink">'.$speaker[7].'</a>
+		 $output .='<a '.$google.' href="'.$compLink.'" id="'.$speaker[4].'_CompanyLink" class="ModalSpeakerCompanyLink">'.$speaker[7].'</a>
 		
           <div class="ModalDivider"></div>';		  
 		  $s = 0;
