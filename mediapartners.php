@@ -11,6 +11,26 @@ if(isset($_POST['email'])) {
     $email_subject = "New Media Partner applicant";
  
      
+	 // Function to get the client IP address
+function get_client_ip() {
+    $ipaddress = '';
+    if ($_SERVER['HTTP_CLIENT_IP'])
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if($_SERVER['HTTP_X_FORWARDED_FOR'])
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if($_SERVER['HTTP_X_FORWARDED'])
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if($_SERVER['HTTP_FORWARDED_FOR'])
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if($_SERVER['HTTP_FORWARDED'])
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if($_SERVER['REMOTE_ADDR'])
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+	 
  
      
  
@@ -101,6 +121,13 @@ if(isset($_POST['email'])) {
  
     } else {
 		// create email headers
+		
+	$ip = get_client_ip();	
+	
+	
+	$text = "First Name: ".sanitize($first_name)." | "."Last Name: ".sanitize($last_name)." | "."Email: ".sanitize($email_from)." | "."Telephone: ".sanitize($telephone)." | "."Comments: ".sanitize($comments)." | "."Publication Website: ".sanitize($company)." | "."IP: ".$ip."\n";
+	
+	file_put_contents("mediaformsubmits.txt", $text, FILE_APPEND);
  
 $headers = 'From: '.$email_from."\r\n".
  
