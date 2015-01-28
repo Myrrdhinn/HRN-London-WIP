@@ -310,7 +310,16 @@ function company_data($sCompany, $sCompanyLink, $sId) {
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sName'])),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sId']))
 			         	)
-		        	);				
+		        	);
+					
+						$tag = explode(' ',$_POST['sName']);
+						if (isset($tag[1]) && isset($tag[0])) {
+							$sTag = $tag[1].$tag[0][0];
+							
+							$this->personal_data($sTag, $_POST['sTitle'], $_POST['sBio'], $_POST['sBioImportant'], $_POST['sId']);
+						}
+						
+								
 			break;
 		case 'sTitle':
 		//Insert Personal data

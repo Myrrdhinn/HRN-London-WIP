@@ -430,5 +430,24 @@ function sponsors_list(){
 	return $content;
  }
 	
+function sponsor_permission_check($sId, $user_id) {
+				$content = 0;
+													  											//Get the names					   
+		   $name = $this->dbc->query(
+					  sprintf("SELECT users_id FROM sponsors_user_connection WHERE sponsors_id = '%s' AND users_id = '%s' ORDER BY date LIMIT 0,1",
+						  $this->dbc->real_escape_string($sId),
+						  $this->dbc->real_escape_string($user_id)
+					  )
+						 );	
+						  if (mysqli_num_rows($name)) {
+						      $content = 1;
+					      }  //personal num rows if end
+					  
+													  
+	return $content;	
+	
+ }
+ 
+ 
 }
 ?>	

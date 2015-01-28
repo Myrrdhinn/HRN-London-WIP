@@ -206,7 +206,10 @@
 			             }	
 						 $num++;		
 					}
-
+					
+					
+					$permitted = $Sp->sponsor_permission_check($sponsor[0], $_SESSION['user_id']);
+			
 			 
 			 		  /*
 		  							    $content[$i][0] =  sponsors_id
@@ -271,9 +274,12 @@
   if ($sponsor[0] != -55){ //if there's no a la carte sponsor uploaded, the array will come back with sponsor id -55, so we must chek this first because we don't want to display this!
 	  $output .= '<div class="SponsorMain" id="'.$sponsor[11].'"><!-- '.$sponsor[8].' Sponsor Grid-->';
   
-	 if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
+	 if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_SESSION['super_admin']) || $permitted == 1 )) {
 			 $output .= '<div id="SponsorDel-'.$sponsor[11].'" class="SponsorDelete"><i class="fa fa-trash fa-2x"></i></div>';
-	      }
+	      }elseif (isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (!isset($_SESSION['super_admin']) || $permitted == 0 )) {
+			  
+			   $output .= '<div class="SponsorDeleteInactive"></i></div>';
+		  }
 
      $output.= '<a data-toggle="modal" data-target="#'.$sponsor[4].'" href="#">
       <div class="Sponsor">';
@@ -289,7 +295,7 @@
           </div>
         </div>';
               		// If the sponsor is an A La Carte Sponsor, print out the sponsored product 
-		  if(!isset($_SESSION['admin']) && !isset($_SESSION['sponsors_admin'])) {			
+		  if(!isset($_SESSION['admin']) && !isset($_SESSION['sponsors_admin']) && (isset($_SESSION['super_admin']) || $permitted == 1 )) {			
       		if($sponsor[13] == 1) {
       			$output .= '<p class="ALaCarte">'.$sponsor[12].'</p>';
       		}
@@ -298,7 +304,7 @@
 
       		
       $output .= '</a>'; 
-	   if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
+	   if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_SESSION['super_admin']) || $permitted == 1 )) {
 		if($sponsor[13] == 1 && $sponsor[2] == 999) {
 		    $output .= '<p id="'.$sponsor[4].'_AlaCarteText-'.$sponsor[14].'" class="ClickClick ModalSponsorAlaCarte ALaCarte">'.$sponsor[12].'</p>
 		     <input class="ClickEdit" id="'.$sponsor[4].'_AlaCarteText-'.$sponsor[14].'Edit" style="display:none;" name="'.$sponsor[4].'_AlaCarteText-'.$sponsor[14].'Edit" type="text" value="'.$sponsor[12].'">';
@@ -520,7 +526,7 @@ if (isset($content)) {
 				$displayed[0] =  $sponsor[0];
 			 }//else
 				
-				
+				$permitted = $Sp->sponsor_permission_check($sponsor[0], $_SESSION['user_id']);
 
 			 			 		  /*
 		  							    $content[$i][0] =  sponsors_id
@@ -541,7 +547,7 @@ if (isset($content)) {
 			 
 			 */
 if ($sponsor[0] != -55 && $go == 1){	//if we already displayed the modal or the modal don't contain data then we don't print it out		 			
-if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
+if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_SESSION['super_admin']) || $permitted == 1 )) {
 	/*
 	-------------------------
 	Admin, able to edit stuff!
@@ -638,7 +644,7 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/speakers/modal-close.png" alt="modal-close-button"></button>';
 			  if (isset($sponsor[7])) {
-		  $output .= '<div class="ModalSponsorPhoto" style="background-image:url(img/sponsors/'.$sponsor[7].')"></div>';
+		  $output .= '<div class="ModalSponsorPhoto" style="background-image:url(../img/sponsors/'.$sponsor[7].')"></div>';
 	          } else {
 				   $output .= '<div class="ModalSpeakerPhoto"></div>';
 			  }
@@ -647,10 +653,10 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
        $output .='<div class="ModalSponsorBioContainer">
 	   <form class="SponsorModalEdit">
 	      
-          <p id="'.$sponsor[4].'_Name" class="ClickClick ModalSponsorName">'.$sponsor[8].'</p>
+          <p id="'.$sponsor[4].'_Name" class="ModalSponsorName">'.$sponsor[8].'</p>
 		
 
-		  <a id="'.$sponsor[4].'_CompanyLink" class="ClickClick ModalSponsorCompanyLink" href="'.$sponsor[1].'">Visit Company Website <i class="fa fa-angle-double-right"></i></a>
+		  <a id="'.$sponsor[4].'_CompanyLink" class="ModalSponsorCompanyLink" href="'.$sponsor[1].'">Visit Company Website <i class="fa fa-angle-double-right"></i></a>
 		
           <div class="ModalDivider"></div>';		  
 		  $s = 0;
@@ -660,7 +666,7 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 			   if ($types) {
 				   if ($links[$s] != ''){
 				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="ClickClick SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 				   }
 					   $s++;
 			         }
@@ -669,7 +675,7 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 				unset($links);
 		  }	   
 		
-          $output .='<div id="'.$sponsor[4].'_Bio" class="ClickClick ModalSponsorBio RobotoText"> '.$sponsor[3].'</div>';
+          $output .='<div id="'.$sponsor[4].'_Bio" class="ModalSponsorBio RobotoText"> '.$sponsor[3].'</div>';
 
   $output .='</form>
         </div>

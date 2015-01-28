@@ -15,8 +15,6 @@
 <!-- Include Bootstrap for SpeakersGrid Modals -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Favicon setting -->
@@ -487,15 +485,29 @@ $(function() {
 
 </script> 
 
-<!-- MODAL OPEN FROM EXTERNAL LINK --> 
+<!--Call modified Bootstrap -->
+<script src="js/bootstrap.js"></script>
+<!-- MODAL OPEN FROM EXTERNAL LINK -->
 <script type="text/javascript">
  $(document).ready(function() {
-  if(window.location.href.indexOf('#HinssenP') != -1) {
-    $('#HinssenP').modal('show');
+	 
+	    var parentURL = window.parent.location.href;
+    	var tag_number = parentURL.search("#");
+		var tag = parentURL.substr(tag_number, parentURL.length);
+		
+ 
+  if(window.location.href.indexOf(tag) != -1) {
+    $(tag).modal('show');
   }
+
 });
-</script> 
-<!-- END MODAL OPEN FROM EXTERNAL LINK --> 
+ 
+ 
+ </script>
+<!-- END MODAL OPEN FROM EXTERNAL LINK -->
+
+
+
 
 <!-- MODALS --> 
 
