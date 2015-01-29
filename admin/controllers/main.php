@@ -1340,7 +1340,51 @@ function sponsor_delete($sId){
 				)
 			);
 	
-}	 
+}
+    //Sponsor  user Permission delete
+///----------------------------------------------
+function sponsor_permission_delete($sId, $user_id) {
+	
+	
+									  //Gets all of the locations
+		  $perm = $this->dbc->query(
+						  sprintf("SELECT id FROM sponsors_user_connection WHERE sponsors_id = '%s' AND users_id = '%s' ORDER BY date DESC LIMIT 0,1",
+						   $this->dbc->real_escape_string($sId),
+						   $this->dbc->real_escape_string($user_id)
+						   )
+							  );	
+						  if ($perm->num_rows > 0) {
+							  while($data = $perm->fetch_assoc()){
+								  
+									//Delete user permission
+									$this->dbc->query(
+											sprintf("DELETE FROM sponsors_user_connection WHERE id = '%s'",
+											  $this->dbc->real_escape_string(htmlspecialchars($data['id']))
+											)
+										);
+								  
+							  }
+						  }
+	
+	
+}
+
+
+    //Sponsor  user Permission grant
+///----------------------------------------------
+function sponsor_permission_add($sId, $user_id) {
+	
+	
+		$this->dbc->query(
+				sprintf("INSERT INTO sponsors_user_connection SET sponsors_id = '%s', users_id = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sId)),
+				  $this->dbc->real_escape_string(htmlspecialchars($user_id))
+				)
+			);
+	
+	
+}
+	 
 /************************************************************	 
 	    MEDIAPARTNERS
 ************************************************************	
@@ -2420,6 +2464,7 @@ Add new sponsor
       $path = $the_main->file_upload($uploadpath);
 	  $the_main->picture_upload("sponsors", $sponsorsid, " ", $path); 
 	  if (isset($_COOKIE['Moo'])) {
+		   $the_main->sponsor_permission_add($sponsorsid, $_COOKIE['Moo']);
 		   $the_main->db_log($_COOKIE['Moo'],"A new sponsor has been added", $_POST['Sponsor']);
 	  } 
 	  
@@ -2520,6 +2565,58 @@ Upload new social link to SPONSORS
 
 }//new social link for speakers end
  
+ /*///////////// 
+Sponsors Permission request
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'SponsorsPermissionSession' && isset($_POST['sId'])){
+	 if (isset($_COOKIE['SponsorsPermission'])) {
+         unset($_COOKIE['SponsorsPermission']);
+        setcookie('SponsorsPermission', null, -1, '/');
+
+      } 
+	$the_main = new main();
+    $id = $the_main->ekezet_nelkuli($_POST['sId']);
+	setcookie('SponsorsPermission', $id, time() + (20), "/");
+
+}// sponsors permission request
+    
+ 
+ /*///////////// 
+Sponsor Permission Delete
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'SponsorPermissionDelete' && isset($_POST['sId']) && isset($_POST['user_id'])){
+	$the_main = new main();
+    $the_main->sponsor_permission_delete($_POST['sId'], $_POST['user_id']);
+	
+	 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"User Permission has been deleted for user: ".$_POST['user_id'], 'Sponsor: '.$_POST['sId']);
+	  } 
+
+
+}// delete sponsors permission 
+
+
+ /*///////////// 
+Sponsor Permission Add
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'SponsorPermissionAdd' && isset($_POST['sId']) && isset($_POST['user_id'])){
+	$the_main = new main();
+    $the_main->sponsor_permission_add($_POST['sId'], $_POST['user_id']);
+	
+	 if (isset($_COOKIE['Moo'])) {
+	    $the_main->db_log($_COOKIE['Moo'],"User Permission has been added for user: ".$_POST['user_id'], 'Sponsor: '.$_POST['sId']);
+	  } 
+
+
+}// delete sponsors permission 
+
+
  
 /*///////////// 
 Sponsor Delete
@@ -2659,8 +2756,8 @@ Upload new social link to Mediapartners
 
 
 }//new social link for mediapartners
- 
- 
+  
+
 /*///////////// 
 Sponsor Delete
 ///////////////*/

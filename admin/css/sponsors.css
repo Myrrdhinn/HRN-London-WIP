@@ -52,40 +52,23 @@ a:hover, a:focus {
 }
 
 /* Sponsor Delete X sign */
-.SponsorDelete {
+.SponsorDelete, .SponsorPermission {
   text-align: left;
   width: 30px;
   /*height: 20px;*/
   padding: 6px 6px 6px 7px;
   background-color: #ddd;
   border-radius: 150px;
+  float:left;
 }
-.SponsorDelete:hover {
+.SponsorDelete:hover, .SponsorPermission:hover {
   background-color: #FF8686;
   cursor: pointer;
 }
-.SponsorDelete:hover p {
+.SponsorDelete:hover p, .SponsorPermission:hover p {
   color: #fff;
 }
-.SponsorDelete p {
-  padding-left: 7px;
-  padding-top: 3px;
-  font-weight: bold;
-}
-
-/* Sponsor Delete Inactive X sign */
-.SponsorDeleteInactive {
-  text-align: left;
-  width: 30px;
-  /*height: 20px;*/
-  padding: 25px 6px 6px 7px;
-  border-radius: 150px;
-}
-
-.SponsorDeleteInactive:hover p {
-  color: #fff;
-}
-.SponsorDeleteInactive p {
+.SponsorDelete p, .SponsorPermission p {
   padding-left: 7px;
   padding-top: 3px;
   font-weight: bold;
@@ -223,7 +206,8 @@ a:hover, a:focus {
 
 }
 .Sponsor .SponsorLogo:hover .SponsorLogoHoverInfo{
-	visibility: visible;
+	/*visibility: visible;*/
+	visibility: hidden;
 	opacity: 1;
 	-moz-opacity: 1;
 	-webkit-opacity: 1;

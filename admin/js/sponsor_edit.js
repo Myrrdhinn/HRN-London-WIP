@@ -701,11 +701,7 @@ tinymce.init({
     $('.SponsorDelete').bind('click', function () {
 		
 		//get the id of the activated element
-		var id = $(this).attr('id');
-				
-			//get the original tag of the Sponsor what's in the database
-		var tag_number = id.search("_");
-		var sId = id.substr(tag_number+1, id.length); 
+		var sId = $(this).data('sponsordel-sponsor');
 		
 		var conf = confirm("Are you sure you want to delete this Sponsor?");
 		  if (conf == true) {
@@ -720,6 +716,29 @@ tinymce.init({
 			  
           
            }
+
+  })
+  
+  
+    	 /*-----------------------
+		Sponsor Permission edit
+	------------------------	*/
+
+		//Hide the element and show the input field associated with the element + focus the input box
+    $('.SponsorPermission').bind('click', function () {
+		
+		//get the id of the activated element
+		var sId = $(this).data('sponsorperm-sponsor');
+
+		  $.ajax({
+                url: 'controllers/main.php',
+                type: 'POST',
+                data: {action:"SponsorsPermissionSession", sId:sId},
+                success: function(data) {
+                    window.location.replace("sponsors_permission");
+                }
+            });
+       
 
   })
   

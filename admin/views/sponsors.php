@@ -207,8 +207,11 @@
 						 $num++;		
 					}
 					
-					
+					if (isset($_SESSION['user_id'])) {
 					$permitted = $Sp->sponsor_permission_check($sponsor[0], $_SESSION['user_id']);
+					} else {
+						$permitted = 0;
+					}
 			
 			 
 			 		  /*
@@ -275,7 +278,11 @@
 	  $output .= '<div class="SponsorMain" id="'.$sponsor[11].'"><!-- '.$sponsor[8].' Sponsor Grid-->';
   
 	 if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_SESSION['super_admin']) || $permitted == 1 )) {
-			 $output .= '<div id="SponsorDel-'.$sponsor[11].'" class="SponsorDelete"><i class="fa fa-trash fa-2x"></i></div>';
+			 $output .= '<div data-sponsordel-sponsor="'.$sponsor[0].'" class="SponsorDelete"><i class="fa fa-trash fa-2x"></i></div>';
+			  if (isset($_SESSION['super_admin'])) {
+				  $output .= '<div data-sponsorperm-sponsor="'.$sponsor[0].'" class="SponsorPermission"><i class="fa fa-cog fa-2x"></i></div>';
+			  }
+			 
 	      }elseif (isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (!isset($_SESSION['super_admin']) || $permitted == 0 )) {
 			  
 			   $output .= '<div class="SponsorDeleteInactive"></i></div>';
@@ -526,7 +533,11 @@ if (isset($content)) {
 				$displayed[0] =  $sponsor[0];
 			 }//else
 				
-				$permitted = $Sp->sponsor_permission_check($sponsor[0], $_SESSION['user_id']);
+				if (isset($_SESSION['user_id'])) {
+					$permitted = $Sp->sponsor_permission_check($sponsor[0], $_SESSION['user_id']);
+					} else {
+						$permitted = 0;
+					}
 
 			 			 		  /*
 		  							    $content[$i][0] =  sponsors_id
