@@ -310,12 +310,13 @@ exit;
         
         <span class="DesktopMenuDropdown"><a href="#">Partners</a>
             <ul id="PartnersDropdown">
-            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li style="display: none;">Sponsors</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li class="FirstDropdownItem">Media Partners</li></a>
+            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li  class="FirstDropdownItem">Sponsors</li></a>
+                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
                 <a class="ActiveNavmenuItem" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
             </ul>
         </span> 
-        
+        <div class="NavmenuDivider"></div>
+        <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a>
         <div class="NavmenuDivider"></div>       
         
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="contact">Get in Touch</a> </div>
@@ -346,11 +347,12 @@ exit;
           
           <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="PartnersMobileGroupContent">
-         		<li style="display: none;"><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
+         		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a class="ActiveNavmenuItem" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
           </div>
-        <li> <a href="contact" >Get in Touch</a></li>
+           <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>  
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" href="contact" >Get in Touch</a></li>
       </ul>
     </nav>
     
@@ -760,10 +762,12 @@ opinion on everything HR.</p>
 			                $google .= "'_trackEvent', 'BloggerSocialSite', 'ExternalForward', '".$social_tag."']);";
 			                $google .= '"';
 							
-							$url_raw = $speakers->social_link_decode($links[$s]); //this is needed to decode the link from the database
+				    //$output .='<p class="SocialIcons"><a '.$google.' href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+					//$output .='<p id="'.$speaker[4].'_'.$types.'" class="SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
+					
+					  $url_raw = $speakers->social_link_decode($links[$s]); //this is needed to decode the link from the database
 							
 				    $output .='<p class="SocialIcons"><a '.$google.' href="'.$url_raw.'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					//$output .='<p id="'.$speaker[4].'_'.$types.'" class="SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
 
 					   $s++;
 			         }

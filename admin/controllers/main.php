@@ -144,7 +144,7 @@ Basic functions
 			);	
 			
 				 if (isset($_COOKIE['Moo'])) {
-		   $the_main->db_log($_COOKIE['Moo'],"A new social link has been uploaded to the speakers", $_POST['sId']);
+		   $this->db_log($_COOKIE['Moo'],"A new social link has been uploaded to the speakers", $sId);
 	  }
 		 
 		$i++; 
