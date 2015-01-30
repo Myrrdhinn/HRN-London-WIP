@@ -47,6 +47,7 @@
 	 
 	<!--End of Main Wrapper-->
 	</div>';
+	
 
    } else {
 	   
@@ -56,18 +57,21 @@
 	   <!--Jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   
+
+
 <link href="css/admin_general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />
-<link rel="stylesheet" href="css/admin_permissions.css" />
+<link rel="stylesheet" href="css/admin_socials.css" />
 
-<script src="js/sponsors_permissions.js"></script>
+<script src="js/social_links_edit.js"></script>
+
 
 
 </head>
 <body>
   <!--Main Wrapper-->
 	<div class="wrapper">
-	  <h1 class="WrapperMainH1">HR Tech Europe - London2015 | Modify Sponsor Permission</h1>
+	  <h1 class="WrapperMainH1">HR Tech Europe - London2015 | Edit Social Links</h1>
 	  	        <div id="MenuIconContainer">';
 	
   
@@ -125,26 +129,46 @@
   $content .='</div>
 	<!--Form container-->
 	 <div id="container">';
+	 $perm = new socialsedit();
 	 
-	 
-	 	if (isset($_SESSION['sponsors_admin']) && isset($_SESSION['super_admin'])) {
+	 	if (isset($_SESSION['sponsors_admin'])) {
 			
-		  if (isset($_COOKIE['SponsorsPermission'])){
+			 if (isset($_COOKIE['SocialLinkEdit'])){
+				 $SocialEditData = explode(':',$_COOKIE['SocialLinkEdit']);
 			  
-				$_SESSION['Sponsor_Permission_sId'] = $_COOKIE['SponsorsPermission'];
-				unset($_COOKIE['SponsorsPermission']);
-				setcookie('SponsorsPermission', null, -1, '/');
+				$_SESSION['SocialEditId'] = $SocialEditData[0];
+				$_SESSION['SocialEditType'] = $SocialEditData[1];
+				
+				unset($_COOKIE['SocialLinkEdit']);
+				setcookie('SocialLinkEdit', null, -1, '/');
 			
 	       }
-		      if (!isset($_SESSION['Sponsor_Permission_sId'])) {
-				$_SESSION['Sponsor_Permission_sId'] = -1;  
+		      if (!isset($_SESSION['SocialEditId'])) {
+				$_SESSION['SocialEditId'] = -1;  
 			  }
-		$perm = new permissions();
-		$content .= $perm->get_sponsors_permissions($_SESSION['Sponsor_Permission_sId']);
-		
+			  
+			  if (!isset($_SESSION['SocialEditType'])) {
+				$_SESSION['SocialEditType'] = '';  
+			  }
+
+			$content .= $perm->get_name($_SESSION['SocialEditId'], $_SESSION['SocialEditType']);
+			
 	     $content .='<form id="sponsors" name="sponsors" method="post" action="controllers/main.php" enctype="multipart/form-data">
+    <div>
   
-                  </form>
+     <fieldset>
+	<legend>Social</legend>';
+			
+		$content .= $perm->get_socials($_SESSION['SocialEditId'], $_SESSION['SocialEditType']);
+
+	
+	$content .= '<div class="SocialSubmitButton">Save</div>
+	</fieldset>';
+	
+
+ $content .= '
+    </div>
+  </form>
     	
   	   <!-- End of Form Container-->';
 	   

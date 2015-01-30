@@ -34,3 +34,17 @@
 	background:#FB354C;
 	
 	}	
+	
+.SocialLinkEdit {
+	font-size: 14pt;
+	background-color: rgba(34, 149, 169, 0.95);
+	padding: 16px;
+	cursor: pointer;
+	color: white;
+    transition: all 0.3s;
+	
+}
+
+.SocialLinkEdit:hover {
+	background-color: rgba(218, 5, 5, 0.95);
+}

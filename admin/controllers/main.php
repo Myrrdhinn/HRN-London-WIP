@@ -26,6 +26,23 @@ Basic functions
     return $fajlnev;
 }
 
+  function sanitize($data){
+       //$data = htmlentities(strip_tags(trim($data)));
+		
+		$bad = array("foreach","echo","content-type","bcc:","to:","cc:","href","$","SELECT","<",">",";","INSERT","UPDATE","DELETE");
+		
+		$data = str_replace($bad,"",$data);
+		
+        $search = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript
+                   '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+                   '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+                   '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments including CDATA
+    ); 
+    $data = preg_replace($search, '', $data); 
+        return $data;
+    }
+
+
 		//get info of a file
   function fileinfo($filename) {
 	$file = array('filename' => '', 'extension' => '');
@@ -88,6 +105,40 @@ Basic functions
 
  	
  }
+ 
+ /*
+*************************
+  GLOBAL
+*************************  
+*/	
+ 
+ //Social Link update!
+ function social_link_update($sId, $sType_raw, $sLinks, $sURLs) {
+	 $sType_stillRaw = $this->ekezet_nelkuli($sType_raw);
+	 $sType = $this->sanitize($sType_stillRaw);
+	 
+	 $i = 0;
+	 foreach ($sLinks as $num => $value) {
+		   if ($sURLs[$i] == -1) {
+			   $sURLs[$i] = '';
+		   }
+		 	 $this->dbc->query(
+				sprintf("INSERT INTO ".$sType."_links SET ".$sType."_id = '%s', link_url = '%s', speakers_link_types_id = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($sId)),
+				  $this->dbc->real_escape_string(htmlspecialchars($sURLs[$i])),
+				  $this->dbc->real_escape_string(htmlspecialchars($value))
+				)
+			);	
+			
+				 if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"A new social link has been uploaded to the speakers", $_POST['sId']);
+	  }
+		 
+		$i++; 
+	 }//foreach ends
+	 
+ }
+ 
 	
 /*
 *************************
@@ -2231,6 +2282,44 @@ IMAGE MODIFICATIONS
 }// Modify blogsquad image
 
 
+
+/*
+-----------------------------
+GLOBAL
+-----------------------------
+*/
+
+ /*///////////// 
+Social link edit request
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'SocialEdit' && isset($_POST['sId'])&& isset($_POST['type'])){
+	 if (isset($_COOKIE['SocialLinkEdit'])) {
+         unset($_COOKIE['SocialLinkEdit']);
+        setcookie('SocialLinkEdit', null, -1, '/');
+
+      } 
+	$the_main = new main();
+    $id = $the_main->ekezet_nelkuli($_POST['sId']);
+	$type = $the_main->ekezet_nelkuli($_POST['type']);
+	$content = $id.':'.$type;
+	setcookie('SocialLinkEdit', $content, time() + (15), "/");
+
+}// sponsors permission request
+
+ /*///////////// 
+Social link actual edit
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'SocialLinkUpdate' && isset($_POST['sId']) && isset($_POST['sType']) && isset($_POST['sLinks']) && isset($_POST['sURLs'])){
+
+	$the_main = new main();
+    $id = $the_main->social_link_update($_POST['sId'], $_POST['sType'], $_POST['sLinks'], $_POST['sURLs']);
+
+}// sponsors permission request
+    
 
  
   /*

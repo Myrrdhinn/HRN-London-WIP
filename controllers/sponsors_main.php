@@ -221,6 +221,8 @@ $main = new main();
 										$content[$i][12] = '';
 										$content[$i][13] = $data[10];
 										
+										/* FOR NOW we don't need the a la cartes  // uncomment this section if we need them again
+										
 										//--------------------------------
 											 if($data[10] == 1){ //If the current sponsor is also an a la carte one
 									            $haveala = 1;
@@ -270,6 +272,7 @@ $main = new main();
 										
 										//---------------------------------------
 										
+										Commented the a la cartes ends.. Uncomment this if you want them again  --->*/
 										
 									   $i++;
 								   } //if sponsor_type
@@ -285,6 +288,8 @@ $main = new main();
 	To make sure to display all a la cartes even when it doesn't have simple sponsor package!				
 	-----------------------
 	*/
+	
+	/* A LA Carte stuff... Commented out for now, if we need them, remove the comment
 	
 						        foreach ($filtered As $data) {
 								   if(0 == $data[2]){
@@ -342,9 +347,13 @@ $main = new main();
 								   } //if sponsor_type
 														
 							     }//foreach filtered
+								 
+					A La carte stuff.. if we need them, uncomment this ----->*/
 					
-					
-	//----------				
+	//----------	
+		
+	/* A LA Carte stuff.. if we need them, uncomment this too
+			
 					if (isset($alacartearray) && $haveala == 1){
 						//A La Carte Sponsors	
 				      shuffle($alacartearray);
@@ -376,7 +385,7 @@ $main = new main();
 						$content[$i][10] = "A LA CARTE SPONSORS"; //sponsor_type_name
 					}
 				
-				
+				A La Carte stuff.. uncomment them if we need it :D -----> */
 				
 				
 			

@@ -158,16 +158,19 @@ google.maps.event.addListener(marker,'click',function() {
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels"><li>Hotels</li></a>
             </ul>
         </span>
-        
+          
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown" style="display: none;">Partners
+        <span class="DesktopMenuDropdown"><a href="#">Partners</a>
             <ul id="PartnersDropdown">
-            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
+            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li  class="FirstDropdownItem">Sponsors</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
             </ul>
-        </span>        
+        </span>  
+        <div class="NavmenuDivider"></div>
+        <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a>
+        <div class="NavmenuDivider"></div>      
         
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="contact">Get in Touch</a> </div>
       <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
@@ -191,12 +194,13 @@ google.maps.event.addListener(marker,'click',function() {
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
-          <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+          <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="PartnersMobileGroupContent">
          		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
           </div>
+           <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>  
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" href="contact" >Get in Touch</a></li>
       </ul>
     </nav>
@@ -427,19 +431,19 @@ google.maps.event.addListener(marker,'click',function() {
     
     <!-- SPONSORS -->
     <div class="centered-text" style="width:100%;">
-      <h2 id="SponsorsH2">Past Sponsors</h2>
-      <div id="titanium-sponsors"> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'InternalForward',  'IBM']);" href="http://www.ibm.com/us/en/">
-        <div class="titanium-sponsor grow sponsor-picture" style="background:url(img/ibm-logo.png); background-repeat:no-repeat; background-position:center; background-size:contain;"></div>
+      <h2 id="SponsorsH2">Sponsors</h2>
+      <div id="titanium-sponsors"> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'InternalForward',  'IBM']);" href="http://www-01.ibm.com/software/smarterworkforce/">
+        <div class="titanium-sponsor grow sponsor-picture" style="background:url(img/200x200_logos_ibm.png); background-repeat:no-repeat; background-position:center; background-size:contain;"></div>
         </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternallForward', 'Oracle']);" href="https://www.oracle.com/applications/human-capital-management/index.html">
-        <div class="titanium-sponsor grow" style="background:url(img/oracle-logo.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'Kronos']);" href="http://www.kronos.com/">
-        <div class="titanium-sponsor grow" style="background:url(img/kronos-logo.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'WorkDay']);" href="http://www.workday.com/uk/">
-        <div class="titanium-sponsor grow" style="background:url(img/workday-logo.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'SuccessFactors']);" href="http://www.successfactors.com/en_us.html">
-        <div class="titanium-sponsor grow" style="background:url(img/successfactorslogo.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
+        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_oracle.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
+        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'AppLearn']);" href="http://www.applearn.tv/">
+        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_applearn.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
+        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'WorkForce']);" href="http://www.workforcesoftware.com/">
+        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_workforce.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
+        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'NGAHR']);" href="http://www.ngahr.com/">
+        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_nga.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
         </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'Cornerstone']);" href="http://www.cornerstoneondemand.com/">
-        <div class="titanium-sponsor grow" style="background:url(img/cornerstone-logo.png); background-position:center; background-repeat:no-repeat; background-size:contain;" ></div>
+        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_cornerstone.png); background-position:center; background-repeat:no-repeat; background-size:contain;" ></div>
         </a> </div>
     </div>
     <!--END SPONSORS--> 

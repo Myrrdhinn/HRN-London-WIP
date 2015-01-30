@@ -742,6 +742,30 @@ tinymce.init({
 
   })
   
+  
+      	 /*-----------------------
+		Sponsor social link edit
+	------------------------	*/
+
+		//Hide the element and show the input field associated with the element + focus the input box
+    $('.SocialLinkEdit').bind('click', function () {
+		
+		//get the id of the activated element
+		var sId = $(this).data('socialsedit-sponsor');
+		var type = "sponsors";
+
+		  $.ajax({
+                url: 'controllers/main.php',
+                type: 'POST',
+                data: {action:"SocialEdit", sId:sId, type:type},
+                success: function(data) {
+                    window.location.replace("social_links_edit");
+                }
+            });
+       
+
+  })
+  
 
 
 

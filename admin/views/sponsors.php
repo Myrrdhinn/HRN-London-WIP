@@ -597,26 +597,9 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_S
 		  <p id="'.$sponsor[4].'_CompanyLink" class="ClickClick ModalSponsorCompanyLink">Visit Company Website <i class="fa fa-angle-double-right"></i></p>
 		  <input class="ClickEdit" id="'.$sponsor[4].'_CompanyLinkEdit" style="display:none;" name="'.$sponsor[4].'_CompanyLinkEdit" type="text" value="'.$sponsor[1].'">
 		  
-          <div class="ModalDivider"></div>';		  
-		  $s = 0;
-		  
-		  if (isset($link_types)){
-			 foreach ($link_types As $types) {
-			   if ($types) {
-				   if ($links[$s] != ''){
-				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="ClickClick SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .=' <input class="ClickEdit" id="'.$sponsor[4].'_'.$types.'Edit" style="display:none;" name="'.$sponsor[4].'_'.$types.'Edit" type="text" value="'.$links[$s].'">';
-				   }
-					   $s++;
-			         }
-				}
-				unset($link_types);
-				unset($links);
-		  }
-
-		$output .='<p id="'.$sponsor[4].'_NewSocialLink" class="ClickClick SocialIcons"><a><i class="fa"></i></a></p>'; 
-	    $output .=' <input class="ClickEdit" id="'.$sponsor[4].'_NewSocialLinkEdit" style="display:none;" name="'.$sponsor[4].'_NewSocialLinkEdit" type="text" value="">';
+          <div class="ModalDivider"></div>';
+		  		  
+		 $output .='<p><span data-socialsedit-sponsor="'.$sponsor[0].'" class="SocialLinkEdit"><i class="fa fa-comment fa-2x"></i>Social Links</span></p>';
 		
           $output .='<div id="'.$sponsor[4].'_Bio" class="ClickClick ModalSponsorBio RobotoText"> '.$sponsor[3].'</div>
 		  <textarea class="ClickEdit" id="'.$sponsor[4].'_BioEdit" style="display:none;" name="'.$sponsor[4].'_BioEdit">'.$sponsor[3].'</textarea>';
