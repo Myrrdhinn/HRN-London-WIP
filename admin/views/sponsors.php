@@ -659,8 +659,10 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_S
 			 foreach ($link_types As $types) {
 			   if ($types) {
 				   if ($links[$s] != ''){
+					   $url_raw = $Sp->social_link_decode($links[$s]);
+					   
 				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="SocialIcons"><a href="'.$url_raw.'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 				   }
 					   $s++;
 			         }

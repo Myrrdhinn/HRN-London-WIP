@@ -61,15 +61,19 @@ Basic functions
        //upload links to somewhere :)
  function link_upload($type, $link, $sid, $db) {
 	 
+	 $url = $this->social_link_encode($link);
+	 
 	 		$this->dbc->query(
 				sprintf("INSERT INTO ".$db."_links SET ".$db."_id = '%s', link_url = '%s', speakers_link_types_id = '%s'",
 				  $this->dbc->real_escape_string(htmlspecialchars($sid)),
-				  $this->dbc->real_escape_string(htmlspecialchars($link)),
+				  $this->dbc->real_escape_string(htmlspecialchars($url)),
 				  $this->dbc->real_escape_string(htmlspecialchars($type))
 				)
 			);	
 	 
  }
+ 
+ /*
  
         //upload links to somewhere :)
  function blogsquad_link_upload($type, $link, $sid, $db) {
@@ -83,6 +87,7 @@ Basic functions
 			);	
 	 
  }
+ */
  
  function picture_upload($db, $id, $filename, $path) {
 	 $q = '';
@@ -111,6 +116,12 @@ Basic functions
   GLOBAL
 *************************  
 */	
+
+ function social_link_encode ($sURL) {
+	     $specialis_karekterek = array('&'=>'HRNCT001', '@'=>'HRNCT002', ';'=>'HRNCT003',' '=>'HRNCT004', '%'=>'HRNCT005', '?'=>'HRNCT006', '='=>'HRNCT007','+'=>'HRNCT008', '$'=>'HRNCT009');
+    $data = strtr($sURL, $specialis_karekterek);
+	 return $data;
+ }
  
  //Social Link update!
  function social_link_update($sId, $sType_raw, $sLinks, $sURLs) {
@@ -120,12 +131,14 @@ Basic functions
 	 $i = 0;
 	 foreach ($sLinks as $num => $value) {
 		   if ($sURLs[$i] == -1) {
-			   $sURLs[$i] = '';
+			   $url = '';
+		   } else {
+			   $url = $this->social_link_encode($sURLs[$i]);
 		   }
 		 	 $this->dbc->query(
 				sprintf("INSERT INTO ".$sType."_links SET ".$sType."_id = '%s', link_url = '%s', speakers_link_types_id = '%s'",
 				  $this->dbc->real_escape_string(htmlspecialchars($sId)),
-				  $this->dbc->real_escape_string(htmlspecialchars($sURLs[$i])),
+				  $this->dbc->real_escape_string(htmlspecialchars($url)),
 				  $this->dbc->real_escape_string(htmlspecialchars($value))
 				)
 			);	
@@ -714,7 +727,7 @@ function speaker_delete(){
 				$twitt = $_POST['BlogsquadTwitter'];
 			}	
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '2'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '2'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($twitt))
 				)
@@ -724,7 +737,7 @@ function speaker_delete(){
 			      //Facebook
 		if ($_POST['BlogsquadFacebook']  != '') {		
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '1'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '1'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['BlogsquadFacebook']))
 				)
@@ -733,7 +746,7 @@ function speaker_delete(){
 			      //Linkedin
 		if ($_POST['BlogsquadLinkedin'] != '') {		
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '3'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '3'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['BlogsquadLinkedin']))
 				)
@@ -742,7 +755,7 @@ function speaker_delete(){
 			      //Flickr
 		if ($_POST['BlogsquadFlickr'] != '') {		
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '4'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '4'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['BlogsquadFlickr']))
 				)
@@ -751,7 +764,7 @@ function speaker_delete(){
 			      //Google+
 		if ($_POST['BlogsquadGoogle'] != '') {		
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '5'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '5'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['BlogsquadGoogle']))
 				)
@@ -919,7 +932,7 @@ function blogsquad_company_data($sCompany, $sCompanyLink, $sId) {
 																	
 		case 'stwitter':
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '2'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '2'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sTwitter']))
 				)
@@ -927,7 +940,7 @@ function blogsquad_company_data($sCompany, $sCompanyLink, $sId) {
 			break;
 		case 'sfacebook':
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '1'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '1'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sFacebook']))
 				)
@@ -935,7 +948,7 @@ function blogsquad_company_data($sCompany, $sCompanyLink, $sId) {
 			break;
 		case 'slinkedin':
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '3'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '3'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sLinkedin']))
 				)
@@ -943,7 +956,7 @@ function blogsquad_company_data($sCompany, $sCompanyLink, $sId) {
 			break;
 		case 'sflickr':
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '4'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '4'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sFlickr']))
 				)
@@ -951,7 +964,7 @@ function blogsquad_company_data($sCompany, $sCompanyLink, $sId) {
 			break;
 		case 'sgoogle':
 			  $this->dbc->query(
-				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', blogsquad_link_types_id = '5'",
+				sprintf("INSERT INTO blogsquad_links SET blogsquad_id = '%s', link_url = '%s', speakers_link_types_id = '5'",
 				  $this->dbc->real_escape_string(htmlspecialchars($blogsquad_id)),
 				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sGoogle']))
 				)
@@ -2494,7 +2507,7 @@ Upload new social link to blogsquad
 
  if(isset($_POST['action']) && $_POST['action'] == 'new_blogsquad_link' && isset($_POST['typeid']) && isset($_POST['sId'])){
 	$the_main = new main();
-    $the_main->blogsquad_link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId'], "blogsquad");
+    $the_main->link_upload($_POST['typeid'], $_POST['newlink'], $_POST['sId'], "blogsquad");
 		if (isset($_COOKIE['Moo'])) {
 		   $the_main->db_log($_COOKIE['Moo'],"A new social link have been added to blogger", $_POST['sId']);
 	  }

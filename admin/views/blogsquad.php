@@ -516,24 +516,8 @@ $(function() {
           <div id="'.$speaker[4].'_BlogDiv" style="display: none;"></div>';
 		  
          $output .='<div class="ModalDivider"></div>';		  
-		  $s = 0;
-		  
-		  if (isset($link_types)){
-			 foreach ($link_types As $types) {
-			   if ($types) {
-				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$speaker[4].'_'.$types.'" class="ClickClick SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .=' <input class="ClickEdit" id="'.$speaker[4].'_'.$types.'Edit" style="display:none;" name="'.$speaker[4].'_'.$types.'Edit" type="text" value="'.$links[$s].'">';
-					   $s++;
-			         }
-
-				}
-				unset($link_types);
-				unset($links);
-		  }
-
-		$output .='<p id="'.$speaker[4].'_NewSocialLink" class="ClickClick SocialIcons"><a><i class="fa"></i></a></p>'; 
-	    $output .=' <input class="ClickEdit" id="'.$speaker[4].'_NewSocialLinkEdit" style="display:none;" name="'.$speaker[4].'_NewSocialLinkEdit" type="text" value="">';
+			
+			 $output .='<p><span data-socialsedit-blogsquad="'.$speaker[18].'" class="SocialLinkEdit"><i class="fa fa-comment fa-2x"></i>Social Links</span></p>';
 		
           $output .='<div class="ModalBlogsquadBio RobotoText"><span id="'.$speaker[4].'_BioImportant" class="ClickClick ModalBlogsquadBioHighlight OswaldText">'.$speaker[2].' </span></div>
 		  <textarea class="ClickEdit" id="'.$speaker[4].'_BioImportantEdit" style="display:none;" name="'.$speaker[4].'_BioImportantEdit" >'.$speaker[2].'</textarea>
@@ -583,7 +567,11 @@ $(function() {
 			 foreach ($link_types As $types) {
 			   if ($types) {
 				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$speaker[4].'_'.$types.'" class="SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
+					
+		           $url_raw = $speakers->social_link_decode($links[$s]); //this is needed to decode the link from the database
+							
+				   $output .='<p class="SocialIcons"><a href="'.$url_raw.'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+					//$output .='<p id="'.$speaker[4].'_'.$types.'" class="SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
 
 					   $s++;
 			         }

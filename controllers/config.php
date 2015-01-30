@@ -23,8 +23,12 @@
 		  
         }
     }
-
-	
+                              //this is needed to decode the links from db :)
+  public function social_link_decode ($sURL) {
+	     $specialis_karekterek = array('HRNCT001'=>'&', 'HRNCT002'=>'@', 'HRNCT003'=>';', 'HRNCT004'=>' ', 'HRNCT005'=>'%', 'HRNCT006'=>'?', 'HRNCT007'=>'=','HRNCT008'=>'+', 'HRNCT009'=>'$');
+    $data = strtr($sURL, $specialis_karekterek);
+	 return $data;
+ }	
 	
  /*  public function debugging($error) {
 	$ladybug = '';

@@ -69,7 +69,7 @@ $i = 0;
 				
 		//Get links		
 		 $links = $this->dbc->query(
-				sprintf("SELECT slt.type, sl.link_url FROM blogsquad_links as sl, blogsquad_link_types as slt WHERE sl.blogsquad_id = '%s' AND sl.blogsquad_link_types_id=slt.id ORDER BY sl.date DESC",
+				sprintf("SELECT slt.type, sl.link_url FROM blogsquad_links as sl, speakers_link_types as slt WHERE sl.blogsquad_id = '%s' AND sl.speakers_link_types_id=slt.id ORDER BY sl.date DESC",
 				    $this->dbc->real_escape_string($data['id'])
 				)
 				   );	

@@ -91,14 +91,18 @@ $i = 0;
 								}
 							}
 							if ($nope == 0) {  // if we don't have this link already displayed, we add it to the content
-						       $content[$i][5] .= $slinks['type'].';';
-						       $content[$i][6] .= $slinks['link_url'].';';
+							  if($slinks['link_url'] != ''){
+									 $content[$i][5] .= $slinks['type'].';';
+									 $content[$i][6] .= $slinks['link_url'].';';
+							    }//check if it's empty or not :D
 						       $haveit .= $slinks['type'].';'; //we also add it to the "displayed" list
 							}
 							
 						} else {  //if there's no list yet :D
-						   $content[$i][5] .= $slinks['type'].';';
-						   $content[$i][6] .= $slinks['link_url'].';';
+						   if($slinks['link_url'] != ''){
+								  $content[$i][5] .= $slinks['type'].';';
+								  $content[$i][6] .= $slinks['link_url'].';';
+							 }//check if it's empty or not :D
 						   $haveit .= $slinks['type'].';';
 						}
 

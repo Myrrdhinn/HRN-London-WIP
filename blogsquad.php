@@ -760,7 +760,9 @@ opinion on everything HR.</p>
 			                $google .= "'_trackEvent', 'BloggerSocialSite', 'ExternalForward', '".$social_tag."']);";
 			                $google .= '"';
 							
-				    $output .='<p class="SocialIcons"><a '.$google.' href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+							$url_raw = $speakers->social_link_decode($links[$s]); //this is needed to decode the link from the database
+							
+				    $output .='<p class="SocialIcons"><a '.$google.' href="'.$url_raw.'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 					//$output .='<p id="'.$speaker[4].'_'.$types.'" class="SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
 
 					   $s++;

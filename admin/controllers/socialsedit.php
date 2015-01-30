@@ -66,7 +66,10 @@ public function get_socials($sId, $type_raw) {
 														     $content .= '<input class="AdminInputField" data-sociallink-typeid="'.$link['id'].'" id="'.ucfirst($link['type']).'" name="'.ucfirst($link['type']).'" type="text" placeholder="'.ucfirst($link['type']).'"/>';
 														   
 													  } else { //if there's a link, we display the value
-														  $content .= '<input class="AdminInputField" data-sociallink-typeid="'.$link['id'].'" id="'.ucfirst($link['type']).'" name="'.ucfirst($link['type']).'" type="text" value="'.$url['link_url'].'"/>';  
+													     //convert back the url
+													 $url_raw = $this->social_link_decode($url['link_url']);
+													 
+														  $content .= '<input class="AdminInputField" data-sociallink-typeid="'.$link['id'].'" id="'.ucfirst($link['type']).'" name="'.ucfirst($link['type']).'" type="text" value="'.$url_raw.'"/>';  
 													  } //value empty else end
 														  
 												  } //personal fetch assoc end

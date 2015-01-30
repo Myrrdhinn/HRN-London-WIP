@@ -508,9 +508,10 @@ if ($sponsor[0] != -55 && $go == 1){	//if we already displayed the modal or the 
 			$google .= "'_trackEvent', 'SponsorSocialSite', 'ExternalForward', '".$comp_social."']);";
 			$google .= '"';
 					   
+					   $url_raw = $Sp->social_link_decode($links[$s]); //this is needed to decode the link from the database
 					   
 				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="SocialIcons"><a '.$google.' href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="SocialIcons"><a '.$google.' href="'.$url_raw.'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 				   }
 					   $s++;
 			         }

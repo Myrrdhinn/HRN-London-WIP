@@ -69,7 +69,7 @@ $i = 0;
 				
 		//Get links		
 		 $links = $this->dbc->query(
-				sprintf("SELECT slt.type, sl.link_url FROM blogsquad_links as sl, blogsquad_link_types as slt WHERE sl.blogsquad_id = '%s' AND sl.blogsquad_link_types_id=slt.id ORDER BY sl.date DESC",
+				sprintf("SELECT slt.type, sl.link_url FROM blogsquad_links as sl, speakers_link_types as slt WHERE sl.blogsquad_id = '%s' AND sl.speakers_link_types_id=slt.id ORDER BY sl.date DESC",
 				    $this->dbc->real_escape_string($data['id'])
 				)
 				   );	
@@ -91,19 +91,26 @@ $i = 0;
 								}
 							}
 							if ($nope == 0) {  // if we don't have this link already displayed, we add it to the content
-						       $content[$i][5] .= $slinks['type'].';';
-						       $content[$i][6] .= $slinks['link_url'].';';
-						       $haveit .= $slinks['type'].';'; //we also add it to the "displayed" list
+								   if($slinks['link_url'] != ''){
+										  $content[$i][5] .= $slinks['type'].';';
+										  $content[$i][6] .= $slinks['link_url'].';';
+									  }//check if it's empty or not :D
+									  $haveit .= $slinks['type'].';'; //we also add it to the "displayed" list
+								   
+
 							}
 							
 						} else {  //if there's no list yet :D
-						   $content[$i][5] .= $slinks['type'].';';
-						   $content[$i][6] .= $slinks['link_url'].';';
-						   $haveit .= $slinks['type'].';';
-						}
+						     if($slinks['link_url'] != ''){
+									   $content[$i][5] .= $slinks['type'].';';
+									   $content[$i][6] .= $slinks['link_url'].';';
+								   }//check if it's empty or not :D
+								   $haveit .= $slinks['type'].';';
+						    
+						}//else end
 
-					}
-				}                  
+					}//while end
+				} //if num rows              
 
 				
 						//Get company info	

@@ -581,25 +581,8 @@ if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 		  <input class="ClickEdit" id="'.$mediapartner[4].'_CompanyLinkEdit" style="display:none;" name="'.$mediapartner[4].'_CompanyLinkEdit" type="text" value="'.$mediapartner[1].'">
 		  
           <div class="ModalDivider"></div>';		  
-		  $s = 0;
-		  
-		  if (isset($link_types)){
-			 foreach ($link_types As $types) {
-			   if ($types) {
-				   if ($links[$s] != ''){
-				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$mediapartner[4].'_'.$types.'" class="ClickClick SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .=' <input class="ClickEdit" id="'.$mediapartner[4].'_'.$types.'Edit" style="display:none;" name="'.$mediapartner[4].'_'.$types.'Edit" type="text" value="'.$links[$s].'">';
-				   }
-					   $s++;
-			         }
-				}
-				unset($link_types);
-				unset($links);
-		  }
 
-		$output .='<p id="'.$mediapartner[4].'_NewSocialLink" class="ClickClick SocialIcons"><a><i class="fa"></i></a></p>'; 
-	    $output .=' <input class="ClickEdit" id="'.$mediapartner[4].'_NewSocialLinkEdit" style="display:none;" name="'.$mediapartner[4].'_NewSocialLinkEdit" type="text" value="">';
+            $output .='<p><span data-socialsedit-mediapartners="'.$mediapartner[0].'" class="SocialLinkEdit"><i class="fa fa-comment fa-2x"></i>Social Links</span></p>';
 		
           $output .='<div id="'.$mediapartner[4].'_Bio" class="ClickClick ModalMediapartnerBio RobotoText"> '.$mediapartner[3].'</div>
 		  <textarea class="ClickEdit" id="'.$mediapartner[4].'_BioEdit" style="display:none;" name="'.$mediapartner[4].'_BioEdit">'.$mediapartner[3].'</textarea>';
@@ -659,8 +642,11 @@ if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 			 foreach ($link_types As $types) {
 			   if ($types) {
 				   if ($links[$s] != ''){
-				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$mediapartner[4].'_'.$types.'" class="ClickClick SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
+				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>';
+					
+					 $url_raw = $Sp->social_link_decode($links[$s]); //this is needed to decode the link from the database 
+					 
+					$output .='<p id="'.$mediapartner[4].'_'.$types.'" class="ClickClick SocialIcons"><a href="'.$url_raw.'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
 				   }
 					   $s++;
 			         }
