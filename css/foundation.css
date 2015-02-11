@@ -3207,13 +3207,12 @@ blockquote p {
     float: left; }
     .tabs dd > a, .tabs .tab-title > a {
       display: block;
-      background-color: #efefef;
       color: #222222;
-      padding: 1rem 2rem;
+      padding: 1rem 0rem;
       font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
       font-size: 1rem; }
       .tabs dd > a:hover, .tabs .tab-title > a:hover {
-        background-color: #e1e1e1; }
+         }
     .tabs dd.active a, .tabs .tab-title.active a {
       background-color: white;
       color: #222222; }
@@ -3237,10 +3236,9 @@ blockquote p {
   margin-bottom: 1.5rem;
   width: 100%; }
   .tabs-content:before, .tabs-content:after {
-    content: " ";
-    display: table; }
+     }
   .tabs-content:after {
-    clear: both; }
+     }
   .tabs-content > .content {
     display: none;
     float: left;

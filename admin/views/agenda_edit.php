@@ -61,8 +61,8 @@
 <link href="css/admin_general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />
 
-<script src="js/new_agenda.js"></script>
-<script src="js/agenda_edit.js"></script>
+<script src="js/admin_new_agenda.js"></script>
+<script src="js/admin_agenda_edit.js"></script>
 <!-- TinyMCE -->
 <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
@@ -143,7 +143,7 @@ tinymce.init({
 	 
 	  if (isset($_SESSION['agenda_admin'])) {
 		  
-	     $content.='<form class= id="agenda" name="agenda" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
+	     $content.='<form class="agenda" id="agenda" name="agenda" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
     <div>
     ';
   // $content .= $new->agenda_list();
@@ -157,7 +157,8 @@ tinymce.init({
 
      <fieldset>
 	    <legend>Basic</legend>
-         <input class="AdminInputField" required="required" name="AgendaTitle" type="text" placeholder="Sesssion Title" /><br />';
+         <input class="AdminInputField" required="required" name="AgendaTitle" type="text" placeholder="Sesssion Title" /><br />
+		 <div id="TimeTable">';
 	
 	  $content .='  <label>Start <select id="AgendaTimeStart" name="AgendaTimeStart">';
    $content .= $new->agenda_time_list();
@@ -168,12 +169,14 @@ tinymce.init({
    $content .= $new->agenda_time_list();
    $content .= ' 
     </select></label><br />
+	</div>
 	  </fieldset>
 
 
      <fieldset>
 	    <legend>Stream</legend>';
-	 $content .= '<label>Break Session <input id="Highlighted" name="Highlighted" type="checkbox" value="1" /></label><br /><br />
+	 $content .= '<div id="BreakChkBox"><label>Break Session<input id="Highlighted" name="Highlighted" type="checkbox" value="1" /></label><br /><br /></div>
+	<div id="ModeratorChkBox"><label>Moderator Session<input id="Moderator" name="Moderator" type="checkbox" value="1" /></label><br /><br /></div>
 	<div id="AgendaIcon" style="display: none;">
 	<label>Highlighted Agenda Icon<select id="Icons" name="Icons">';
    $content .= $new->get_icons();
@@ -194,7 +197,7 @@ tinymce.init({
 	 <fieldset>
 	    <legend>Content</legend>
    <div id="SpeakersDiv">
-   <label>Abstract<textarea id="Abstract" name="Abstract" cols="25" rows="5"></textarea></label><br /><br />';
+  <div id="SessionAbstract"><label>Abstract<textarea name="Abstract" cols="25" rows="5"></textarea></label><br /><br /></div>';
    
    $content .='<input class="AdminInputField" id="SpeakerSearch" name="SpeakerSearch" type="text" placeholder="Search for Speakers" /><br />';
    $content .='	<select id="Alphabet" name="Alphabet[]" multiple size=10>';
@@ -217,7 +220,7 @@ tinymce.init({
    $content .='</select></label>
    
    
-   <p>In order to select multiple speakers, please hold Ctrl and then click on the speakers</p></div>
+   <p id="MultipleHelp">In order to select multiple speakers, please hold Ctrl and then click on the speakers</p></div>
        </div>
     <input name="SelectedSpeakers" id="SelectedSpeakers" type="hidden" />
 	<input name="AgendaTag" id="AgendaTag" type="hidden" />
@@ -229,7 +232,7 @@ tinymce.init({
 		   
  	 } //if isset agenda_admin 
 	 else {
-		$content.="<h1 style='text-align:center'>You don't have permission to see this page! Naughty! ;)</h1>"; 
+		$content.="<h1 style='text-align:center'>You don't have permission to see this page!</h1>"; 
 	 }
 	 
 	 $content .='</div>

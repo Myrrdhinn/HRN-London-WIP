@@ -61,7 +61,7 @@
 
 <link href="css/admin_general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />
-<script type="text/javascript" src="js/new_agenda.js"></script>
+<script type="text/javascript" src="js/admin_new_agenda.js"></script>
 
 <!-- TinyMCE -->
 <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
@@ -143,7 +143,8 @@ tinymce.init({
 	     $content .='<form class= id="agenda" name="agenda" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
      <fieldset>
 	    <legend>Basic</legend>
-         <input class="AdminInputField" required="required" id="AgendaTitle" name="AgendaTitle" type="text" placeholder="Sesssion Title" /><br />';
+         <input class="AdminInputField" required="required" id="AgendaTitle" name="AgendaTitle" type="text" placeholder="Sesssion Title" /><br />
+		 <div id="TimeTable">';
 	
 	  $content .='  <label>Start <select name="AgendaTimeStart">';
    $content .= $new->agenda_time_list();
@@ -154,13 +155,15 @@ tinymce.init({
    $content .= $new->agenda_time_list();
    $content .= ' 
     </select></label><br />
+	</div>
 	  </fieldset>';
 	
 	
       $content .= '
 	  <fieldset>
 	    <legend>Stream</legend>
-	<label>Break Session<input id="Highlighted" name="Highlighted" type="checkbox" value="1" /></label><br /><br />
+	<div id="BreakChkBox"><label>Break Session<input id="Highlighted" name="Highlighted" type="checkbox" value="1" /></label><br /><br /></div>
+	<div id="ModeratorChkBox"><label>Moderator Session<input id="Moderator" name="Moderator" type="checkbox" value="1" /></label><br /><br /></div>
 	<div id="AgendaIcon" style="display: none;">
 	<label>Break Type<select name="Icons">';
    $content .= $new->get_icons();
@@ -178,10 +181,11 @@ tinymce.init({
     </select></label>
 	 </fieldset>
 	  <fieldset>
-	    <legend>Content</legend>
-	<br /><br />
+	    <legend>Content</legend><br />
+	
+  <!--Normal, content upload section-->	
    <div id="SpeakersDiv">
-   <label>Abstract<textarea name="Abstract" cols="25" rows="5"></textarea></label><br /><br />';
+   <div id="SessionAbstract"><label>Abstract<textarea name="Abstract" cols="25" rows="5"></textarea></label><br /><br /></div>';
    
    $content .='<input class="AdminInputField" id="SpeakerSearch" name="SpeakerSearch" type="text" placeholder="Search for Speakers" /><br />';
    
@@ -205,8 +209,10 @@ tinymce.init({
    $content .='</select></label>
    
    
-   <p>In order to select multiple speakers, please hold Ctrl and then click on the speakers</p></div>
-       </div>
+   <p id="MultipleHelp">In order to select multiple speakers, please hold Ctrl and then click on the speakers</p></div>
+       
+	   <!--Content upload section end-->
+	   	   
    </fieldset>
     <input name="SelectedSpeakers" id="SelectedSpeakers" type="hidden" />
 	<input name="AgendaTag" id="AgendaTag" type="hidden" />

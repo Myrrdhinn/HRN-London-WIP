@@ -51,8 +51,8 @@
 <?php 
   if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
 	echo '<!-- This needs jquery ui-->
-<script src="js/draganddrop_blogsquad.js"></script>
-<script src="js/dropzone_main.js"></script>
+<script src="js/admin_blogsquad_edit.js"></script>
+<script src="js/admin_dropzone_main.js"></script>
 <link rel="stylesheet" href="css/general.css" /> 
 <link rel="stylesheet" href="css/admin_edit_general.css" />
 <!-- TinyMCE -->

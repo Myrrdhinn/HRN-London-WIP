@@ -54,8 +54,8 @@
 <?php 
   if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
 	echo '<!-- This needs jquery ui-->
-<script src="js/sponsor_edit.js"></script>  
-<script src="js/dropzone_main.js"></script>
+<script src="js/admin_sponsors_edit.js"></script>  
+<script src="js/admin_dropzone_main.js"></script>
 <link rel="stylesheet" href="css/general.css" /> 
 <link rel="stylesheet" href="css/admin_edit_general.css" />'; 
 

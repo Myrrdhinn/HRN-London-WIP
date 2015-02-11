@@ -58,7 +58,7 @@
 <?php 
   if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
 	echo '<!-- This needs jquery ui-->
-<script src="js/agenda.js"></script>  
+<script src="js/admin_agenda.js"></script>  
 <link rel="stylesheet" href="css/admin_edit_general.css" />'; 
   }
 ?>
@@ -435,15 +435,15 @@
     </div>
       <!-- END Round Table DAY2 --> 
       
-       <!-- User Adoption DAY2 -->
+       <!-- User Adoption DAY2
       <div class="UserAdoption">
-        <h4 class="StageName OswaldText"><a name="day2-user-adoption"></a><img class="StageImage" src="img/agenda/useradoption.png">User Adoption</h4>
+        <h4 class="StageName OswaldText"><a name="day2-user-adoption"></a><img class="StageImage" src="img/agenda/useradoption.png">User Adoption</h4> -->
                 <?php  
 		
-		   $content = $agenda->agenda(2,12);
-			echo $content;
+		  // $content = $agenda->agenda(2,12);
+			//echo $content;
 		?>
-    </div>
+    <!--</div>-->
       <!-- END User Adoption DAY2 --> 
       <!-- No Event DAY2 -->
       <div class="day2-no-event">

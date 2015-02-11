@@ -60,7 +60,7 @@
 <link rel="stylesheet" href="css/admin_index.css" />
 <link rel="stylesheet" href="css/admin_permissions.css" />
 
-<script src="js/sponsors_permissions.js"></script>
+<script src="js/admin_sponsors_permissions.js"></script>
 
 
 </head>

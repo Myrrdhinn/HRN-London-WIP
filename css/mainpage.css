@@ -17,6 +17,22 @@
   margin-right: auto;
 }
 
+#SponsorsButton {
+	background-color: #16AAE1;
+	color: #fff;
+	font-size: 1.5em;
+	font-weight: 400;
+	margin:0 auto 40px auto;
+	max-width:330px;
+	padding: 10px;
+	text-align: center;
+	cursor:pointer;
+}
+
+#SponsorsButton:hover {
+background-color: #FC354C;
+}
+
 #titanium-sponsors {
 	maring-top:-25px;
 	}

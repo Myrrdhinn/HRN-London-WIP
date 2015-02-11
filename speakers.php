@@ -41,11 +41,11 @@
 <link rel="stylesheet" href="css/speakers.css" />
 <link rel="stylesheet" href="css/footer.css" />
 
-<!-- TESTIMONIALS FADE-IN FADE-OUT -->
-<script src="js/testimonials-fadein-fadeout.js"></script>
-
 <!-- Scroll to top JS -->
 <script src="js/gotopscroll.js"></script>
+
+<!-- Speakers  -->
+<script src="js/speakers.js"></script>
 
 <!--- Mobile Menu dropdown -->
 <script src="js/mobile-menu-dropdown.js"></script>
@@ -107,51 +107,53 @@
   <div class="inner-wrap"> 
     <!--END Declare the Off canvas menu Wrapper --> 
     <!--HEADER--> 
-    <!--Desktop Navigation Menu-->
+      <!--Desktop Navigation Menu-->
 
-	<!--Desktop Navigation Menu-->
+
     <nav id="MainNavigationMenu">
-      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" >Home</a>
+      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);">Home</a>
         <div class="NavmenuDivider"></div>
-        <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" class="ActiveNavmenuItem" href="speakers">Speakers</a>
+        <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);"  class="ActiveNavmenuItem" href="speakers">Speakers</a>
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
+        <span class="DesktopMenuDropdown"><a href="venue">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels"><li>Hotels</li></a>
             </ul>
         </span>
-        
+          
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown"><a href="#">Partners</a>
+        <span class="DesktopMenuDropdown"><a href="sponsors">Partners</a>
             <ul id="PartnersDropdown">
             <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li  class="FirstDropdownItem">Sponsors</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
+                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies"><li>Sponsor Appendencies</li></a>
             </ul>
-        </span> 
-          <div class="NavmenuDivider"></div>
+        </span>  
+        <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a>
-        <div class="NavmenuDivider"></div>       
+        <div class="NavmenuDivider"></div>      
         
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="contact">Get in Touch</a> </div>
-    <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
+      <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
         <div id="HeaderGetTicketsButton">GET TICKETS</div>
         </a> </div>
     </nav>
+    
     <!--END DESKTOP Navigation Menu--> 
     <!-- Mobile Navigation Menu-->
-    <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onclick="location.href='#top'"  role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
+    <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onClick="$('html, body').animate({scrollTop: 0}, 700);" role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
     <nav id="RightsideMobileNavigation" class="right-off-canvas-menu">
       <ul>
-        <li> <a href="index" class="MobileNavigationMenuItem">Home</a></li>
-        <li> <a href="tickets" >Tickets</a></li>
-        <li> <a  class="ActiveNavmenuItem" href="speakers">Speakers</a></li>
-        <li> <a href="agenda" >Agenda</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index" >Home</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" >Tickets</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers" class="ActiveNavmenuItem MobileNavigationMenuItem">Speakers</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda" >Agenda</a></li>
                   <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="ExpoMobileGroupContent">
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">Venue</a></li>
@@ -164,13 +166,14 @@
          		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">Sponsor Appendencies</a></li>
           </div>
-          <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>  
-        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']); href="contact" >Get in Touch</a></li>
+           <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>  
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" href="contact" >Get in Touch</a></li>
       </ul>
     </nav>
     
-    <!-- END Mobile Navigation Menu--> 
+    <!-- END Mobile Navigation Menu-->
        
     <!-- SLIDESHOW -->
     
@@ -347,14 +350,18 @@
 			 
 
 			 $output = '';
-			$output .= '<div id="'.$speaker[18].'"><!-- '.$speaker[0].' Speakergrid-->';
+			$output .= '<div id="'.$speaker[18].'" data-speakerdatatag="'.$speaker[4].'"><!-- '.$speaker[0].' Speakergrid-->';
 			
 			$google = 'onClick="_gaq.push([';
 			$google .= "'_trackEvent', 'SpeakerProfile', 'ModalOpen', '".$speaker[4]."']);";
 			$google .= '"';
 
-     $output.= '<a '.$google.' data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
+     /*$output.= '<a '.$google.' data-toggle="modal" data-target="#EmptyModal" href="#">
+      <div class="Speaker">';*/
+	  
+	  $output.= '<a '.$google.' data-speakertag="'.$speaker[4].'" class="SpeakerModalOpen">
       <div class="Speaker">';
+	  
 	  if (isset($speaker[11])) {
 		  $output .= '<div class="SpeakerPhoto" style="background-image:url(img/speakers/'.$speaker[11].');">';
 	  } else {
@@ -460,12 +467,7 @@
 
 <script src="js/foundation.min.js"></script> 
 <script>
-      $(document).foundation({
-        orbit: {
-          timer_speed: 4000,
-          next_on_click: false
-        }
-        });
+      $(document).foundation();
 </script> 
 <!--End Foundation Scripts --> 
 <script type="text/javascript">
@@ -489,6 +491,18 @@ $(function() {
 
 <!--Call modified Bootstrap -->
 <script src="js/bootstrap.js"></script>
+
+
+
+
+
+<!-- MODAL --> 
+<div class="modal fade" id="EmptyModal" tabindex="-1" role="dialog" aria-labelledby="DownloadPDFModalLabel" aria-hidden="true"></div>
+ <!-- MODAL Ends--> 
+ 
+ 
+ <!--Call modified Bootstrap -->
+<script src="js/bootstrap.js"></script>
 <!-- MODAL OPEN FROM EXTERNAL LINK -->
 <script type="text/javascript">
  $(document).ready(function() {
@@ -499,169 +513,20 @@ $(function() {
 		
 		var tagLast = tag.substr(tag.length - 1);
 		var tagFirst = tag.substr(1,1);
- 		tag_upper = '#'+tagFirst.toUpperCase()+tag.substr(2, tag.length-3)+tagLast.toUpperCase();
+ 		var sTag = tagFirst.toUpperCase()+tag.substr(2, tag.length-3)+tagLast.toUpperCase();
 		
 
-  if(window.location.href.indexOf(tag) != -1) {
-    $(tag_upper).modal('show');
-  }
-
+  if(window.location.href.indexOf(tag) != -1 && tag_number !=-1) {
+	  
+	ExternalModal (sTag);
+			
+   }
 });
  
  
  </script>
 <!-- END MODAL OPEN FROM EXTERNAL LINK -->
-
-
-
-
-<!-- MODALS --> 
-
-      	<?php
-		  /*
-		  
-		 				$content[$i][0] = Speaker name
-		  				$content[$i][1] = Speaker Title
-						$content[$i][2] = Speaker Bio important
-						$content[$i][3] = Speaker Bio
-						$content[$i][4] = Speaker modal tag
-						
-						$content[$i][5] = Link type
-						$content[$i][6] = Link URL
-
-						$content[$i][7] = Company name
-						$content[$i][8] = Company URL
-						$content[$i][9] = Company Bio
-
-						$content[$i][10] = Picture name
-						$content[$i][11] = Picture URL
-		  */
-		if (isset($content)) {
-		 foreach ($content as $speaker) {
-			 if (isset($speaker[6])){
-				  $links = explode(';',$speaker[6]);
-			      $link_types = explode(';',$speaker[5]);
-			 }
-			 
-			     $num = 0;
-			 	 foreach ($speaker As $set) {
-						if (!isset($set)){
-				        $speaker[$num] = '';
-			             }	
-						 $num++;		
-					}
-			 
-
-	/*
-	 --------------------------
-	 Normal user
-	 -------------------
-	 */		
-				$output = '<!-- '.$speaker[0].' Modal -->
-<div class="modal fade" id="'.$speaker[4].'" tabindex="-1" role="dialog" aria-labelledby="DownloadPDFModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/speakers/modal-close.png" alt="modal-close-button"></button>';
-			  if (isset($speaker[11])) {
-		  $output .= '<div class="ModalSpeakerPhoto" style="background-image:url(img/speakers/'.$speaker[11].')"></div>';
-	          } else {
-				   $output .= '<div class="ModalSpeakerPhoto"></div>';
-			  }
-       
-	   
-	        $company_tag = "";
-			$ca = preg_replace('/[^A-Za-z0-9]/', '', $speaker[7]); // Removes special chars.
-	        $company_tag_array = explode(" ",$ca);
-			foreach ($company_tag_array as $comp) {
-				$company_tag .= ucfirst($comp); 
-			}
-			
-        
-			$google = 'onClick="_gaq.push([';
-			$google .= "'_trackEvent', 'SpeakerCompanySite', 'ExternalForward', '".$company_tag."']);";
-			$google .= '"';
-		
-       $output .='<div class="ModalSpeakerBioContainer">
-	   <form class="SpeakerModalEdit">
-
-          <p id="'.$speaker[4].'_Name" class=" ModalSpeakerName OswaldText">'.$speaker[0].'</p>
-
-          <p id="'.$speaker[4].'_Title" class="ModalSpeakerJobtitle RobotoText">'.$speaker[1].'</p>';
-		  
-		  
-		  
-		  			  if (isset($speaker[8])) {
-					 $Http = strpos($speaker[8], "http://");
-					 $Https = strpos($speaker[8], "https://");
-					
-					 if ($Http === false && $Https === false) {
-						$compLink = "http://".$speaker[8];
-				      } else {
-						  $compLink = $speaker[8];
-					  }
-				   }
-		
-		 $output .='<a '.$google.' href="'.$compLink.'" id="'.$speaker[4].'_CompanyLink" class="ModalSpeakerCompanyLink">'.$speaker[7].'</a>
-		
-          <div class="ModalDivider"></div>';		  
-		  $s = 0;
-		  
-		  if (isset($link_types)){
-			 foreach ($link_types As $types) {
-			   if ($types) {
-				   if (isset($links[$s])) {
-					 $Http = strpos($links[$s], "http://");
-					 $Https = strpos($links[$s], "https://");
-					
-					 if ($Http === false && $Https === false) {
-						$links[$s] = "http://".$links[$s];
-				    	}
-				   }
-				   			$social_tag = ucfirst($types).'-'.$speaker[4];
-				   			$google = 'onClick="_gaq.push([';
-			                $google .= "'_trackEvent', 'SpeakerSocialSite', 'ExternalForward', '".$social_tag."']);";
-			                $google .= '"';
-							
-							$url_raw = $speakers->social_link_decode($links[$s]); //this is needed to decode the link from the database
-							
-				   $output .='<p class="SocialIcons"><a '.$google.' href="'.$url_raw.'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					//$output .='<p id="'.$speaker[4].'_'.$types.'" class="SocialIcons"><a><i class="fa fa-'.$types.' "></i></a></p>'; 
-
-
-					   $s++;
-			         }
-
-				}
-				unset($link_types);
-				unset($links);
-		  }
-
-          $output .='<div class="ModalSpeakerBio RobotoText"><span id="'.$speaker[4].'_BioImportant" class="ModalSpeakerBioHighlight OswaldText">'.$speaker[2].' </span><!--</div>
-		  
-		  <div id="'.$speaker[4].'_Bio" class=" ModalSpeakerBio RobotoText"> '.$speaker[3].'</div>-->
-		  <span id="'.$speaker[4].'_Bio">'.$speaker[3].'</span>
-		  </div>
-
-
-		  </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end '.$speaker[0].' Modal --> ';	
-		
-		
-
-	
-			
-		  /*   foreach ($f as $s) {
-		      echo $s;
-	      }*/
-		echo $output;  
-	}
-		}?>
+ 
 <script type="text/javascript">
 $(function() {
   $('a[href*=#]:not([href=#])').click(function() {

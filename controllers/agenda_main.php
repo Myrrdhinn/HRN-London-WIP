@@ -26,7 +26,147 @@ class agenda_main extends config {
 		$i = 0;
 		$check[0] = -1;
 		$output = '';
+
+
+//Get the Moderator
+
+			  //Check if the session is already exists
+			  $GetModeratorId = $this->dbc->query(
+				sprintf("SELECT agenda_event_id FROM agenda_event_moderator WHERE agenda_event_day = '%s' AND agenda_location_id = '%s' ORDER BY date DESC LIMIT 0,1",
+							$this->dbc->real_escape_string(htmlspecialchars($day)),
+							$this->dbc->real_escape_string(htmlspecialchars($location))
+				)
+				   );	
+					if (mysqli_num_rows($GetModeratorId)) {
+						//if we find an existing session
+					   while($moderatorId = $GetModeratorId->fetch_assoc()){
+						   
+						   	
+						$agendas[0] = $moderatorId['agenda_event_id'];
+						$aId['id'] = $moderatorId['agenda_event_id'];
+									//Get the agenda data
+												   
+								  
+								  
+				//Agenda title						  
+						$agendatitle = $this->dbc->query(
+								  sprintf("SELECT agenda_name FROM agenda_event_title WHERE agenda_event_id = '%s' ORDER BY date DESC LIMIT 0,1",
+									  $this->dbc->real_escape_string($aId['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($agendatitle)) {
+									  while($title = $agendatitle->fetch_assoc()){
+										  $agendas[6] = $title['agenda_name'];
+										  
+									  } //agenda while end
+								  }  //agenda numrows end
+										  
+										//Agenda title						  
+						$agendatag = $this->dbc->query(
+								  sprintf("SELECT agenda_tag FROM agenda_event_tag WHERE agenda_event_id = '%s' ORDER BY date DESC LIMIT 0,1",
+									  $this->dbc->real_escape_string($aId['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($agendatag)) {
+									  while($tag = $agendatag->fetch_assoc()){
+										  $agendas[9] = $tag['agenda_tag'];
+										  
+									  } //agenda while end
+								  }  //agenda numrows end
+										  				  
+										  
+										  
+					$agendaicon = $this->dbc->query(
+								  sprintf("SELECT aei.icon_type FROM agenda_event_icons as aei, agenda_event_icon_connection as aeic WHERE aeic.agenda_event_id = '%s' AND aeic.agenda_event_icon_id=aei.id ORDER BY aeic.date DESC LIMIT 0,1",
+									  $this->dbc->real_escape_string($aId['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($agendaicon)) {
+									  while($Icons = $agendaicon->fetch_assoc()){
+										  $agendas[8] = $Icons['icon_type'];
+										  
+									  } //agenda while end
+								  }  //agenda numrows end
+										  										  	   
+
+					   } //personal fetch assoc end
+					   
+				   }
+
+if (isset($agendas)) {
+	$class = '';
+	switch ($location) {
+    case 1:
+	   if ($day == 1){
+		   $class = 'MainStageOneMod';
+	   } else {
+		   $class = 'MainStageTwoMod';
+	   }
+        
+        break;
+    case 2:
+        $class = 'HRShareMod'; 
+        break;
+    case 3:
+       $class = 'FutureOfWorkMod';
+        break;
+    case 4:
+       $class = 'HRTechMod';
+        break;
+    case 5:
+       $class = 'CompensationMod';
+        break;
+    case 6:
+       $class = 'CloudTechMod';
+        break;
+    case 7:
+       $class = 'HRAnalyticsMod';
+        break;
+    case 8:
+       $class = 'TalentAndRecruitmentMod';
+        break;
+    case 9:
+       $class = 'SocialCollaborationMod';
+        break;
+    case 10:
+       $class = 'LabsMod';
+        break;
+    case 11:
+       $class = 'RoundTableMod';
+        break;
+    case 12:
+       $class = 'UserAdoptionMod';
+        break;
+}
+	
+	
+	
+		$long = '';
+		$name = $this->no_ekezet($agendas[6]);
 		
+		if (strlen($agendas[6]) > 77) {
+			$long = ' LongSessionTitle';
+		}
+		
+		 $extraclass = '';  
+		 $icon = '<i class="agenda-icon fa fa-user"></i>';
+		 $link = '';
+		 $break = '<div class="SessionTitle'.$long.'">'.$agendas[6].'</div>'.$icon;
+	
+   $output .='<!-- '.$agendas[6].' -->
+	   
+	   <div class="Session '.$class.'">'.$link.' 
+		<div class="SessionHeader'.$extraclass.'">
+			<div class="SessionTime"></div>';
+
+			 $output .= $break;
+			 $output .='</div>';
+		$output .=' 
+		</div>
+	<!--END '.$agendas[6].' --> ';
+
+}
+
 
 
 /*

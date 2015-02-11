@@ -192,7 +192,7 @@ $haveala = 0;
 
  if(isset($filtered)) {
 	//$fixed = [20, 13];
-	$fixed = 0;
+	$fixed[0] = 29;
 	$filtered = $this->randomize_sponsors($filtered, $fixed);
  }
 $main = new main();
@@ -221,7 +221,7 @@ $main = new main();
 										$content[$i][12] = '';
 										$content[$i][13] = $data[10];
 										
-										/* FOR NOW we don't need the a la cartes  // uncomment this section if we need them again
+										
 										
 										//--------------------------------
 											 if($data[10] == 1){ //If the current sponsor is also an a la carte one
@@ -272,7 +272,7 @@ $main = new main();
 										
 										//---------------------------------------
 										
-										Commented the a la cartes ends.. Uncomment this if you want them again  --->*/
+										
 										
 									   $i++;
 								   } //if sponsor_type
@@ -284,12 +284,7 @@ $main = new main();
 					   } // while fetch assoc sponsor_type
 					} // if s_types end
 					
-	/*---------------------
-	To make sure to display all a la cartes even when it doesn't have simple sponsor package!				
-	-----------------------
-	*/
-	
-	/* A LA Carte stuff... Commented out for now, if we need them, remove the comment
+
 	
 						        foreach ($filtered As $data) {
 								   if(0 == $data[2]){
@@ -348,11 +343,10 @@ $main = new main();
 														
 							     }//foreach filtered
 								 
-					A La carte stuff.. if we need them, uncomment this ----->*/
 					
 	//----------	
 		
-	/* A LA Carte stuff.. if we need them, uncomment this too
+
 			
 					if (isset($alacartearray) && $haveala == 1){
 						//A La Carte Sponsors	
@@ -385,7 +379,7 @@ $main = new main();
 						$content[$i][10] = "A LA CARTE SPONSORS"; //sponsor_type_name
 					}
 				
-				A La Carte stuff.. uncomment them if we need it :D -----> */
+			
 				
 				
 			

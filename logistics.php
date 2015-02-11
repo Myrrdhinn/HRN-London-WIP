@@ -58,7 +58,6 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-
 </head>
 <body onload="BrwoserDetect()">
 <!-- Declare the Off Canvas Menu Wrapper -->
@@ -66,31 +65,35 @@
   <div class="inner-wrap"> 
     <!--END Declare the Off canvas menu Wrapper --> 
     <!--HEADER--> 
-    <!--Desktop Navigation Menu-->
+      <!--Desktop Navigation Menu-->
     <nav id="MainNavigationMenu">
-      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);">Home</a>
+      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" >Home</a>
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a>
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
+        <span class="DesktopMenuDropdown ActiveNavmenuItem"><a href="venue">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels"><li>Hotels</li></a>
             </ul>
         </span>
-        
+          
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown" style="display: none;">Partners
+        <span class="DesktopMenuDropdown"><a href="sponsors">Partners</a>
             <ul id="PartnersDropdown">
-            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
+            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li  class="FirstDropdownItem">Sponsors</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
+                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies"><li>Sponsor Appendencies</li></a>
             </ul>
-        </span>        
+        </span>  
+        <div class="NavmenuDivider"></div>
+        <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a>
+        <div class="NavmenuDivider"></div>      
         
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="contact">Get in Touch</a> </div>
       <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
@@ -103,23 +106,25 @@
     <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onClick="$('html, body').animate({scrollTop: 0}, 700);" role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
     <nav id="RightsideMobileNavigation" class="right-off-canvas-menu">
       <ul>
-        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index" class=" MobileNavigationMenuItem">Home</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index">Home</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" >Tickets</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda" >Agenda</a></li>
-                  <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+                  <li id="ExpoMobileGroup" class="ActiveNavmenuItem MobileNavigationMenuItem">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="ExpoMobileGroupContent">
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">Venue</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics" class="ActiveNavmenuItem">Logistics</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">Logistics</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
-          <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+          <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="PartnersMobileGroupContent">
          		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">Sponsor Appendencies</a></li>
           </div>
+           <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>  
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" href="contact" >Get in Touch</a></li>
       </ul>
     </nav>
@@ -178,8 +183,10 @@
       <div id="HowToGetThere">
         <h1>How to get there?</h1>
       </div>
-      <!-- Dirtections Info Navigation -->
-      <div class="row" id="DirectionButtonsContainer"> <a onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'Plane']);" href="#DirectionsByPlaneAnchor">
+      
+      
+      <!-- Dirtections Info Navigation Desktop -->
+<div class="row DirectionButtonsContainer" id="DirectionButtonsContainerDesktop"> <a onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'Plane']);" href="#DirectionsByPlaneAnchor">
         <div class="large-2 medium-2 small-6 columns" id="Plane">
           <figure><img src="img/logistics/directionsnav-plane.svg" alt="Plane Icon" onmouseover="this.src='img/logistics/directionsnav-plane-hover.svg';"
       onmouseout="this.src='img/logistics/directionsnav-plane.svg';" />
@@ -204,7 +211,7 @@
         <div class="large-2 medium-2 small-6 columns" id="Car">
           <figure><img src="img/logistics/directionsnav-parking.svg" alt="Parking Icon" onmouseover="this.src='img/logistics/directionsnav-parking-hover.svg';"
       onmouseout="this.src='img/logistics/directionsnav-parking.svg';" />
-            <figcaption> car/parking</figcaption>
+            <figcaption> parking</figcaption>
           </figure>
         </div>
         </a> <a onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'CableCar']);" href="#DirectionsByCableCarAnchor">
@@ -222,11 +229,10 @@
           </figure>
         </div>
         </a> </div>
-      
-      <!--END Dirtections Info Navigation --> 
+        
       <!-- Dirtections by Plane --> 
       <a id="DirectionsByPlaneAnchor" class="DirectionsTextAnchor"></a>
-      <section id="DirectionsByPlane" class="DirectionsText">
+      <section id="DirectionsByPlaneDesktop" class="DirectionsText">
         <h4> by plane</h4>
         <p>London has 6 international airports. We recommend using London City Airport whenever possible. The airport is located 5-minutes from ExCeL London by taxi or 10-minutes by DLR (Docklands Light Railway). The airport offers 350 flights per day, from over 40 international destinations.</p>
         <p>Depending on the airports, please use the following routes to arrive to London ExCel:
@@ -245,22 +251,19 @@
       </section>
       <!--END Dirtections by Plane --> 
       <!-- Dirtections by Tube --> 
-      <a id="DirectionsByTubeAnchor" class="DirectionsTextAnchor"></a>
-      <section id="DirectionsByTube" class="DirectionsText">
+      <section id="DirectionsByTubeDesktop" class="DirectionsText">
         <h4>by Tube/dlr</h4>
         <p>The DLR stations closest to ExCel are Custom House and Prince Regent. We strongly recommend arrival at Prince Regent as that is the closest station to the east side of Excel, where HR Tech Europe will take place.</p>
       </section>
       <!--END Dirtections by Tube --> 
       <!-- Dirtections by Rail --> 
-      <a id="DirectionsByRailAnchor" class="DirectionsTextAnchor"></a>
-      <section id="DirectionsByRail" class="DirectionsText">
+      <section id="DirectionsByRailDesktop" class="DirectionsText">
         <h4>by rail</h4>
         <p> London is connected by rail to all major cities in Great Britain. In addition Eurostar operate regular train services to Brussels and Paris operating from St Pancras International. From St Pancras Station, take the Circle line heading south. Change at Tower Hill, heading east on DLR. Arrive at Prince Regent Station.</p>
       </section>
       <!--END Dirtections by Rail --> 
       <!-- Dirtections by Car --> 
-      <a id="DirectionsByCarAnchor" class="DirectionsTextAnchor"></a>
-      <section id="DirectionsByCar" class="DirectionsText">
+      <section id="DirectionsByCarDesktop" class="DirectionsText">
         <h4>by car</h4>
         <p> When driving to ExCeL London follow signs for Royal Docks, City Airport and ExCeL. There is easy access from the M25, M11, A406 and A13.<br>
           Please contact the AA for information on planning your journey and 24-hour live traffic reports, by calling on +44 (0) 906 888 4322.<br>
@@ -271,20 +274,130 @@
       </section>
       <!--END Dirtections by Car --> 
       <!-- Dirtections by Cable Car --> 
-      <a id="DirectionsByCableCarAnchor" class="DirectionsTextAnchor"></a>
-      <section id="DirectionsByCableCar" class="DirectionsText">
+      <section id="DirectionsByCableCarDesktop" class="DirectionsText">
         <h4>by cable car</h4>
         <p> The Emirates Air Line (Cable Car) connecting ExCeL London and the O2 opened in summer 2012, making it possible to travel by Thames Clipper between central London and the O2 and then by Cable Car across the Thames to ExCeL London. </p>
       </section>
       <!--END Dirtections by Cable Car --> 
       <!-- Dirtections by Boat  --> 
-      <a id="DirectionsByBoatAnchor" class="DirectionsTextAnchor"></a>
-      <section id="DirectionsByBoat" class="DirectionsText">
+      <section id="DirectionsByBoatDesktop" class="DirectionsText">
         <h4>by boat</h4>
         <p> MBNA Thames Clippers is the leading commuter boat service on the River Thames. Departures are available from all major piers, including The O2, Greenwich, Canary Wharf, Tower, London Bridge, Embankment and Waterloo, every 20 minutes during peak hours. </p>
       </section>
       <!--END Dirtections by Boat --> 
+      <!-- END Dirtections Info Navigation Desktop -->  
       
+      <!-- Dirtections Info Navigation Mobile -->
+      <div class="row DirectionButtonsContainer" id="DirectionButtonsContainerMobile">
+        <ul class="tabs large-4 medium-4 small-12 columns" data-tab>
+          <li class="tab-title  large-6 medium-6 small-6 columns"><a id="DirectionsByPlaneButton" onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'Plane']);" href="#DirectionsByPlane">
+            <figure><img src="img/logistics/directionsnav-plane.svg" alt="Plane Icon" onmouseover="this.src='img/logistics/directionsnav-plane-hover.svg';"
+      onmouseout="this.src='img/logistics/directionsnav-plane.svg';" />
+              <figcaption>plane</figcaption>
+            </figure>
+            </a></li>
+          <li id="DirectionsByTubeButton" class="tab-title  large-6 medium-6 small-6 columns"><a onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'Tube']);" href="#DirectionsByTube">
+            <figure><img src="img/logistics/directionsnav-tube.svg" alt="Tube Icon" onmouseover="this.src='img/logistics/directionsnav-tube-hover.svg';"
+      onmouseout="this.src='img/logistics/directionsnav-tube.svg';"  />
+              <figcaption> tube/dlr</figcaption>
+            </figure>
+            </a></li>
+        </ul>
+        <div class="tabs-content TabsContentMobile"> 
+          <!-- Dirtections by Plane -->
+          <section id="DirectionsByPlane" class="content DirectionsText">
+            <h4> by plane</h4>
+            <p>London has 6 international airports. We recommend using London City Airport whenever possible. The airport is located 5-minutes from ExCeL London by taxi or 10-minutes by DLR (Docklands Light Railway). The airport offers 350 flights per day, from over 40 international destinations.</p>
+            <p>Depending on the airports, please use the following routes to arrive to London ExCel:
+            <ul>
+              <li>London City Airport: Depart London City Airport, heading west on DLR. Change at Canning Town Station, heading east on DLR. Arrive at Prince Regent Station.</li>
+              <li>Gatwick Airport: Depart Gatwick Airport, heading north via the First Capital Connect route. Change at London Bridge, heading east on Jubilee line. Change at Canning Town, heading east on DLR. Arrive at Prince Regent Station. </li>
+              <li>Heathrow Airport: Depart Heathrow Airport, heading east on Heathrow Express. Change at Paddington, heading east on Bakerloo line. Change at Baker Street heading south on Jubilee line. Change at Canning Town, heading east on DLR. Arrive at Prince Regent Station. </li>
+              <li>Stansted Airport: Depart Stansted Airport heading for Liverpool Street on the Stansted Express. Change at Liverpool Street, heading west on Central Line. Change at Bank, heading east on DLR. Arrive at Prince Regent Station.</li>
+            </ul>
+            </p>
+            <p> Travel Times from the Airports to ExCeL London<br>
+              London City Airport - 5 mins (car or taxi); 15 mins by DLR<br>
+              Gatwick - 1 hour 15 mins (car or taxi); 1 hour (public transport)<br>
+              Stansted - 1 hour (car or taxi); 1 hour 10 mins (public transport)<br>
+              Heathrow - 1 hour 20 mins (car or taxi); 1 hour 30 mins (public transport) </p>
+          </section>
+          <!--END Dirtections by Plane --> 
+          
+          <!-- Dirtections by Tube -->
+          <section id="DirectionsByTube" class="content DirectionsText">
+            <h4>by Tube/dlr</h4>
+            <p>The DLR stations closest to ExCel are Custom House and Prince Regent. We strongly recommend arrival at Prince Regent as that is the closest station to the east side of Excel, where HR Tech Europe will take place.</p>
+          </section>
+          <!--END Dirtections by Tube --> 
+        </div>
+        <ul class="tabs large-4 medium-4 small-12 columns" data-tab>
+          <li class="tab-title  large-6 medium-6 small-6 columns"><a id="DirectionsByRailButton" onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'Rail']);" href="#DirectionsByRail">
+            <figure><img src="img/logistics/directionsnav-rail.svg" alt="Rail Icon" onmouseover="this.src='img/logistics/directionsnav-rail-hover.svg';"
+      onmouseout="this.src='img/logistics/directionsnav-rail.svg';" />
+              <figcaption>rail</figcaption>
+            </figure>
+            </a></li>
+          <li id="DirectionsByCarButton" class="tab-title  large-6 medium-6 small-6 columns"><a onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'Car']);" href="#DirectionsByCar">
+            <figure><img src="img/logistics/directionsnav-parking.svg" alt="Parking Icon" onmouseover="this.src='img/logistics/directionsnav-parking-hover.svg';"
+      onmouseout="this.src='img/logistics/directionsnav-parking.svg';" />
+              <figcaption> parking</figcaption>
+            </figure>
+            </a></li>
+        </ul>
+        <div class="tabs-content TabsContentMobile"> 
+          <!-- Dirtections by Rail -->
+          <section id="DirectionsByRail" class="content DirectionsText">
+            <h4>by rail</h4>
+            <p> London is connected by rail to all major cities in Great Britain. In addition Eurostar operate regular train services to Brussels and Paris operating from St Pancras International. From St Pancras Station, take the Circle line heading south. Change at Tower Hill, heading east on DLR. Arrive at Prince Regent Station.</p>
+          </section>
+          <!--END Dirtections by Rail --> 
+          <!-- Dirtections by Car -->
+          <section id="DirectionsByCar" class="content DirectionsText">
+            <h4>by car</h4>
+            <p> When driving to ExCeL London follow signs for Royal Docks, City Airport and ExCeL. There is easy access from the M25, M11, A406 and A13.<br>
+              Please contact the AA for information on planning your journey and 24-hour live traffic reports, by calling on +44 (0) 906 888 4322.<br>
+              For a map of ExCeL London's location please visit www.streetmap.co.uk and search for ExCeL London by postcode - E16 1XL.<br>
+              For Sat Nav purposes, we recommend using postcode - E16 1DR.</p>
+            <h4>Parking Information</h4>
+            <p> ExCeL London offers on-site car parking for 3,700 cars. All onsite parking is pay and display, with the exception of the Royal Victoria multi-storey car park, which is located at the west end of the site. Parking in the Royal Victoria multi-storey car park can be paid for at one of the three pay points located within the car park at the end of your visit.(the machines are located on level two and level zero and all machines accept both cash and credit card). Parking fee is £15 for up to 24 hours. Motorcycles can be parked free of charge in the designated motorcycle parking area.</p>
+          </section>
+          <!--END Dirtections by Car --> 
+          
+        </div>
+        <ul class="tabs large-4 medium-4 small-12 columns" data-tab>
+          <li id="DirectionsByCableCarButton" class="tab-title  large-6 medium-6 small-6 columns"><a onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'CableCar']);" href="#DirectionsByCableCar">
+            <figure><img src="img/logistics/directionsnav-cable.svg" alt="Cable Car" onmouseover="this.src='img/logistics/directionsnav-cable-hover.svg';"
+      onmouseout="this.src='img/logistics/directionsnav-cable.svg';" />
+              <figcaption>cable car</figcaption>
+            </figure>
+            </a></li>
+          <li id="DirectionsByBoatButton" class="tab-title  large-6 medium-6 small-6 columns"><a onClick="_gaq.push(['_trackEvent', 'DirectionsInfo', 'Show/Hide', 'Boat']);" href="#DirectionsByBoat">
+            <figure><img src="img/logistics/directionsnav-boat.svg" alt="Anchor Icon" onmouseover="this.src='img/logistics/directionsnav-boat-hover.svg';"
+      onmouseout="this.src='img/logistics/directionsnav-boat.svg';"  />
+              <figcaption>boat</figcaption>
+            </figure>
+            </a></li>
+        </ul>
+        <div class="tabs-content TabsContentMobile"> 
+          <!-- Dirtections by Cable Car -->
+          <section id="DirectionsByCableCar" class="content DirectionsText">
+            <h4>by cable car</h4>
+            <p> The Emirates Air Line (Cable Car) connecting ExCeL London and the O2 opened in summer 2012, making it possible to travel by Thames Clipper between central London and the O2 and then by Cable Car across the Thames to ExCeL London. </p>
+          </section>
+          <!--END Dirtections by Cable Car --> 
+          
+          <!-- Dirtections by Boat  -->
+          <section id="DirectionsByBoat" class="content DirectionsText">
+            <h4>by boat</h4>
+            <p> MBNA Thames Clippers is the leading commuter boat service on the River Thames. Departures are available from all major piers, including The O2, Greenwich, Canary Wharf, Tower, London Bridge, Embankment and Waterloo, every 20 minutes during peak hours. </p>
+          </section>
+          <!--END Dirtections by Boat --> 
+          
+        </div>
+        <!-- END Dirtections Info Navigation Mobile --> 
+      
+      </div>
       <!-- END DIRECTIONS --> 
     </div>
     <!--END MAIN CONTENT--> 

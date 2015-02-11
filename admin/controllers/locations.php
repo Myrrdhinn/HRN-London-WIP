@@ -59,16 +59,59 @@ public function get_blogsquad_order() {
 
 
 public function get_speakers() {
-	$content = '';
-	  $speakers = new speakers_main(); 
-	$data = $speakers->speakers();
-	if(isset($data)){
-	 foreach ($data as $person) {
-		 $content .= '<option value="'.$person[18].'">'.$person[0].'</option>';
+	$output = '';
+
+$i = 0;	
+		
+		
+	//Gets all of the speakers names
+	$names = $this->dbc->query(
+			sprintf("SELECT s.id, so.speakers_id FROM speakers as s, speakers_order as so WHERE s.id=so.speakers_id ORDER BY so.order_id ASC"));	
+					if ($names->num_rows > 0) {
+					while($data = $names->fetch_assoc()){
+						
+						$status = 0;
+						
+		$stat = $this->dbc->query(
+				sprintf("SELECT speakers_status_id FROM speakers_status WHERE speakers_id = '%s' ORDER BY date DESC LIMIT 0,1",
+				    $this->dbc->real_escape_string($data['id'])
+				)
+				   );	
+					if (mysqli_num_rows($stat)) {
+					while($sStatus = $stat->fetch_assoc()){
+						if ($sStatus['speakers_status_id'] == 1 || $sStatus['speakers_status_id'] == 2){
+							$status = 1;
+						}
+					} //personal fetch assoc end
+				}  //personal num rows if end
+						
+		if ($status == 1) {	
+				   
+		$content[$i][18] = $data['id'];
+	//Get the names					   
+	 $name = $this->dbc->query(
+				sprintf("SELECT id, name FROM speakers_name WHERE speakers_id = '%s' ORDER BY date DESC LIMIT 0,1",
+				    $this->dbc->real_escape_string($data['id'])
+				)
+				   );	
+					if (mysqli_num_rows($name)) {
+					while($sName = $name->fetch_assoc()){
+						$content[$i][0] = $sName['name'];
+					} //personal fetch assoc end
+				}  //personal num rows if end
+						   			                
+						$i++;
+					} //if status = 1
+					}  //Names fetch assoc end
+				} // if num rows end	
+
+	if(isset($content)){
+	 foreach ($content as $person) {
+		 $output .= '<option value="'.$person[18].'">'.$person[0].'</option>';
 	 }
 	}
 	
-return $content;
+return $output;
 }
 
 

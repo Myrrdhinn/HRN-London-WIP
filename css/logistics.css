@@ -1,5 +1,18 @@
 /* CSS definitions of the Logistics page */
 
+/* Resetting Foundation */
+.columns {
+	padding: 0 !important;
+}
+.tabs-content {
+	padding: 20px;	
+}
+.tabs-content, .tabs-content .active {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+/* end Resetting Foundation */
+
 .ImageHeader {
 	background: url(../img/logistics/logistics-header-image.jpg);
 }
@@ -25,7 +38,9 @@
 margin:0 15px;
 }
 }
+
 /* Directions */
+
 #HowToGetThere {
 	width: 98.5%;
 	height: 75px;
@@ -34,8 +49,7 @@ margin:0 15px;
 	background: #18ade3;
 	padding-top: 12px;
 }
-
-@media (max-width:640px) {
+ @media (max-width:640px) {
 #HowToGetThere {
 	margin: 25px 0 25px 0;
 	width: 100%;
@@ -46,58 +60,93 @@ margin:0 15px;
 	font-size: 36px;
 	font-family: 'Oswald', sans-serif;
 }
-#DirectionButtonsContainer {
+
+.DirectionButtonsContainer {
 	width: 100%;
 	text-align: center;
-	margin: 0 0 50px -20px;
+	margin: 0 0 50px 0px;
+	padding-bottom: 50px;
 }
-
 @media (max-width:640px) {
-#DirectionButtonsContainer {
-	margin: 0 0 20px -40px;
+	.DirectionButtonsContainer {
+		margin: 0 auto;
+	}
 }
-}
-
 figure {
 	width: 100px;
+	margin: 0 auto;
 }
 figcaption {
-	color:#323232;
+	color: #323232;
 	text-transform: uppercase;
 	font-size: 17px;
+	text-align: center;
+}
+#DirectionButtonsContainerDesktop {
+	margin-bottom: 65px;
+	padding-bottom: 0;
+}
+@media (max-width: 640px) {
+	#DirectionButtonsContainerDesktop {
+		display: none;
+	}
+}
+#DirectionsByPlaneDesktop, #DirectionsByTubeDesktop, #DirectionsByRailDesktop, #DirectionsByCarDesktop, #DirectionsByCableCarDesktop, #DirectionsByBoatDesktop {
+	display:none;
+	margin-bottom: 0;
+	padding-bottom: 30px;
+}
+#DirectionButtonsContainerMobile {
+	display: none;
+}
+@media (max-width: 640px) {
+	#DirectionButtonsContainerMobile {
+		display: block;
+	}
+	#DirectionButtonsContainerMobile > ul {
+		width: 100%;
+		max-width: 320px;
+	}
+/* Directions alignments. Mobile only. */
+	#DirectionsByPlane, #DirectionsByTube {
+		padding-top: 140px;	
+	}
+	#DirectionsByRail, #DirectionsByCar {
+		padding-top: 280px;	
+	}	
+	#DirectionsByCableCar, #DirectionsByBoat {
+		padding-top: 420px;	
+	}	
+
 }
 .DirectionsText {
-	margin:0 auto;
-	margin-bottom:65px;
+	margin: 0 auto;
+	margin-bottom: 65px;
 	width: 90%;
 	text-align: left;
-	color:#323232;
+	color: #323232;
 }
 .DirectionsText h4, .DirectionsText p, .DirectionsText ul li {
 	font-size: 17px;
+	text-align: left;
 }
 .DirectionsText h4 {
 	text-transform: uppercase;
-	font-weight:bold;
+	font-weight: bold;
 }
 .DirectionsText ul {
 	list-style-type: disc;
 }
 .DirectionsText li {
-	padding-left:20px;
+	padding-left: 20px;
 }
-
-#DirectionsByPlane, #DirectionsByTube, #DirectionsByRail, #DirectionsByCar, #DirectionsByCableCar, #DirectionsByBoat {
-	display:none;
-	}
-	
-.DirectionsTextAnchor	{
-	position:relative;
-	top:-110px;
-	}
+.DirectionsTextAnchor {
+	position: relative;
+	top: -110px;
+}
 @media (max-width:718px) {
-.DirectionsTextAnchor	{
-	top:-75px;
-	}	
-	
-	}	
+.DirectionsTextAnchor {
+	top: -75px;
+}
+}
+/* END Directions */

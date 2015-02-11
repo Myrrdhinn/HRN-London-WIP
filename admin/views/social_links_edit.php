@@ -63,7 +63,7 @@
 <link rel="stylesheet" href="css/admin_index.css" />
 <link rel="stylesheet" href="css/admin_socials.css" />
 
-<script src="js/social_links_edit.js"></script>
+<script src="js/admin_social_links_edit.js"></script>
 
 
 
@@ -131,7 +131,7 @@
 	 <div id="container">';
 	 $perm = new socialsedit();
 	 
-	 	if (isset($_SESSION['sponsors_admin'])) {
+	 	if (isset($_SESSION['admin'])) {
 			
 			 if (isset($_COOKIE['SocialLinkEdit'])){
 				 $SocialEditData = explode(':',$_COOKIE['SocialLinkEdit']);

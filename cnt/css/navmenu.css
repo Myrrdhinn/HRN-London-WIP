@@ -11,6 +11,11 @@ z-index:1000;
 -moz-box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 }
+@media(max-width:718px){
+	#MainNavigationMenu {
+		display:none;
+	}	
+}
 
 #DesktopMenuContainer {
 	float:left;
@@ -25,7 +30,11 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	padding-top:20px;
 	height:100px;	
 }
-	
+@media (max-width:1119px){
+	#DesktopSocialHeader {
+		display:none;
+	}
+}		
 #HeaderGetTicketsButton {
 	display: inline-block;
 	padding-top:14px;
@@ -44,8 +53,7 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 #HeaderGetTicketsButton:hover {
 	background:#FC354C;
 	
-	}			
-	
+	}				
 #DesktopSocialHeader a{
 	margin-right:2px;
 	}	
@@ -86,7 +94,7 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	left: -60px; 
 }
 #PartnersDropdown {
-	left: -65px; 
+	left: -97px; 
 }
 /*end Desktop menu dropdowns*/	
 #DesktopMenuContainer a, .DesktopMenuDropdown{
@@ -118,22 +126,32 @@ a#HeaderLogoLink:hover {
 #HRTechSmallLogo{
 	display:inline-block;
 	margin-right:25px;
-	}	
+}	
+@media(max-width:843px){
+	#HRTechSmallLogo{
+		margin-right:0.5em;
+	}		
+}
 	
 #MobileNavigation{
-height:65px;
-padding:12px;
-width:100%;
-text-align:center;
-font-size:4.5em;
-background:#fff;
-position:fixed;
-z-index:1000;
-display:none;
--webkit-box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
--moz-box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
-box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
-	}	
+	height:65px;
+	padding:12px;
+	width:100%;
+	text-align:center;
+	font-size:4.5em;
+	background:#fff;
+	position:fixed;
+	z-index:1000;
+	display:none;
+	-webkit-box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
+	box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
+}
+@media(max-width:718px){
+	#MobileNavigation{
+		display:block;
+	}
+}	
 /*Mobile menu dropdowns*/
 #ExpoMobileGroup, #PartnersMobileGroup {
 	font-weight: 400;	
@@ -145,16 +163,6 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	display: none;
 	padding-left: 20px;
 }
-/* Active menuitem with opened dropdown 
-#ExpoMobileGroupContent {
-	display: block;
-}
-#ExpoMobileGroup .fa-angle-right  {
-	display: none;
-}
-#ExpoMobileGroup .fa-angle-down  {
-	display: inline-block;
-}
 
 /*end Mobile menu dropdowns*/		
 #MobileNavigation a{
@@ -163,8 +171,7 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 	color:#333333;
 	font-size:31px;
 	margin-top:5px;
-	}	
-	
+	}		
 #MobileNavigation img{
 	float:left;
 	margin-left:10px;
@@ -185,23 +192,4 @@ box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.4);
 #RightsideMobileNavigation ul li a{
 color:#333333;
 	}	
-	
-@media (max-width:1119px){
-	#DesktopSocialHeader {
-		display:none;
-		}
-	}				
-@media(max-width:843px)
-{
-#HRTechSmallLogo{
-	margin-right:0.5em;
-	}		
-	}
-@media(max-width:718px){
-	#MainNavigationMenu {
-		display:none;
-	}	
-#MobileNavigation{
-	display:block;
-	}
-	
+				

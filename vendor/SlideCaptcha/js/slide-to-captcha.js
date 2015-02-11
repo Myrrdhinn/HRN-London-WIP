@@ -5,7 +5,7 @@
             cursor: 'move',
             direction: 'x', //x or y
             customValidation: false,
-            completedText: 'Done. Please proceed!'
+            completedText: 'Done!'
         }, options);
 
         var $handle = this.find(options.handle),

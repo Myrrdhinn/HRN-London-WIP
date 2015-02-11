@@ -139,68 +139,68 @@ body div {
 
 
 /* Headline hover effects */
-#Day1MainContainer .MainStage .SessionHeader:hover {
+#Day1MainContainer .MainStage .SessionHeader:hover, .MainStageOneMod {
   transition: all 0.2s;
   background-color: #00a8c6;
   color: #fff;
 }
-#Day2MainContainer .MainStage .SessionHeader:hover {
+#Day2MainContainer .MainStage .SessionHeader:hover, .MainStageTwoMod {
   transition: all 0.2s;
   background-color: #DF1E34;
   color: #fff;
 }
-.HRShare .SessionHeader:hover {
+.HRShare .SessionHeader:hover, .HRShareMod {
   transition: all 0.2s;
   background-color: #88983f;
   color: #fff;
 }
-.FutureOfWork .SessionHeader:hover {
+.FutureOfWork .SessionHeader:hover, .FutureOfWorkMod {
   transition: all 0.2s;
   background-color: #fcaf17;
   color: #fff;
 }
-.HRTech .SessionHeader:hover {
+.HRTech .SessionHeader:hover, .HRTechMod {
   transition: all 0.2s;
   background-color: #db6922;
   color: #fff;
 }
-.TalentAndRecruitment .SessionHeader:hover {
+.TalentAndRecruitment .SessionHeader:hover, .TalentAndRecruitmentMod {
   transition: all 0.2s;
   background-color: #00b2b9;
   color: #fff;
 }
-.SocialCollaboration .SessionHeader:hover {
+.SocialCollaboration .SessionHeader:hover, .SocialCollaborationMod {
   transition: all 0.2s;
   background-color: #008743;
   color: #fff;
 }
-.Labs .SessionHeader:hover {
+.Labs .SessionHeader:hover, .LabsMod {
   transition: all 0.2s;
   background-color: #2f7dc1;
   color: #fff;
 }
-.RoundTable .SessionHeader:hover {
+.RoundTable .SessionHeader:hover, .RoundTableMod {
   transition: all 0.2s;
   background-color: #2e3192;
   color: #fff;
 }
-.Compensation .SessionHeader:hover {
+.Compensation .SessionHeader:hover, .CompensationMod {
   transition: all 0.2s;
   background-color: #ce181e;
   color: #fff;
 }
-.CloudTech .SessionHeader:hover {
+.CloudTech .SessionHeader:hover, .CloudTechMod {
   transition: all 0.2s;
   background-color: #8298cd;
   color: #fff;
 }
-.HRAnalytics .SessionHeader:hover {
+.HRAnalytics .SessionHeader:hover, .HRAnalyticsMod {
   transition: all 0.2s;
   background-color: #a155a1;
   color: #fff;
 }
 
-.UserAdoption .SessionHeader:hover {
+.UserAdoption .SessionHeader:hover, .UserAdoptionMod {
   transition: all 0.2s;
   background-color: #ff6666;
   color: #fff;

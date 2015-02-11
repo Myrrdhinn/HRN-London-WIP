@@ -18,6 +18,175 @@ class agenda_main extends config {
 		$check[0] = -1;
 		$output = '';
 		
+
+//Get the Moderator
+
+			  //Check if the session is already exists
+			  $GetModeratorId = $this->dbc->query(
+				sprintf("SELECT agenda_event_id FROM agenda_event_moderator WHERE agenda_event_day = '%s' AND agenda_location_id = '%s' ORDER BY date DESC LIMIT 0,1",
+							$this->dbc->real_escape_string(htmlspecialchars($day)),
+							$this->dbc->real_escape_string(htmlspecialchars($location))
+				)
+				   );	
+					if (mysqli_num_rows($GetModeratorId)) {
+						//if we find an existing session
+					   while($moderatorId = $GetModeratorId->fetch_assoc()){
+						   
+						   	
+						$agendas[0] = $moderatorId['agenda_event_id'];
+						$aId['id'] = $moderatorId['agenda_event_id'];
+									//Get the agenda data
+												   
+								  
+								  
+				//Agenda title						  
+						$agendatitle = $this->dbc->query(
+								  sprintf("SELECT agenda_name FROM agenda_event_title WHERE agenda_event_id = '%s' ORDER BY date DESC LIMIT 0,1",
+									  $this->dbc->real_escape_string($aId['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($agendatitle)) {
+									  while($title = $agendatitle->fetch_assoc()){
+										  $agendas[6] = $title['agenda_name'];
+										  
+									  } //agenda while end
+								  }  //agenda numrows end
+										  
+										//Agenda title						  
+						$agendatag = $this->dbc->query(
+								  sprintf("SELECT agenda_tag FROM agenda_event_tag WHERE agenda_event_id = '%s' ORDER BY date DESC LIMIT 0,1",
+									  $this->dbc->real_escape_string($aId['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($agendatag)) {
+									  while($tag = $agendatag->fetch_assoc()){
+										  $agendas[9] = $tag['agenda_tag'];
+										  
+									  } //agenda while end
+								  }  //agenda numrows end
+										  				  
+										  
+										  
+					$agendaicon = $this->dbc->query(
+								  sprintf("SELECT aei.icon_type FROM agenda_event_icons as aei, agenda_event_icon_connection as aeic WHERE aeic.agenda_event_id = '%s' AND aeic.agenda_event_icon_id=aei.id ORDER BY aeic.date DESC LIMIT 0,1",
+									  $this->dbc->real_escape_string($aId['id'])
+								  )
+									 );	
+									  if (mysqli_num_rows($agendaicon)) {
+									  while($Icons = $agendaicon->fetch_assoc()){
+										  $agendas[8] = $Icons['icon_type'];
+										  
+									  } //agenda while end
+								  }  //agenda numrows end
+										  										  	   
+
+					   } //personal fetch assoc end
+					   
+				   }
+
+if (isset($agendas)) {
+	$class = '';
+	
+	/*
+	switch ($location) {
+    case 1:
+	   if ($day == 1){
+		   $class = 'MainStageOneMod';
+	   } else {
+		   $class = 'MainStageTwoMod';
+	   }
+        
+        break;
+    case 2:
+        $class = 'HRShareMod'; 
+        break;
+    case 3:
+       $class = 'FutureOfWorkMod';
+        break;
+    case 4:
+       $class = 'HRTechMod';
+        break;
+    case 5:
+       $class = 'CompensationMod';
+        break;
+    case 6:
+       $class = 'CloudTechMod';
+        break;
+    case 7:
+       $class = 'HRAnalyticsMod';
+        break;
+    case 8:
+       $class = 'TalentAndRecruitmentMod';
+        break;
+    case 9:
+       $class = 'SocialCollaborationMod';
+        break;
+    case 10:
+       $class = 'LabsMod';
+        break;
+    case 11:
+       $class = 'RoundTableMod';
+        break;
+    case 12:
+       $class = 'UserAdoptionMod';
+        break;
+}
+	*/
+	
+	
+		$long = '';
+		$name = $this->no_ekezet($agendas[6]);
+		
+		if (strlen($agendas[6]) > 77) {
+			$long = ' LongSessionTitle';
+		}
+		
+		 $extraclass = '';  
+		 $icon = '<i class="agenda-icon fa fa-user"></i>';
+		 $link = '';
+		 $break = '<div class="SessionTitle'.$long.'">'.$agendas[6].'</div>'.$icon;
+	
+       $output .='<!-- '.$agendas[6].' -->
+	   <form class="AgendaEdit" style="padding:0; margin:0;">
+	   <div class="Session '.$class.'">'.$link.' 
+		<div class="SessionHeader'.$extraclass.'">
+			<div class="SessionTime"></div>
+			<div class="SessionTitle ClickClick">
+			 <div>'.$agendas[6].' <i class="icon-next-icon"></i></div>
+			 <input class="ClickEdit" style="display:none;" name="'.$name.'_Edit" type="text" value="'.$agendas[6].'">
+			</div>';
+			
+		
+	if (isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {	
+		 $output .= '</div><div class="SessionContent">';
+		  if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
+		 $output .= '<div><button class="AgendaEditClick" id=AgendaEdit_'.$agendas[0].'>Edit</button></div>';
+		 $output .= '<div><button class="AgendaDeleteClick" id=AgendaDelete_'.$agendas[0].'>Delete</button></div>';
+		  }
+			 $output .='<div class="SessionAbstract"></div>';
+				
+			} else {
+			$output .='<div class="'.$agendas[8].' agenda-icon"></div>';
+			}
+			
+			
+			
+
+			
+		$output .='</div>
+	</div>
+  </form>
+	<!--END '.$agendas[6].' --> ';
+
+}
+
+		
+		
+		
+		
+		
+		
+		
 				//Get the names					   
 	 $agendaId = $this->dbc->query(
 				sprintf("SELECT ae.id FROM agenda_event as ae, agenda_event_connection as aec, agenda_event_data as aed WHERE aed.day = '%s' AND aed.location_id= '%s' AND aed.id=aec.agenda_event_data_id AND ae.id=aec.agenda_event_id ORDER BY STR_TO_DATE(aed.time_start, '%%h:%%i%%p') ASC, aed.date DESC",

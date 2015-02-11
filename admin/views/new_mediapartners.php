@@ -56,13 +56,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   
   <!-- Dropzone -->
-<script src="js/dropzone.js"></script>
+<script src="js/admin_dropzone.js"></script>
 
 <link href="css/admin_general.css" rel="stylesheet">
 <link href="css/general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />
 
-<script src="js/new_mediapartner.js"></script>
+<script src="js/admin_new_mediapartner.js"></script>
 <!-- TinyMCE -->
 <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
@@ -139,7 +139,7 @@ tinymce.init({
 		
 	     $content .='<form id="mediapartners" name="mediapartners" method="post" action="controllers/main.php" enctype="multipart/form-data">
     <div>
-  <script src="js/dropzone_mediapartners.js"></script>
+  <script src="js/admin_dropzone_mediapartners.js"></script>
   
     <fieldset>
 	<legend>Basic</legend>

@@ -183,9 +183,17 @@ Basic functions
 				)
 			);
 			
+			
+		 if(isset($_POST['Moderator'])) {
+				$check = 2;
+			} else {
+				$check = 1;
+			}
+			
 	//Insert a speakers status data		
 		$this->dbc->query(
-				sprintf("INSERT INTO speakers_status SET speakers_status_id = '1', speakers_id = '%s'",
+				sprintf("INSERT INTO speakers_status SET speakers_status_id = '%s', speakers_id = '%s'",
+				  $this->dbc->real_escape_string(htmlspecialchars($check)),
 				  $this->dbc->real_escape_string(htmlspecialchars($speaker_id))
 				)
 			);			
@@ -1822,25 +1830,75 @@ function mediapartner_delete($sId){
 			} else {
 				$check = 0;
 			}
-	    $this->dbc->query(
-				sprintf("INSERT INTO agenda_event_data SET time_start = '%s', time_end = '%s', day = '%s', abstract = '%s', location_id = '%s', highlighted = '%s'",
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['AgendaTimeStart'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['AgendaTimeEnd'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Day'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Abstract'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Locations'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($check))
+			
+		  if(isset($_POST['Moderator'])) {
+			  //if it's a moderator session
+			  
+			  
+			  //Check if the session is already exists
+			  $GetModeratorId = $this->dbc->query(
+				sprintf("SELECT id FROM agenda_event_moderator WHERE agenda_event_day = '%s' AND agenda_location_id = '%s' ORDER BY date DESC LIMIT 0,1",
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['Day'])),
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['Locations']))
 				)
-			);	
-		$data_id = $this->dbc->insert_id;
-		
-		
-		  $this->dbc->query(
-				sprintf("INSERT INTO agenda_event_connection SET agenda_event_id = '%s', agenda_event_data_id = '%s'",
-				  $this->dbc->real_escape_string(htmlspecialchars($agenda_id)),
-				  $this->dbc->real_escape_string(htmlspecialchars($data_id))
-				)
-			);	
+				   );	
+					if (mysqli_num_rows($GetModeratorId)) {
+						//if we find an existing session
+					   while($moderatorId = $GetModeratorId->fetch_assoc()){
+						   
+							 $this->dbc->query(
+								  sprintf("UPDATE agenda_event_moderator SET agenda_event_id = '%s' WHERE id = '%s'",
+									$this->dbc->real_escape_string(htmlspecialchars($agenda_id)),
+									$this->dbc->real_escape_string(htmlspecialchars($moderatorId['id']))
+								  )
+							  );	
+								   
+
+					   } //personal fetch assoc end
+					   
+				   } else {  
+			         //if we don't find a session
+					 
+					  $this->dbc->query(
+						  sprintf("INSERT INTO agenda_event_moderator SET agenda_event_id = '%s', agenda_event_day = '%s', agenda_location_id = '%s'",
+							$this->dbc->real_escape_string(htmlspecialchars($agenda_id)),
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['Day'])),
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['Locations']))
+						  )
+					  );	
+			      //we upload one
+				  
+				   }  //mysqli num rows stat
+
+
+
+
+			} else {
+			  //if it's not a moderator session
+			  
+				   $this->dbc->query(
+						  sprintf("INSERT INTO agenda_event_data SET time_start = '%s', time_end = '%s', day = '%s', abstract = '%s', location_id = '%s', highlighted = '%s'",
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['AgendaTimeStart'])),
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['AgendaTimeEnd'])),
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['Day'])),
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['Abstract'])),
+							$this->dbc->real_escape_string(htmlspecialchars($_POST['Locations'])),
+							$this->dbc->real_escape_string(htmlspecialchars($check))
+						  )
+					  );	
+				  $data_id = $this->dbc->insert_id;
+				  
+				  
+					$this->dbc->query(
+						  sprintf("INSERT INTO agenda_event_connection SET agenda_event_id = '%s', agenda_event_data_id = '%s'",
+							$this->dbc->real_escape_string(htmlspecialchars($agenda_id)),
+							$this->dbc->real_escape_string(htmlspecialchars($data_id))
+						  )
+					  );	
+			  
+			
+			}//if post moderator else end
+
 
        if(isset($_POST['Icons'])) {
 		   	  $this->dbc->query(
@@ -1936,6 +1994,16 @@ Modify Agenda
 			} else {
 				$check = 0;
 			}
+			
+			if(isset($_POST['ModeratorId'])) {
+				$this->dbc->query(
+					  sprintf("UPDATE agenda_event_moderator SET agenda_event_day = '%s', agenda_location_id = '%s' WHERE id = '%s'",
+						$this->dbc->real_escape_string(htmlspecialchars($_POST['Day'])),
+						$this->dbc->real_escape_string(htmlspecialchars($_POST['Locations'])),
+						$this->dbc->real_escape_string(htmlspecialchars($_POST['ModeratorId']))
+					  )
+				  );	
+			} 
 			
 			if (($data[1] != $_POST['AgendaTimeStart']) || ($data[2] != $_POST['AgendaTimeEnd']) || ($data[3] != $_POST['Day']) || ($data[4] != $_POST['Abstract']) || ($data[5] != $_POST['Locations']) || ($data[7] != $check)){
 			
@@ -2120,6 +2188,26 @@ Modify Agenda
 									  } //agenda while end
 								  }  //agenda numrows end
 										  
+								
+										  //Check if the session is a moderator session
+			  $GetModeratorId = $this->dbc->query(
+				sprintf("SELECT aem.id, aem.agenda_event_day, ael.location  FROM agenda_event_moderator as aem, agenda_event_location as ael WHERE aem.agenda_event_id = '%s' AND aem.agenda_location_id=ael.id ORDER BY aem.date DESC LIMIT 0,1",
+							$this->dbc->real_escape_string(htmlspecialchars($agenda_id))
+				)
+				   );	
+					if (mysqli_num_rows($GetModeratorId)) {
+						//if we find an existing session
+					   while($moderatorId = $GetModeratorId->fetch_assoc()){
+						   $content[3] = $moderatorId['agenda_event_day'];
+						   $content[5] = $moderatorId['location'];
+						   $content[14] = 1; //moderator session index
+						   $content[15] = $moderatorId['id'];
+									//Get the agenda data
+					   }
+					}
+								  	
+										
+										
 										  
 					$agendaicon = $this->dbc->query(
 								  sprintf("SELECT aei.icon_name FROM agenda_event_icons as aei, agenda_event_icon_connection as aeic WHERE aeic.agenda_event_id = '%s' AND aeic.agenda_event_icon_id=aei.id ORDER BY aeic.date DESC LIMIT 0,1",
@@ -2170,6 +2258,31 @@ function agenda_delete($sId){
 				  $this->dbc->real_escape_string(htmlspecialchars($sId))
 				)
 			);
+			
+												  //Check if the session is a moderator session
+			  $GetModeratorId = $this->dbc->query(
+				sprintf("SELECT id FROM agenda_event_moderator WHERE agenda_event_id = '%s' ORDER BY date DESC LIMIT 0,1",
+							$this->dbc->real_escape_string(htmlspecialchars($sId))
+				)
+				   );	
+					if (mysqli_num_rows($GetModeratorId)) {
+						//if we find an existing session
+					   while($moderatorId = $GetModeratorId->fetch_assoc()){
+																	//Delete user permission
+							  $this->dbc->query(
+									  sprintf("DELETE FROM agenda_event_moderator WHERE id = '%s'",
+										$this->dbc->real_escape_string(htmlspecialchars($moderatorId['id']))
+									  )
+								  );
+								 
+						    if (isset($_COOKIE['Moo'])) {
+								$this->db_log($_COOKIE['Moo'],"An agenda session moderator has been deleted", $sId);
+							   }  
+								  
+					   }
+					}
+								
+			
 	
 }	 
 

@@ -67,29 +67,33 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
     <nav id="MainNavigationMenu">
-      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);">Home</a>
+      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" >Home</a>
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a>
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
+        <span class="DesktopMenuDropdown ActiveNavmenuItem" ><a href="venue">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels"><li>Hotels</li></a>
             </ul>
         </span>
-        
+          
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown" style="display: none;">Partners
+        <span class="DesktopMenuDropdown"><a href="sponsors">Partners</a>
             <ul id="PartnersDropdown">
-            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
+            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li  class="FirstDropdownItem">Sponsors</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
+                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies"><li>Sponsor Appendencies</li></a>
             </ul>
-        </span>        
+        </span>  
+        <div class="NavmenuDivider"></div>
+        <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a>
+        <div class="NavmenuDivider"></div>      
         
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="contact">Get in Touch</a> </div>
       <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
@@ -102,23 +106,25 @@
     <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onClick="$('html, body').animate({scrollTop: 0}, 700);" role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
     <nav id="RightsideMobileNavigation" class="right-off-canvas-menu">
       <ul>
-        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index" class=" MobileNavigationMenuItem">Home</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index">Home</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" >Tickets</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda" >Agenda</a></li>
-                  <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+                  <li id="ExpoMobileGroup" class="ActiveNavmenuItem MobileNavigationMenuItem">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="ExpoMobileGroupContent">
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">Venue</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">Logistics</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels" class="ActiveNavmenuItem">Hotels</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
-          <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+          <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="PartnersMobileGroupContent">
          		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">Sponsor Appendencies</a></li>
           </div>
+           <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>  
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" href="contact" >Get in Touch</a></li>
       </ul>
     </nav>
@@ -170,7 +176,7 @@
       
       <section id='BookYourHotelDescription'>
         <h2>Book Your Hotel</h2>
-        <p>ExCeL London is situated in the heart of vibrant East London, on our doorstep you will find numerous hotels. We have partnered up with a bunch of them to guarantee the lowest possible rates for you. The below rates are valid for reservations made online, via e-mail or phone with using the booking codes below. You can find further hotels on this <a href="http://www.excel-london.co.uk/visiting-excel/visitors-guide/hotels/#" target="_blank">site</a>. <span>(Please note, discounted rates are only guaranteed by the recommended hotels mentioned above.)</span></p>
+        <p>ExCeL London is situated in the heart of vibrant East London, on our doorstep you will find numerous hotels. We have partnered up with a bunch of them to guarantee the lowest possible rates for you. The below rates are valid for reservations made online, via e-mail or phone with using the booking codes below. You can find further hotels on this <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'ExCelMap']);" href="http://www.excel-london.co.uk/visiting-excel/visitors-guide/hotels/#" target="_blank">site</a>. <span>(Please note, discounted rates are only guaranteed by the recommended hotels mentioned above.)</span></p>
       </section>
       <!-- END Book Your Hotel Description  --> 
       <!-- Our Premier Partner -->
@@ -178,19 +184,19 @@
        <div id="PremierPartner">
         <h1>Our Premier Partner</h1>
       </div>
-        <a href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank">
+        <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'AloftLondonExcel']);" href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank">
         <h2>Aloft London ExCel</h2>
         </a> 
         <!-- Our Premier Partner Pictures --> 
-        <a href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img id="PremierPartnerImgDesktop" src="img/hotels/premier-partner-img-desktop.jpg" alt="Aloft London Excel" /></a> <a href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img id="PremierPartnerImgMobile" src="img/hotels/premier-partner-img-mobile.jpg" alt="Aloft of London Excel" /></a>
-        <div id="PremierPartnerImagesContainer"> <a href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img  id="LeftHotelImg" src="img/hotels/premier-partner-picture1.jpg" alt="Hotel Image" /></a> <a href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img id="MiddleHotelImg" src="img/hotels/premier-partner-picture2.jpg" alt="Hotel Image" /></a> <a href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img id="RightHotelImg" src="img/hotels/premier-partner-picture3.jpg" alt="Hotel Image" /></a> </div>
+        <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'AloftLondonExcel']);" href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img id="PremierPartnerImgDesktop" src="img/hotels/premier-partner-img-desktop.jpg" alt="Aloft London Excel" /></a> <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'AloftLondonExcel']);" href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img id="PremierPartnerImgMobile" src="img/hotels/premier-partner-img-mobile.jpg" alt="Aloft of London Excel" /></a>
+        <div id="PremierPartnerImagesContainer"> <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'AloftLondonExcel']);" href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img  id="LeftHotelImg" src="img/hotels/premier-partner-picture1.jpg" alt="Hotel Image" /></a> <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'AloftLondonExcel']);" href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img id="MiddleHotelImg" src="img/hotels/premier-partner-picture2.jpg" alt="Hotel Image" /></a> <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'AloftLondonExcel']);" href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank"><img id="RightHotelImg" src="img/hotels/premier-partner-picture3.jpg" alt="Hotel Image" /></a> </div>
         <!-- END Our Premier Partner Pictures --> 
         <!-- Our Premier Partner Description -->
-        <p><strong><a href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank">Aloft London ExCel</a></strong> is a bold new hotel featuring loft-inspired design in the hip East End! It’s situated right next to the Excel Conference Centre, 5 minutes from London City Airport and a quick ride to the businesses of Canary Wharf and the heart of this magnetic metropolis.</p>
+        <p><strong><a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'AloftLondonExcel']);" href="http://www.starwoodhotels.com/alofthotels/property/overview/index.html?propertyID=3591" target="_blank">Aloft London ExCel</a></strong> is a bold new hotel featuring loft-inspired design in the hip East End! It’s situated right next to the Excel Conference Centre, 5 minutes from London City Airport and a quick ride to the businesses of Canary Wharf and the heart of this magnetic metropolis.</p>
         <p>For the traveler open to possibilities, Aloft Hotels is a modern, fresh, and fun destination. Aloft is a hotel that celebrates the individual and gives you freedom to control and customize your travel adventure to fit your personal style. It is a place where energy flows, personalities mingle, and opportunities abound. A place where anything can happen.</p>
         <div id="OurPremierPartnerBookingContainer">
           <div class="StarContainer"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </div>
-          <a href="https://www.starwoodmeeting.com/StarGroupsWeb/booking/reservation?id=1501121394&key=44468D4" target="_blank">
+          <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'AloftLondonExcel']);" href="https://www.starwoodmeeting.com/StarGroupsWeb/booking/reservation?id=1501121394&key=44468D4" target="_blank">
           <div class="BookNowButton">Book Now</div>
           </a> </div>
         <!-- END Our Premier Partner Description --> 
@@ -206,7 +212,7 @@
       <div class="LocationContainer" id="CanaryWharf">
         <h1><i class="fa fa-map-marker"></i> Canary Wharf</h1>
         <p>10 minutes to the west of ExCeL London you'll find Canary Wharf, London's new financial district, offering 200 shops, bars and restaurants.</p>
-        <a href="http://www.hilton.com/en/hi/groups/personalized/L/LONCWHI-GHRNA-20150323/index.jhtml" target="_blank">
+        <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'HiltonCanaryWharf']);" href="http://www.hilton.com/en/hi/groups/personalized/L/LONCWHI-GHRNA-20150323/index.jhtml" target="_blank">
         <div class="HotelContainer" id="HiltonCanaryWharf">
           <div class="HotelImgContainer"> <img src="img/hotels/hilton-canary-wharf-room.jpg" alt="Hilton Canary Wharf room"> </div>
           <div class="HotelDescription">
@@ -224,7 +230,7 @@
       <div class="LocationContainer" id="Stratford">
         <h1><i class="fa fa-map-marker"></i> Stratford</h1>
         <p>15 minutes to the north you will find The Olympic Park and Europe's largest urban shopping centre, Westfield Stratford City.</p>
-        <a href="http://www.thewestbridge.com/" target="_blank">
+        <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'TheWestbridge']);" href="http://www.thewestbridge.com/" target="_blank">
         <div class="HotelContainer" id="TheWestbridge">
           <div class="HotelImgContainer"><img src="img/hotels/the-westbridge-room.jpg" alt="The Westbridge room" > </div>
           <div class="HotelDescription">
@@ -244,7 +250,7 @@
         <h1><i class="fa fa-map-marker"></i> Tower</h1>
         <p>If you go a bit further to the west, 18 minutes from the Excel – directly accessible via the DLR- you will find yourself at the Tower of London with numerous leisure options that the downtown provides.</p>
         <!-- Apex London Wall --> 
-        <a href="https://gc.synxis.com/rez.aspx?Chain=13052&Dest=WALLCOL&locale=en-GB&arrive=23%2f03%2f2015&depart=26%2f03%2f2015&adult=1&child=0&group=HRN2303"  target="_blank">
+        <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'ApexLondonWall']);" href="https://gc.synxis.com/rez.aspx?Chain=13052&Dest=WALLCOL&locale=en-GB&arrive=23%2f03%2f2015&depart=26%2f03%2f2015&adult=1&child=0&group=HRN2303"  target="_blank">
         <div class="HotelContainer" id="ApexLondonWall">
           <div class="HotelImgContainer"><img src="img/hotels/apex-london-wall-room.jpg" alt="Apex London Wall room"> </div>
           <div class="HotelDescription">
@@ -258,7 +264,7 @@
         </a> 
         <!-- End Apex London Wall --> 
         <!-- Apex City of London --> 
-        <a href="https://gc.synxis.com/rez.aspx?Chain=13052&Dest=WALLCOL&locale=en-GB&arrive=23%2f03%2f2015&depart=26%2f03%2f2015&adult=1&child=0&group=HRN2303">
+        <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'ApexCityOfLondon']);" href="https://gc.synxis.com/rez.aspx?Chain=13052&Dest=WALLCOL&locale=en-GB&arrive=23%2f03%2f2015&depart=26%2f03%2f2015&adult=1&child=0&group=HRN2303">
         <div class="HotelContainer" id="ApexCityOfLondon">
           <div class="HotelImgContainer"><img src="img/hotels/apex-city-of-london-room.jpg" alt="Apex City of London room"> </div>
           <div class="HotelDescription">
@@ -272,7 +278,7 @@
         </a> 
         <!-- End Apex City of London --> 
         <!-- Guoman Tower --> 
-        <a href="http://www.guoman.com/en/hotels/united_kingdom/london/the_tower/index.html" target="_blank">
+        <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'GuomanTower']);" href="http://www.guoman.com/en/hotels/united_kingdom/london/the_tower/index.html" target="_blank">
         <div class="HotelContainer" id="GuomanTower">
           <div class="HotelImgContainer"><img src="img/hotels/guoman-tower-room.jpg" alt="Guoman Tower room"> </div>
           <div class="HotelDescription">
@@ -287,7 +293,7 @@
         </a> 
         <!-- End Guoman Tower --> 
         <!-- Grange Tower --> 
-        <a href="http://www.grangehotels.com/booking/?property=G18" target="_blank">
+        <a onClick="_gaq.push(['_trackEvent', 'HotelsPage', 'ExternalForward', 'GrangeTower']);" href="http://www.grangehotels.com/booking/?property=G18" target="_blank">
         <div class="HotelContainer" id="GrangeTower">
           <div class="HotelImgContainer"><img src="img/hotels/grange-tower-room.jpg" alt="Grange Tower room"></div>
           <div class="HotelDescription">

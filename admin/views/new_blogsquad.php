@@ -58,8 +58,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   
   <!-- Dropzone -->
-<script src="js/dropzone.js"></script>
-<script src="js/new_blogsquad.js"></script>
+<script src="js/admin_dropzone.js"></script>
+<script src="js/admin_new_blogger.js"></script>
 
 <link href="css/admin_general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />
@@ -141,7 +141,7 @@ tinymce.init({
 	 if (isset($_SESSION['blogsquad_admin'])) {
 
 	    $content.='<form id="blogsquad" name="blogsquad" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
-         <script src="js/dropzone_blogsquad.js"></script>
+         <script src="js/admin_dropzone_blogsquad.js"></script>
   
      <fieldset>
 	    <legend>Basic</legend>

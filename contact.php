@@ -52,17 +52,11 @@
   })();
 </script>
 
-<!-- SlideCAPTCHA -->
-<script src="vendor/SlideCaptcha/js/modernizr.custom.20910.js"></script>
-<script src="vendor/SlideCaptcha/js/jquery.js"></script>
-<link href="vendor/SlideCaptcha/css/slide-to-captcha.css" rel="stylesheet">
-
 <!--- Platform Scanner -->
 <script src="js/platform-scanner.js"></script>
 
 <!--- Mobile Menu dropdown -->
 <script src="js/mobile-menu-dropdown.js"></script>
-
 </head>
 <body onload="BrwoserDetect()">
 
@@ -72,64 +66,74 @@
     <!--END Declare the Off canvas menu Wrapper --> 
     <!--Desktop Navigation Menu-->
     <nav id="MainNavigationMenu">
-      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" >Home</a>
+      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);">Home</a>
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a>
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
-            <ul id="ExpoDropdown">
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels"><li>Hotels</li></a>
-            </ul>
+        <span class="DesktopMenuDropdown"><a href="venue">Expo</a>
+        <ul id="ExpoDropdown">
+          <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">
+          <li class="FirstDropdownItem">Venue</li>
+          </a> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">
+          <li>Logistics</li>
+          </a> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">
+          <li>Hotels</li>
+          </a>
+        </ul>
         </span>
-        
         <div class="NavmenuDivider"></div>
-        
-        <span class="DesktopMenuDropdown" style="display: none;">Partners
-            <ul id="PartnersDropdown">
-            <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li class="FirstDropdownItem">Sponsors</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
-                <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
-            </ul>
-        </span>        
-        
+        <span class="DesktopMenuDropdown"><a href="sponsors">Partners</a>
+        <ul id="PartnersDropdown">
+          <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">
+          <li  class="FirstDropdownItem">Sponsors</li>
+          </a> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">
+          <li>Media Partners</li>
+          </a> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">
+          <li>Blog Squad</li>
+          </a> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">
+          <li>Sponsor Appendencies</li>
+          </a>
+        </ul>
+        </span>
+        <div class="NavmenuDivider"></div>
+        <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a>
+        <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" class="ActiveNavmenuItem" href="contact">Get in Touch</a> </div>
-    <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
+      <div id="DesktopSocialHeader"> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Facebook']);" target="_blank" href="https://www.facebook.com/hrtecheu"><img alt="facebook" src="img/header-facebook.png" /></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Twitter']);" target="_blank" href="https://twitter.com/hrtecheurope"> <img alt="twitter" src="img/header-twitter.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'LinkedIn']);" href="http://www.linkedin.com/groups/HR-Technology-Europe-Human-Resources-3930182/about"><img alt="linkedin" src="img/header-linkedin.png"/></a> <a onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'Flickr']);" target="_blank" href="https://www.flickr.com/photos/hrtecheurope/sets/72157648919068765/"><img alt="flickr" src="img/header-flickr.png"/></a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'HeaderSocial', 'ExternalForward', 'SlideShare']);"  href="http://www.slideshare.net/hrtecheurope"> <img alt="slideshare" src="img/header-slideshare.png"/></a> <a  onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" target="_blank">
         <div id="HeaderGetTicketsButton">GET TICKETS</div>
         </a> </div>
     </nav>
     
     <!--END DESKTOP Navigation Menu--> 
     <!-- Mobile Navigation Menu-->
-     <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onClick="$('html, body').animate({scrollTop: 0}, 700);" role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a>
-    </div>
+    <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onClick="$('html, body').animate({scrollTop: 0}, 700);" role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
     <nav id="RightsideMobileNavigation" class="right-off-canvas-menu">
       <ul>
-        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index" class="MobileNavigationMenuItem">Home</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index">Home</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" >Tickets</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda" >Agenda</a></li>
-                  <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
-       	  <div id="ExpoMobileGroupContent">
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">Venue</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">Logistics</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
-          </div>
-          
-          <li id="PartnersMobileGroup" style="display: none;">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
-       	  <div id="PartnersMobileGroupContent">
-         		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
-          </div>
-        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" class="ActiveNavmenuItem" href="contact" >Get in Touch</a></li>
+        <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+        <div id="ExpoMobileGroupContent">
+          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">Venue</a></li>
+          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">Logistics</a></li>
+          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
+        </div>
+        <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+        <div id="PartnersMobileGroupContent">
+          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
+          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
+          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
+          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">Sponsor Appendencies</a></li>
+        </div>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" href="contact" class="ActiveNavmenuItem MobileNavigationMenuItem" >Get in Touch</a></li>
       </ul>
     </nav>
     
-    <!-- END Mobile Navigation Menu-->
+    <!-- END Mobile Navigation Menu--> 
     <!-- Header -->
     <header>
       <div class="ImageHeader" style="background:url(cnt/img/header.jpg);">
@@ -200,39 +204,33 @@
         </div>
       </div>
       <div id="ContactFormContainer">
+         <!-- BEGINING of : CONTACT FORM --->
         <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
           <input type=hidden name="oid" value="00DD0000000nwgk">
- 
           <input type=hidden name="retURL" value="http://london.hrtecheurope.com/thankyou">
           <div class="row">
             <div class="large-6 columns">
-              <input placeholder="First Name"  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
-              <input  placeholder="Last Name" id="last_name" maxlength="80" name="last_name" size="20" type="text" />
-              <input placeholder="Email Address"  id="email" maxlength="80" name="email" size="20" type="text" />
-              <input placeholder="Phone Number"  id="phone" maxlength="40" name="phone" size="20" type="text" />
-              <input placeholder="Company"  id="company" maxlength="40" name="company" size="20" type="text" />
-                           <select style="display:none;"   id="lead_source" name="lead_source" placeholder="Lead Source"><option selected="selected" value="HRTechLondon2015-GetInTouch">HRTechLondon2015-GetInTouch</option>
-                      </select>
+              <input required placeholder="First Name *"  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+              <input required placeholder="Last Name *" id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+              <input required placeholder="Email Address *"  id="email" maxlength="80" name="email" size="20" type="text" />
+              <input required placeholder="Phone Number *"  id="phone" maxlength="40" name="phone" size="20" type="text" />
+              <input required placeholder="Company *"  id="company" maxlength="40" name="company" size="20" type="text" />
+              <input required placeholder="Job Title *" id="title" maxlength="40" name="title" size="20" type="text" />
+              <select style="display:none;"   id="lead_source" name="lead_source" placeholder="Lead Source">
+                <option selected="selected" value="HRTechLondon2015-GetInTouch">HRTechLondon2015-GetInTouch</option>
+              </select>
             </div>
             <div class="large-6 columns">
               <textarea placeholder="Message" name="description"></textarea>
             </div>
           </div>
-                <div class="large-12 column">
-     <div class="captcha" style="text-align:center;">
-                <div class="handle"></div> 
-                 
-        </div>
-
-         
-    </div>
-         <h6 class="OswaldText text-center" style="color:#fff; margin-bottom:20px;" id="ClickHandleText">Please click the handle or swipe it to the right!</h6>
           <div class="row">
             <div class="large-12 column">
               <input onClick="_gaq.push(['_trackEvent', 'ContactForm', 'FormSubmission', 'InquirySent']);" type="submit" class="ContactSubmitbutton" name="submit" value="Send">
             </div>
           </div>
         </form>
+        <!-- END of : CONTACT FORM --->
       </div>
     </div>
     
@@ -264,7 +262,7 @@
             </a> </div>
           <div id="GetInTouch">
             <h6 class="FooterSectionTitle">Get in Touch</h6>
-           <p id="GeneralEnquiries"> <i class="fa fa-phone"></i>+36 1 201 1469<br>
+            <p id="GeneralEnquiries"> <i class="fa fa-phone"></i>+36 1 201 1469<br>
               <i class="fa fa-phone"></i>UK/ IE +44 20 34 689 689<br>
               <i class="fa fa-envelope"></i>hrn@hrneurope.com </p>
           </div>
@@ -304,23 +302,11 @@
 <script src="js/vendor/jquery.js"></script> 
 <script src="js/foundation.min.js"></script> 
 <script>
-      $(document).foundation({
-        orbit: {
-          timer_speed: 4000,
-          next_on_click: false
-        }
-        });
-</script> 
-
-<!-- SlideCAPTCHA -->
-<script src="vendor/SlideCaptcha/js/slide-to-captcha.js" type="text/javascript"></script>
-<script>
-    $('.captcha').slideToCAPTCHA();
-</script>
+      $(document).foundation();
+</script>  
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
- 
 
 <!-- Start of Async HubSpot Analytics Code --> 
 <script type="text/javascript">
