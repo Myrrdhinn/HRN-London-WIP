@@ -1,11 +1,9 @@
-   $(document).ready(function(){ 
- 
-     /*-----------------------
-		Input lost focus
-	------------------------	*/
-        $('#AgendaTitle').bind('focusout', function () {
 
+function tag_create() {
+	
 		var name = $('#AgendaTitle').val();
+		
+	if(typeof name != "undefined" && name != '') {
 		
 		var andrep = name.replace("&", "and"); 
 		 andrep = andrep.replace("í", "i"); 
@@ -40,7 +38,19 @@
 		  }
 		
 		
-	   $('#AgendaTag').val(tag_final);
+	   $('#AgendaTag').val(tag_final);	
+	   
+		}
+	
+}
+   
+   $(document).ready(function(){ 
+ 
+     /*-----------------------
+		Input lost focus
+	------------------------	*/
+        $('#AgendaTitle').bind('focusout', function () {
+			 tag_create();
 
   })
  
@@ -86,6 +96,9 @@
 					$('#TimeTable').hide();
 					$('#SessionAbstract').hide();
 					$('#MultipleHelp').text('You can only choose one speaker as a moderator!'); 
+					$('#NewSpeakerLink').show();
+					$('#NewSpeaker').show();
+					
 	   
 			} else {
 				//show everything as normal
@@ -94,6 +107,8 @@
 				$('#SpeakersDiv').show();
 				$('#BreakChkBox').show();
 				$('#TimeTable').show();
+				$('#NewSpeakerLink').hide();
+				$('#NewSpeaker').hide();
 				$('#MultipleHelp').text('In order to select multiple speakers, please hold Ctrl and then click on the speakers'); 
 			}
 
@@ -270,6 +285,12 @@ var SelectedSpeaker = {};
 		  
    for (var i = 0, j = SHlength; i < j; i++){	 
 		 if (sh[i] !== '') {
+			   if (moderator === 1) {
+				   var modName = 'Moderator: '+sh[i];
+				    $('#AgendaTitle').val(modName);	
+					tag_create();   
+			    }
+			
 			  $('#Speakers')
 			 .append($('<option></option>')
 			 .attr("value",sh_val[i])

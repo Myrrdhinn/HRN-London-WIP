@@ -55,6 +55,12 @@
 <script src="js/agenda-navigation.js"></script>
 <!-- Agenda Navigation -->
 
+
+<!--- Mobile Menu dropdown -->
+<script src="js/mobile-menu-dropdown.js"></script>
+
+
+
 <?php 
   if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
 	echo '<!-- This needs jquery ui-->
@@ -168,19 +174,35 @@
 
     
     <!--END DESKTOP Navigation Menu--> 
-    <!-- Mobile Navigation Menu-->
-    <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onclick="location.href='#top'"  role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
+        <!-- Mobile Navigation Menu-->
+    <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onClick="$('html, body').animate({scrollTop: 0}, 700);" role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
     <nav id="RightsideMobileNavigation" class="right-off-canvas-menu">
       <ul>
-        <li> <a href="index" class="MobileNavigationMenuItem">Home</a></li>
-        <li> <a href="tickets" >Tickets</a></li>
-        <li> <a href="speakers">Speakers</a></li>
-        <li> <a class="ActiveNavmenuItem"  href="agenda" >Agenda</a></li>
-        <li> <a href="contact" >Get in Touch</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index">Home</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" >Tickets</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" class="ActiveNavmenuItem MobileNavigationMenuItem" href="agenda" >Agenda</a></li>
+                  <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+       	  <div id="ExpoMobileGroupContent">
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">Venue</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">Logistics</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
+          </div>
+          
+          <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+       	  <div id="PartnersMobileGroupContent">
+         		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">Sponsor Appendencies</a></li>
+          </div>
+           <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>  
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" href="contact" >Get in Touch</a></li>
       </ul>
     </nav>
     
-    <!-- END Mobile Navigation Menu--> 
+    <!-- END Mobile Navigation Menu-->
+
     
     <!-- Header -->
    <header>

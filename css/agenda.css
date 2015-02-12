@@ -310,6 +310,171 @@ body div {
 }
 /*END STICKY SOCIAL ICON ALIGMENTS*/
 
+/*-----MODAL DEFINITIONS------*/
+.modal-dialog {
+	margin-top: 60px;
+}
+.modal-content {
+	border-radius: 0;
+}
+.modal-body {
+	background-color: #F5F5F5;
+}
+.close, .close:hover {
+	opacity: 1;
+	position: relative;
+	top: -40px;
+	right: -40px;
+}
+.ModalSpeakerPhoto {
+	margin: 0 auto;
+	width: 170px;
+	height: 170px;
+	background-size: cover;
+}
+.ModalSpeakerBioContainer {
+	text-align: center;
+	color: #323232;
+}
+.ModalSpeakerName {
+	font-size: 4em;
+	text-transform: uppercase;
+	color: #323232;
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+.ModalSpeakerJobtitle {
+	font-size: 1.8em;
+	font-weight: 300;
+}
+.ModalSpeakerCompanyLink {
+	font-size: 1.8em;
+	font-weight: 400;
+	color: #00a8c6;
+}
+.ModalSpeakerCompanyLink:hover {
+	color: #35B0E3;
+}
+
+/*PREV and NEXT modal Selectors */
+#ModalLeftArrow, #ModalRightArrow {
+	display:none;
+
+}
+
+	
+
+	
+
+.ModalDivider {
+	border-top: 1px solid #b3b3b3;
+	height: 1px;
+	margin: 20px auto 20px auto;
+	width: 40px;
+}
+.SocialIcons {
+	display: inline;
+}
+.SocialIcons .fa {
+	font-size: 14px;
+	color: #fff;
+	background: #323232;
+	padding: 7px;
+	border-radius: 900px;
+	margin: 0 2px;
+}
+.SocialIcons .fa-facebook {
+	padding: 7px 10px;
+}
+.SocialIcons .fa-facebook:hover {
+	background: #3b5998;
+}
+.SocialIcons .fa-twitter:hover {
+	background: #4099ff;
+}
+.SocialIcons .fa-linkedin:hover {
+	background: #0e76a8;
+}
+.SocialIcons .fa-google {
+	padding: 8px 8px 6px 8px;
+}
+.SocialIcons .fa-google:hover {
+	background: #1F48A9;
+}
+.SocialIcons .fa-flickr:hover {
+	background: #FF0084;
+}
+.SocialIcons .fa-rss:hover {
+	background: #C52C02;
+}
+.ModalSpeakerBio {
+	font-size: 1.7em;
+	line-height: 1.7em;
+	font-weight: 300;
+	text-align: left;
+	padding: 25px;
+}
+.ModalSpeakerBio a {
+	color: #00a8c6;
+}
+.ModalSpeakerBio a:hover {
+	color: #35B0E3;
+}
+.ModalSpeakerBioHighlight {
+	font-size: 1.2em;
+	font-weight: 400;
+}
+.ModalSpeakerBioHighlight:after {
+	content: ' ';
+	clear: right;
+	display: block;
+}
+
+#BottomModalClose {
+	display:none;
+}
+@media(max-width:767px) {
+.modal-dialog {
+	margin: 0;
+	width: 100%;
+}
+	
+.close, .close:hover {
+	top: 0px;
+	right: 0px;
+}
+
+#BottomModalClose {
+	display:block;
+	right:5px;
+	bottom:5px;
+	}
+.ModalSpeakerBio {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+}
+
+@media(max-width:380px) {
+.Speaker, .SpeakerPhoto {
+	width: 120px;
+}
+.SpeakerPhoto {
+	height: 120px;
+}
+.Speaker:hover .EventDetails {
+	visibility: hidden;
+	opacity: 0;
+}
+.close img {
+	width: 35px;
+	height: 35px;
+}
+}
+/*----- END MODAL DEFINITIONS------*/
+
+
+
 /*Mobile menu fa-bars button alignment*/
 .fa-bars {
   position: relative;

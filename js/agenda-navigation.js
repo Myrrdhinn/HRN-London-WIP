@@ -1,3 +1,4 @@
+
 /* Day Selector dropdown function */
 $(document).ready(function(){
     $('#day-selector').on('change', function() {
@@ -17,7 +18,8 @@ $(document).ready(function(){
 		$("#Day2MainContainer").fadeIn()
       }
 	 
-    });
+    });	
+	
 });
 
 /* Session Selector dropdown function. this.value represents the chosen session which is FADED IN (shown), the rest are faded out (hidden).

@@ -1995,6 +1995,7 @@ Modify Agenda
 				$check = 0;
 			}
 			
+			//if it's a moderator session
 			if(isset($_POST['ModeratorId'])) {
 				$this->dbc->query(
 					  sprintf("UPDATE agenda_event_moderator SET agenda_event_day = '%s', agenda_location_id = '%s' WHERE id = '%s'",
@@ -2003,34 +2004,38 @@ Modify Agenda
 						$this->dbc->real_escape_string(htmlspecialchars($_POST['ModeratorId']))
 					  )
 				  );	
-			} 
-			
-			if (($data[1] != $_POST['AgendaTimeStart']) || ($data[2] != $_POST['AgendaTimeEnd']) || ($data[3] != $_POST['Day']) || ($data[4] != $_POST['Abstract']) || ($data[5] != $_POST['Locations']) || ($data[7] != $check)){
-			
-	    $this->dbc->query(
-				sprintf("INSERT INTO agenda_event_data SET time_start = '%s', time_end = '%s', day = '%s', abstract = '%s', location_id = '%s', highlighted = '%s'",
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['AgendaTimeStart'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['AgendaTimeEnd'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Day'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Abstract'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($_POST['Locations'])),
-				  $this->dbc->real_escape_string(htmlspecialchars($check))
-				)
-			);	
-		$data_id = $this->dbc->insert_id;
+			} else {//moderator session end
+				
+				//if it's NOT a moderator session!
+				  if (($data[1] != $_POST['AgendaTimeStart']) || ($data[2] != $_POST['AgendaTimeEnd']) || ($data[3] != $_POST['Day']) || ($data[4] != $_POST['Abstract']) || ($data[5] != $_POST['Locations']) || ($data[7] != $check)){
+				  
+			  $this->dbc->query(
+					  sprintf("INSERT INTO agenda_event_data SET time_start = '%s', time_end = '%s', day = '%s', abstract = '%s', location_id = '%s', highlighted = '%s'",
+						$this->dbc->real_escape_string(htmlspecialchars($_POST['AgendaTimeStart'])),
+						$this->dbc->real_escape_string(htmlspecialchars($_POST['AgendaTimeEnd'])),
+						$this->dbc->real_escape_string(htmlspecialchars($_POST['Day'])),
+						$this->dbc->real_escape_string(htmlspecialchars($_POST['Abstract'])),
+						$this->dbc->real_escape_string(htmlspecialchars($_POST['Locations'])),
+						$this->dbc->real_escape_string(htmlspecialchars($check))
+					  )
+				  );	
+			  $data_id = $this->dbc->insert_id;
+			  
+				  
+				  
+				  
+				  
+				$this->dbc->query(
+					  sprintf("INSERT INTO agenda_event_connection SET agenda_event_id = '%s', agenda_event_data_id = '%s'",
+						$this->dbc->real_escape_string(htmlspecialchars($agenda_id)),
+						$this->dbc->real_escape_string(htmlspecialchars($data_id))
+					  )
+				  );	
+				  
+				 } //if something from data changed
+		   
+		}//moderator session else end
 		
-			
-			
-			
-			
-		  $this->dbc->query(
-				sprintf("INSERT INTO agenda_event_connection SET agenda_event_id = '%s', agenda_event_data_id = '%s'",
-				  $this->dbc->real_escape_string(htmlspecialchars($agenda_id)),
-				  $this->dbc->real_escape_string(htmlspecialchars($data_id))
-				)
-			);	
-			
-           } //if something from data changed
        if(isset($_POST['Icons']) && $data[8] != $_POST['Icons']) {
 		   	  $this->dbc->query(
 				sprintf("INSERT INTO agenda_event_icon_connection SET agenda_event_id = '%s', agenda_event_icon_id = '%s'",

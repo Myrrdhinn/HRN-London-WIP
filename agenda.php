@@ -25,6 +25,11 @@
 <script src="js/foundation/foundation.orbit.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 
+<!-- Include Bootstrap for SpeakersGrid Modals -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
 <!-- Favicon setting -->
 <link rel="shortcut icon" href="favicon.ico">
 
@@ -34,9 +39,12 @@
 <!--Include Font Awesome -->
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- RANDOM FADE JS JQUERY libraries -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- jQUERY libraries -->
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
 
 <!--	Include Navigation Menu CSS Definitions -->
 <link rel="stylesheet" href="css/navmenu.css" />
@@ -58,6 +66,9 @@
 
 <!-- Agenda Navigation -->
 <script src="js/agenda-navigation.js"></script>
+
+<!-- Agenda Navigation -->
+<script src="js/agenda-modal.js"></script>
 
 <!--- Mobile Menu dropdown -->
 <script src="js/mobile-menu-dropdown.js"></script>
@@ -495,15 +506,17 @@
 </div>
 
 <!--Foundation Scripts --> 
-<script src="js/vendor/jquery.js"></script> 
 <script src="js/foundation.min.js"></script> 
 <script>
       $(document).foundation();
 </script> 
 <!--End Foundation Scripts -->  
+ <!--Call modified Bootstrap -->
+<script src="js/bootstrap.js"></script>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<!-- MODAL --> 
+<div class="modal fade" id="EmptyModal" tabindex="-1" role="dialog" aria-labelledby="DownloadPDFModalLabel" aria-hidden="true"></div>
+ <!-- MODAL Ends-->
 
 <!-- Start of Async HubSpot Analytics Code --> 
 <script type="text/javascript">

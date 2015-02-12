@@ -61,6 +61,7 @@
 
 <link href="css/admin_general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />
+<link rel="stylesheet" href="css/admin_new_agenda.css" />
 <script type="text/javascript" src="js/admin_new_agenda.js"></script>
 
 <!-- TinyMCE -->
@@ -209,8 +210,15 @@ tinymce.init({
    $content .='</select></label>
    
    
-   <p id="MultipleHelp">In order to select multiple speakers, please hold Ctrl and then click on the speakers</p></div>
-       
+   <p id="MultipleHelp">In order to select multiple speakers, please hold Ctrl and then click on the speakers</p>
+   <p id="NewSpeaker" style="display:none">Can&#180;t find a speaker? You can upload one by pressing the new speaker button</p>
+  
+   </div>
+   
+   <a id="NewSpeakerLink" href="new_speakers" style="display:none"><div class="AdminSpeakerButton">New Speaker</div></a>
+   
+        
+		
 	   <!--Content upload section end-->
 	   	   
    </fieldset>

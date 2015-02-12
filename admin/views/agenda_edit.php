@@ -157,7 +157,7 @@ tinymce.init({
 
      <fieldset>
 	    <legend>Basic</legend>
-         <input class="AdminInputField" required="required" name="AgendaTitle" type="text" placeholder="Sesssion Title" /><br />
+         <input class="AdminInputField" required="required" id="AgendaTitle" name="AgendaTitle" type="text" placeholder="Sesssion Title" /><br />
 		 <div id="TimeTable">';
 	
 	  $content .='  <label>Start <select id="AgendaTimeStart" name="AgendaTimeStart">';
