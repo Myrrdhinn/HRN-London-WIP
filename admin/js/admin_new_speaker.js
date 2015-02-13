@@ -23,7 +23,10 @@
 		formData.append("SpeakerFlickr", $("#SpeakerFlickr").val());
 		formData.append("SpeakerGoogle", $("#SpeakerGoogle").val());
 		formData.append("SpeakerBioImp", $("#SpeakerBioImp").val());
-		formData.append("Moderator", $("#Moderator").val());
+		
+		if(document.getElementById("Moderator").checked == true) {
+			 formData.append("Moderator", $("#Moderator").val());
+			} 
 		formData.append("SpeakerBio", $("#SpeakerBio").val());
 		formData.append("Order", $("#Order").val());
 		formData.append("Tag", $("#Tag").val());
@@ -40,22 +43,26 @@
 
         // Listen to the click event
         $('#speakers').on("submit", function(e) {
+			
           // Make sure the button click doesn't submit the form:
           // Remove the file preview.
 		    e.preventDefault();
             e.stopPropagation();
-            dz.processQueue();
+			
+             dz.processQueue();
+			 generate_response(0, 0);
 		  
 
 			
 		  //maybe we send aaaaaaaall the data with ajax instead of post
           // If you want to the delete the file on the server as well,
           // you can do the AJAX request here.
+
 	  
 		  setTimeout(function () {
-        document.location.href="speakers"; //will redirect to speakers
-            }, 2000); //will call the function after 2 secs.
-			
+            document.location.href="speakers"; //will redirect to speakers
+            }, 1000); //will call the function after 2 secs.
+	
 		 
         });
 

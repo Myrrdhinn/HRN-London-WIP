@@ -112,3 +112,23 @@ body {
 	cursor:pointer;
 	
 }
+
+
+.AdminResponseClass {
+	 transition: all 0.3s;
+	 font-size: 18px;
+	 background-color:rgba(229, 229, 229, 0.33);
+}
+
+.AdminResponseClass i {
+	color:#2A7813;
+}
+
+#ResponseDiv {
+	width: 100%;
+	margin: 35px 0 0 450px;
+    position: absolute;
+	max-width: 400px;
+	
+}
+

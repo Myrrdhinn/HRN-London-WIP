@@ -102,7 +102,7 @@
                 type: 'POST',
                 data: {action:"SocialLinkUpdate", sType:sType, sId:sId, sLinks:sLinks, sURLs:sURLs},
                 success: function(data) {
-                    location.reload();
+					generate_response(data, 1);
                 }
             });
   

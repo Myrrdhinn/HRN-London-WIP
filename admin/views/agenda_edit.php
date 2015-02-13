@@ -63,6 +63,7 @@
 
 <script src="js/admin_new_agenda.js"></script>
 <script src="js/admin_agenda_edit.js"></script>
+<script src="js/admin_general.js"></script> 
 <!-- TinyMCE -->
 <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
@@ -189,7 +190,6 @@ tinymce.init({
     </select></label><br /><br />
     
     <label>Location <select id="Locations" name="Locations">';
-   $content .= $new->get_locations();
    $content .= ' 
     </select></label><br /><br />
 	 </fieldset>

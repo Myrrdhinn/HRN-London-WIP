@@ -60,6 +60,7 @@
   <!-- Dropzone -->
 <script src="js/admin_dropzone.js"></script>
 <script src="js/admin_new_blogger.js"></script>
+<script src="js/admin_general.js"></script> 
 
 <link href="css/admin_general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />

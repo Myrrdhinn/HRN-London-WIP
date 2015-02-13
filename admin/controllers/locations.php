@@ -1,15 +1,37 @@
 <?php 
+include_once('aaa.php');
+include_once('config.php');
 
 class locations extends config {
 	
-public function get_locations() {
+public function get_locations($day) {
 		$content = '';
 	//Gets all of the locations
 	$places = $this->dbc->query(
-					sprintf("SELECT id, location FROM agenda_event_location"));	
+					sprintf("SELECT ael.id, ael.location FROM agenda_event_location as ael, agenda_event_location_day_connection as aeldc WHERE ael.id=aeldc.agenda_location_id AND aeldc.agenda_event_day = '%s'",
+					 $this->dbc->real_escape_string($day)
+					));	
 					if ($places->num_rows > 0) {
 					while($data = $places->fetch_assoc()){
 						$content .= '<option value="'.$data['id'].'">'.$data['location'].'</option>';
+					}
+				}
+	return $content;	
+}
+
+
+public function get_locations_change($day) {
+		$content[0] = '';
+		$i = 0;
+	//Gets all of the locations
+	$places = $this->dbc->query(
+					sprintf("SELECT ael.id, ael.location FROM agenda_event_location as ael, agenda_event_location_day_connection as aeldc WHERE ael.id=aeldc.agenda_location_id AND aeldc.agenda_event_day = '%s'",
+					 $this->dbc->real_escape_string($day)
+					));	
+					if ($places->num_rows > 0) {
+					while($data = $places->fetch_assoc()){
+						$content[$i] = $data['id'].'|'.$data['location'];
+						$i++;
 					}
 				}
 	return $content;	
@@ -234,4 +256,14 @@ function alphabet() {
 }
 
 }
+
+/*AJAX REQUEST*/
+//Update the locations for agenda new
+ if(isset($_POST['action']) && $_POST['action'] == 'AgendaDayChange' && isset($_POST['day'])){
+	$the_main = new locations();
+    $locations = $the_main->get_locations_change($_POST['day']);
+	
+	echo json_encode($locations);
+
+}// delete agenda
 ?>

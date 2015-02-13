@@ -65,6 +65,7 @@
   if(isset($_SESSION['admin']) && isset($_SESSION['agenda_admin'])) {
 	echo '<!-- This needs jquery ui-->
 <script src="js/admin_agenda.js"></script>  
+<script src="js/admin_general.js"></script> 
 <link rel="stylesheet" href="css/admin_edit_general.css" />'; 
   }
 ?>

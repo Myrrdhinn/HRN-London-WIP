@@ -53,7 +53,9 @@
 	echo '<!-- This needs jquery ui-->
 <script src="js/admin_speakers_edit.js"></script>
 <script src="js/admin_dropzone_main.js"></script>
+<script src="js/admin_general.js"></script> 
 <link rel="stylesheet" href="css/general.css" /> 
+<link rel="stylesheet" href="css/admin_general.css" /> 
 <link rel="stylesheet" href="css/admin_edit_general.css" />
 <!-- TinyMCE -->
 <script type="text/javascript" src="vendor/tinymce_alt/tinymce.min.js"></script>'; 
@@ -78,6 +80,7 @@
     <!--Desktop Navigation Menu-->
   <?php 
   if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
+	  $speakers = new speakers_main();
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -134,7 +137,17 @@
 	 
 	}
   
-  $content .='</div></nav>';
+  $content .='</div>';
+  $content .='<div id="ResponseDiv">';
+  
+  			if (isset($_COOKIE['ResponseCookie'])){
+				$content .= $speakers->response_generator($_COOKIE['ResponseCookie']);
+				unset($_COOKIE['ResponseCookie']);
+                setcookie('ResponseCookie', null, -1, '/');
+			}
+  
+   $content .='</div>';
+  $content .='</nav>';
   
   echo $content;
 	  
@@ -311,7 +324,6 @@
     <h1 id="SpeakerHeadline">Speakers</h1>
     <section id="Speakers"> 
       	<?php
-		$speakers = new speakers_main();
 		$content = $speakers->speakers();
 		  /*
 		  
@@ -581,8 +593,11 @@ $(function() {
            $output .='</form>';
 		   
         
-       $output .='<div class="ModalSpeakerBioContainer">
-	   <form class="SpeakerModalEdit">
+       $output .='<div class="ModalSpeakerBioContainer">';
+	   
+	    $output .='<div class="ResponseContainer" style="display:none"></div>';
+		
+	     $output .='<form class="SpeakerModalEdit">
 	       <input id="'.$speaker[4].'_SpeakerId" style="display:none;" name="'.$speaker[4].'_SpeakerId" type="text" value="'.$speaker[18].'">
 		   <input id="'.$speaker[4].'_SpeakerNameId" style="display:none;" name="'.$speaker[4].'_SpeakerNameId" type="text" value="'.$speaker[19].'">
           <p id="'.$speaker[4].'_Name" class="ClickClick ModalSpeakerName OswaldText">'.$speaker[0].'</p>

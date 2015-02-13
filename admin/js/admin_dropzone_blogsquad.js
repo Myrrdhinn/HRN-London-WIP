@@ -59,6 +59,7 @@
 			$("#BlogsquadBlogs").val(blog);
 			
             dz.processQueue();
+			generate_response(0, 0);
 		  
 
 			
@@ -68,7 +69,7 @@
 	  
 		  setTimeout(function () {
         document.location.href="blogsquad"; //will redirect to blogsquad
-            }, 2000); //will call the function after 2 secs.
+            }, 1000); //will call the function after 2 secs.
 			
 		 
         });

@@ -42,7 +42,6 @@ function tiny_remove(id) {
 
 function BioSave() {
 	save_data(Mce.first);
-	alert('Save Successful!');
 }
 
 function save_data(id) {
@@ -277,6 +276,7 @@ function save_data(id) {
                 type: 'POST',
                 data: {action:"sponsor_edit", sNId:sNId, sId:sId, wat:wat, tag:tag, sName:sName,  sBio:sBio, sCompanyLink:sCompanyLink, sTwitter:sTwitter, sFacebook:sFacebook, sLinkedin:sLinkedin, sFlickr:sFlickr, sGoogle:sGoogle, sRss:sRss, rank:rank},
                 success: function(data) {
+					generate_instant_response(1, 1);
                     //finished
                 }
             });
@@ -483,6 +483,7 @@ tinymce.init({
 							  type: 'POST',
 							  data: {action:"sponsor_type_edit", sId:sId, tag:tag, sBio:sBio, sCompanyLink:sCompanyLink, rank:rank},
 							  success: function(data) {
+								  generate_response(0, 0)
 								  //finished
 							  }
 						  });
@@ -705,13 +706,18 @@ tinymce.init({
 		
 		var conf = confirm("Are you sure you want to delete this Sponsor?");
 		  if (conf == true) {
+			 
 	  $.ajax({
                 url: 'controllers/main.php',
                 type: 'POST',
                 data: {action:"sponsor_delete", sId:sId},
                 success: function(data) {
-					location.reload();
-                }
+					generate_instant_response(2);
+				    setTimeout(function () {
+                      location.reload();
+                      }, 1500); //will call the function after 4 secs.
+					
+                   }
             });
 			  
           

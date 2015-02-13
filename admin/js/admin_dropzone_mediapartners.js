@@ -41,6 +41,7 @@
 		    e.preventDefault();
             e.stopPropagation();
              dz.processQueue();
+			 generate_response(0, 0);
 			
 		  //maybe we send aaaaaaaall the data with ajax instead of post
           // If you want to the delete the file on the server as well,
@@ -48,7 +49,7 @@
 	  
 		  setTimeout(function () {
         document.location.href="mediapartners"; //will redirect to speakers
-            }, 2000); //will call the function after 2 secs.
+            }, 1000); //will call the function after 2 secs.
 			
 		 
         });

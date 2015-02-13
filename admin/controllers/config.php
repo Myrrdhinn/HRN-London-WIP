@@ -46,6 +46,28 @@
 	 return $data;
  }	
 	
+	
+	
+ public function response_generator($id) {
+	 $output = '';
+	 
+	 switch ($id) {
+    case 0:
+        $output = '<p class="AdminResponseClass"><i class="fa fa-check"></i>Saved Successfully!</p>';
+        break;
+    case 1:
+        $output = '<p class="AdminResponseClass"><i class="fa fa-check"></i>Uploaded Successfully!</p>';
+        break;
+    case 2:
+        $output = '<p class="AdminResponseClass"><i class="fa fa-check"></i>Deleted Successfully!</p>';
+        break;
+    case 3:
+	   $output = '<p class="AdminResponseClass"><i class="fa fa-exclamation-circle"></i>Something went wrong! Change is not saved!</p>';
+        break;
+}
+	return $output; 
+	 
+ }
  /*  public function debugging($error) {
 	$ladybug = '';
 	if (isset($error) && $error['message'] !=''){

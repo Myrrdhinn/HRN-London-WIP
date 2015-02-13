@@ -44,4 +44,7 @@ Temporary Items
 
 admin/controllers/aaa.php
 controllers/aaa.php
-admin/controllers/aaa.php
+*.sql
+*.pdf
+*.mp4
+*.bak

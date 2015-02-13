@@ -57,6 +57,7 @@
 <link href="css/admin_general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_edit_general.css" />
 <link rel="stylesheet" href="css/admin_index.css" />
+<script src="js/admin_general.js"></script> 
 </head>
 <body>
 

@@ -56,7 +56,9 @@
 	echo '<!-- This needs jquery ui-->
 <script src="js/admin_mediapartners_edit.js"></script>  
 <script src="js/admin_dropzone_main.js"></script>
+<script src="js/admin_general.js"></script> 
 <link rel="stylesheet" href="css/general.css" /> 
+<link rel="stylesheet" href="css/admin_general.css" /> 
 <link rel="stylesheet" href="css/admin_edit_general.css" />'; 
 
   }
@@ -72,6 +74,7 @@
     <!--Desktop Navigation Menu-->
   <?php 
   if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
+	  $Sp = new mediapartners_main();
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -128,7 +131,17 @@
 	 
 	}
   
-  $content .='</div></nav>';
+  $content .='</div>';
+  $content .='<div id="ResponseDiv">';
+  
+  			if (isset($_COOKIE['ResponseCookie'])){
+				$content .= $Sp->response_generator($_COOKIE['ResponseCookie']);
+				unset($_COOKIE['ResponseCookie']);
+                setcookie('ResponseCookie', null, -1, '/');
+			}
+  
+   $content .='</div>';
+  $content .='</nav>';
   
   echo $content;
 	  
@@ -193,7 +206,6 @@
     <section id="Mediapartners">
       <?php
 		$plus_mediapartner = 0;
-		$Sp = new mediapartners_main();
 		$content = $Sp->mediapartners();
 		
 		if (isset($content)) {
@@ -569,8 +581,9 @@ if(isset($_SESSION['admin']) && isset($_SESSION['mediapartners_admin'])) {
 			  }
            $output .='</form>';
 
-       $output .='<div class="ModalMediapartnerBioContainer">
-	   <form class="MediapartnerModalEdit">
+       $output .='<div class="ModalMediapartnerBioContainer">';
+	   $output .='<div class="ResponseContainer" style="display:none"></div>';
+	    $output .='<form class="MediapartnerModalEdit">
 	       <input id="'.$mediapartner[4].'_MediapartnerId" style="display:none;" name="'.$mediapartner[4].'_MediapartnerId" type="text" value="'.$mediapartner[0].'">
 		   <input id="'.$mediapartner[4].'_MediapartnerNameId" style="display:none;" name="'.$mediapartner[4].'_MediapartnerNameId" type="text" value="'.$mediapartner[9].'">
 		   

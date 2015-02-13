@@ -62,14 +62,8 @@
 <link rel="stylesheet" href="css/admin_index.css" />
 <link rel="stylesheet" href="css/admin_logs.css" />
 
-<!-- TinyMCE -->
-<script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
-tinymce.init({
-    selector: "textarea"
+<script src="js/admin_general.js"></script> 
 
- });
-</script>
 
 </head>
 <body>
@@ -154,7 +148,7 @@ tinymce.init({
 	   
 	 } //if isset agenda_admin 
 	 else {
-		$content.="<h1 style='text-align:center'>You don't have permission to see this page! Naughty! ;)</h1>"; 
+		$content.="<h1 style='text-align:center'>You don't have permission to see this page!</h1>"; 
 	 }
 	 
 	 

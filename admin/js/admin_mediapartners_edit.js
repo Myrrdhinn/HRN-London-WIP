@@ -278,6 +278,7 @@ function save_data(id) {
                 data: {action:"mediapartner_edit", sNId:sNId, sId:sId, wat:wat, tag:tag, sName:sName,  sBio:sBio, sCompanyLink:sCompanyLink, sTwitter:sTwitter, sFacebook:sFacebook, sLinkedin:sLinkedin, sFlickr:sFlickr, sGoogle:sGoogle, sRss:sRss, rank:rank},
                 success: function(data) {
                     //finished
+					generate_instant_response(1, 1);
                 }
             });
 		
@@ -714,7 +715,10 @@ tinymce.init({
                 type: 'POST',
                 data: {action:"mediapartner_delete", sId:sId},
                 success: function(data) {
-					location.reload();
+				   generate_instant_response(2);
+				    setTimeout(function () {
+                      location.reload();
+                      }, 1500); //will call the function after 4 secs.
                 }
             });
 			  

@@ -59,6 +59,7 @@
   
   <!-- Dropzone -->
 <script src="js/admin_dropzone.js"></script>
+<script src="js/admin_general.js"></script> 
 
 <link href="css/admin_general.css" rel="stylesheet">
 <link rel="stylesheet" href="css/admin_index.css" />
@@ -139,11 +140,6 @@ tinymce.init({
 	 
 	 	if (isset($_SESSION['speakers_admin']) || isset($_SESSION['agenda_admin'])) {
 
-				if (isset($_SESSION['agenda_admin']) && !isset($_SESSION['speakers_admin'])) {
-					$checked = ' checked="checked" disabled="disabled "';
-				} else {
-					$checked = '';
-				}
 	     $content .='<form id="speakers" name="speakers" method="post" action="controllers/main.php" enctype="multipart/form-data"><br />
          <script src="js/admin_new_speaker.js"></script>
   
@@ -151,7 +147,9 @@ tinymce.init({
 	    <legend>Basic</legend>
 		<input class="AdminInputField" required="required" name="Speaker" id="SpeakerName" type="text" placeholder="Name" /><br />
         <input class="AdminInputField" name="SpeakerTitle" id="SpeakerTitle" type="text" placeholder="Title" /><br />
-		<label>Session Moderator<input id="Moderator" name="Moderator" type="checkbox"'.$checked.'value="1" /></label><br /><br />
+		
+		<label>Session Moderator<input id="Moderator" name="Moderator" type="checkbox" value="1" /></label><br /><br />
+		
 		    <label>Order <select id="Order" name="Order">';
 	 $content .= $new->get_order();
     $content .=' 

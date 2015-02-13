@@ -150,6 +150,8 @@ Basic functions
 		$i++; 
 	 }//foreach ends
 	 
+	 $result = 0;
+	 echo $result;
  }
  
 	
@@ -2452,6 +2454,23 @@ Social link actual edit
 }// sponsors permission request
     
 
+/*///////////// 
+Response cookie generator
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'GenerateResponseCookie' && isset($_POST['sId'])){
+	 if (isset($_COOKIE['ResponseCookie'])) {
+         unset($_COOKIE['ResponseCookie']);
+        setcookie('ResponseCookie', null, -1, '/');
+
+      } 
+	$the_main = new main();
+    $id = $the_main->ekezet_nelkuli($_POST['sId']);
+	setcookie('ResponseCookie', $id, time() + (20), "/");
+
+}// Set response cookie end
+
  
   /*
 -------------------------
@@ -3083,7 +3102,7 @@ Agenda edit request
     $id = $the_main->ekezet_nelkuli($_POST['sId']);
 	setcookie('AgendaEditVal', $id, time() + (20), "/");
 
-}// delete sponsors
+}// Agenda edit request end
     
   
 /*///////////// 

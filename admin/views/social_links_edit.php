@@ -64,6 +64,10 @@
 <link rel="stylesheet" href="css/admin_socials.css" />
 
 <script src="js/admin_social_links_edit.js"></script>
+<script src="js/admin_general.js"></script> 
+
+<!--Include Font Awesome -->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
 
@@ -152,6 +156,12 @@
 			  }
 
 			$content .= $perm->get_name($_SESSION['SocialEditId'], $_SESSION['SocialEditType']);
+			
+			if (isset($_COOKIE['ResponseCookie'])){
+				$content .= $perm->response_generator($_COOKIE['ResponseCookie']);
+				unset($_COOKIE['ResponseCookie']);
+                setcookie('ResponseCookie', null, -1, '/');
+			}
 			
 	     $content .='<form id="sponsors" name="sponsors" method="post" action="controllers/main.php" enctype="multipart/form-data">
     <div>

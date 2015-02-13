@@ -56,7 +56,9 @@
 	echo '<!-- This needs jquery ui-->
 <script src="js/admin_sponsors_edit.js"></script>  
 <script src="js/admin_dropzone_main.js"></script>
+<script src="js/admin_general.js"></script> 
 <link rel="stylesheet" href="css/general.css" /> 
+<link rel="stylesheet" href="css/admin_general.css" />
 <link rel="stylesheet" href="css/admin_edit_general.css" />'; 
 
   }
@@ -72,6 +74,7 @@
     <!--Desktop Navigation Menu-->
   <?php 
   if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
+	  $Sp = new sponsors_main();
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -127,8 +130,17 @@
 		 $content .='" ></a>';
 	 
 	}
+  $content .='</div>';
+  $content .='<div id="ResponseDiv">';
   
-  $content .='</div></nav>';
+  			if (isset($_COOKIE['ResponseCookie'])){
+				$content .= $Sp->response_generator($_COOKIE['ResponseCookie']);
+				unset($_COOKIE['ResponseCookie']);
+                setcookie('ResponseCookie', null, -1, '/');
+			}
+  
+   $content .='</div>';
+  $content .='</nav>';
   
   echo $content;
 	  
@@ -192,8 +204,9 @@
 ?>
     <section id="Sponsors">
       <?php
+
 		$plus_sponsor = 0;
-		$Sp = new sponsors_main();
+		
 		$content = $Sp->sponsors();
 		
 		if (isset($content)) {
@@ -586,8 +599,11 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_S
 			  }
            $output .='</form>';
 
-       $output .='<div class="ModalSponsorBioContainer">
-	   <form class="SponsorModalEdit">
+       $output .='<div class="ModalSponsorBioContainer">';
+	   
+	   $output .='<div class="ResponseContainer" style="display:none"></div>';
+	  
+	   $output .='<form class="SponsorModalEdit">
 	       <input id="'.$sponsor[4].'_SponsorId" style="display:none;" name="'.$sponsor[4].'_SponsorId" type="text" value="'.$sponsor[0].'">
 		   <input id="'.$sponsor[4].'_SponsorNameId" style="display:none;" name="'.$sponsor[4].'_SponsorNameId" type="text" value="'.$sponsor[9].'">
 		   
@@ -644,8 +660,9 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_S
 			  }
        
         
-       $output .='<div class="ModalSponsorBioContainer">
-	   <form class="SponsorModalEdit">
+       $output .='<div class="ModalSponsorBioContainer">';
+	   	   
+	   $output .='<form class="SponsorModalEdit">
 	      
           <p id="'.$sponsor[4].'_Name" class="ModalSponsorName">'.$sponsor[8].'</p>
 		

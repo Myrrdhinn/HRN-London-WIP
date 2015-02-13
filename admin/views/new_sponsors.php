@@ -46,6 +46,7 @@
 <link rel="stylesheet" href="css/admin_index.css" />
 
 <script src="js/admin_new_sponsor.js"></script>
+<script src="js/admin_general.js"></script> 
 <!-- TinyMCE -->
 <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">

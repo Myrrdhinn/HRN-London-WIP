@@ -63,6 +63,7 @@
 <link rel="stylesheet" href="css/admin_index.css" />
 <link rel="stylesheet" href="css/admin_new_agenda.css" />
 <script type="text/javascript" src="js/admin_new_agenda.js"></script>
+<script src="js/admin_general.js"></script> 
 
 <!-- TinyMCE -->
 <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
@@ -171,13 +172,13 @@ tinymce.init({
    $content .= ' 
     </select></label><br /><br />
 	</div>
-    <label>Day <select name="Day"> 
+    <label>Day <select id="Day" name="Day"> 
     <option value="1">Day 1</option>
     <option value="2">Day 2</option>
     </select></label><br /><br />
     
-    <label>Stream <select name="Locations">';
-   $content .= $new->get_locations();
+    <label>Stream <select id="Locations" name="Locations">';
+   $content .= $new->get_locations(1);
    $content .= ' 
     </select></label>
 	 </fieldset>

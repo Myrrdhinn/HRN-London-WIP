@@ -13,7 +13,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-<meta name="author" content="HRN Europe">
+<meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
 <meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
@@ -25,11 +25,6 @@
 <script src="js/foundation/foundation.orbit.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 
-<!-- Include Bootstrap for SpeakersGrid Modals -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Favicon setting -->
 <link rel="shortcut icon" href="favicon.ico">
 
@@ -39,12 +34,11 @@
 <!--Include Font Awesome -->
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-
-<!-- jQUERY libraries -->
-
+<!-- RANDOM FADE JS JQUERY libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
 <script type="text/javascript" src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+
 
 <!--	Include Navigation Menu CSS Definitions -->
 <link rel="stylesheet" href="css/navmenu.css" />
@@ -53,6 +47,8 @@
 <link rel="stylesheet" href="css/custom.css" />
 <link rel="stylesheet" href="css/agenda.css" />
 <link rel="stylesheet" href="css/agenda-fonts.css" />
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
 
 
 <!-- Footer -->
@@ -67,11 +63,11 @@
 <!-- Agenda Navigation -->
 <script src="js/agenda-navigation.js"></script>
 
-<!-- Agenda Navigation -->
-<script src="js/agenda-modal.js"></script>
-
 <!--- Mobile Menu dropdown -->
 <script src="js/mobile-menu-dropdown.js"></script>
+
+<!-- Agenda Navigation -->
+<script src="js/agenda-modal.js"></script>
 
 
 <style type="text/css">
@@ -118,7 +114,7 @@
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" class="ActiveNavmenuItem" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
+        <span class="DesktopMenuDropdown"><a href="venue">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>
@@ -128,7 +124,7 @@
           
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown"><a href="#">Partners</a>
+        <span class="DesktopMenuDropdown"><a href="sponsors">Partners</a>
             <ul id="PartnersDropdown">
             <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li  class="FirstDropdownItem">Sponsors</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
@@ -349,7 +345,7 @@
       <!-- END MAINSTAGE DAY2 --> 
       <!-- Compensation & Benefits DAY2 -->
       <div class="Compensation">
-        <h4 class="StageName OswaldText"><a name="day2-compensation-and-benefits"></a><img class="StageImage" src="img/agenda/compensation.png">Compensation &amp; Benefits</h4>
+        <h4 class="StageName OswaldText"><a name="day2-compensation-and-benefits"></a><img class="StageImage" src="img/agenda/compensation.png">Payroll &amp; Rewards</h4>
                 <?php  
 		
 		   $content = $agenda->agenda(2,5);
@@ -506,17 +502,34 @@
 </div>
 
 <!--Foundation Scripts --> 
+<script src="js/vendor/jquery.js"></script> 
 <script src="js/foundation.min.js"></script> 
 <script>
       $(document).foundation();
 </script> 
 <!--End Foundation Scripts -->  
- <!--Call modified Bootstrap -->
-<script src="js/bootstrap.js"></script>
 
 <!-- MODAL --> 
 <div class="modal fade" id="EmptyModal" tabindex="-1" role="dialog" aria-labelledby="DownloadPDFModalLabel" aria-hidden="true"></div>
  <!-- MODAL Ends-->
+ <!--Call modified Bootstrap -->
+<script src="js/bootstrap.js"></script>
+
+
+<!-- Page load agenda hashtag link handler -->
+<script type="text/javascript">
+$(document).ready(function() {
+		/* find the session ID in the URL */
+	    var parentURL = window.parent.location.href;
+    	var hashtagPosition = parentURL.search("#");
+		var sessionID = parentURL.substr(hashtagPosition+1, parentURL.length);
+		
+		/* find the session and open the content */
+		var session = $("#"+sessionID).parent();
+		session.find(".SessionContent").slideToggle(200);
+});
+</script>
+
 
 <!-- Start of Async HubSpot Analytics Code --> 
 <script type="text/javascript">

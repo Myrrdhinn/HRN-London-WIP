@@ -1,7 +1,7 @@
 function datainsert() {
 	var id = 0;
 		 id =  $('#SecretAgendaEditId').val();
-		if (id.length > 0){
+		if (typeof id !="undefined" && id.length > 0){
 
 		          $.ajax({
                 url: 'controllers/main.php',
@@ -9,7 +9,8 @@ function datainsert() {
 				dataType: "json",
                 data: {action:"agenda_edit", id:id},
                 success: function(data) {
-					
+
+					var savedLoc = data[5]; //location data
 					
 					var decodedTitle = data[6].replace(/&amp;/g, '&');
 					var decodedTitle = decodedTitle.replace(/&quot;/g, '"');
@@ -119,7 +120,6 @@ var htmlEnDeCode = (function() {
         htmlDecode: htmlDecode
     };
 })();
-				console.log(data[5]);
 
              var decoded_text = htmlEnDeCode.htmlDecode(data[4]);
 
@@ -130,12 +130,47 @@ var htmlEnDeCode = (function() {
 					
 					//$("#SpeakersDiv textarea").val(data[4]);
 				// $('[name="Abstract"]').val(data[4]);
-				 
-				 /// Set location
-			  $("#Locations option").filter(function() {
-				  //may want to use $.trim in here
-				  return $(this).text() == data[5]; 
-			  }).attr('selected', true);
+				
+				var day = data[3];
+				
+				//fill up locations:
+				$.ajax({
+                url: 'controllers/locations.php',
+                type: 'POST',
+				dataType: "json",
+                data: {action:"AgendaDayChange", day:day},
+                success: function(returnedData) {
+					   $('#Locations')
+					   .find('option')
+					   .remove()
+						.end();
+						
+                   $.each(returnedData, function( index, value ) {
+					   var cont = value.split('|');
+						console.log(value);
+					
+					if (savedLoc == cont[1]) {
+						   $('#Locations')
+						   .append($("<option></option>")
+						   .attr("value",cont[0])
+						   .attr("selected","selected")
+						   .text(cont[1])); 
+						
+					} else {
+						   $('#Locations')
+						   .append($("<option></option>")
+						   .attr("value",cont[0])
+						   .text(cont[1]));
+						
+					}
+
+					 
+                     }); //each end
+					 
+                }//if success
+				
+            });
+				
 					
 					
 				var day = "Day "+data[3];

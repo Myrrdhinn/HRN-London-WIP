@@ -55,10 +55,41 @@ function tag_create() {
   })
  
  
+ 		 		//Day change
+   $('#Day').on('change', function () {
+	   var day = $(this).val();
+	          $.ajax({
+                url: 'controllers/locations.php',
+                type: 'POST',
+				dataType: "json",
+                data: {action:"AgendaDayChange", day:day},
+                success: function(data) {
+					   $('#Locations')
+					   .find('option')
+					   .remove()
+						.end();
+                   $.each(data, function( index, value ) {
+					   var cont = value.split('|');
+						
+					
+					 $('#Locations')
+					 .append($("<option></option>")
+					 .attr("value",cont[0])
+					 .text(cont[1])); 
+					 
+                     }); //each end
+					 
+                }//if success
+				
+            });
+	   
+
+	     })
 		 
-		 /// New Agenda icon stuff
+ 
+		//'<option value="'.$data['id'].'">'.$data['location'].'</option> 
 		 
-		 		//If user clicks the "no picture" checkbox
+		 		//If user clicks the "Highlighted" checkbox
    $('#Highlighted').on('click', function () {
 	   
           // save the button and the select elements in to a variable

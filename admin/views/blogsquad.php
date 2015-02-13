@@ -53,7 +53,9 @@
 	echo '<!-- This needs jquery ui-->
 <script src="js/admin_blogsquad_edit.js"></script>
 <script src="js/admin_dropzone_main.js"></script>
+<script src="js/admin_general.js"></script> 
 <link rel="stylesheet" href="css/general.css" /> 
+<link rel="stylesheet" href="css/admin_general.css" /> 
 <link rel="stylesheet" href="css/admin_edit_general.css" />
 <!-- TinyMCE -->
 <script type="text/javascript" src="vendor/tinymce_alt/tinymce.min.js"></script>'; 
@@ -78,6 +80,7 @@
     <!--Desktop Navigation Menu-->
   <?php 
   if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
+	 $speakers = new blogsquad_main();
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -134,7 +137,17 @@
 	 
 	}
   
-  $content .='</div></nav>';
+  $content .='</div>';
+  $content .='<div id="ResponseDiv">';
+  
+  			if (isset($_COOKIE['ResponseCookie'])){
+				$content .= $speakers->response_generator($_COOKIE['ResponseCookie']);
+				unset($_COOKIE['ResponseCookie']);
+                setcookie('ResponseCookie', null, -1, '/');
+			}
+  
+   $content .='</div>';
+  $content .='</nav>';
   
   echo $content;
 	  
@@ -199,7 +212,6 @@ opinion on everything HR.</p>
     <h1 id="BlogsquadHeadline">Blog Squad</h1>
     <section id="Blogsquads"> 
       	<?php
-		$speakers = new blogsquad_main();
 		$content = $speakers->blogsquad();
 		  /*
 		  
@@ -477,8 +489,11 @@ $(function() {
            $output .='</form>';
 		   
         
-       $output .='<div class="ModalBlogsquadBioContainer">
-	   <form class="BlogsquadModalEdit">
+       $output .='<div class="ModalBlogsquadBioContainer">';
+	   
+	   $output .='<div class="ResponseContainer" style="display:none"></div>';
+	   
+	   $output .='<form class="BlogsquadModalEdit">
 	       <input id="'.$speaker[4].'_BlogsquadId" style="display:none;" name="'.$speaker[4].'_BlogsquadId" type="text" value="'.$speaker[18].'">
 		   <input id="'.$speaker[4].'_BlogsquadNameId" style="display:none;" name="'.$speaker[4].'_BlogsquadNameId" type="text" value="'.$speaker[19].'">
           <p id="'.$speaker[4].'_Name" class="ClickClick ModalBlogsquadName OswaldText">'.$speaker[0].'</p>

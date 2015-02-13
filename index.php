@@ -39,7 +39,6 @@
 
 <!--Sponsors-->
 <link rel="stylesheet" href="css/sponsors_index.css" />
-<script src="js/sponsors.js"></script>
 <!--End Sponsors-->
 
 <!--Twitter-->
@@ -124,11 +123,6 @@ google.maps.event.addListener(marker,'click',function() {
   })();
 </script>
 
-<!-- SlideCAPTCHA -->
-<script src="vendor/SlideCaptcha/js/modernizr.custom.20910.js"></script>
-<script src="vendor/SlideCaptcha/js/jquery.js"></script>
-<link href="vendor/SlideCaptcha/css/slide-to-captcha.css" rel="stylesheet">
-
 <!--- Platform Scanner -->
 <script src="js/platform-scanner.js"></script>
 
@@ -151,7 +145,7 @@ google.maps.event.addListener(marker,'click',function() {
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda">Agenda</a>
         <div class="NavmenuDivider"></div>
-        <span class="DesktopMenuDropdown"><a href="#">Expo</a>
+        <span class="DesktopMenuDropdown"><a href="venue">Expo</a>
             <ul id="ExpoDropdown">
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue"><li class="FirstDropdownItem">Venue</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics"><li>Logistics</li></a>
@@ -161,11 +155,12 @@ google.maps.event.addListener(marker,'click',function() {
           
         <div class="NavmenuDivider"></div>
         
-        <span class="DesktopMenuDropdown"><a href="#">Partners</a>
+        <span class="DesktopMenuDropdown"><a href="sponsors">Partners</a>
             <ul id="PartnersDropdown">
             <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors"><li  class="FirstDropdownItem">Sponsors</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners"><li>Media Partners</li></a>
                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad"><li>Blog Squad</li></a>
+                 <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies"><li>Sponsor Appendencies</li></a>
             </ul>
         </span>  
         <div class="NavmenuDivider"></div>
@@ -199,6 +194,7 @@ google.maps.event.addListener(marker,'click',function() {
          		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">Sponsor Appendencies</a></li>
           </div>
            <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>  
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Contact']);" href="contact" >Get in Touch</a></li>
@@ -213,7 +209,7 @@ google.maps.event.addListener(marker,'click',function() {
         Your browser does not support the video tag. I suggest you upgrade your browser. </video>
       <div id="header-container"> <img id="header-hrtech-logo" src="img/hrtech-logo.png" alt="hrtech logo">
         <h1>UNLEASH YOUR PEOPLE!</h1>
-        <h2>The World's Fastest Growing HR Community</h2>
+        <h2>The Fastest Growing HR Event in the World</h2>
         <a target="_blank" onClick="_gaq.push(['_trackEvent', 'VideoHeader', 'InternalForward', 'Tickets']);" href="tickets">
         <div style="max-width:350px;" class="header-button" id="TicketsButton">Get Tickets</div>
         </a> <a href="#"  onClick="_gaq.push(['_trackEvent', 'VideoHeader', 'ModalOpen', 'DownloadPDF']);" data-reveal-id="DownloadPDFModal" >
@@ -431,20 +427,19 @@ google.maps.event.addListener(marker,'click',function() {
     
     <!-- SPONSORS -->
     <div class="centered-text" style="width:100%;">
-      <h2 id="SponsorsH2">Sponsors</h2>
-      <div id="titanium-sponsors"> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'InternalForward',  'IBM']);" href="http://www-01.ibm.com/software/smarterworkforce/">
+      <h2 id="SponsorsH2">Lead Sponsors</h2>
+      <div id="titanium-sponsors"><a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternallForward', 'Oracle']);" href="https://www.oracle.com/applications/human-capital-management/index.html">
+        <div class="titanium-sponsor grow" style="background:url(img/sponsors/o_humancapitalmanagement_cmyk.jpg); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
+        </a>  <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternalForward', 'WorkForce']);" href="http://www.workday.com/uk/">
+        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_workday.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
+        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternallForward',  'IBM']);" href="http://www-01.ibm.com/software/smarterworkforce/">
         <div class="titanium-sponsor grow sponsor-picture" style="background:url(img/200x200_logos_ibm.png); background-repeat:no-repeat; background-position:center; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternallForward', 'Oracle']);" href="https://www.oracle.com/applications/human-capital-management/index.html">
-        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_oracle.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'AppLearn']);" href="http://www.applearn.tv/">
-        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_applearn.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'WorkForce']);" href="http://www.workforcesoftware.com/">
-        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_workforce.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'NGAHR']);" href="http://www.ngahr.com/">
-        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_nga.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'PastSponsors', 'ExternalForward', 'Cornerstone']);" href="http://www.cornerstoneondemand.com/">
-        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_cornerstone.png); background-position:center; background-repeat:no-repeat; background-size:contain;" ></div>
-        </a> </div>
+        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternalForward', 'Ceridian']);" href="http://www.ceridian.com/">
+        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_ceridian.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
+        </a>
+       
+        </div>
+        <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'InternalForward', 'ViewAllSponsorsButton']);" href="sponsors"><div id="SponsorsButton">VIEW ALL SPONSORS</div></a>
     </div>
     <!--END SPONSORS--> 
     
@@ -546,7 +541,7 @@ google.maps.event.addListener(marker,'click',function() {
           <a onClick="_gaq.push(['_trackEvent', 'Videos', 'ExternalForward',  ' InterviewWithDanPink']);" href="http://www.youtube.com/embed/cFcLQxTfMD8?rel=0" target="_blank">
           <div class="VideoImage" id="VideoImage4">
             <div class="VideoImageOverlay">
-              <h1> Interview with Dan Pink </h1>
+              <h1>Interview with Dan Pink</h1>
               <p>Dan Pink talks talent, sales, publishing and more with William Tincup.</p>
             </div>
           </div>
@@ -724,33 +719,27 @@ google.maps.event.addListener(marker,'click',function() {
 <div id="DownloadPDFModal" class="reveal-modal" data-reveal> <a class="close-reveal-modal">&#215;</a>
   <h2>Download Brochure</h2>
   <p>Thank you for downloading our brochure! Please fill in all the fields below.</p>
+  <!-- BEGINING of : DOWNLOAD PDF BROCHURE FORM -->
   <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
     <input type=hidden name="oid" value="00DD0000000nwgk">
-    <input type=hidden name="retURL" value="http://london.hrtecheurope.com/thankyou">
+    <input type=hidden name="retURL" value="http://london.hrtecheurope.com/PDF/2015_HR_Tech_London_Delegates.pdf">
     <div class="row">
       <div class="large-6 column">
-        <input required placeholder="First Name"  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+        <input required placeholder="First Name *"  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
       </div>
       <div class="large-6 column">
-        <input required placeholder="Last Name" id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+        <input required placeholder="Last Name *" id="last_name" maxlength="80" name="last_name" size="20" type="text" />
       </div>
     </div>
     <div class="row">
       <div class="large-12 column">
-        <input required placeholder="Email Address" id="email" maxlength="80" name="email" size="20" type="text" />
-        <input required placeholder="Phone Number" id="phone" maxlength="40" name="phone" size="20" type="text" />
-        <input required placeholder="Company" id="company" maxlength="40" name="company" size="20" type="text" />
+        <input required placeholder="Email Address *" id="email" maxlength="80" name="email" size="20" type="text" />
+        <input required placeholder="Phone Number *" id="phone" maxlength="40" name="phone" size="20" type="text" />
+        <input required placeholder="Company *" id="company" maxlength="40" name="company" size="20" type="text" />
+        <input required placeholder="Job Title *" id="title" maxlength="40" name="title" size="20" type="text" />
         <select  style="display:none;"   id="lead_source" name="lead_source" placeholder="Lead Source">
           <option selected="selected" value="HRTechLondon2015-PDFDownload">HRTechLondon2015-PDFDownload</option>
         </select>
-      </div>
-    </div>
-    <div class="row">
-      <div class="large-12 column">
-        <div class="captcha" style="text-align:center;"> Click the handle <br>
-          or swipe to the right!
-          <div class="handle"></div>
-        </div>
       </div>
     </div>
     <div class="row">
@@ -759,6 +748,7 @@ google.maps.event.addListener(marker,'click',function() {
       </div>
     </div>
   </form>
+  <!-- END of : DOWNLOAD PDF BROCHURE FORM -->
 </div>
 <!-- End Download PDF modal --> 
 
@@ -783,13 +773,7 @@ google.maps.event.addListener(marker,'click',function() {
 
 <!-- SLICK-MASTER CAROUSEL JAVASCRIPT --> 
 <script type="text/javascript" src="vendor/slick-master/slick/slick.min.js"></script> 
-<!-- END SLICK-MASTER CAROUSEL JAVASCRIPT --> 
-
-<!-- SlideCAPTCHA --> 
-<script src="vendor/SlideCaptcha/js/slide-to-captcha.js" type="text/javascript"></script> 
-<script>
-    $('.captcha').slideToCAPTCHA();
-</script> 
+<!-- END SLICK-MASTER CAROUSEL JAVASCRIPT -->  
 
 <!-- Start of Async HubSpot Analytics Code --> 
 <script type="text/javascript">
