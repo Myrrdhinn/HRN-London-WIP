@@ -73,8 +73,9 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
   <?php 
+  	  $Sp = new sponsors_main();
   if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin'])) {
-	  $Sp = new sponsors_main();
+
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';

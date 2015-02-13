@@ -79,8 +79,9 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
   <?php 
+  	 $speakers = new blogsquad_main();
   if(isset($_SESSION['admin']) && isset($_SESSION['blogsquad_admin'])) {
-	 $speakers = new blogsquad_main();
+
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';

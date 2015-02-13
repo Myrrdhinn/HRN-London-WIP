@@ -79,8 +79,9 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
   <?php 
+   $speakers = new speakers_main();
   if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
-	  $speakers = new speakers_main();
+	 
 	$content ='
     <nav id="MainNavigationMenu">
 		        <div id="DesktopMenuContainer"><a id="HeaderLogoLink" href="index.php"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a>';
@@ -612,7 +613,7 @@ $(function() {
 		  $s = 0;
 		  
          $output .='<p><span data-socialsedit-speakers="'.$speaker[18].'" class="SocialLinkEdit"><i class="fa fa-comment fa-2x"></i>Social Links</span></p>';
-		
+		 
           $output .='<div class="ModalSpeakerBio RobotoText"><span id="'.$speaker[4].'_BioImportant" class="ClickClick ModalSpeakerBioHighlight OswaldText">'.$speaker[2].' </span></div>
 		  <textarea class="ClickEdit" id="'.$speaker[4].'_BioImportantEdit" style="display:none;" name="'.$speaker[4].'_BioImportantEdit" >'.$speaker[2].'</textarea>
 		  <div id="'.$speaker[4].'_Bio" class="ClickClick ModalSpeakerBio RobotoText"> '.$speaker[3].'</div>
