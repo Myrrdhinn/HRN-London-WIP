@@ -617,8 +617,14 @@ if(isset($_SESSION['admin']) && isset($_SESSION['sponsors_admin']) && (isset($_S
           <div class="ModalDivider"></div>';
 		  		  
 		 $output .='<p><span data-socialsedit-sponsor="'.$sponsor[0].'" class="SocialLinkEdit"><i class="fa fa-comment fa-2x"></i>Social Links</span></p>';
+		 
+		 if (!isset($sponsor[3]) || $sponsor[3] == '' || $sponsor[3] == ' '){
+			  $placeholder = 'Type the bio here';
+		  } else {
+			  $placeholder = "";
+		  }
 		
-          $output .='<div id="'.$sponsor[4].'_Bio" class="ClickClick ModalSponsorBio RobotoText"> '.$sponsor[3].'</div>
+          $output .='<div id="'.$sponsor[4].'_Bio" class="ClickClick ModalSponsorBio RobotoText"> '.$placeholder.$sponsor[3].'</div>
 		  <textarea class="ClickEdit" id="'.$sponsor[4].'_BioEdit" style="display:none;" name="'.$sponsor[4].'_BioEdit">'.$sponsor[3].'</textarea>';
 		  if ($sponsor[13] == 1) {
 			  $checked = 'checked = "checked"';

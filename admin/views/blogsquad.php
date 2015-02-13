@@ -498,12 +498,26 @@ $(function() {
 	       <input id="'.$speaker[4].'_BlogsquadId" style="display:none;" name="'.$speaker[4].'_BlogsquadId" type="text" value="'.$speaker[18].'">
 		   <input id="'.$speaker[4].'_BlogsquadNameId" style="display:none;" name="'.$speaker[4].'_BlogsquadNameId" type="text" value="'.$speaker[19].'">
           <p id="'.$speaker[4].'_Name" class="ClickClick ModalBlogsquadName OswaldText">'.$speaker[0].'</p>
-		  <input class="ClickEdit" id="'.$speaker[4].'_NameEdit" style="display:none;" name="'.$speaker[4].'_NameEdit" type="text" value="'.$speaker[0].'">
-          <p id="'.$speaker[4].'_Title" class="ClickClick ModalBlogsquadJobtitle RobotoText">'.$speaker[1].'</p>
+		  <input class="ClickEdit" id="'.$speaker[4].'_NameEdit" style="display:none;" name="'.$speaker[4].'_NameEdit" type="text" value="'.$speaker[0].'">';
+		  
+		   if (!isset($speaker[1]) || $speaker[1] == '' || $speaker[1] == ' '){
+			  $placeholder = 'Type the title here';
+		  } else {
+			  $placeholder = "";
+		  }
+		  
+         $output .=' <p id="'.$speaker[4].'_Title" class="ClickClick ModalBlogsquadJobtitle RobotoText">'.$placeholder.$speaker[1].'</p>
 		   <input class="ClickEdit" id="'.$speaker[4].'_TitleEdit" style="display:none;" name="'.$speaker[4].'_TitleEdit" type="text" value="'.$speaker[1].'">
           <p id="'.$speaker[4].'_Company" class="ClickClick ModalBlogsquadCompanyLink">'.$speaker[7].'</p>
-		  <input class="ClickEdit" id="'.$speaker[4].'_CompanyEdit" style="display:none;" name="'.$speaker[4].'_CompanyEdit" type="text" value="'.$speaker[7].'">
-		  <p id="'.$speaker[4].'_CompanyLink" class="ClickClick ModalBlogsquadCompanyLink">'.$speaker[8].'</p>
+		  <input class="ClickEdit" id="'.$speaker[4].'_CompanyEdit" style="display:none;" name="'.$speaker[4].'_CompanyEdit" type="text" value="'.$speaker[7].'">';
+		  
+		  if (!isset($speaker[8]) || $speaker[8] == '' || $speaker[8] == ' '){
+			  $placeholder = 'Type the company link here';
+		  } else {
+			  $placeholder = "";
+		  }
+		  
+		  $output .='<p id="'.$speaker[4].'_CompanyLink" class="ClickClick ModalBlogsquadCompanyLink">'.$placeholder.$speaker[8].'</p>
 		  <input class="ClickEdit" id="'.$speaker[4].'_CompanyLinkEdit" style="display:none;" name="'.$speaker[4].'_CompanyLinkEdit" type="text" value="'.$speaker[8].'">';
 		  
 		  
@@ -514,9 +528,14 @@ $(function() {
 			   if ($titles) {
 				   
 		    $output .='<p id="'.$speaker[4].'_BlogTitle'.$blog_id[$blognum].'" class="ClickClick ModalBlogsquadCompanyLink">'.$titles.'</p>
-		<input class="ClickEdit" id="'.$speaker[4].'_BlogTitle'.$blog_id[$blognum].'Edit" style="display:none;" name="'.$speaker[4].'_BlogTitleEdit'.$blog_id[$blognum].'" type="text" value="'.$titles.'">
+		<input class="ClickEdit" id="'.$speaker[4].'_BlogTitle'.$blog_id[$blognum].'Edit" style="display:none;" name="'.$speaker[4].'_BlogTitleEdit'.$blog_id[$blognum].'" type="text" value="'.$titles.'">';
+		if (!isset($blog_url[$blognum]) || $blog_url[$blognum] == '' || $blog_url[$blognum] == ' '){
+			  $placeholder = 'Type the blog link here';
+		  } else {
+			  $placeholder = "";
+		  }
 		
-		  <p id="'.$speaker[4].'_BlogURL'.$blog_id[$blognum].'" class="ClickClick ModalBlogsquadCompanyLink">'.$blog_url[$blognum].'</p>
+		   $output .='<p id="'.$speaker[4].'_BlogURL'.$blog_id[$blognum].'" class="ClickClick ModalBlogsquadCompanyLink">'.$placeholder.$blog_url[$blognum].'</p>
 		  <input class="ClickEdit" id="'.$speaker[4].'_BlogURL'.$blog_id[$blognum].'Edit" style="display:none;" name="'.$speaker[4].'_BlogURLEdit'.$blog_id[$blognum].'" type="text" value="'.$blog_url[$blognum].'">';
 				   
 				   $blognum++;
@@ -534,10 +553,23 @@ $(function() {
          $output .='<div class="ModalDivider"></div>';		  
 			
 			 $output .='<p><span data-socialsedit-blogsquad="'.$speaker[18].'" class="SocialLinkEdit"><i class="fa fa-comment fa-2x"></i>Social Links</span></p>';
+			 
+		  if (!isset($speaker[2]) || $speaker[2] == '' || $speaker[2] == ' '){
+			  $placeholder = 'Type the highlighted bio here';
+		  } else {
+			  $placeholder = "";
+		  }
 		
-          $output .='<div class="ModalBlogsquadBio RobotoText"><span id="'.$speaker[4].'_BioImportant" class="ClickClick ModalBlogsquadBioHighlight OswaldText">'.$speaker[2].' </span></div>
-		  <textarea class="ClickEdit" id="'.$speaker[4].'_BioImportantEdit" style="display:none;" name="'.$speaker[4].'_BioImportantEdit" >'.$speaker[2].'</textarea>
-		  <div id="'.$speaker[4].'_Bio" class="ClickClick ModalBlogsquadBio RobotoText"> '.$speaker[3].'</div>
+          $output .='<div class="ModalBlogsquadBio RobotoText"><span id="'.$speaker[4].'_BioImportant" class="ClickClick ModalBlogsquadBioHighlight OswaldText">'.$placeholder.$speaker[2].' </span></div>
+		  <textarea class="ClickEdit" id="'.$speaker[4].'_BioImportantEdit" style="display:none;" name="'.$speaker[4].'_BioImportantEdit" >'.$speaker[2].'</textarea>';
+		  
+		   if (!isset($speaker[3]) || $speaker[3] == '' || $speaker[3] == ' '){
+			  $placeholder = 'Type the bio here';
+		  } else {
+			  $placeholder = "";
+		  }
+		  
+		  $output .='<div id="'.$speaker[4].'_Bio" class="ClickClick ModalBlogsquadBio RobotoText"> '.$placeholder.$speaker[3].'</div>
 		  <textarea class="ClickEdit" id="'.$speaker[4].'_BioEdit" style="display:none;" name="'.$speaker[4].'_BioEdit">'.$speaker[3].'</textarea>
 		 
 		  </form>
