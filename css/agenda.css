@@ -214,6 +214,12 @@ body div {
   background-color: #ff6666;
   color: #fff;
 }
+
+.ProductDemo .SessionHeader:hover, .ProductDemoMod {
+  transition: all 0.2s;
+  background-color: #cc3333;
+  color: #fff;
+}
 /*end Headline hover effects */
 
 /*Moderator hover effects */
@@ -281,6 +287,12 @@ body div {
 .UserAdoptionMod .SessionHeader:hover {
   transition: all 0.2s;
   color: #ff6666;
+  background-color: #fff;
+}
+
+.ProductDemoMod .SessionHeader:hover {
+  transition: all 0.2s;
+  color: #cc3333;
   background-color: #fff;
 }
 
@@ -684,5 +696,14 @@ body div {
 .UserAdoption .fa-clock-o,
 .UserAdoption .NonCollapsibleSession:hover {
   color: #ff6666;
+}
+
+.ProductDemo .SessionContent { border-bottom: 2px solid #cc3333;}
+.ProductDemo h4,
+.ProductDemo .SessionCompanyName,
+.ProductDemo .fa-map-marker,
+.ProductDemo .fa-clock-o,
+.ProductDemo .NonCollapsibleSession:hover {
+  color: #cc3333;
 }
 /*end Headline colors*/

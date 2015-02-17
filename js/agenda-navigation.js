@@ -39,6 +39,7 @@ Value = Session
 10=	Labs & Executive Briefings
 11= Round Table
 12= User Adoption
+13 = ProductDemo
 
 */
 $(document).ready(function(){
@@ -58,6 +59,7 @@ $(document).ready(function(){
 		$(".Labs").fadeIn();
 		$(".RoundTable").fadeIn();
 		$(".UserAdoption").fadeIn();
+		$(".ProductDemo").fadeIn();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeOut();
       }
@@ -76,6 +78,7 @@ $(document).ready(function(){
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeOut();
@@ -96,6 +99,7 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeIn();
       }
@@ -114,6 +118,7 @@ $(document).ready(function(){
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeIn();
@@ -134,6 +139,7 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeIn();
       }
@@ -153,6 +159,7 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeIn();
 		$(".day2-no-event").fadeOut();
       }
@@ -172,6 +179,7 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeIn();
 		$(".day2-no-event").fadeOut();
       }
@@ -191,6 +199,7 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeIn();
 		$(".day2-no-event").fadeOut();
       }
@@ -210,6 +219,7 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeOut();
       }
@@ -229,6 +239,7 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeOut();
       }
@@ -248,6 +259,7 @@ $(document).ready(function(){
 		$(".Labs").fadeIn();					/* selected */
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeOut();
       }
@@ -267,6 +279,7 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeIn();		/* selected */
 		$(".UserAdoption").fadeOut();
+		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeOut();
       }
@@ -286,6 +299,27 @@ $(document).ready(function(){
 		$(".Labs").fadeOut();
 		$(".RoundTable").fadeOut();
 		$(".UserAdoption").fadeIn();		/* selected */
+		$(".ProductDemo").fadeOut();
+		$(".day1-no-event").fadeOut();
+		$(".day2-no-event").fadeIn();
+      } 
+	  
+	  /* "Product Demo" is selected. */
+	  else if ( this.value == '13')
+      {
+        $(".MainStage").fadeOut();
+		$(".HRShare").fadeOut();
+		$(".FutureOfWork").fadeOut();
+		$(".HRTech").fadeOut();
+		$(".Compensation").fadeOut();
+		$(".CloudTech").fadeOut();
+		$(".HRAnalytics").fadeOut();
+		$(".TalentAndRecruitment").fadeOut();
+		$(".SocialCollaboration").fadeOut();
+		$(".Labs").fadeOut();
+		$(".RoundTable").fadeOut();
+		$(".UserAdoption").fadeOut();		
+		$(".ProductDemo").fadeIn(); /* selected */
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeIn();
       } 

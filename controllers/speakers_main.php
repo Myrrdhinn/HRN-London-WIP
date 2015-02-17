@@ -224,7 +224,7 @@ function modal_display($tag) {
 									 );	
 									  if (mysqli_num_rows($stat)) {
 									  while($sStatus = $stat->fetch_assoc()){
-										  if ($sStatus['speakers_status_id'] == 1){
+										  if ($sStatus['speakers_status_id'] == 1 || $sStatus['speakers_status_id'] == 2){
 											  $sId = $speakers_id['speakers_id'];
 										  }
 									  } //personal fetch assoc end

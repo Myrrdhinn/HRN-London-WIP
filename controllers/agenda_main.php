@@ -46,7 +46,8 @@ class agenda_main extends config {
 						$aId['id'] = $moderatorId['agenda_event_id'];
 									//Get the agenda data
 												   
-								  
+					//get speakers
+					$speakers = $this->session_speaker($agendas[0]);  	  
 								  
 				//Agenda title						  
 						$agendatitle = $this->dbc->query(
@@ -92,6 +93,8 @@ class agenda_main extends config {
 					   } //personal fetch assoc end
 					   
 				   }
+				   
+				
 
 if (isset($agendas)) {
 	$class = '';
@@ -139,7 +142,13 @@ if (isset($agendas)) {
         break;
 }
 	
-	
+	$speaker[0] = '';
+	if (isset($speakers[0][0])) {
+				foreach ($speakers As $spk) {
+					$speaker[0] = $spk[4];
+		     }
+				
+		}
 	
 		$long = '';
 		$name = $this->no_ekezet($agendas[6]);
@@ -148,15 +157,18 @@ if (isset($agendas)) {
 			$long = ' LongSessionTitle';
 		}
 		
+		$google = 'onClick="_gaq.push([';
+						$google .= "'_trackEvent', 'AgendaSpeakers', 'InternalForward', '".$speaker[0]."']);";
+						$google .= '"';
+		
 		 $extraclass = '';  
 		 $icon = '<i class="agenda-icon fa fa-user"></i>';
 		 $link = '';
 		 $break = '<div class="SessionTitle'.$long.'">'.$agendas[6].'</div>'.$icon;
 	
    $output .='<!-- '.$agendas[6].' -->
-	   
 	   <div class="Session '.$class.'">'.$link.' 
-		<div class="SessionHeader'.$extraclass.'">
+		<div class="SessionHeader'.$extraclass.' SpeakerModalOpen" '.$google.' data-speakertag="'.$speaker[0].'">
 			<div class="SessionTime"></div>';
 
 			 $output .= $break;
@@ -166,7 +178,7 @@ if (isset($agendas)) {
 	<!--END '.$agendas[6].' --> ';
 
 }
-
+	
 
 
 /*
@@ -192,10 +204,13 @@ if (isset($agendas)) {
 
 11 - Round Table
 
+12 - User Adoption
+
+13 - Product Demo
 */
 		
 		
-	 $agenda_locations_d1 = array('1'=>'Main Stage', '2'=>'Room 1', '3'=>'Room 2+3', '4'=>'Room 14', '8'=>'Room 15+16', '9'=>'Room 17', '10'=>'Room 6', '11'=>'Room 13', '5'=>'Room 1', "6"=>'Room 2+3', '7'=>'Room 14');
+	 $agenda_locations_d1 = array('1'=>'Main Stage', '2'=>'Room 1', '3'=>'Room 2+3', '4'=>'Room 14', '8'=>'Room 15+16', '9'=>'Room 17', '10'=>'Room 6', '11'=>'Room 5', '5'=>'Room 1', "6"=>'Room 2+3', '7'=>'Room 14', '12'=>'Room 13', '13'=>'Room 4');
 	 $agenda_locations_d2 = array('1'=>'Main Stage', '2'=>'Room 1', '3'=>'Room 2+3', '4'=>'Room 14', '8'=>'Room 15+16', '9'=>'Room 17', '10'=>'Room 6', '11'=>'Room 13', '5'=>'Room 1', "6"=>'Room 2+3', '7'=>'Room 14');
 				
 				//Get the names					   
@@ -496,7 +511,7 @@ if (isset($agendas)) {
 						$google .= '"';
 				
 			$output .='<div class="SpeakerinfoContainer">
-				 <a '.$google.' href="speakers#'.$speaker[4].'">
+				 <a '.$google.' data-speakertag="'.$speaker[4].'" class="SpeakerModalOpen">
 				<div class="SpeakerContainer">
 					
 					<div class="SpeakerDetails">

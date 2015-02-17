@@ -319,6 +319,16 @@
 		?>
     </div>
       <!-- END User Adoption DAY1 --> 
+       <!-- Product Demo DAY1 -->
+      <div class="ProductDemo">
+        <h4 class="StageName OswaldText"><a name="day1-product-demo"></a><img class="StageImage" src="img/agenda/productdemo.png">Product Demo</h4>
+                <?php  
+		
+		   $content = $agenda->agenda(1,13);
+			echo $content;
+		?>
+    </div>
+      <!-- END Product Demo DAY1 --> 
       <!-- No Event DAY1 -->
       <div class="day1-no-event">
         <div class="Session"> There are no events today in this session. </div>
