@@ -19,6 +19,18 @@ public function get_locations($day) {
 	return $content;	
 }
 
+public function get_locations_menu() {
+		$content = '';
+	//Gets all of the locations
+	$places = $this->dbc->query(
+					sprintf("SELECT id, location FROM agenda_event_location"));	
+					if ($places->num_rows > 0) {
+					while($data = $places->fetch_assoc()){
+						$content .= '<option value="'.$data['id'].'">'.$data['location'].'</option>';
+					}
+				}
+	return $content;	
+}
 
 public function get_locations_change($day) {
 		$content[0] = '';

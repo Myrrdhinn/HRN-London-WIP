@@ -255,7 +255,7 @@
         <select id='session-selector'>
           <option value="0">All Sessions </option>
         <?php  
-		  $sessions = $loc->get_locations();
+		  $sessions = $loc->get_locations_menu();
 		  echo $sessions;
 		?>
         </select>
@@ -360,6 +360,16 @@
 		?>
     </div>
       <!-- END User Adoption DAY1 --> 
+      <!-- Product Demo DAY1 -->
+      <div class="ProductDemo">
+        <h4 class="StageName OswaldText"><a name="day1-product-demo"></a><img class="StageImage" src="img/agenda/productdemo.png">Product Demo</h4>
+                <?php  
+		
+		   $content = $agenda->agenda(1,13);
+			echo $content;
+		?>
+    </div>
+      <!-- END Product Demo DAY1 --> 
       <!-- No Event DAY1 -->
       <div class="day1-no-event">
         <div class="Session"> There are no events today in this session. </div>
@@ -386,7 +396,7 @@
       <!-- END MAINSTAGE DAY2 --> 
       <!-- Compensation & Benefits DAY2 -->
       <div class="Compensation">
-        <h4 class="StageName OswaldText"><a name="day2-compensation-and-benefits"></a><img class="StageImage" src="img/agenda/compensation.png">Compensation &amp; Benefits</h4>
+        <h4 class="StageName OswaldText"><a name="day2-compensation-and-benefits"></a><img class="StageImage" src="img/agenda/compensation.png">Payroll &amp; Rewards</h4>
                 <?php  
 		
 		   $content = $agenda->agenda(2,5);
