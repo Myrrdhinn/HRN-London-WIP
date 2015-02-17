@@ -80,8 +80,37 @@ a:focus {
   width: 170px;
   margin: 10px;
 }
+
+.InvisibleSpeakers {
+	
+    border: red;
+    border-style: inset;
+
+}
+
+.InvisibleDiv {
+	max-width: 120px;
+	text-align: center;
+	background-color: rgb(44, 154, 173);
+	color: white;
+	font-size: 14px;
+	padding: 5px;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin: 0 auto;	
+	
+}
+.InvisibleDiv:hover {
+	background-color: rgb(52, 173, 44);
+	transition: all 0.3s;
+}
+
+.HiddenSpeaker {
+	display:none;
+}
+
 .SpeakerPhoto{
-  width: 170px;
+ /* width: 170px;*/
   height: 170px;
   background-size: cover;
 }

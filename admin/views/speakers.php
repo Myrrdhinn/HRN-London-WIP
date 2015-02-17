@@ -379,14 +379,22 @@
 				 $day =  'DAY '.$speaker[16];
 			 }
 			 
-
+			 if (isset($speaker[20]) && $speaker[20] == 2){
+				 $extraSpeakerClass = ' InvisibleSpeakers';
+			 } else {
+				 $extraSpeakerClass = "";
+			 }
+			 
+			 if(!isset($_SESSION['admin']) && $speaker[20] == 2) {
+				 $extraSpeakerClass .= " HiddenSpeaker";
+			 }
 			 $output = '';
 			$output .= '<div id="'.$speaker[18].'"><!-- '.$speaker[0].' Speakergrid-->';
 	if(isset($_SESSION['admin']) && isset($_SESSION['speakers_admin'])) {
 	    $output .= '<div id="SpeakerDel_'.$speaker[18].'" class="SpeakerDelete"><i class="fa fa-trash fa-2x"></i></div>';
 		}
      $output.= '<a data-toggle="modal" data-target="#'.$speaker[4].'" href="#">
-      <div class="Speaker">';
+      <div class="Speaker'.$extraSpeakerClass.'">';
 	  if (isset($speaker[11])) {
 		  $output .= '<div class="SpeakerPhoto" style="background-image:url(../img/speakers/'.$speaker[11].');">';
 	  } else {
@@ -576,6 +584,13 @@ $(function() {
 	 Admin
 	 -------------------
 	 */			 
+	 
+	 	if (isset($speaker[20]) && $speaker[20] == 2){
+				 $makeItVisible = '<div class="InvisibleDiv" data-makeitvisible="'.$speaker[18].'">Show it live<br /></div>';
+			 } else {
+				 $makeItVisible = "";
+			 }
+			 
 			$output = '<!-- '.$speaker[0].' Modal -->
 <div class="modal fade" id="'.$speaker[4].'" tabindex="-1" role="dialog" aria-labelledby="DownloadPDFModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -593,7 +608,7 @@ $(function() {
 			  }
            $output .='</form>';
 		   
-        
+        $output.= $makeItVisible;
        $output .='<div class="ModalSpeakerBioContainer">';
 	   
 	    $output .='<div class="ResponseContainer" style="display:none"></div>';
@@ -670,7 +685,7 @@ $(function() {
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/speakers/modal-close.png" alt="modal-close-button"></button>';
 			  if (isset($speaker[11])) {
-		  $output .= '<div class="ModalSpeakerPhoto" style="background-image:url(img/speakers/'.$speaker[11].')"></div>';
+		  $output .= '<div class="ModalSpeakerPhoto" style="background-image:url(..img/speakers/'.$speaker[11].')"></div>';
 	          } else {
 				   $output .= '<div class="ModalSpeakerPhoto"></div>';
 			  }

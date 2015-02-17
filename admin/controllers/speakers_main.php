@@ -21,15 +21,25 @@ $i = 0;
 				   );	
 					if (mysqli_num_rows($stat)) {
 					while($sStatus = $stat->fetch_assoc()){
-						if ($sStatus['speakers_status_id'] == 1){
-							$status = 1;
+						if ($sStatus['speakers_status_id'] == 1 || $sStatus['speakers_status_id'] == 2){
+							  if ($sStatus['speakers_status_id'] == 2) {
+								  $status = 2;
+							  } else {
+								  $status = 1;
+							  }
+							
 						}
 					} //personal fetch assoc end
 				}  //personal num rows if end
 						
-		if ($status == 1) {	
+		if ($status == 1 || $status == 2) {	
 				   
 		$content[$i][18] = $data['id'];
+		if ($status == 2) {
+			$content[$i][20] = 2;
+		} else {
+			$content[$i][20] = 1;
+		}
 	//Get the names					   
 	 $name = $this->dbc->query(
 				sprintf("SELECT id, name FROM speakers_name WHERE speakers_id = '%s' ORDER BY date DESC LIMIT 0,1",

@@ -486,7 +486,22 @@ function speaker_delete(){
 				)
 			);
 	
+}	
+
+	 //Speaker make visible
+///---------------------------------------------------------------
+function speaker_makevisible(){
+	
+		// This will be the main table the defining chapter in HRN History!
+		$this->dbc->query(
+				sprintf("INSERT INTO speakers_status SET speakers_id = '%s', speakers_status_id = '1'",
+				  $this->dbc->real_escape_string(htmlspecialchars($_POST['sId']))
+				)
+			);
+	
 }	 
+
+
 
 	 
 	 //Set Speaker Order
@@ -2562,6 +2577,21 @@ Speaker Delete
 	  }
 
 }// delete speakers
+
+
+/*///////////// 
+Speaker make it visible
+///////////////*/
+ 
+
+ if(isset($_POST['action']) && $_POST['action'] == 'MakeTheSpeakerVisible' && isset($_POST['sId'])){
+	$the_main = new main();
+    $the_main->speaker_makevisible();
+     if (isset($_COOKIE['Moo'])) {
+		   $the_main->db_log($_COOKIE['Moo'],"Speaker has been set to be visible on main site", $_POST['sId']);
+	  }
+
+}// visible end
 
 /*
 -------------------------

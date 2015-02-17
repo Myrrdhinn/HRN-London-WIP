@@ -477,6 +477,32 @@ $(document).ready(function(){
 
   })
   
+        	 /*-----------------------
+		Sponsor social link edit
+	------------------------	*/
+
+		//Hide the element and show the input field associated with the element + focus the input box
+    $('.InvisibleDiv').bind('click', function () {
+		
+		//get the id of the activated element
+		var sId = $(this).data('makeitvisible');
+		console.log(sId);
+
+		  $.ajax({
+                url: 'controllers/main.php',
+                type: 'POST',
+                data: {action:"MakeTheSpeakerVisible", sId:sId},
+                success: function(data) {
+                   generate_instant_response(2);
+				    setTimeout(function () {
+                      location.reload();
+                      }, 1500); //will call the function after 4 secs.
+                }
+            });
+       
+
+  })
+  
 
 
 
