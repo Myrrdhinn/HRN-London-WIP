@@ -120,7 +120,7 @@ var htmlEnDeCode = (function() {
         htmlDecode: htmlDecode
     };
 })();
-
+			
              var decoded_text = htmlEnDeCode.htmlDecode(data[4]);
 
 					if (decoded_text != '' && typeof decoded_text != 'undefined') {
@@ -147,7 +147,6 @@ var htmlEnDeCode = (function() {
 						
                    $.each(returnedData, function( index, value ) {
 					   var cont = value.split('|');
-						console.log(value);
 					
 					if (savedLoc == cont[1]) {
 						   $('#Locations')

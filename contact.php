@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-<meta name="author" content="HRN Europe">
+<meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
 <meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
@@ -10,7 +10,6 @@
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="cnt/css/foundation.css" />
-<script src="js/foundation/foundation.orbit.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 
 <!-- Favicon setting -->

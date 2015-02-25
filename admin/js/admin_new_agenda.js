@@ -22,21 +22,20 @@ function tag_create() {
 		var tag_final = '';
 		
 		var tag_last = tag_formed.substr(tag_formed.length-1, tag_formed.length);
+
 		
 		  if (tag_last == "-") {
-			  tag_final = tag_formed.substr(0, tag_formed.length-1);
+			  tag_final = tag_formed.slice(0, - 1);
+
 		  } else {
 			  tag_final = tag_formed;
 		  }
 		
-		var tag_first = tag_formed.substr(tag_formed.length-1, tag_formed.length);
+		var tag_first = tag_final.substr(0, 1);
 		
 		  if (tag_first == "-") {
-			  tag_final = tag_formed.substr(1, tag_formed.length);
-		  } else {
-			  tag_final = tag_formed;
-		  }
-		
+			  tag_final = tag_final.substr(1, tag_final.length);
+		  } 
 		
 	   $('#AgendaTag').val(tag_final);	
 	   

@@ -180,15 +180,15 @@ exit;
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
-<meta name="author" content="Develped by: TesseracT - bottyan.tamas@web-developer.hu">
+<meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>HR Tech Europe - Blog Squad</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
-<script src="js/foundation/foundation.orbit.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 
 <!-- Include Bootstrap for BlogsquadsGrid Modals -->
@@ -564,12 +564,7 @@ exit;
 
 <script src="js/foundation.min.js"></script> 
 <script>
-      $(document).foundation({
-        orbit: {
-          timer_speed: 4000,
-          next_on_click: false
-        }
-        });
+      $(document).foundation();
 </script> 
 <!--End Foundation Scripts --> 
 

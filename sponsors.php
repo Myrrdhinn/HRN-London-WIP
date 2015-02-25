@@ -10,16 +10,15 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
-<meta name="author" content="Develped by: TesseracT - bottyan.tamas@web-developer.hu">
-<meta name="developer" content="Develped by: Myrrdhinn - myrrdhinn@gmail.com">
+<meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu, Myrrdhinn - myrrdhinn@gmail.com">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>HR Tech Europe 2015 | Europe's #1 Conference on the Future of HR</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
-<script src="js/foundation/foundation.orbit.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 
 <!-- Include Bootstrap for SpeakersGrid Modals -->
@@ -342,12 +341,7 @@
 
 <script src="js/foundation.min.js"></script> 
 <script>
-      $(document).foundation({
-        orbit: {
-          timer_speed: 4000,
-          next_on_click: false
-        }
-        });
+      $(document).foundation();
 </script> 
 <!--End Foundation Scripts --> 
 <script type="text/javascript">
@@ -368,34 +362,6 @@ $(function() {
 
 
 </script> 
-
-	   
-	<!--Form Scripts --> 
-<script type='text/javascript' src='http://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='NAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';fnames[2]='PHONE';ftypes[2]='text';fnames[3]='COMPANY';ftypes[3]='text';fnames[4]='SORUCE';ftypes[4]='text';fnames[5]='MSG';ftypes[5]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<script type="text/javascript">
-$(function() {
-  $('form').submit(function(){
-    $.post('http://hrneurope.us4.list-manage.com/subscribe/post?u=c03cb8f11b1f34771fdd1747c&amp;id=acc85bbd71', function() {
-      window.location = 'http://loondon.hrtecheurope.com/thankyou';
-    });
-    return false;
-  });
-});
-</script>
-
-
-
-
-
-<!-- MODAL OPEN FROM EXTERNAL LINK --> 
-<script type="text/javascript">
- $(document).ready(function() {
-  if(window.location.href.indexOf('#HinssenP') != -1) {
-    $('#HinssenP').modal('show');
-  }
-});
-</script> 
-<!-- END MODAL OPEN FROM EXTERNAL LINK --> 
 
 <!-- MODALS -->
 

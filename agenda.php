@@ -13,12 +13,14 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="description" content="The 2 day agenda comprises 60+ speakers across 13 tracks, including HRSS, Future of Workforce Learning, and Talent & Recruitment">
+<meta name="keywords" content="HR Conference, HR event, HR Tech, HRN Europe">
 <meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
 <meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HR Tech Europe 2014 | Europe's #1 Conference on the Future of HR</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<title>Event Agenda | HR Tech Europe</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
@@ -75,7 +77,7 @@
 	padding-top: 9px;
 	top: 2px;
 }
-.SessionAbstract p span {
+.SessionAbstract span {
 	font-family: 'Roboto', sans-serif !important;
 	font-size: 16px !important;
 	font-weight: 400 !important;
@@ -288,26 +290,26 @@
 		?>
    </div>
       <!-- END Social Collaboration DAY1 --> 
-      <!-- Labs & Executive Briefings DAY1-->
+      <!-- Labs & Executive Briefings 1 DAY1-->
       <div class="Labs">
-        <h4 class="StageName OswaldText"><a name="day1-labs-and-executive-briefings"></a><img class="StageImage" src="img/agenda/labs.png">Labs &amp; Executive Briefings</h4>
+        <h4 class="StageName OswaldText"><a name="day1-labs-and-executive-briefings-1"></a><img class="StageImage" src="img/agenda/labs.png">Labs &amp; Executive Briefings 1</h4>
                 <?php  
 		
 		   $content = $agenda->agenda(1,10);
 			echo $content;
 		?>
      </div>
-      <!-- END Social Collaboration DAY1 --> 
-      <!-- Round Table DAY1-->
-      <div class="RoundTable">
-        <h4 class="StageName OswaldText"><a name="day1-round-table"></a><img class="StageImage" src="img/agenda/roundtable.png">Round Table</h4>
+      <!-- END Labs & Executive Briefings 1 DAY1 --> 
+      <!-- Labs & Executive Briefings 2 DAY1-->
+      <div class="Labs2">
+        <h4 class="StageName OswaldText"><a name="day1-labs-and-executive-briefings-2"></a><img class="StageImage" src="img/agenda/labs2.png">Labs &amp; Executive Briefings 2</h4>
                 <?php  
 		
 		   $content = $agenda->agenda(1,11);
 			echo $content;
 		?>
       </div>
-      <!-- END Round Table DAY1 --> 
+      <!-- END Labs & Executive Briefings 2 DAY1 --> 
       
         <!-- User Adoption DAY1 -->
       <div class="UserAdoption">
@@ -355,7 +357,7 @@
       <!-- END MAINSTAGE DAY2 --> 
       <!-- Compensation & Benefits DAY2 -->
       <div class="Compensation">
-        <h4 class="StageName OswaldText"><a name="day2-compensation-and-benefits"></a><img class="StageImage" src="img/agenda/compensation.png">Payroll &amp; Rewards</h4>
+        <h4 class="StageName OswaldText"><a name="day2-payroll-and-rewards"></a><img class="StageImage" src="img/agenda/compensation.png">Payroll &amp; Rewards</h4>
                 <?php  
 		
 		   $content = $agenda->agenda(2,5);
@@ -404,28 +406,28 @@
 			echo $content;
 		?>
      </div>
-      <!-- END Labs & Executive Briefings DAY2 --> 
-	  	        <!-- Labs & Executive Briefings DAY1-->
+      <!-- END Social Collaboration DAY2 --> 
+	  <!-- Labs & Executive Briefings 1 DAY2-->
       <div class="Labs">
-        <h4 class="StageName OswaldText"><a name="day2-labs-and-executive-briefings"></a><img class="StageImage" src="img/agenda/labs.png">Labs &amp; Executive Briefings</h4>
+        <h4 class="StageName OswaldText"><a name="day2-labs-and-executive-briefings-1"></a><img class="StageImage" src="img/agenda/labs.png">Labs &amp; Executive Briefings 1</h4>
                 <?php  
 		
 		   $content = $agenda->agenda(2,10);
 			echo $content;
 		?>
       </div>
-      <!-- END Social Collaboration DAY1 --> 
+      <!-- END Labs & Executive Briefings 1 DAY2 --> 
 	  
-      <!-- Round Table DAY2 -->
-      <div class="RoundTable">
-        <h4 class="StageName OswaldText"><a name="day2-round-table"></a><img class="StageImage" src="img/agenda/roundtable.png">Round Table</h4>
+      <!-- Labs & Executive Briefings 2 DAY2 -->
+      <div class="Labs2">
+        <h4 class="StageName OswaldText"><a name="day2-labs-and-executive-briefings-2"></a><img class="StageImage" src="img/agenda/labs2.png">Labs & Executive Briefings 2</h4>
                 <?php  
 		
 		   $content = $agenda->agenda(2,11);
 			echo $content;
 		?>
     </div>
-      <!-- END Round Table DAY2 --> 
+      <!-- END Labs & Executive Briefings 2 DAY2 --> 
       
             
       <!-- No Event DAY2 -->

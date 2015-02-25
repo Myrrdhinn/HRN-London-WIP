@@ -802,7 +802,7 @@ function speaker_makevisible(){
 	 }
 	 
 
-//Add a la carte from sponsors edit
+//Split the blogs and preapere them for upload
 function blogsquad_blog_add($blogData, $sId) {
 					 if (isset($blogData)){
 						foreach ($blogData as $blog){
@@ -820,7 +820,7 @@ function blogsquad_blog_add($blogData, $sId) {
 }
 
 
-//Add a la carte from sponsors edit
+//Edit the blogs
 function blogsquad_blog_edit_add($blogsquad_id, $title, $url) {
 					 if (isset($blogsquad_id) && isset($title)){
 						foreach ($title as $id=>$blog){
@@ -1973,7 +1973,7 @@ Modify Agenda
 										  $content[3] = $data['day'];
 										  $content[4] = $data['abstract'];
 										  $content[5] = $data['location'];
-										   $content[6] = $title['agenda_name'];
+										  $content[6] = $title['agenda_name'];
 										  $content[7] = $data['highlighted'];
 										  $content[8] = $Icons['icon_type'];
 										  $content[9] .= $sid.';';

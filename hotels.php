@@ -1,15 +1,15 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
-<meta name="author" content="Develped by: TesseracT - bottyan.tamas@web-developer.hu">
+<meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>HR Tech Europe 2015 | Europe's #1 Conference on the Future of HR</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
-<script src="js/foundation/foundation.orbit.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 
 <!-- Favicon setting -->
@@ -373,12 +373,7 @@
 <script src="js/vendor/jquery.js"></script> 
 <script src="js/foundation.min.js"></script> 
 <script>
-      $(document).foundation({
-        orbit: {
-          timer_speed: 4000,
-          next_on_click: false
-        }
-        });
+      $(document).foundation();
 </script> 
 
 <!-- Start of Async HubSpot Analytics Code --> 

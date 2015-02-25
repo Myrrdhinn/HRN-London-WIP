@@ -135,10 +135,13 @@ if (isset($agendas)) {
        $class = 'LabsMod';
         break;
     case 11:
-       $class = 'RoundTableMod';
+       $class = 'Labs2Mod';
         break;
     case 12:
        $class = 'UserAdoptionMod';
+        break;
+    case 13:
+       $class = 'ProductDemoMod';
         break;
 }
 	
@@ -385,8 +388,8 @@ if (isset($agendas)) {
 						case '11AM':
 							$class = 'ElevenAM';
 							break;
-						case '12AM':
-							$class = 'TwelveAM';
+						case '12PM':
+							$class = 'TwelvePM';
 							break;
 						case '1PM':
 							$class = 'OnePM';

@@ -36,10 +36,10 @@ Value = Session
 7 = HR Analytics. DAY2 only.
 8 = Talent & Recruitment Technology
 9 = Social Collaboration
-10=	Labs & Executive Briefings
-11= Round Table
+10=	Labs & Executive Briefings 1
+11= Labs & Executive Briefings 2
 12= User Adoption
-13 = ProductDemo
+13= Product Demo
 
 */
 $(document).ready(function(){
@@ -57,7 +57,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeIn();
 		$(".SocialCollaboration").fadeIn();
 		$(".Labs").fadeIn();
-		$(".RoundTable").fadeIn();
+		$(".Labs2").fadeIn();
 		$(".UserAdoption").fadeIn();
 		$(".ProductDemo").fadeIn();
 		$(".day1-no-event").fadeOut();
@@ -77,7 +77,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".day1-no-event").fadeOut();
@@ -97,7 +97,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
@@ -117,7 +117,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".day1-no-event").fadeOut();
@@ -137,7 +137,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
@@ -157,7 +157,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeIn();
@@ -177,7 +177,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeIn();
@@ -197,7 +197,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeIn();
@@ -217,7 +217,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeIn();  /* selected */
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
@@ -237,14 +237,14 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeIn();		/* selected */
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeOut();
       }
 	  
-	  /* "Labs & Executive Briefings" is selected. */
+	  /* "Labs & Executive Briefings 1" is selected. */
 	  else if ( this.value == '10')
       {
         $(".MainStage").fadeOut();
@@ -257,14 +257,14 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeIn();					/* selected */
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
 		$(".day2-no-event").fadeOut();
       }
 	  
-	  /* "Round Table" is selected. */
+	  /* "Labs & Executive Briefings 2" is selected. */
 	    else if ( this.value == '11')
       {
         $(".MainStage").fadeOut();
@@ -277,7 +277,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeIn();		/* selected */
+		$(".Labs2").fadeIn();		/* selected */
 		$(".UserAdoption").fadeOut();
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
@@ -297,7 +297,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeIn();		/* selected */
 		$(".ProductDemo").fadeOut();
 		$(".day1-no-event").fadeOut();
@@ -317,7 +317,7 @@ $(document).ready(function(){
 		$(".TalentAndRecruitment").fadeOut();
 		$(".SocialCollaboration").fadeOut();
 		$(".Labs").fadeOut();
-		$(".RoundTable").fadeOut();
+		$(".Labs2").fadeOut();
 		$(".UserAdoption").fadeOut();		
 		$(".ProductDemo").fadeIn(); /* selected */
 		$(".day1-no-event").fadeOut();

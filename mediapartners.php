@@ -156,16 +156,15 @@ exit;
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
-<meta name="author" content="Develped by: TesseracT - bottyan.tamas@web-developer.hu">
-<meta name="developer" content="Develped by: Myrrdhinn - myrrdhinn@gmail.com">
+<meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu, Myrrdhinn - myrrdhinn@gmail.com">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>HR Tech Europe 2015 | Europe's #1 Conference on the Future of HR</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
-<script src="js/foundation/foundation.orbit.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 
 <!-- Include Bootstrap for SpeakersGrid Modals -->
@@ -511,12 +510,7 @@ exit;
 
 <script src="js/foundation.min.js"></script> 
 <script>
-      $(document).foundation({
-        orbit: {
-          timer_speed: 4000,
-          next_on_click: false
-        }
-        });
+      $(document).foundation();
 </script> 
 <!--End Foundation Scripts --> 
 <script type="text/javascript">
@@ -537,16 +531,6 @@ $(function() {
 
 
 </script> 
-
-<!-- MODAL OPEN FROM EXTERNAL LINK --> 
-<script type="text/javascript">
- $(document).ready(function() {
-  if(window.location.href.indexOf('#HinssenP') != -1) {
-    $('#HinssenP').modal('show');
-  }
-});
-</script> 
-<!-- END MODAL OPEN FROM EXTERNAL LINK --> 
 
 <!-- MODALS -->
 
