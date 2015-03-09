@@ -18,6 +18,17 @@ a:hover, a:focus {
 
 /*End General defs of the Sponsors page*/
 
+/* Active menuitem with opened dropdown */
+#PartnersMobileGroupContent {
+	display: block;
+}
+#PartnersMobileGroup .fa-angle-right  {
+	display: none;
+}
+#PartnersMobileGroup .fa-angle-down  {
+	display: inline-block;
+}
+
 /* Sponsors */
 #SponsorsHeaderContainer {
   width: 100%;
@@ -280,11 +291,12 @@ a:hover, a:focus {
   top: -40px;
   right: -40px;
 }
-@media(max-width:767px){
+@media(max-width:1000px){
   .close, .close:hover {
     top: 0px;
     right: 0px;
   }
+  .modal-dialog  {margin-top: 0px;}
 }
 @media(max-width:380px){
   .close img {
@@ -315,6 +327,9 @@ a:hover, a:focus {
   font-size: 1.8em;
   font-weight: 400;
   color: #00a8c6;
+  position: relative;
+  top: -30px;
+  z-index: 900;
 }
 .ModalSponsorCompanyLink:hover {
   color: #35B0E3;
@@ -366,6 +381,149 @@ a:hover, a:focus {
   display: block;
 }
 
+.GetFormButton, .SponsorFormSubmitButton{
+		  border: 0;
+	  margin: 0 auto;
+	  width: 100%;
+	  max-width: 175px;
+	  padding: 10px 10px;
+	  text-align: center;
+	  font-size: 16px;
+	  color: #fff;
+	  transition: all 0.3s;
+	  background: #00a8c6;
+	  margin-bottom: 30px;
+}
+.SponsorFormSubmitButton{
+	 margin-top: 15px;
+     text-transform: uppercase;
+
+}
+
+.GetFormButton:hover, .SponsorFormSubmitButton:hover {
+	transition: all 0.3s;
+    background: #FC354C;
+    cursor: pointer;
+	
+}
+
+.ModalFormText {
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-weight:bold;
+	line-height: 23px;
+	margin: 0 0 40px 17px;
+}
+#MissingText {
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	line-height: 23px;
+	margin: 0 0 5px 17px;
+	color:#9B1515;
+}
+
+#SponsorsFormInnerContainer {
+margin: auto 0;
+width: 100%;
+padding: 0 85px 0 85px;
+
+}
+
+.SponsorFormInputClass{
+	height: 52px !important;
+	max-width: 403px !important;
+	
+}
+
+@media (max-width: 1024px){
+.SponsorFormInputClass{
+   margin: 0 auto 1rem auto  !important;
+	
+}
+
+#SponsorsFormInnerContainer {
+padding: 0;
+
+}
+}
+
+.SponsorFormColumn {
+	padding-left: 0.9375rem;
+    padding-right: 0;
+}
+
+#SponsorTimeSelect, #SponsorDaySelect {
+	max-width: 90px;
+	
+}
+
+@media (max-width: 420px){
+#SponsorTimeSelect, #SponsorDaySelect {
+	max-width: none;
+	
+}
+}
+
+#SponsorFormTimeContainer {
+	margin-top: 20px;
+}
+
+.SponsorFormLabel {
+    font-family: 'Roboto', sans-serif;
+	font-size: 17px;
+    margin: 0 0 0 17px;
+}
+
+
+/* CSS definitions of the THANKYOU page */
+
+
+/* Thank You Header */
+#ThankYouHeaderContainer {
+	width: 100%;
+}
+#ThankYouHeaderInnerContainer {
+	width: 100%;
+	padding: 25px;
+	text-align: center;
+}
+#ThankYouHeaderInnerContainer img {
+	margin-bottom: 50px;
+}
+#ThankYouHeaderInnerContainer h1, #ThankYouHeaderInnerContainer h2 {
+	font-size: 30px;
+}
+#ThankYouHeaderInnerContainer h1 {
+	font-weight: 500;
+	margin-bottom: 100px;
+}
+#ThankYouHeaderInnerContainer h1 span {
+  font-size: 12px;
+  font-weight: 300;
+}
+#ThankYouHeaderInnerContainer h2 {
+	font-weight: 300;
+}
+
+.ThanksMessage {
+	font-size: 18pt;
+	margin-bottom: 100px;
+    margin-top: 15px;	
+	font-weight:300;
+}
+@media (max-width: 768px){
+	#ThankYouHeaderInnerContainer img {
+		margin-bottom: 10px;
+	}	
+	#ThankYouHeaderInnerContainer h1, #ThankYouHeaderInnerContainer h2 {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+}
+/* END Thank You Header */
+
+
+
 /*----- END MODAL DEFINITIONS------*/
 
 
@@ -382,3 +540,12 @@ a:hover, a:focus {
   top: -7px;
 }
 /*end Mobile menu fa-bars button alignment*/
+
+
+#ChaptchaDiv {
+	margin:0 auto;
+	width: 100%;
+    max-width:300px;
+}
+
+

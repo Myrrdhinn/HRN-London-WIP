@@ -180,12 +180,14 @@ exit;
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="description" content="Some of today's leading bloggers on HR and management are part of the HR Tech Europe Blog Squad">
+<meta name="keywords" content="HR Conference, HR event, HR Tech, HRN Europe">
 <meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
 <meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HR Tech Europe - Blog Squad</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<title>HR Bloggers | HR Tech Europe</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
@@ -338,11 +340,11 @@ exit;
           <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">Logistics</a></li>
           <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
         </div>
-        <li id="PartnersMobileGroup" class="ActiveNavmenuItem MobileNavigationMenuItem">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+        <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
         <div id="PartnersMobileGroupContent">
           <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
           <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
-          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
+          <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" class="ActiveNavmenuItem" href="blogsquad">Blog Squad</a></li>
           <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">Sponsor Appendencies</a></li>
         </div>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', Blog']);" href="http://blog.hrtecheurope.com">Blog</a> </li>
@@ -671,7 +673,7 @@ exit;
 				    	}
 				   }
 		
-		  $output .='<a '.$google.' href="'.$speaker[8].'" id="'.$speaker[4].'_CompanyLink" class="ModalBlogsquadCompanyLink">'.$speaker[7].'</a>';
+		  $output .='<a '.$google.' href="'.$speaker[8].'" target="_blank" id="'.$speaker[4].'_CompanyLink" class="ModalBlogsquadCompanyLink">'.$speaker[7].'</a>';
 		  
 		  
 		  		  	 if (isset($blog_title) && isset($blog_url)){
@@ -704,7 +706,7 @@ exit;
 						$google .= '"';
 				   
 				   
-				     $output .='<a '.$google.' href="'.$blog_url[$blognum].'" id="'.$speaker[4].'_BlogLink'.$blognum.'" class="ModalBlogsquadCompanyLink">'.$titles.'</a><br/ >';
+				     $output .='<a '.$google.' href="'.$blog_url[$blognum].'" target="_blank" id="'.$speaker[4].'_BlogLink'.$blognum.'" class="ModalBlogsquadCompanyLink">'.$titles.'</a><br/ >';
 				     $blognum++;
 				   
 			         }

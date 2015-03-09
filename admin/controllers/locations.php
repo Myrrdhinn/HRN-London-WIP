@@ -236,8 +236,9 @@ $AmPm = "AM";
 
 for ($i=$startHour; $i <= $endHour; $i++)
 {
-     for ($j = 0; $j <= 45; $j+=15)
+     for ($j = 0; $j <= 50; $j+=10)
         {
+			
                 $time = $i.":".str_pad($j, 2, '0', STR_PAD_LEFT);
 				
 				if (date(strtotime($day." ".$time)) <= $endTime) {
@@ -250,7 +251,8 @@ for ($i=$startHour; $i <= $endHour; $i++)
 					
 					$output .='<option value="'.date("g:i", strtotime($day." ".$time)).$AmPm.'">'.date("g:i", strtotime($day." ".$time)).$AmPm.'</option>';
 					
-				}
+				  }
+		
 
                 
         }

@@ -1,16 +1,17 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-<meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
-<meta name="developer" content="Develped by: TesseracT - bottyan.tamas@web-developer.hu">
+<meta name="description" content="Hear from today's leading minds in HR and technology, demo the latest in HR tech on the expo floor, and access curated dinners & parties hosted by our sponsors.">
+<meta name="keywords" content="HR Conference, HR event, HR Tech, HRN Europe">
 <meta name="author" content="HRN Europe - The Pan European HR Network">
+<meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
+<meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HR Tech Europe 2015 | Europe's #1 Conference on the Future of HR</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<title>Tickets | HR Tech Europe</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
-<script src="js/foundation/foundation.orbit.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 
 <!-- Favicon setting -->
@@ -67,7 +68,7 @@
     <!--HEADER--> 
     <!--Desktop Navigation Menu-->
     <nav id="MainNavigationMenu">
-      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" class="ActiveNavmenuItem">Home</a>
+      <div id="DesktopMenuContainer"> <a id="HeaderLogoLink" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'LogoHome']);" href="index"><img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-logo-small.png"></a> <a href="index" onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);">Home</a>
         <div class="NavmenuDivider"></div>
         <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a>
         <div class="NavmenuDivider"></div>
@@ -112,8 +113,8 @@
     <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onClick="$('html, body').animate({scrollTop: 0}, 700);" role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
     <nav id="RightsideMobileNavigation" class="right-off-canvas-menu">
       <ul>
-        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index" class="ActiveNavmenuItem MobileNavigationMenuItem">Home</a></li>
-        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" >Tickets</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="index">Home</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" class="ActiveNavmenuItem">Tickets</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda" >Agenda</a></li>
         <li id="ExpoMobileGroup">Expo <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
@@ -148,7 +149,9 @@
           <div id="OneDelegate" class="Delegates">
             <h2 class="RegistrationCategoryHeadline">1 Delegate</h2>
             <section class="DelegatePrice">
+              <p class="Discount">10% discount</p>
               <h3>£895</h3>
+              <p class="Save">save £100</p>
               <a onClick="_gaq.push(['_trackEvent', 'Registration', 'ExternalForward', 'OneDelegate']);" href="https://www.eiseverywhere.com/ereg/newreg.php?eventid=107203&discountcode=EBFEBRUARY" target="_blank">
               <div class="RegistrationButton">Buy 1 Ticket</div>
               </a> </section>
@@ -156,14 +159,16 @@
           <div id="ThreeDelegates" class="Delegates">
             <h2 class="RegistrationCategoryHeadline">3 Delegates</h2>
             <section class="DelegatePrice">
+              <p class="Discount">20% discount</p>
               <h3>£2388</h3>
+              <p class="Save">save £247</p>
               <a onClick="_gaq.push(['_trackEvent', 'Registration', 'InternalForward', 'ThreeDelegates']);" href="threedelegates" target="_blank">
               <div class="RegistrationButton">Buy 3 Tickets</div>
               </a> </section>
           </div>
           <div id="VIPTickets" class="Delegates">
             <h2 class="RegistrationCategoryHeadline">VIP TICKETS</h2>
-            <section class="DelegatePrice">
+            <section class="DelegatePrice UseCode">
               <h3>Use Code</h3>
               <a onClick="_gaq.push(['_trackEvent', 'Registration', 'InternalForward', 'VIPTickets']);" href="viptickets" target="_blank">
               <div class="RegistrationButton">Enter Code</div>
@@ -186,7 +191,7 @@
           <section id="LoyaltyInfo">
             <h6>Group Tickets</h6>
             <h4>up to 30% discount</h4>
-            <a href="#"  onClick="_gaq.push(['_trackEvent', 'TicketsPage', 'ModalOpen', 'LoyatyProgram']);" data-reveal-id="LoyaltyProgramModal">
+            <a href="loyaltyprogram"  onClick="_gaq.push(['_trackEvent', 'TicketsPage', 'InternalForward', 'LoyatyProgram']);" >
             <div class="RegistrationButton" >APPLY</div>
             </a> </section>
           <div id="ListOfLoyaltyProgram">
@@ -366,7 +371,6 @@
   <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
     <input type=hidden name="oid" value="00DD0000000nwgk">
     <input type=hidden name="retURL" value="http://london.hrtecheurope.com/thankyou">
-    
     <div class="row">
       <div class="large-6 column">
         <input required placeholder="First Name *"  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
@@ -400,12 +404,7 @@
 <script src="js/vendor/jquery.js"></script> 
 <script src="js/foundation.min.js"></script> 
 <script>
-      $(document).foundation({
-        orbit: {
-          timer_speed: 4000,
-          next_on_click: false
-        }
-        });
+      $(document).foundation();
 </script> 
 <!--End Foundation Scripts --> 
 <script type="text/javascript">

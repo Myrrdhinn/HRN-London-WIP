@@ -1,11 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="description" content="HR Tech Europe is a 2 day conference and expo on the future of work, taking place in London on March 24th and 25th">
+<meta name="keywords" content="HR Conference, HR event, HR Tech, HRN Europe">
+<meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
-<meta name="author" content="Develped by: TesseracT - bottyan.tamas@web-developer.hu">
+<meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HR Tech Europe 2015 | Europe's #1 Conference on the Future of HR</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<title>HR Tech Europe 2015 | The World's Fastest Growing HR Conference & Expo</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
@@ -34,33 +37,37 @@
 <link rel="stylesheet" href="css/custom.css" />
 <link rel="stylesheet" href="css/mainpage.css" />
 
-<!-- Scroll to top JS -->
-<script src="js/gotopscroll.js"></script>
+<!-- Speakers-->
+<link rel="stylesheet" href="css/mainpage/speakers-mainpage.css" />
 
 <!--Sponsors-->
-<link rel="stylesheet" href="css/sponsors_index.css" />
-<!--End Sponsors-->
+<link rel="stylesheet" href="css/mainpage/sponsors-mainpage.css" />
 
 <!--Twitter-->
-<link rel="stylesheet" href="css/twitter.css" />
-<!--End Twitter-->
-
-<!-- Speakers-->
-<link rel="stylesheet" href="css/mainpage/speakers-carousel.css" />
-
-<!-- Testimonials -->
-<link rel="stylesheet" href="css/mainpage/testimonials.css" />
+<link rel="stylesheet" href="css/mainpage/twitter.css" />
 
 <!--Numbers-->
-<link rel="stylesheet" href="css/numbers.css" />
+<link rel="stylesheet" href="css/mainpage/numbers.css" />
 <script src="js/counter.js"></script>
 
 <!-- Videos -->
 <link rel="stylesheet" href="css/mainpage/videos.css" />
 <script src="js/videos.js"></script>
 
+<!-- Testimonials -->
+<link rel="stylesheet" href="css/mainpage/testimonials.css" />
+
+<!-- Venue -->
+<link rel="stylesheet" href="css/mainpage/venue.css" />
+
+<!-- Map -->
+<link rel="stylesheet" href="css/mainpage/map.css" />
+
 <!-- Footer -->
 <link rel="stylesheet" href="css/footer.css" />
+
+<!-- Scroll to top JS -->
+<script src="js/gotopscroll.js"></script>
 
 <!-- SLICK-MASTER CAROUSEL -->
 <script src="js/load.js"></script>
@@ -178,7 +185,7 @@ google.maps.event.addListener(marker,'click',function() {
     <div id="MobileNavigation"> <img id="HRTechSmallLogo" alt="HR Tech Logo" src="img/hrtech-mobile-logo.png"> <a onClick="$('html, body').animate({scrollTop: 0}, 700);" role="button" class="right-off-canvas-toggle smoothScroll"><i class="fa fa-bars"></i></a> </div>
     <nav id="RightsideMobileNavigation" class="right-off-canvas-menu">
       <ul>
-        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="#" class="ActiveNavmenuItem MobileNavigationMenuItem">Home</a></li>
+        <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MainPage']);" href="#" class="ActiveNavmenuItem">Home</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Tickets']);" href="tickets" >Tickets</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Speakers']);" href="speakers">Speakers</a></li>
         <li> <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Agenda']);" href="agenda" >Agenda</a></li>
@@ -204,7 +211,7 @@ google.maps.event.addListener(marker,'click',function() {
     <!-- END Mobile Navigation Menu-->
     
     <div id="VideoContainer">
-      <video autoplay loop muted class="fullWidth">
+      <video autoplay loop muted poster="img/mainpage/videoposter.png" class="fullWidth">
         <source src="video/hrtech-bg.mp4" type="video/mp4"/>
         Your browser does not support the video tag. I suggest you upgrade your browser. </video>
       <div id="header-container"> <img id="header-hrtech-logo" src="img/hrtech-logo.png" alt="hrtech logo">
@@ -241,226 +248,234 @@ google.maps.event.addListener(marker,'click',function() {
         <!-- SPEAKERS CAROUSEL -->
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/HinssenP.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">The Network Always Wins</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">9:15AM - 10:00AM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Peter Hinssen</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">nexxworks</span> </div>
+            <span class="KeynoteSpeakerCompany">nexxworks</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/MarkidesC.jpg); background-size:contain;">
-            <div class="KeynoteAbstract LongKeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract LongKeynoteAbstract">
               <p class="KeynoteTitle">The New Future: The Digital Revolution - Its Implications on How We Work &amp; Compete</p>
               <p class="KeynoteDay">DAY 2</p>
               <p class="KeynoteTime">9:15AM - 10:00AM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Costas Markides</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">London Business School</span> </div>
+            <span class="KeynoteSpeakerCompany">London Business School</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/BotsmanR.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">The Future of ‘Work’ in the Collaborative Economy</p>
               <p class="KeynoteDay">DAY 2</p>
               <p class="KeynoteTime">3:00PM - 3:45PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Rachel Botsman</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Entrepreneur</span> </div>
+            <span class="KeynoteSpeakerCompany">Entrepreneur</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/SorzanoV.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">"I Did it" - A BBC Learning Project</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">11:30AM - 12:00PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Victoria Sorzano</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">BBC</span> </div>
+            <span class="KeynoteSpeakerCompany">BBC</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/BeckerB.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">Making Recruiting Digital</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">12:00PM - 12:30PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Barbara Becker</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Barry Callebaut AG</span> </div>
+            <span class="KeynoteSpeakerCompany">Barry Callebaut AG</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/AverbookJ.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">Preparing Your Organization Today for Tomorrow's World</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">4:00PM - 4:45PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo" style="padding-bottom: 21px;"> <span class="KeynoteSpeakerName OswaldText">Jason Averbook</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText" style="font-size: 12px;">The Marcus Buckingham Company</span> </div>
+            <span class="KeynoteSpeakerCompany" style="font-size: 12px;">The Marcus Buckingham Company</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/TrostA.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">The Future of Performance Appraisal in an Agile Environment</p>
               <p class="KeynoteDay">DAY 2</p>
               <p class="KeynoteTime">10:00AM - 10:30AM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Armin Trost</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">HFU</span> </div>
+            <span class="KeynoteSpeakerCompany">HFU</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/HolleyN.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">CEO's Don't Care About HR!</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">3:30PM - 4:00PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Nick Holley</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Henley Business School</span> </div>
+            <span class="KeynoteSpeakerCompany">Henley Business School</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/SempleE.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">Social Media in the Modern Workplace</p>
               <p class="KeynoteDay">DAY 2</p>
               <p class="KeynoteTime">11:30AM - 12:30PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Euan Semple</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Euansemple.com</span> </div>
+            <span class="KeynoteSpeakerCompany">Euansemple.com</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/BryantL.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">Growing and Grafitng New Organisational Tissue – HR’s Role in Change</p>
               <p class="KeynoteDay">DAY 2</p>
               <p class="KeynoteTime">11:30AM - 12:00PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Lee Bryant</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">POST*SHIFT</span> </div>
+            <span class="KeynoteSpeakerCompany">POST*SHIFT</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/GallopM.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">"I Did it" - A BBC Learning Project</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">11:30AM - 12:00PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Matt Gallop</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">BBC</span> </div>
+            <span class="KeynoteSpeakerCompany">BBC</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/LeteneyF.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">Breaking Down Global Barriers</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">12:00PM - 12:30PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Fiona Leteney</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Bupa Business Services</span> </div>
+            <span class="KeynoteSpeakerCompany">Bupa Business Services</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/SawyerJensonL.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">A Lean Approach to a Full HR Transformation</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">12:00AM - 12:30AM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Lori Sawyer Jenson</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Arlafoods</span> </div>
+            <span class="KeynoteSpeakerCompany">Arlafoods</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/WilsonD.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle"></p>
               <p class="KeynoteDay"></p>
               <p class="KeynoteTime"></p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">David Wilson</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Elearnity</span> </div>
+            <span class="KeynoteSpeakerCompany">Elearnity</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/ThomasP.jpg); background-size:contain;">
-            <div class="KeynoteAbstract LongKeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract LongKeynoteAbstract">
               <p class="KeynoteTitle">Is your organisation's Cultural Readiness Essential to ESN (Enterprise Social Network) success? </p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">12:00PM - 12:30PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Paul Thomas</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Grant Thornton UK LLP</span> </div>
+            <span class="KeynoteSpeakerCompany">Grant Thornton UK LLP</span> </div>
         </div>
         <div class="KeynoteSpeaker">
           <div class="KeynoteImage" style="background:url(img/speakers/HeinzJ.jpg); background-size:contain;">
-            <div class="KeynoteAbstract RobotoText">
+            <div class="KeynoteAbstract">
               <p class="KeynoteTitle">Building the Connected Company: The Story Thus Far</p>
               <p class="KeynoteDay">DAY 1</p>
               <p class="KeynoteTime">2:30PM - 3:00PM</p>
             </div>
           </div>
           <div class="KeynoteSpeakerInfo"> <span class="KeynoteSpeakerName OswaldText">Joachim Heinz</span><br>
-            <span class="KeynoteSpeakerCompany RobotoText">Bosch GmbH</span> </div>
+            <span class="KeynoteSpeakerCompany">Bosch GmbH</span> </div>
         </div>
       </div>
       <!-- END SPEAKERS CAROUSEL -->
-      <div id="SpeakersCarouselButtonContainer" style="max-width:545px;"> <a  onClick="_gaq.push(['_trackEvent', 'GeneralButton', 'InternalForward', 'Speakers']);" href="speakers" class="RobotoText" >
+      <div id="SpeakersCarouselButtonContainer"> <a  onClick="_gaq.push(['_trackEvent', 'GeneralButton', 'InternalForward', 'Speakers']);" href="speakers" >
         <div id="SpeakersButton" >VIEW ALL SPEAKERS</div>
-        </a> <a  onClick="_gaq.push(['_trackEvent', 'GeneralButton', 'InternalForward', 'Agenda']);" href="agenda" class="RobotoText" >
+        </a> <a  onClick="_gaq.push(['_trackEvent', 'GeneralButton', 'InternalForward', 'Agenda']);" href="agenda" >
         <div id="AgendaButton">VIEW AGENDA</div>
         </a> </div>
     </section>
     <!-- END SPEAKERS CAROUSEL SECTION --> 
     
     <!-- SPONSORS -->
-    <div class="centered-text" style="width:100%;">
-      <h2 id="SponsorsH2">Lead Sponsors</h2>
-      <div id="titanium-sponsors"><a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternallForward', 'Oracle']);" href="https://www.oracle.com/applications/human-capital-management/index.html">
-        <div class="titanium-sponsor grow" style="background:url(img/sponsors/o_humancapitalmanagement_cmyk.jpg); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a>  <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternalForward', 'WorkForce']);" href="http://www.workday.com/uk/">
-        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_workday.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternallForward',  'IBM']);" href="http://www-01.ibm.com/software/smarterworkforce/">
-        <div class="titanium-sponsor grow sponsor-picture" style="background:url(img/200x200_logos_ibm.png); background-repeat:no-repeat; background-position:center; background-size:contain;"></div>
-        </a> <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternalForward', 'Ceridian']);" href="http://www.ceridian.com/">
-        <div class="titanium-sponsor grow" style="background:url(img/200x200_logos_ceridian.png); background-position:center; background-repeat:no-repeat; background-size:contain;"></div>
-        </a>
-       
-        </div>
-        <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'InternalForward', 'ViewAllSponsorsButton']);" href="sponsors"><div id="SponsorsButton">VIEW ALL SPONSORS</div></a>
+    <div id="MainpageSponsorsContainer">
+      <h2>Lead Sponsors</h2>
+      <div id="MainpageSponsorsGrid">
+          <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternallForward', 'Oracle']);" href="https://www.oracle.com/applications/human-capital-management/index.html">
+             <div class="MainpageSponsor grow" id="Oracle"></div>
+          </a>  
+          <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternalForward', 'WorkForce']);" href="http://www.workday.com/uk/">
+        	 <div class="MainpageSponsor grow" id="Workday"></div>
+          </a> 
+          <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternallForward',  'IBM']);" href="http://www-01.ibm.com/software/smarterworkforce/">
+             <div class="MainpageSponsor grow" id="IBM"></div>
+          </a> 
+          <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternalForward', 'Ceridian']);" href="http://www.ceridian.com/">
+             <div class="MainpageSponsor grow" id="Ceridian"></div>
+          </a>
+          <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'ExternalForward', 'ServiceNow']);" href="https://www.servicenow.com/">
+             <div class="MainpageSponsor grow" id="ServiceNow"></div>
+          </a>
+       </div>
+       <a target="_blank" onClick="_gaq.push(['_trackEvent', 'Sponsors', 'InternalForward', 'ViewAllSponsorsButton']);" href="sponsors"><div id="SponsorsButton">VIEW ALL SPONSORS</div></a>
     </div>
     <!--END SPONSORS--> 
     
     <!--TWITTER-->
     <div id="twitter-container" >
-      <h2 class="centered-text TwitterBoxHeader">Join Our Social Community</h2>
+      <h2 class="TwitterBoxHeader">Join Our Social Community</h2>
       <div id="twitter-main-container" >
         <div id="bird-text">
-          <div id="TwitterIconContainer"><i class="fa fa-twitter" style="font-size:200px; color:#fff;"></i></div>
+          <div id="TwitterIconContainer"><i class="fa fa-twitter"></i></div>
           <div id="TwitterFollowUsContainer">
-            <p id="TwitterHashtagList" class="roboto-text"> The world of <a href="https://twitter.com/search?q=%23talent&src=typd" target="_blank">#talent,</a> <a href="https://twitter.com/search?q=%23learning&src=typd" target="_blank">#learning,</a><a href="https://twitter.com/search?q=%23technology&src=typd" target="_blank"> #technology</a> and thought <a href="https://twitter.com/search?q=%23leadership&src=typd" target="_blank"> #leadership</a> <a href="https://twitter.com/hrtecheurope/status/513974181604900866/photo/1" target="_blank">http://t.co/6Viu48FMW4</a> See you at <a href="https://twitter.com/search?q=%23HRTechEurope&src=typd" target="_blank"> #HRTechEurope</a> <br>
+            <p id="TwitterHashtagList"> The world of <a href="https://twitter.com/search?q=%23talent&src=typd" target="_blank">#talent,</a> <a href="https://twitter.com/search?q=%23learning&src=typd" target="_blank">#learning,</a><a href="https://twitter.com/search?q=%23technology&src=typd" target="_blank"> #technology</a> and thought <a href="https://twitter.com/search?q=%23leadership&src=typd" target="_blank"> #leadership</a> <a href="https://twitter.com/hrtecheurope/status/513974181604900866/photo/1" target="_blank">http://t.co/6Viu48FMW4</a> See you at <a href="https://twitter.com/search?q=%23HRTechEurope&src=typd" target="_blank"> #HRTechEurope</a> <br>
               <a href="https://twitter.com/hrtecheurope/status/513974181604900866/photo/1" target="_blank"> http://t.co/Qt1WsB7r4k</a> </p>
-            <a onClick="_gaq.push(['_trackEvent', 'GeneralButton', 'ExternalForward', 'Twitter']);" href="https://twitter.com/hrtecheurope/" target="_blank" class="btn btn-md" id="twitterfollow-button">FOLLOW US</a> </div>
+            <a onClick="_gaq.push(['_trackEvent', 'GeneralButton', 'ExternalForward', 'Twitter']);" href="https://twitter.com/hrtecheurope/" target="_blank" id="twitterfollow-button">FOLLOW US</a> </div>
         </div>
-        <div style="max-width:906px; width:100%; background:#07232d !important; display:flex; flex-direction:column; flex-wrap:no-wrap; ">
+        <div id="TwitterFeeds">
           <div id="twitter-tirangle"></div>
-          <div style="background-color:#07232d !important; margin-bottom:25px;"> <a href="https://twitter.com/search?q=%23HRTechEurope&src=typd" target="_blank"  style="float:left; font-size:30px; font-family:'Oswald', sans-serif;">#hrtecheurope </a> </div>
+          <div style="background-color:#07232d !important; margin-bottom:25px;"> 
+          	<a href="https://twitter.com/search?q=%23HRTechEurope&src=typd" target="_blank"  style="float:left; font-size:30px; font-family:'Oswald', sans-serif;">#hrtecheurope </a> 
+          </div>
           <!--The Twitter Plugin-->
           
           <div style="min-height:300px; background:#fff; border:4px solid #29a0c7;">
-            <div style="width:100%; height:50px; background:#e5e5e5; padding:15px 25px 0 25px;"> <span class="roboto-text" style="font-size:24px; float:left;">Tweets</span> <span style="font-size:24px; float:right;"><i class="icon icon-twitter"></i></span> </div>
+            <div style="width:100%; height:50px; background:#e5e5e5; padding:15px 25px 0 25px;"> <span style="font-size:24px; float:left;">Tweets</span> <span style="font-size:24px; float:right;"><i class="icon icon-twitter"></i></span> </div>
             <a class="twitter-timeline"  height="300"  data-chrome="noheader nofooter noborders tansparent" data-dnt="true" href="https://twitter.com/hashtag/hrtecheurope" data-widget-id="461485618808102913">#hrtecheurope Tweets</a> 
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 </script> 
@@ -650,7 +665,7 @@ google.maps.event.addListener(marker,'click',function() {
     
     <div id="map"></div>
     <a id="mapicon" onClick="_gaq.push(['_trackEvent', 'VenueMap', 'ExternalForward',  'GoogleMap']);" target="_blank" href="https://www.google.hu/maps/place/ExCeL+London/@51.5099891,0.0362672,16z/data=!3m1!5s0x47d8a8716fa1509d:0x342201ee325a678c!4m2!3m1!1s0x47d8a80ce609e50d:0xa0de5f705d7aec7?hl=en">
-    <div class="roboto-text GoogleButton"> VIEW IN GOOGLE MAPS <i class="fa fa-angle-right" style="position: relative; left: 5px;"></i> </div>
+    <div class="GoogleButton"> VIEW IN GOOGLE MAPS <i class="fa fa-angle-right" style="position: relative; left: 5px;"></i> </div>
     </a> 
     <!-- END MAP --> 
     

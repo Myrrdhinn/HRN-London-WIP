@@ -1,21 +1,20 @@
-    <?php 
-
+<?php
 		include_once('controllers/aaa.php');
 		include_once('controllers/config.php');
 		include_once('controllers/sponsors_main.php');
 		include_once('controllers/locations.php');
-
 ?>
-
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="description" content="HR Tech Europe is sponsored by some of the biggest names in HR Technology, including Oracle, IBM, Ceridian, Workday and Cornerstone">
+<meta name="keywords" content="HR Conference, HR event, HR Tech, HRN Europe">
 <meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
 <meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu, Myrrdhinn - myrrdhinn@gmail.com">
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HR Tech Europe 2015 | Europe's #1 Conference on the Future of HR</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<title>Sponsors | HR Tech Europe</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
@@ -43,8 +42,6 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
 
-<!-- TinyMCE -->
-<script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
 
 <!--	Include Navigation Menu CSS Definitions -->
 <link rel="stylesheet" href="css/navmenu.css" />
@@ -56,6 +53,9 @@
 
 <!-- Scroll to top JS -->
 <script src="js/gotopscroll.js"></script>
+
+<!-- Scroll to top JS -->
+<script src="js/sponsors.js"></script>
 
 <!--- Mobile Menu dropdown -->
 <script src="js/mobile-menu-dropdown.js"></script>
@@ -82,7 +82,6 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-
 </head>
 <body>
 
@@ -144,9 +143,9 @@
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
           </div>
           
-          <li id="PartnersMobileGroup" class="ActiveNavmenuItem MobileNavigationMenuItem">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
+          <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
        	  <div id="PartnersMobileGroupContent">
-         		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" href="sponsors">Sponsors</a></li>
+         		<li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Sponsors']);" class="ActiveNavmenuItem" href="sponsors">Sponsors</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'MediaPartners']);" href="mediapartners">Media Partners</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'BlogSquad']);" href="blogsquad">Blog Squad</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'SponsorAppendencies']);" href="sponsorappendencies">Sponsor Appendencies</a></li>
@@ -239,7 +238,7 @@
 			$google .= "'_trackEvent', 'SponsorProfile', 'ModalOpen', '".$sponsor_tag."']);";
 			$google .= '"';
 
-     $output.= '<a '.$google.' data-toggle="modal" data-target="#'.$sponsor[4].'" href="#">
+     $output.= '<a '.$google.' data-sponsortag="'.$sponsor[4].'" class="SpeakerModalOpen">
       <div class="Sponsor">';
 	  if (isset($sponsor[7])) {
 		  $output .= '<div class="SponsorLogo" style="background-image:url(img/sponsors/'.$sponsor[7].');">';
@@ -363,151 +362,13 @@ $(function() {
 
 </script> 
 
-<!-- MODALS -->
+<!-- MODAL --> 
+<div class="modal fade" id="EmptyModal" tabindex="-1" role="dialog" aria-labelledby="DownloadPDFModalLabel" aria-hidden="true"></div>
+ <!-- MODAL Ends--> 
 
-<?php
+<!--Call modified Bootstrap -->
+<script src="js/bootstrap.js"></script>
 
-if (isset($content)) {
-   foreach ($content as $sponsor) {
-			 $go = 1;
-			 
-			 if (isset($sponsor[6])){ //we break down the links to an array
-				  $links = explode(';',$sponsor[6]);
-			      $link_types = explode(';',$sponsor[5]);
-			 }
-			 
-			 
-			 $num = 0;
-			  foreach ($sponsor As $set) {
-			      if (!isset($set)){
-				        $sponsor[$num] = '';
-			        }	
-				  $num++;		
-			   }
-			   
-			   //We check if we already printed this modal or not. If we do, we won't print it agian.
-			 if(isset($displayed)) {
-				 $i = 0;
-				   foreach ($displayed As $value) {
-						if ($value == $sponsor[0]){
-							 $go = 0;
-						 } //if value = sponsor
-						$i++;
-					  }//forech displayed
-					  
-					if ($go == 1){
-						$displayed[$i] = $sponsor[0];
-						$i++;
-					}
-			
-			 }else { //if isset displayed
-				$displayed[0] =  $sponsor[0];
-			 }//else
-				
-				
-
-			 			 		  /*
-		  							    $content[$i][0] =  sponsors_id
-										$content[$i][1] =  sponsors_url
-										$content[$i][2] =  sponsors_type_id (platinum, gold etc)
-										$content[$i][3] =  sponsors_bio
-										$content[$i][4] =  sponsors_tag
-										$content[$i][5] =  sponsors_link_types
-										$content[$i][6] =  sponsors_link_urls
-										$content[$i][7] =  sponsors_picture
-										$content[$i][8] =  sponsors_name
-										$content[$i][9] =  sponsors_name_id
-										$content[$i][10] = sponsor_type_name
-										$content[$i][11] = //sponsors_id (HTML id tag)
-										$content[$i][12] = AlaCarte sponsor text
-										$content[$i][13] = Alacarte or not? :D
-										$content[$i][14] = // alacarte connection id
-			 
-			 */
-if ($sponsor[0] != -55 && $go == 1){	//if we already displayed the modal or the modal don't contain data then we don't print it out		 			
-
- /*------------------------
-  Normal user
- -------------------------
- */
-					$output = '<!-- '.$sponsor[8].' Modal -->
-<div class="modal fade" id="'.$sponsor[4].'" tabindex="-1" role="dialog" aria-labelledby="DownloadPDFModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/speakers/modal-close.png" alt="modal-close-button"></button>';
-			  if (isset($sponsor[7])) {
-		  $output .= '<div class="ModalSponsorPhoto" style="background-image:url(img/sponsors/'.$sponsor[7].')"></div>';
-	          } else {
-				   $output .= '<div class="ModalSpeakerPhoto"></div>';
-			  }
-       
-	   
-			  $sponsor_tag = "";
-			  $sa = preg_replace('/[^A-Za-z]/', '', $sponsor[8]); // Removes special chars.
-			  $sponsor_tag_array = explode(" ",$sa);
-			  foreach ($sponsor_tag_array as $comp) {
-				  $sponsor_tag .= ucfirst($comp); 
-			  }
-						
-	  			
-  			$google = 'onClick="_gaq.push([';
-			$google .= "'_trackEvent', 'SponsorCompanySite', 'ExternalForward', '".$sponsor_tag."']);";
-			$google .= '"';
-        
-       $output .='<div class="ModalSponsorBioContainer">
-	   <form class="SponsorModalEdit">
-	      
-          <p id="'.$sponsor[4].'_Name" class="ModalSponsorName">'.$sponsor[8].'</p>
-		
-
-		  <a '.$google.' id="'.$sponsor[4].'_CompanyLink" class="ModalSponsorCompanyLink" target="_blank" href="'.$sponsor[1].'">Visit Company Website <i class="fa fa-angle-double-right"></i></a>
-		
-          <div class="ModalDivider"></div>';		  
-		  $s = 0;
-		  
-		  if (isset($link_types)){
-			 foreach ($link_types As $types) {
-			   if ($types) {
-				   if ($links[$s] != ''){
-				
-			$comp_social = ucfirst($types).'-'.$sponsor_tag;	   
-			$google = 'onClick="_gaq.push([';
-			$google .= "'_trackEvent', 'SponsorSocialSite', 'ExternalForward', '".$comp_social."']);";
-			$google .= '"';
-					   
-					   $url_raw = $Sp->social_link_decode($links[$s]); //this is needed to decode the link from the database
-					   
-				    //$output .='<p class="SocialIcons"><a href="'.$links[$s].'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-					$output .='<p id="'.$sponsor[4].'_'.$types.'" class="SocialIcons"><a '.$google.' href="'.$url_raw.'" target="_blank"><i class="fa fa-'.$types.' "></i></a></p>'; 
-				   }
-					   $s++;
-			         }
-				}
-				unset($link_types);
-				unset($links);
-		  }	   
-		
-          $output .='<div id="'.$sponsor[4].'_Bio" class="ModalSponsorBio RobotoText"> '.$sponsor[3].'</div>';
-
-  $output .='</form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end '.$sponsor[0].' Modal --> ';			
-						
-						 
-
-
-} //if sponsor[0] != -55
-
-		echo $output; 
-		 
-	}//foreach content ends
-		} //if isset content ends
-?>
 <!-- Start of Async HubSpot Analytics Code --> 
 <script type="text/javascript">
     (function(d,s,i,r) {

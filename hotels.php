@@ -1,12 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<meta name="description" content="Get great deals on hotels near the Excel conference venue in London.">
+<meta name="keywords" content="HR Conference, HR event, HR Tech, HRN Europe">
 <meta name="author" content="HRN Europe - The Pan European HR Network">
 <meta name="designer" content="Designed by: Judit Bernat - juditbernat.mail@gmail.com ">
 <meta name="developer" content="Developed by: TesseracT - bottyan.tamas@web-developer.hu">
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HR Tech Europe 2015 | Europe's #1 Conference on the Future of HR</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<title>Book Hotels in London for HR Tech Europe</title>
 
 <!--	Include Foundation -->
 <link rel="stylesheet" href="css/foundation.css" />
@@ -114,7 +116,7 @@
        	  <div id="ExpoMobileGroupContent">
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Venue']);" href="venue">Venue</a></li>
                 <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Logistics']);" href="logistics">Logistics</a></li>
-                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" href="hotels">Hotels</a></li>
+                <li><a onClick="_gaq.push(['_trackEvent', 'Navigation', 'InternalForward', 'Hotels']);" class="ActiveNavmenuItem" href="hotels">Hotels</a></li>
           </div>
           
           <li id="PartnersMobileGroup">Partners <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></li>
@@ -301,6 +303,7 @@
             <div class="StarContainer"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </div>
             <h2>&pound;199</h2>
             <h6>Breakfast included</h6>
+            <div class="PromoCode">promo code: 230325J</div>
             <div class="BookNowButton">Book Now</div>
  </div>
         </div>

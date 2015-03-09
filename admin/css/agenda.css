@@ -188,7 +188,7 @@ body div {
   background-color: #2f7dc1;
   color: #fff;
 }
-.RoundTable .SessionHeader:hover, .RoundTableMod {
+.Labs2 .SessionHeader:hover, .Labs2Mod {
   transition: all 0.2s;
   background-color: #2e3192;
   color: #fff;
@@ -263,7 +263,7 @@ body div {
   color: #2f7dc1;
   background-color: #fff;
 }
-.RoundTableMod .SessionHeader:hover {
+.Labs2Mod .SessionHeader:hover {
   transition: all 0.2s;
   color: #2e3192;
   background-color: #fff;
@@ -656,12 +656,12 @@ body div {
 .Labs .NonCollapsibleSession:hover {
   color: #2f7dc1;
 }
-.RoundTable .SessionContent { border-bottom: 2px solid #2e3192;}
-.RoundTable h4,
-.RoundTable .SessionCompanyName,
-.RoundTable .fa-map-marker,
-.RoundTable .fa-clock-o,
-.RoundTable .NonCollapsibleSession:hover {
+.Labs2 .SessionContent { border-bottom: 2px solid #2e3192;}
+.Labs2 h4,
+.Labs2 .SessionCompanyName,
+.Labs2 .fa-map-marker,
+.Labs2 .fa-clock-o,
+.Labs2 .NonCollapsibleSession:hover {
   color: #2e3192;
 }
 .Compensation .SessionContent { border-bottom: 2px solid #ce181e;}

@@ -1,5 +1,17 @@
 /* CSS definitions of the Expo pages */
 
+/* Active menuitem with opened dropdown */
+#ExpoMobileGroupContent {
+	display: block;
+}
+#ExpoMobileGroup .fa-angle-right  {
+	display: none;
+}
+#ExpoMobileGroup .fa-angle-down  {
+	display: inline-block;
+}
+
+/* Main Content container */
 #MainContent {
 	width: 100%;
 	max-width: 960px;

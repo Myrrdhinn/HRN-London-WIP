@@ -339,10 +339,20 @@ body div {
 	background-color: #F5F5F5;
 }
 .close, .close:hover {
-	opacity: 1;
+	opacity: 1 !important;
 	position: relative;
 	top: -40px;
 	right: -40px;
+}
+@media(max-width:1000px){
+  .modal-dialog {
+    margin: 0 !important;
+    width: 100%;
+  }
+  .close, .close:hover {
+    top: 0px;
+    right: 0px;
+  }
 }
 .ModalSpeakerPhoto {
 	margin: 0 auto;
@@ -360,10 +370,12 @@ body div {
 	color: #323232;
 	padding-top: 15px;
 	padding-bottom: 5px;
+	margin-bottom: 0;
 }
 .ModalSpeakerJobtitle {
 	font-size: 1.8em;
 	font-weight: 300;
+	margin-bottom: 0;
 }
 .ModalSpeakerCompanyLink {
 	font-size: 1.8em;

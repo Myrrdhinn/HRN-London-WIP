@@ -1,6 +1,6 @@
-/*CSS definitions of the SPEAKERS grid and the modals*/
+/*CSS definitions of the BLOG SQUAD grid and the modals*/
 
-/*General defs of the SPEAKERS page*/
+/*General defs of the BLOG SQUAD page*/
 body {
   line-height: normal;
 }
@@ -34,7 +34,18 @@ a:focus {
 .NoBlogsquadInfoBlack {
   color: #323232;
 }
-/*END General defs of the SPEAKERS page*/
+/*END General defs of the BLOG SQUAD page*/
+
+/* Active menuitem with opened dropdown */
+#PartnersMobileGroupContent {
+	display: block;
+}
+#PartnersMobileGroup .fa-angle-right  {
+	display: none;
+}
+#PartnersMobileGroup .fa-angle-down  {
+	display: inline-block;
+}
 
 /* Blogsquad */
 #BlogsquadHeaderContainer {
@@ -289,7 +300,7 @@ a:focus {
   clear: right;
   display: block;
 }
-@media(max-width:767px){
+@media(max-width:1000px){
   .modal-dialog {
     margin: 0;
     width: 100%;

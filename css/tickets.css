@@ -11,14 +11,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Registration Section */
 #Registration {
-	background: url(../img/tickets/paralax_background_tickets.jpg) fixed center top no-repeat;
-	background-size:cover;
+	background: url(../img/tickets/paralax_background_tickets.jpg) no-repeat center top;
+	background-attachment: scroll;
+	background-size: cover;
 	width: 100%;
 	padding: 172px 0 50px 0;
 }
 @media (max-width:660px) {
 	#Registration {
-		background:#175976;
 		padding:122px 8px 60px 8px;
 	}
 }
@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 auto;
 }
 #RegistrationMainWrapper h1 {
-	color: #fff;
+	color: #3c3f41;
 	font-size: 60px;
 	text-transform: uppercase;
 	border-bottom: 2px solid #fff;
@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 	}	
 }
 #RegistrationEventInfoWrapper h4 {
-	color: #fff;
+	color: #3c3f41;
 	font-size: 24px;
 	display: inline-block;
 	padding: 0 20px;
@@ -71,26 +71,25 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 #RegistrationEventInfoMiddleHeadline {
-	border-left: 3px solid #2da9e0;
-	border-right: 3px solid #2da9e0;
+	border-left: 3px solid #3c3f41;
+	border-right: 3px solid #3c3f41;
 }
 .RegistrationCategoryHeadline {
 	width: 100%;
-	border-bottom: 1px solid #2da9e0;
+	border-bottom: 1px solid #fff;
 	padding-top:20px;
-	padding-bottom: 30px;
-	font-size: 40px;
+	padding-bottom: 20px;
+	font-size: 36px;
+	background-color: #2daae1;
 }
 .RegistrationColumn {
-	border-bottom: 2px solid #2da9e0;
+	border-bottom: 2px solid transparent;
 	width: 100%;
 	max-width: 660px;
 }
 #TicketsWrapper {
 	float: left;
 	margin-right: 20px;
-	background: rgba(24,62,77,0.6);
-	
 }
 @media (max-width:1000px) {	
 	#TicketsWrapper {
@@ -119,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #OneDelegate {
 	float:left;
-	border-right: 1px solid #2da9e0;
+	border-right: 1px solid #fff;
 }
 @media (max-width:660px) {
 	#OneDelegate {
@@ -129,14 +128,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 #ThreeDelegates {
 	float:left;
-	border-right: 1px solid #2da9e0;
-	border-left: 1px solid #2da9e0;
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
 
 }
 @media (max-width:660px) {
 	#ThreeDelegates {
-		border-top: 1px solid #2da9e0;
-		border: 1px solid #2da9e0;
+		border-top: 1px solid #fff;
+		border: 1px solid #fff;
 		border-right: 0;
 	border-left: 0;
 
@@ -146,7 +145,7 @@ h1, h2, h3, h4, h5, h6 {
 #VIPTickets {
 	display:inline-block;
 	margin:0 auto;
-	border-left: 1px solid #2da9e0;
+	border-left: 1px solid #fff;
 	top:-30px;
 	}
 @media (max-width:660px) {
@@ -159,15 +158,43 @@ h1, h2, h3, h4, h5, h6 {
 	color: #fff;
 }
 .DelegatePrice {
-	padding: 30px 0;
-	background: rgba(0,0,0,0.30);
-	border-top: 1px solid #2da9e0;
-	border-bottom: 1px solid #2da9e0;
+	height: 210px;
+	padding: 10px 0;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid transparent;
+	position: relative;
 }
+#OneDelegate .DelegatePrice { background-color: #a3d7ee; }
+#ThreeDelegates .DelegatePrice { background-color: #6cc1e6; }
+#VIPTickets .DelegatePrice { background-color: #2583ad; }
 .DelegatePrice h3 {
 	font-size: 36px;
 	color: #fff;
-	padding-bottom: 35px;
+	padding-bottom: 5px;
+}
+.Save {
+	background-color: #f64a51; 
+	color: #fff; 
+	font-size: 20px; 
+	font-weight: 500;
+	max-width: 100px; 
+	margin: 0 auto; 
+	margin-bottom: 13px;
+}
+
+.Discount {
+	font-family: 'Oswald', sans-serif;
+	font-weight:700;
+	font-size:16px;
+	color:#f64a51;
+	margin:0;
+	padding:0;
+	
+}
+
+.UseCode{
+	padding:35px 0;
+	
 }
 .RegistrationButton {
 	width: 182px;
@@ -178,16 +205,27 @@ h1, h2, h3, h4, h5, h6 {
 	
 	font-size: 22px;
 	padding: 13px 0;
+	position: absolute; 
+	bottom: 30px;
+	left: 20px;
 }
 .RegistrationButton:hover {
-	background: #fc354c;
+	background: #fff;
+	color: #2daae1;
+}
+@media (max-width: 660px) {
+	.RegistrationButton {
+		left: 60px;
+	}
 }
 #ListOfServices {
 	display: inline-block;
-	border-top: 1px solid #2da9e0;
+	border-top: 2px solid transparent;
+	margin-top: 2px;
 	width: 100%;
-	color: #fff;
+	color: #38363a;
 	padding: 30px 0;
+	background: rgba(255,255,255,0.7);
 }
 @media (max-width:660px) {
 	#ListOfServices {
@@ -231,11 +269,9 @@ h1, h2, h3, h4, h5, h6 {
 		max-width:300px;
 		margin-top:20px;
 		margin-bottom: 70px;
-		border-bottom: 2px solid #2da9e0;
 	}
 }
 #LoyaltyWrapper .RegistrationCategoryHeadline {
-	background:#3388b0;
 	padding-top: 20px;
 }
 #LoyaltyWrapper .RegistrationCategoryHeadline, #LoyaltyWrapper h4, #LoyaltyWrapper h6 {
@@ -243,23 +279,42 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #LoyaltyInfo{
-	border-top:1px solid #2da9e0;
-	border-bottom:1px solid #2da9e0;
-	background:#333738;
+	height: 210px;
+	border-top:1px solid #fff;
+	border-bottom:5px solid transparent;
+	margin-bottom: 2px;
+	background: rgba(255, 255, 255, 0.7);
 	padding:24px;
+	position: relative;
 }
 #LoyaltyInfo h6{
 	font-size:24px;
+	color: #3c3f41;
 }
 #LoyaltyInfo h4{
 	font-size:30px;
+	font-weight: 600;
+	color: #3c3f41;
+	margin-top: 10px;
 	margin-bottom:21px;
 }
-
+#LoyaltyInfo .RegistrationButton {
+	bottom: 25px;
+	left: 70px;	
+}
+#LoyaltyInfo .RegistrationButton:hover {
+	background-color: #FC354C;
+	color: #fff;
+}
+@media (min-width: 661px) and (max-width: 991px) {
+	#LoyaltyInfo .RegistrationButton {
+		left: 240px;	
+	}	
+}
 #ListOfLoyaltyProgram {
-	background:rgba(238,237,236,0.70);
+	background:rgba(255,255,255,0.70);
 	display: inline-block;
-	border-top: 1px solid #2da9e0;
+	border-top: 1px solid transparent;
 	width: 100%;
 	color: #353535;
 	padding: 30px 0;
@@ -278,8 +333,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Registration Policies Section */
 #RegistrationPoliciesContainer {
 	width: 100%;
-	background: url(../img/tickets/registration-policies-bg.png);
-	background-repeat:repeat;
+	background-color: #fff;
 	margin-top:-70px;	
 	padding-bottom: 50px;
 }
@@ -324,7 +378,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 720px){
 	#Description {
-		padding-left: 0px;
+		padding-left: 10px;
 		padding-right: 10px;
 	}
 	#Description p {
@@ -410,6 +464,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width:370px) {
 	#DownloadBrochureContainer{
 		max-width:320px; 
+		padding-left: 10px;
 	}	
 }	
 #DownloadBrochureContainer img {

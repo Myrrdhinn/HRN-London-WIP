@@ -38,6 +38,16 @@ a:focus {
 .tp-banner-container {
 	margin-top: 100px;
 }
+@media (max-width: 718px) {
+	.tp-banner-container {
+		margin-top: 65px;
+	}
+}
+@media (max-width: 979px) {
+	.tp-rightarrow {
+		margin-right: 0 !important;	
+	}
+}
 #StickySocialIconSidebar {
 	top: 60%;
 }
@@ -344,7 +354,7 @@ a:focus {
 #BottomModalClose {
 	display:none;
 }
-@media(max-width:767px) {
+@media(max-width:1000px) {
 .modal-dialog {
 	margin: 0;
 	width: 100%;
@@ -384,19 +394,6 @@ a:focus {
 }
 /*----- END MODAL DEFINITIONS------*/
 /*END SPEAKERS*/
-/*STICKY SOCIAL ICON ALIGMENTS*/
-.StickySocialIcon {
-	padding-top: 2px;
-}
-.StickyFlickrIcon img {
-	position: relative;
-	top: -3px;
-}
-.StickySlideshareIcon img {
-	position: relative;
-	top: -3px;
-}
-/*END STICKY SOCIAL ICON ALIGMENTS*/
 /*FOOTER ALIGNMENTS (because Foundation and Bootstrap uses the same ".row" named class..) */
 #blackfooter .row, #greyfooter-container .row {
 	max-width: 1480px;

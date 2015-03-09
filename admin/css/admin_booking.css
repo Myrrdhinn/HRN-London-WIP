@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* General Definitions*/
+
+.RobotoText {
+  font-family: 'Roboto', sans-serif;
+}
+.OswaldText {
+  font-family: 'Oswald', sans-serif;
+}
+
+.wrapper {
+max-width: 2500px;	
+}
+/*END  General Definitions*/
+
+.log_item, .separator {
+	display: block;
+
+}
+
+.log_p{
+width: 100%;
+max-width: 250px;
+display: inline-block;
+border: solid #000 1px;
+margin: 0 0 15px 15px;
+padding: 15px;
+}
+
+
+.Label, .ItemValue {
+	display:inline-block;
+	margin-left: 10px;
+}
+
+.Label {
+	font-weight:700;
+	
+}
+/*
+.ItemValue {
+	width:100%;
+	margin: 0 0 10px 20px;
+}
+*/

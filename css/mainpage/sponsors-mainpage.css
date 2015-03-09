@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS document for the MAIN PAGE -> SPONSORS section */
+
+#MainpageSponsorsContainer {
+	text-align: center;
+	width:100%; 
+	padding-left: 40px; 
+	padding-right: 40px;
+}
+#MainpageSponsorsContainer h2 {
+	margin-top:40px;
+	margin-bottom: 0px;	
+	font-family:'Oswald', sans-serif;
+	font-weight:normal;
+}
+#MainpageSponsorsGrid {
+	maring-top:-25px;
+}
+.MainpageSponsor {
+	width:200px;
+	height:200px;
+	display:inline-block;
+	cursor:pointer;
+	margin:10px 25px;
+}
+#SponsorsButton {
+	background-color: #16AAE1;
+	color: #fff;
+	font-size: 1.5em;
+	margin:0 auto;
+	margin-top: 0;
+	margin-bottom: 40px;
+	max-width:330px;
+	padding: 10px;
+	text-align: center;
+	cursor:pointer;
+}
+#SponsorsButton:hover {
+	background-color: #FC354C;
+}
+@media (max-width: 580px) {  /* Mobile View */
+	#MainpageSponsorsContainer {
+		padding-left: 0px; 
+		padding-right: 0px;
+	}	
+	#MainpageSponsorsContainer h2 { 
+		font-size: 30px; 
+		margin-bottom: 20px;
+	}	
+	.MainpageSponsor {
+		width: 100px;
+		height: 100px;	
+	}
+	#SponsorsButton {
+		max-width: 220px;
+	}	
+}
+
+#Oracle {
+	background:url(../../img/sponsors/o_humancapitalmanagement_cmyk.jpg); 
+	background-position:center; 
+	background-repeat:no-repeat; 
+	background-size:contain;"
+}
+#Workday {
+	background:url(../../img/200x200_logos_workday.png); 
+	background-position:center; 
+	background-repeat:no-repeat; 
+	background-size:contain;"
+}
+#IBM {
+	background:url(../../img/200x200_logos_ibm.png); 
+	background-repeat:no-repeat; 
+	background-position:center; 
+	background-size:contain;"
+}
+#Ceridian {
+	background:url(../../img/200x200_logos_ceridian.png); 
+	background-position:center; 
+	background-repeat:no-repeat; 
+	background-size:contain;"
+}
+#ServiceNow {
+	background:url(../../img/sponsors/servicenow_logo_web.png); 
+	background-position:center; 
+	background-repeat:no-repeat; 
+	background-size:contain;"
+}

@@ -150,3 +150,14 @@ figcaption {
 }
 }
 /* END Directions */
+
+/* Footer correction */	
+@media (min-width: 581px) and (max-width: 950px) {
+	#FollowUs {
+		margin-left: 0 !important;	
+	}
+	#HRNEvents {
+		margin-left: 30px !important;
+		padding-left: 0 !important;	
+	}
+}

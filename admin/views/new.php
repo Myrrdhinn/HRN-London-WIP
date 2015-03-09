@@ -131,6 +131,14 @@
 		 $content .='" onmouseout="this.src=';
 		 $content .="'img/admin/logs.png';";
 		 $content .='" ></a>';
+		 
+		 
+		 $content .= '<a href="bookings"><img class="MenuIcon" src="img/admin/booking.png" onmouseover="this.src=';
+		 $content .="'img/admin/booking_hover.png';";
+		 $content .='" onmouseout="this.src=';
+		 $content .="'img/admin/booking.png';";
+		 $content .='" ></a>';
+	 
 	 
 	}
 	
