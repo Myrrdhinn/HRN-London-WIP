@@ -1,5 +1,8 @@
 <?php 
 
+include_once('aaa.php');
+include_once('config.php');
+
 class bookings_main extends config {
 	
 public function get_logs() {
@@ -28,5 +31,45 @@ public function get_logs() {
 }
 
 
+public function export_logs() {
+		$content[0][0] = '';;
+	//Gets all of the locations
+	$i = 0;
+	$places = $this->dbc->query(
+					sprintf("SELECT id, first_name, last_name, email, phone, company, title, day, time, sponsor, date FROM sponsors_booking ORDER BY date DESC"));	
+					if ($places->num_rows > 0) {
+					while($data = $places->fetch_assoc()){
+						$content[$i][0] = $data['id'];
+						$content[$i][1] = $data['first_name'];
+						$content[$i][2] = $data['last_name'];
+						$content[$i][3] = $data['email'];
+						$content[$i][4] = $data['phone'];
+						$content[$i][5] = $data['company'];
+					    $content[$i][6] = $data['title'];
+						$content[$i][7] = $data['day'];
+						$content[$i][8] = $data['time'];
+						$content[$i][9] = $data['sponsor'];
+						$content[$i][10] = $data['date'];
+						$i++;
+					}
+				}
+	/** Include the Excel function */
+require_once 'vendor/Excel.php';	
 }
+
+
+}
+
+/*///////////// 
+Export Bookings
+///////////////*/
+ 
+
+ if(isset($_POST['ExportButton'])){
+	$the_main = new bookings_main();
+    $the_main->export_logs();
+
+
+}
+
 ?>

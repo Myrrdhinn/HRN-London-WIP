@@ -63,6 +63,8 @@
 <link rel="stylesheet" href="css/admin_booking.css" />
 
 <script src="js/admin_general.js"></script> 
+<script src="js/admin_bookings.js"></script> 
+
 
 
 </head>
@@ -91,6 +93,7 @@
 
 	if (isset($_SESSION['developer'])) {
 		
+		$content .= '<form action="controllers/bookings_main.php" method="POST"><input type="submit" id="ExportButton" name="ExportButton" class="BookingSubmitButton" value="Export to xlsx" /></form>';
 		$l = new bookings_main();
 		$logs = $l->get_logs();
 		

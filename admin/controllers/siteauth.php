@@ -22,7 +22,7 @@ function rip_tags($string) {
 }	
 
 public function login($username, $password) {
-	include_once ('controllers/PasswordHash.php');
+	include_once ('controllers/vendor/PasswordHash.php');
 	   
 		$user = str_replace(array("'", "-", ";", "#"), array(" ", " ", " "," "),$username);
 		$user_pass = $this->rip_tags($password);
